@@ -6,23 +6,22 @@
 
 ## Install
 
-```bash
-npm install --save fiber
-```
+todo
 
 ## Usage
 
-```tsx
-import React, { Component } from 'react'
+todo
 
-import MyComponent from 'fiber'
-import 'fiber/dist/index.css'
+## Development
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+```bash
+# install dependencies
+yarn
+cd example
+yarn
+
+# run at root directory
+yarn start
 ```
 
 ## License
