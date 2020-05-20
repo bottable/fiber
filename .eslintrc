@@ -3,12 +3,10 @@
   "extends": [
     "standard",
     "standard-react",
-    "plugin:prettier/recommended",
     "prettier/standard",
-    "prettier/react",
-    "plugin:@typescript-eslint/eslint-recommended"
+    "prettier/react"
   ],
-  "plugins": ["react-hooks"],
+  "plugins": ["prettier", "react-hooks", "@typescript-eslint"],
   "env": {
     "node": true
   },
@@ -51,6 +49,8 @@
     "no-restricted-globals": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-curly-newline": "off"
+    "react/jsx-curly-newline": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error"
   }
 }
