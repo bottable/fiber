@@ -1,6 +1,6 @@
 {
-  "short_name": "components",
-  "name": "components",
+  "short_name": "fiber",
+  "name": "fiber",
   "icons": [
     {
       "src": "favicon.ico",

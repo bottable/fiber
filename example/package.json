@@ -1,13 +1,13 @@
 {
-  "name": "components-example",
-  "homepage": "https://bottable.github.io/components",
+  "name": "fiber-example",
+  "homepage": "https://bottable.github.io/fiber",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "link:../node_modules/react-scripts",
-    "components": "link:.."
+    "fiber": "link:.."
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
