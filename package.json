@@ -34,7 +34,7 @@
       "pretty-quick --staged"
     ],
     "src/**/*.scss": [
-      "stylelint --syntax scss --fix"
+      "stylelint --config=.stylelintrc --syntax scss --fix"
     ]
   },
   "husky": {
