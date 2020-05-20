@@ -8,6 +8,7 @@
     "prettier/react",
     "plugin:@typescript-eslint/eslint-recommended"
   ],
+  "plugins": ["react-hooks"],
   "env": {
     "node": true
   },

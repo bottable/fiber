@@ -1,5 +1,6 @@
-import * as React from 'react'
 import styles from './styles.module.css'
+
+import * as React from 'react'
 
 interface Props {
   text: string
