@@ -29,12 +29,10 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
-      "eslint . --fix",
-      "git add"
+      "eslint . --fix"
     ],
     "src/**/*.scss": [
-      "stylelint --syntax scss --fix",
-      "git add"
+      "stylelint --syntax scss --fix"
     ]
   },
   "husky": {
