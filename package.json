@@ -87,6 +87,7 @@
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
     "styled-components": "^5.1.0",
+    "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.5"
   }
 }
