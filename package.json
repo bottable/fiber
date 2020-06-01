@@ -86,6 +86,7 @@
   "dependencies": {
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
+    "polished": "^3.6.4",
     "styled-components": "^5.1.0",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.5"
