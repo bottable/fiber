@@ -1,14 +1,9 @@
 import { ExampleComponentProps } from './ExampleComponent'
 
-import styled, { StyledComponent, DefaultTheme } from 'styled-components'
+import styled from 'styled-components'
 import { space, height } from 'styled-system'
 
-export const StyledBlock: StyledComponent<
-  'div',
-  DefaultTheme,
-  ExampleComponentProps,
-  never
-> = styled.div<ExampleComponentProps>`
+export const StyledBlock = styled.div<ExampleComponentProps>`
   position: relative;
   margin: 2em;
   padding: 0.5em;
