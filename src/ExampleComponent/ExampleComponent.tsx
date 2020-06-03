@@ -2,20 +2,28 @@ import { StyledBlock } from './styles'
 import { SpaceProps, HeightProps } from 'styled-system'
 import { ThemeType } from '../UIProvider/themes'
 import { LocaleContext } from '../UIProvider/locales/LocaleProvider';
+import defaultLocale from '../UIProvider/locales/locales/en_US';
 
-import React from 'react'
+import React, { useContext } from 'react'
 
 export interface ExampleComponentProps extends HeightProps, SpaceProps, ThemeType {
   text?: string
   background?: string
+  //allow overwrite to default locale
+  locale?: ExampleComponentLocale
+}
+
+export interface ExampleComponentLocale {
+  welcome: string;
+  subText: string;
 }
 
 export const ExampleComponent = (props: ExampleComponentProps) => {
+  const { locale, text } = props
+  const { locale: contextLocale = defaultLocale } = useContext(LocaleContext);
+  const tableLocale = { ...contextLocale.ExampleComponent, ...locale } as ExampleComponentLocale;
+  const { welcome, subText } = tableLocale || {};
   return (
-    <LocaleContext.Consumer>
-      {({locale: ctx}) =>
-        <StyledBlock {...props} >{ctx.locale === 'en_US' ? "Example Components" : "範例"} {props.text}</StyledBlock>
-      }
-    </LocaleContext.Consumer>
+    <StyledBlock {...props} >{welcome} {text} {subText} </StyledBlock>
   )
 }

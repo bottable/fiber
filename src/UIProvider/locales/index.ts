@@ -1,7 +1,6 @@
-import locales, { _LocaleType } from './locales'
+/* eslint-disable camelcase */
+import locales from './locales'
 
 export { LocaleProvider } from './LocaleProvider'
 
-export default locales
-
-export type LocaleType = _LocaleType
+export const {en_US, zh_TW} = locales;

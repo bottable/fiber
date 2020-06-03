@@ -1,10 +1,10 @@
 import React from 'react'
-import { ExampleComponent, UIProvider } from 'fiber'
+import { ExampleComponent, UIProvider, zh_TW } from 'fiber'
 
 const App = () => {
   return (
-    <UIProvider locale="zh_TW">
-      <ExampleComponent mt="516px" background="pink" text='Create React Library Example 😄' />
+    <UIProvider locale={zh_TW}>
+      <ExampleComponent locale={{welcome: 'locale overwrite'}} mt="516px" background="pink" text="text" />
     </UIProvider>
   )
 }
