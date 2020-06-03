@@ -1,10 +1,11 @@
 import themes, { ThemeType } from './themes'
 import { LocaleProvider } from './locales'
-import defaultLocale from './locales/locales/zh_TW';
+import defaultLocale from './locales/locales/zh_TW'
 import GlobalStyle from './GlobalStyle'
+import { Locale } from './locales/LocaleProvider'
+
 import React, { FC, ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { Locale } from './locales/LocaleProvider';
 
 const { light: defaultTheme } = themes
 
@@ -13,7 +14,6 @@ interface UIProviderProps {
   theme?: ThemeType
   locale?: Locale
 }
-
 
 export const UIProvider: FC<UIProviderProps> = ({
   children,
