@@ -1,11 +1,39 @@
+import { useLocale } from '../UIProvider/locales'
+
 import { StyledBlock } from './styles'
 
-import React from 'react'
+import { SpaceProps, HeightProps } from 'styled-system'
+import React, { FC } from 'react'
 
-interface ExampleComponentProps {
-  text: string
+export interface ExampleComponentLocale {
+  welcome?: string
+  subText?: string
 }
 
-export const ExampleComponent = ({ text }: ExampleComponentProps) => {
-  return <StyledBlock>Example Component: {text}</StyledBlock>
+export interface ExampleComponentProps extends HeightProps, SpaceProps {
+  text?: string
+  background?: string
+  // allow overwrite to default locale
+  locale?: ExampleComponentLocale
+}
+
+export const ExampleComponent: FC<ExampleComponentProps> = ({
+  locale,
+  text,
+  ...props
+}) => {
+  const { locale: contextLocale } = useLocale()
+
+  // Combine both locales to overwrite default
+  const exampleComponentLocale = {
+    ...contextLocale.ExampleComponent,
+    ...locale
+  } as ExampleComponentLocale
+  const { welcome, subText } = exampleComponentLocale
+
+  return (
+    <StyledBlock {...props}>
+      {welcome} {text} {subText}{' '}
+    </StyledBlock>
+  )
 }

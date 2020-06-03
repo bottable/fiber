@@ -1,17 +1,18 @@
 import themes, { ThemeType } from './themes'
-import locales, { LocaleType, LocaleProvider } from './locales'
+import { LocaleProvider } from './locales'
+import defaultLocale from './locales/locales/en_US'
 import GlobalStyle from './GlobalStyle'
+import { Locale } from './locales/LocaleProvider'
 
 import React, { FC, ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 const { light: defaultTheme } = themes
-const { en_US: defaultLocale } = locales
 
 interface UIProviderProps {
   children: ReactNode
   theme?: ThemeType
-  locale?: LocaleType
+  locale?: Locale
 }
 
 export const UIProvider: FC<UIProviderProps> = ({
