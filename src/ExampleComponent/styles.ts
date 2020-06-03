@@ -1,19 +1,21 @@
 import styled, { StyledComponent, DefaultTheme } from 'styled-components'
-import { SpaceProps, HeightProps, space, height } from 'styled-system'
+import { space, height } from 'styled-system'
+import {ExampleComponentProps} from './ExampleComponent'
 
 export const StyledBlock: StyledComponent<
   'div',
   DefaultTheme,
-  SpaceProps & HeightProps,
+  ExampleComponentProps,
   never
-> = styled.div<SpaceProps & HeightProps>`
+> = styled.div<ExampleComponentProps>`
   position: relative;
   margin: 2em;
   padding: 0.5em;
   border: 2px solid #000;
+  background-color: ${(props) => props.background};
+  color: ${(props) => props.theme.colors.primary};
   font-size: 2em;
   text-align: center;
-
   ${space};
   ${height};
 `
