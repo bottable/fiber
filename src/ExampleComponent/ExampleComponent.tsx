@@ -1,4 +1,3 @@
-import { ThemeType } from '../UIProvider/themes'
 import { useLocale } from '../UIProvider/locales'
 
 import { StyledBlock } from './styles'
@@ -7,14 +6,11 @@ import { SpaceProps, HeightProps } from 'styled-system'
 import React, { FC } from 'react'
 
 export interface ExampleComponentLocale {
-  welcome: string
-  subText: string
+  welcome?: string
+  subText?: string
 }
 
-export interface ExampleComponentProps
-  extends HeightProps,
-    SpaceProps,
-    ThemeType {
+export interface ExampleComponentProps extends HeightProps, SpaceProps {
   text?: string
   background?: string
   // allow overwrite to default locale
