@@ -1,6 +1,7 @@
+import { ExampleComponentProps } from './ExampleComponent'
+
 import styled, { StyledComponent, DefaultTheme } from 'styled-components'
 import { space, height } from 'styled-system'
-import {ExampleComponentProps} from './ExampleComponent'
 
 export const StyledBlock: StyledComponent<
   'div',
@@ -16,6 +17,7 @@ export const StyledBlock: StyledComponent<
   color: ${(props) => props.theme.colors.primary};
   font-size: 2em;
   text-align: center;
+
   ${space};
   ${height};
 `

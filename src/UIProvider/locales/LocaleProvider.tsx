@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
-import locales from './locales'
 import { ExampleComponentLocale } from '../../ExampleComponent'
+
+import locales from './locales'
 
 import React, { FC, ReactNode, createContext } from 'react'
 
@@ -12,8 +13,8 @@ interface LocaleProviderProps {
 }
 
 export interface Locale {
-  locale: string;
-  ExampleComponent: ExampleComponentLocale;
+  locale: string
+  ExampleComponent: ExampleComponentLocale
 }
 
 export const LocaleContext = createContext({ locale: en_US })
