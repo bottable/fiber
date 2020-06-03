@@ -1,6 +1,6 @@
 import themes, { ThemeType } from './themes'
 import { LocaleProvider } from './locales'
-import defaultLocale from './locales/locales/zh_TW'
+import defaultLocale from './locales/locales/en_US'
 import GlobalStyle from './GlobalStyle'
 import { Locale } from './locales/LocaleProvider'
 
