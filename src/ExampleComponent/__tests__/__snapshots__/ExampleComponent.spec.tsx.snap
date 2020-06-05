@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExampleComponent renders correctly 1`] = `
+<div
+  className="sc-AxjAm kEIyNd"
+>
+  locale overwrite
+   
+  text
+   
+  subText
+   
+</div>
+`;
