@@ -7,4 +7,4 @@ const { light } = themes
 
 addDecorator((storyFn) => <UIProvider theme={light}>{storyFn()}</UIProvider>)
 
-configure(require.context('../docs', true, /\.js$/), module)
+configure(require.context('../docs', true, /\.stories.js$/), module)
