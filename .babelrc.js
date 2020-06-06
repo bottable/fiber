@@ -10,6 +10,7 @@ module.exports = {
       {
         root: ['./src'],
         alias: {
+          fiber: './src',
           test: './test'
         }
       }
