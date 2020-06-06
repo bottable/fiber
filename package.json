@@ -106,6 +106,7 @@
     "gatsby": "2.22.15",
     "polished": "^3.6.4",
     "react-helmet-async": "^1.0.6",
+    "rc-util": "^5.0.1",
     "styled-components": "^5.1.0",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.5"
