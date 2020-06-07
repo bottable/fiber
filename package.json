@@ -104,6 +104,7 @@
     "@types/styled-system": "^5.1.9",
     "docz": "^2.3.1",
     "eslint-import-resolver-alias": "^1.1.2",
+    "gatsby": "2.22.15",
     "polished": "^3.6.4",
     "styled-components": "^5.1.0",
     "styled-normalize": "^8.0.7",
