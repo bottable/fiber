@@ -16,13 +16,13 @@ const spaceVariant = ({ size }: SpaceProps) => {
 
   switch (size) {
     case 'small':
-      marginright = '10px'
+      marginright = '8px'
       break
     case 'middle':
-      marginright = '20px'
+      marginright = '16px'
       break
     case 'large':
-      marginright = '30px'
+      marginright = '24px'
       break
   }
 

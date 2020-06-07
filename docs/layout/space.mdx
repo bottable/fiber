@@ -1,0 +1,172 @@
+---
+name: Space
+route: /layout/space
+menu: Layout
+---
+
+import { Playground } from 'docz'
+import { Space } from 'fiber'
+
+# Space
+
+<Playground>
+  <div>
+    <Space size='small'>
+      <h1>Small</h1>
+      <h1>Size</h1>
+      <h1>!</h1>
+    </Space>
+  </div>
+  <div>
+    <Space size='middle'>
+      <h1>Middle</h1>
+      <h1>Size</h1>
+      <h1>!</h1>
+    </Space>
+  </div>
+  <div>
+    <Space size='large'>
+      <h1>Large</h1>
+      <h1>Size</h1>
+      <h1>!</h1>
+    </Space>
+  </div>
+  <div>
+    <Space direction='horizontal'>
+      <div
+        style={{
+          margin: '8px 4px',
+          padding: 4,
+          flex: 'none',
+          border: '1px solid blue'
+        }}
+      >
+        HELLO
+      </div>
+      <div
+        style={{
+          margin: '8px 4px',
+          padding: 4,
+          flex: 'none',
+          border: '1px solid blue'
+        }}
+      >
+        HORIZONTAL
+      </div>
+    </Space>
+  </div>
+  <div>
+    <Space direction='vertical'>
+      <div
+        style={{
+          margin: '8px 4px',
+          padding: 4,
+          flex: 'none',
+          border: '1px solid blue'
+        }}
+      >
+        HELLO
+      </div>
+      <div
+        style={{
+          margin: '8px 4px',
+          padding: 4,
+          flex: 'none',
+          border: '1px solid blue'
+        }}
+      >
+        VERTICAL
+      </div>
+    </Space>
+  </div>
+  <div style={{ flexWrap: 'wrap', display: 'flex' }}>
+    <div
+      style={{
+        margin: '8px 4px',
+        padding: 4,
+        flex: 'none',
+        border: '1px solid blue'
+      }}
+    >
+      <Space align='center'>
+        center
+        <button>Primary</button>
+        <span
+          style={{
+            display: 'inline-block',
+            padding: '32px 8px 16px',
+            background: 'gray'
+          }}
+        >
+          Block
+        </span>
+      </Space>
+    </div>
+    <div
+      style={{
+        margin: '8px 4px',
+        padding: 4,
+        flex: 'none',
+        border: '1px solid blue'
+      }}
+    >
+      <Space align='start'>
+        start
+        <button>Primary</button>
+        <span
+          style={{
+            display: 'inline-block',
+            padding: '32px 8px 16px',
+            background: 'gray'
+          }}
+        >
+          Block
+        </span>
+      </Space>
+    </div>
+    <div
+      style={{
+        margin: '8px 4px',
+        padding: 4,
+        flex: 'none',
+        border: '1px solid blue'
+      }}
+    >
+      <Space align='end'>
+        end
+        <button>Primary</button>
+        <span
+          style={{
+            display: 'inline-block',
+            padding: '32px 8px 16px',
+            background: 'gray'
+          }}
+        >
+          Block
+        </span>
+      </Space>
+    </div>
+    <div
+      style={{
+        margin: '8px 4px',
+        padding: 4,
+        flex: 'none',
+        border: '1px solid blue'
+      }}
+    >
+      <Space align='baseline'>
+        baseline
+        <button>Primary</button>
+        <span
+          style={{
+            display: 'inline-block',
+            padding: '32px 8px 16px',
+            background: 'gray'
+          }}
+        >
+          Block
+        </span>
+      </Space>
+    </div>
+  </div>
+</Playground>
