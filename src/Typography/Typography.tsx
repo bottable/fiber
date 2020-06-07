@@ -3,19 +3,19 @@ import styled, { ThemeProps, FlattenInterpolation } from 'styled-components'
 
 export interface TypographyProps {
   children?: React.ReactNode
-  style?: FlattenInterpolation<ThemeProps<any>>
+  accent?: FlattenInterpolation<ThemeProps<any>>
   component?: string
 }
 
 const Typography: FC<TypographyProps> = ({
   children,
   component,
-  style,
+  accent,
   ...props
 }) => {
   const Component = component as any
   const StyledComponent = styled(Component)`
-    ${style}
+    ${accent}
   `
   return <StyledComponent {...props}>{children}</StyledComponent>
 }
