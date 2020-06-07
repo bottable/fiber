@@ -1,21 +1,5 @@
 import { css } from 'styled-components'
-import {
-  compose,
-  space,
-  color,
-  typography,
-  TypographyProps,
-  ColorProps,
-  SpaceProps,
-  HeightProps,
-  height
-} from 'styled-system'
-
-export type StyleProps = SpaceProps &
-  ColorProps &
-  TypographyProps &
-  HeightProps &
-  SpaceProps
+import { compose, space, color, typography, height } from 'styled-system'
 
 export const styleComposition = compose(space, height, color, typography)
 
