@@ -16,4 +16,8 @@ const Text = styled.span<TextProps>`
   font-weight: ${(props) => (props.strong ? 'bolder' : '300')};
 `
 
+Text.defaultProps = {
+  fontSize: 16
+}
+
 export { Text }

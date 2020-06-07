@@ -15,7 +15,7 @@ const style = css`
   ${headingStyle};
 `
 
-const headingVariant = ({ size }: { size?: SizeType }) => {
+const headingVariant = ({ size }: HeadingProps) => {
   let fontsize = '39px'
   let fontWeight = 600
   let margintop = '10px'
@@ -67,5 +67,9 @@ const Heading = styled.h1<HeadingProps>`
 
   ${headingVariant};
 `
+
+Heading.defaultProps = {
+  size: 1
+}
 
 export { Heading }

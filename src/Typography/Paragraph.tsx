@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
 export interface ParagraphProps extends StyleProps {
-  fontSize?: number
+  fontSize: number
 }
 
 const style = css`
@@ -12,7 +12,7 @@ const style = css`
   ${paragraphStyle};
 `
 
-const paragraphVariant = ({ fontSize = 16 }: { fontSize?: number }) => {
+const paragraphVariant = ({ fontSize }: ParagraphProps) => {
   let lineheight
   if (fontSize <= 12) lineheight = '18px'
   else if (fontSize > 12 && fontSize <= 14) lineheight = '20px'
@@ -28,5 +28,9 @@ const Paragraph = styled.p<ParagraphProps>`
 
   ${paragraphVariant};
 `
+
+Paragraph.defaultProps = {
+  fontSize: 16
+}
 
 export { Paragraph }
