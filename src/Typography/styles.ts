@@ -9,6 +9,7 @@ import {
   ColorProps,
   TypographyProps
 } from 'styled-system'
+import { rem } from 'polished'
 
 export const styleComposition = compose(space, height, color, typography)
 
@@ -16,6 +17,12 @@ export type StyleProps = SpaceProps & ColorProps & TypographyProps
 
 export const headingStyle = css`
   color: #202020;
+`
+
+export const paragraphStyle = css`
+  margin-bottom: ${rem('10px')};
+  color: #000;
+  font-weight: 400;
 `
 
 export const codeStyle = css`
