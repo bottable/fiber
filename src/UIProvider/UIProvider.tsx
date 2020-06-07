@@ -7,7 +7,7 @@ import { Locale } from './locales/LocaleProvider'
 import React, { FC, ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-const { light: defaultTheme } = themes
+const { blue: defaultTheme } = themes
 
 interface UIProviderProps {
   children: ReactNode

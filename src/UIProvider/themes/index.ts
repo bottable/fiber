@@ -1,5 +1,6 @@
-import light from './light'
+import * as colors from './colors'
 
-export default { light }
+export * from './misc'
+export default colors
 
-export type ThemeType = typeof light
+export type ThemeType = typeof colors.teal
