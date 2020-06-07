@@ -97,6 +97,7 @@
   ],
   "dependencies": {
     "@types/enzyme": "^3.10.5",
+    "@types/react-helmet-async": "^1.0.3",
     "@types/react-test-renderer": "^16.9.2",
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
@@ -104,6 +105,7 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "gatsby": "2.22.15",
     "polished": "^3.6.4",
+    "react-helmet-async": "^1.0.6",
     "styled-components": "^5.1.0",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.5"
