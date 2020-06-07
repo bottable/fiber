@@ -21,8 +21,6 @@
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 jest --env=jsdom",
     "test:watch": "cross-env CI=1 jest",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build",
     "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
     "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
     "lint:js": "eslint . --ext .js,.jsx",
