@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet'
 import React, { FC, ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-const { light: defaultTheme } = themes
+const { blue: defaultTheme } = themes
 
 interface UIProviderProps {
   children: ReactNode

@@ -9,7 +9,7 @@ export const StyledBlock = styled.div<ExampleComponentProps>`
   padding: 0.5em;
   border: 2px solid #000;
   background-color: ${(props) => props.background};
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.base};
   font-size: 2em;
   text-align: center;
 
