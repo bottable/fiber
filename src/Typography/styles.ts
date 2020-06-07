@@ -10,20 +10,17 @@ import {
   HeightProps,
   height
 } from 'styled-system'
-import { rem } from 'polished'
 
-export type TypoProps = SpaceProps &
+export type StyleProps = SpaceProps &
   ColorProps &
   TypographyProps &
   HeightProps &
   SpaceProps
-export const typoComposition = compose(space, height, color, typography)
+
+export const styleComposition = compose(space, height, color, typography)
 
 export const headingStyle = css`
-  margin-top: ${rem('10px')};
-  margin-bottom: ${rem('10px')};
   color: #202020;
-  font-weight: 600;
 `
 
 export const codeStyle = css`

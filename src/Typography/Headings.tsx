@@ -1,27 +1,71 @@
-import { typoComposition, headingStyle, TypoProps } from './styles'
-import Typography from './Typography'
+import { styleComposition, headingStyle } from './styles'
 
-import * as React from 'react'
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
+import { SpaceProps, ColorProps, TypographyProps } from 'styled-system'
 import { rem } from 'polished'
 
-const SIZES: Set<number> = new Set([1, 2, 3, 4, 5, 6])
+export type SizeType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
-export interface HeadingProps extends TypoProps {
-  size: 1 | 2 | 3 | 4 | 5 | 6
+export interface HeadingProps extends SpaceProps, ColorProps, TypographyProps {
+  size?: SizeType
 }
 
 const style = css`
-  ${typoComposition};
+  ${styleComposition};
   ${headingStyle};
-
-  margin-top: ${rem('30px')};
-  font-weight: 500;
 `
 
-const Heading: React.FC<HeadingProps> = ({ size, ...props }) => {
-  const component = SIZES.has(size) ? `h${size}` : 'h1'
-  return <Typography component={component} accent={style} {...props} />
+const headingVariant = ({ size }: { size?: SizeType }) => {
+  let fontsize = '39px'
+  let fontWeight = 600
+  let margintop = '10px'
+  let letterSpacing = '0%'
+
+  switch (size) {
+    case 1:
+      fontsize = '39px'
+      fontWeight = 700
+      margintop = '20px'
+      break
+    case 2:
+      fontsize = '32px'
+      fontWeight = 700
+      margintop = '20px'
+      letterSpacing = '1%'
+      break
+    case 3:
+      fontsize = '25px'
+      break
+    case 4:
+      fontsize = '20px'
+      break
+    case 5:
+      fontsize = '16px'
+      break
+    case 6:
+      fontsize = '14px'
+      break
+    case 7:
+      fontsize = '12px'
+      break
+    case 8:
+      fontsize = '11px'
+      fontWeight = 500
+      break
+  }
+
+  return css`
+    margin-top: ${rem(margintop)};
+    font-size: ${rem(fontsize)};
+    font-weight: ${fontWeight};
+    letter-spacing: ${letterSpacing};
+  `
 }
+
+const Heading = styled.h1<HeadingProps>`
+  ${style};
+
+  ${headingVariant};
+`
 
 export { Heading }

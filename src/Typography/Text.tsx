@@ -1,27 +1,22 @@
-import { TypoProps, codeStyle, typoComposition } from './styles'
-import Typography from './Typography'
+import { codeStyle, styleComposition } from './styles'
 
-import * as React from 'react'
-import { css } from 'styled-components'
+import { SpaceProps, ColorProps, TypographyProps } from 'styled-system'
+import styled from 'styled-components'
 import { rem } from 'polished'
 
-export interface TextProps extends TypoProps {
+export interface TextProps extends SpaceProps, ColorProps, TypographyProps {
   strong?: boolean
   highlight?: boolean
   code?: boolean
 }
 
-const style = css<TextProps>`
-  ${typoComposition};
+const Text = styled.span<TextProps>`
+  ${styleComposition};
   ${(props) => (props.code ? codeStyle : null)};
 
   margin-top: ${rem('30px')};
   background-color: ${(props) => (props.highlight ? '#ffe58f' : null)};
   font-weight: ${(props) => (props.strong ? 'bolder' : '300')};
 `
-
-const Text: React.FC<TextProps> = (props) => {
-  return <Typography component='span' accent={style} {...props} />
-}
 
 export { Text }
