@@ -12,7 +12,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "concurrently 'yarn:dev' 'yarn:storybook'",
+    "start": "concurrently 'yarn:dev' 'yarn:docz:dev'",
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "dev": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepublish": "run-s build",
@@ -27,8 +27,9 @@
     "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
     "lint:js": "eslint . --ext .js,.jsx",
     "lint:js:fix": "yarn run lint:js -- --fix",
-    "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook"
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -53,11 +54,6 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-links": "^5.3.19",
-    "@storybook/addons": "^5.3.19",
-    "@storybook/preset-create-react-app": "^3.0.0",
-    "@storybook/react": "^5.3.19",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^25.2.3",
     "@types/react": "^16.9.27",
@@ -106,6 +102,7 @@
     "@types/react-test-renderer": "^16.9.2",
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
+    "docz": "^2.3.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "polished": "^3.6.4",
     "styled-components": "^5.1.0",
