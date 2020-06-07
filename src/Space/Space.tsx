@@ -1,16 +1,42 @@
 import { StyledBlock } from './styles'
 
+import styled, { css } from 'styled-components'
 import toArray from 'rc-util/lib/Children/toArray'
-import { SpaceProps, HeightProps } from 'styled-system'
 import React, { FC } from 'react'
+import { rem } from 'polished'
 
-export interface SpaceComponentProps extends HeightProps, SpaceProps {
+export interface SpaceProps {
   size?: 'small' | 'middle' | 'large'
   direction?: 'horizontal' | 'vertical'
   align?: 'start' | 'end' | 'center' | 'baseline'
 }
 
-export const Space: FC<SpaceComponentProps> = ({ children, ...props }) => {
+const spaceVariant = ({ size }: SpaceProps) => {
+  let marginRight = '10px'
+
+  switch (size) {
+    case 'small':
+      marginRight = '10px'
+      break
+    case 'middle':
+      marginRight = '20px'
+      break
+    case 'large':
+      marginRight = '30px'
+      break
+  }
+
+  return css`
+    display: inline-block;
+    margin-right: ${rem(marginright)};
+  `
+}
+
+const StyledChildDiv = styled.div<SpaceProps>`
+  ${spaceVariant};
+`
+
+export const Space: FC<SpaceProps> = ({ children, size, ...props }) => {
   const items = toArray(children)
   const len = items.length
 
@@ -21,9 +47,9 @@ export const Space: FC<SpaceComponentProps> = ({ children, ...props }) => {
   return (
     <StyledBlock {...props}>
       {items.map((child, i) => (
-        <StyledBlock {...props} key={i}>
+        <StyledChildDiv key={i} size={size}>
           {child}
-        </StyledBlock>
+        </StyledChildDiv>
       ))}
     </StyledBlock>
   )
