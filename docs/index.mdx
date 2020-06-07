@@ -1,10 +1,10 @@
 ---
-name: Example Component
+name: Sample
 route: /
 ---
 
 import { ExampleComponent } from 'fiber'
-import { Playground } from 'docz'
+import { Playground, Props } from 'docz'
 
 # Example Component
 
@@ -16,3 +16,5 @@ import { Playground } from 'docz'
     text='text'
   />
 </Playground>
+
+<Props of={ExampleComponent} />

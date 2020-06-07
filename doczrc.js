@@ -1,6 +1,6 @@
 module.exports = {
   port: 3030,
-  src: './docs',
+  ignore: ['README.md'],
   title: 'Fiber UI',
   description: 'A React UI Component library 🧸',
   typescript: true
