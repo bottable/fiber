@@ -4,10 +4,10 @@ import styled, { css } from 'styled-components'
 import {} from 'styled-system'
 import { rem } from 'polished'
 
-export type SizeType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+export type HeadingSizeType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
 export interface HeadingProps extends StyleProps {
-  size?: SizeType
+  size?: HeadingSizeType
 }
 
 const style = css`
