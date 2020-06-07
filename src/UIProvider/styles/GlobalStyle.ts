@@ -4,7 +4,7 @@ import { css, createGlobalStyle } from 'styled-components'
 const globalStyle = css`
   ${normalize}
 
-  body {
+  * {
     font-family: 'Work Sans', sans-serif;
   }
 `
