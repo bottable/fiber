@@ -16,11 +16,9 @@ const paragraphVariant = ({ fontSize }: ParagraphProps) => {
   let lineheight
   if (fontSize <= 12) lineheight = '18px'
   else if (fontSize > 12 && fontSize <= 14) lineheight = '20px'
-  else lineheight = '22px'
+  else if (fontSize > 14 && fontSize <= 16) lineheight = '22px'
 
-  return css`
-    line-height: ${rem(lineheight)};
-  `
+  return css({ lineHeight: lineheight && rem(lineheight) })
 }
 
 const Paragraph = styled.p<ParagraphProps>`
