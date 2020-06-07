@@ -16,7 +16,7 @@ export const styleComposition = compose(space, height, color, typography)
 export type StyleProps = SpaceProps & ColorProps & TypographyProps
 
 export const headingStyle = css`
-  color: #202020;
+  color: ${(p) => p.theme.colors.title};
 `
 
 export const paragraphStyle = css`
@@ -28,7 +28,7 @@ export const paragraphStyle = css`
 export const codeStyle = css`
   margin: ${rem('3px')} ${rem('5px')};
   padding: 0.2em 0.4em 0.1em;
-  border: ${rem('1px')} solid #d1d1d1;
+  border: ${rem('1px')} solid ${(p) => p.theme.colors.gray4};
   border-radius: ${rem('3px')};
   background: #f4f4f4;
   color: #eb5757;
