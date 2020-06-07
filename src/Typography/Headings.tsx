@@ -7,6 +7,7 @@ import { SpaceProps, ColorProps, TypographyProps } from 'styled-system'
 import { rem } from 'polished'
 
 const SIZES: Set<number> = new Set([1, 2, 3, 4, 5, 6])
+
 export interface HeadingProps extends SpaceProps, ColorProps, TypographyProps {
   size: 1 | 2 | 3 | 4 | 5 | 6
 }
