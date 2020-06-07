@@ -1,12 +1,12 @@
-import { styleComposition, headingStyle } from './styles'
+import { styleComposition, StyleProps, headingStyle } from './styles'
 
 import styled, { css } from 'styled-components'
-import { SpaceProps, ColorProps, TypographyProps } from 'styled-system'
+import {} from 'styled-system'
 import { rem } from 'polished'
 
 export type SizeType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
-export interface HeadingProps extends SpaceProps, ColorProps, TypographyProps {
+export interface HeadingProps extends StyleProps {
   size?: SizeType
 }
 

@@ -1,10 +1,9 @@
-import { codeStyle, styleComposition } from './styles'
+import { codeStyle, styleComposition, StyleProps } from './styles'
 
-import { SpaceProps, ColorProps, TypographyProps } from 'styled-system'
 import styled from 'styled-components'
 import { rem } from 'polished'
 
-export interface TextProps extends SpaceProps, ColorProps, TypographyProps {
+export interface TextProps extends StyleProps {
   strong?: boolean
   highlight?: boolean
   code?: boolean
