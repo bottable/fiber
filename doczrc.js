@@ -3,5 +3,6 @@ module.exports = {
   ignore: ['README.md'],
   title: 'Fiber UI',
   description: 'A React UI Component library 🧸',
-  typescript: true
+  typescript: true,
+  dest: '/build'
 }
