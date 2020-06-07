@@ -8,7 +8,7 @@ export interface TextProps extends StyleProps {
   strong?: boolean
   highlight?: boolean
   code?: boolean
-  size: TextSizeType
+  size?: TextSizeType
 }
 
 const textVariant = ({ size }: TextProps) => {

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading renders correctly 1`] = `
+Array [
+  <h1
+    className="sc-AxjAm geGvAw"
+    size={1}
+  >
+     Heading 1 
+  </h1>,
+  <h1
+    className="sc-AxjAm bCfgVy"
+    size={2}
+  >
+     Heading 2 
+  </h1>,
+  <h1
+    className="sc-AxjAm bwstTg"
+    size={3}
+  >
+     Heading 3 
+  </h1>,
+  <h1
+    className="sc-AxjAm diheyz"
+    size={4}
+  >
+     Heading 4 
+  </h1>,
+  <h1
+    className="sc-AxjAm jycSOq"
+    size={5}
+  >
+     Heading 5 
+  </h1>,
+  <h1
+    className="sc-AxjAm iSasdP"
+    size={6}
+  >
+     Heading 6 
+  </h1>,
+  <h1
+    className="sc-AxjAm ktctRr"
+    size={7}
+  >
+     Heading 7 
+  </h1>,
+  <h1
+    className="sc-AxjAm fkegvS"
+    size={8}
+  >
+     Heading 8 
+  </h1>,
+]
+`;
