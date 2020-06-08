@@ -1,0 +1,395 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Space renders correctly 1`] = `
+Array [
+  <div>
+    <div
+      className="sc-AxjAm bRgazV"
+      size="sm"
+    >
+      <div
+        className="sc-AxirZ dEnRRl"
+        size="sm"
+      >
+        <h1>
+          Small
+        </h1>
+      </div>
+      <div
+        className="sc-AxirZ dEnRRl"
+        size="sm"
+      >
+        <h1>
+          Size
+        </h1>
+      </div>
+      <div
+        className="sc-AxirZ dEnRRl"
+        size="sm"
+      >
+        <h1>
+          !
+        </h1>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm bRgazV"
+      size="md"
+    >
+      <div
+        className="sc-AxirZ ghIeLP"
+        size="md"
+      >
+        <h1>
+          Middle
+        </h1>
+      </div>
+      <div
+        className="sc-AxirZ ghIeLP"
+        size="md"
+      >
+        <h1>
+          Size
+        </h1>
+      </div>
+      <div
+        className="sc-AxirZ ghIeLP"
+        size="md"
+      >
+        <h1>
+          !
+        </h1>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm bRgazV"
+      size="lg"
+    >
+      <div
+        className="sc-AxirZ dcHUaw"
+        size="lg"
+      >
+        <h1>
+          Large
+        </h1>
+      </div>
+      <div
+        className="sc-AxirZ dcHUaw"
+        size="lg"
+      >
+        <h1>
+          Size
+        </h1>
+      </div>
+      <div
+        className="sc-AxirZ dcHUaw"
+        size="lg"
+      >
+        <h1>
+          !
+        </h1>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm bRgazV"
+      size={100}
+    >
+      <div
+        className="sc-AxirZ irtZIl"
+        size={100}
+      >
+        <h1>
+          Number 100
+        </h1>
+      </div>
+      <div
+        className="sc-AxirZ irtZIl"
+        size={100}
+      >
+        <h1>
+          Size
+        </h1>
+      </div>
+      <div
+        className="sc-AxirZ irtZIl"
+        size={100}
+      >
+        <h1>
+          !
+        </h1>
+      </div>
+    </div>
+  </div>,
+  <div
+    style={
+      Object {
+        "marginBottom": 10,
+      }
+    }
+  >
+    <div
+      className="sc-AxjAm bRgazV"
+      direction="horizontal"
+    >
+      <div
+        className="sc-AxirZ dEnRRl"
+        direction="horizontal"
+      >
+        <div
+          style={
+            Object {
+              "border": "1px solid blue",
+              "flex": "none",
+              "margin": 0,
+              "padding": 4,
+            }
+          }
+        >
+          HELLO
+        </div>
+      </div>
+      <div
+        className="sc-AxirZ dEnRRl"
+        direction="horizontal"
+      >
+        <div
+          style={
+            Object {
+              "border": "1px solid blue",
+              "flex": "none",
+              "margin": 0,
+              "padding": 4,
+            }
+          }
+        >
+          HORIZONTAL
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm ldXABJ"
+      direction="vertical"
+    >
+      <div
+        className="sc-AxirZ ewVSuO"
+        direction="vertical"
+      >
+        <div
+          style={
+            Object {
+              "border": "1px solid blue",
+              "flex": "none",
+              "margin": 0,
+              "padding": 4,
+            }
+          }
+        >
+          HELLO
+        </div>
+      </div>
+      <div
+        className="sc-AxirZ ewVSuO"
+        direction="vertical"
+      >
+        <div
+          style={
+            Object {
+              "border": "1px solid blue",
+              "flex": "none",
+              "margin": 0,
+              "padding": 4,
+            }
+          }
+        >
+          VERTICAL
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexWrap": "wrap",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "border": "1px solid blue",
+          "flex": "none",
+          "margin": "8px 4px",
+          "padding": 4,
+        }
+      }
+    >
+      <div
+        className="sc-AxjAm bRgazV"
+      >
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          center
+        </div>
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          <button>
+            Primary
+          </button>
+        </div>
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          <span
+            style={
+              Object {
+                "background": "gray",
+                "display": "inline-block",
+                "padding": "32px 8px 16px",
+              }
+            }
+          >
+            Block
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "border": "1px solid blue",
+          "flex": "none",
+          "margin": "8px 4px",
+          "padding": 4,
+        }
+      }
+    >
+      <div
+        className="sc-AxjAm cGCtUQ"
+      >
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          start
+        </div>
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          <button>
+            Primary
+          </button>
+        </div>
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          <span
+            style={
+              Object {
+                "background": "gray",
+                "display": "inline-block",
+                "padding": "32px 8px 16px",
+              }
+            }
+          >
+            Block
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "border": "1px solid blue",
+          "flex": "none",
+          "margin": "8px 4px",
+          "padding": 4,
+        }
+      }
+    >
+      <div
+        className="sc-AxjAm cgbITz"
+      >
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          end
+        </div>
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          <button>
+            Primary
+          </button>
+        </div>
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          <span
+            style={
+              Object {
+                "background": "gray",
+                "display": "inline-block",
+                "padding": "32px 8px 16px",
+              }
+            }
+          >
+            Block
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "border": "1px solid blue",
+          "flex": "none",
+          "margin": "8px 4px",
+          "padding": 4,
+        }
+      }
+    >
+      <div
+        className="sc-AxjAm jRRrVx"
+      >
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          baseline
+        </div>
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          <button>
+            Primary
+          </button>
+        </div>
+        <div
+          className="sc-AxirZ dEnRRl"
+        >
+          <span
+            style={
+              Object {
+                "background": "gray",
+                "display": "inline-block",
+                "padding": "32px 8px 16px",
+              }
+            }
+          >
+            Block
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
