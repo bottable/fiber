@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 export const StyledBlock = styled.div<SpaceProps>`
   display: inline-flex;
+
   flex-direction: ${({ direction }) => {
     let flexdirection = 'row'
     switch (direction) {
@@ -16,6 +17,7 @@ export const StyledBlock = styled.div<SpaceProps>`
     }
     return flexdirection
   }};
+
   align-items: ${({ align }) => {
     let alignitems = 'center'
     switch (align) {
@@ -34,6 +36,7 @@ export const StyledBlock = styled.div<SpaceProps>`
     }
     return alignitems
   }};
+
   margin: 0;
   padding: 0;
   div:last-child {
