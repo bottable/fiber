@@ -4,7 +4,7 @@ exports[`Space renders correctly 1`] = `
 Array [
   <div>
     <div
-      className="sc-AxjAm bRgazV"
+      className="sc-AxjAm givZzL"
       size="sm"
     >
       <div
@@ -35,7 +35,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm bRgazV"
+      className="sc-AxjAm givZzL"
       size="md"
     >
       <div
@@ -66,7 +66,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm bRgazV"
+      className="sc-AxjAm givZzL"
       size="lg"
     >
       <div
@@ -97,7 +97,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm bRgazV"
+      className="sc-AxjAm givZzL"
       size={100}
     >
       <div
@@ -134,7 +134,7 @@ Array [
     }
   >
     <div
-      className="sc-AxjAm bRgazV"
+      className="sc-AxjAm givZzL"
       direction="horizontal"
     >
       <div
@@ -175,7 +175,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm ldXABJ"
+      className="sc-AxjAm ewgPNz"
       direction="vertical"
     >
       <div
@@ -233,7 +233,7 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm bRgazV"
+        className="sc-AxjAm givZzL"
       >
         <div
           className="sc-AxirZ dEnRRl"
@@ -275,7 +275,7 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm cGCtUQ"
+        className="sc-AxjAm dHQyPK"
       >
         <div
           className="sc-AxirZ dEnRRl"
@@ -317,7 +317,7 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm cgbITz"
+        className="sc-AxjAm eRUfyh"
       >
         <div
           className="sc-AxirZ dEnRRl"
@@ -359,7 +359,7 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm jRRrVx"
+        className="sc-AxjAm dAKKQr"
       >
         <div
           className="sc-AxirZ dEnRRl"
