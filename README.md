@@ -17,8 +17,6 @@ todo
 ```bash
 # install dependencies
 yarn
-cd example
-yarn
 
 # run at root directory
 yarn start
