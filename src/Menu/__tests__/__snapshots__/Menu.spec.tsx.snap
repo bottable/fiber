@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu & Menu Items renders correctly 1`] = `
+<div
+  className="sc-AxheI eXThOJ"
+>
+  <a
+    className="sc-Axmtr cZNjXs"
+  >
+    <span
+      className="sc-AxiKw fhcQjA"
+      size={4}
+    >
+       Item 1 
+    </span>
+  </a>
+  <a
+    className="sc-Axmtr cZNjXs"
+  >
+    <span
+      className="sc-AxiKw fhcQjA"
+      size={4}
+    >
+       Item 2 
+    </span>
+  </a>
+  <a
+    className="sc-Axmtr cZNjXs"
+  >
+    <span
+      className="sc-AxiKw fhcQjA"
+      size={4}
+    >
+       Item 3 
+    </span>
+  </a>
+</div>
+`;

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu & Menu Items renders correctly 1`] = `
+<div
+  className="sc-AxmLO kvnGFW"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div>
+    <span
+      className="sc-AxiKw fhcQjA"
+      size={4}
+    >
+       Hover Me 
+    </span>
+  </div>
+</div>
+`;
