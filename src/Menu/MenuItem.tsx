@@ -1,11 +1,11 @@
-import { StyleProps, styleComposition } from './styles'
+import { StyleProps, styleComposition } from '../styles'
 
 import styled from 'styled-components'
 
-export interface MenuItemProps extends StyleProps { }
+export interface MenuItemProps extends StyleProps {}
 
 const MenuItem = styled.a<MenuItemProps>`
-${styleComposition}
+  ${styleComposition}
 
   display: block;
   padding: 8px 10px;

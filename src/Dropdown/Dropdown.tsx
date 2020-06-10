@@ -1,4 +1,4 @@
-import { styleComposition, StyleProps } from '../style'
+import { styleComposition, StyleProps } from '../styles'
 
 import styled from 'styled-components'
 import React, { useState, FC, useRef, useEffect, ReactNode } from 'react'
@@ -6,21 +6,16 @@ import React, { useState, FC, useRef, useEffect, ReactNode } from 'react'
 export type TriggerType = 'hover' | 'click'
 
 export interface DropdownProps extends StyleProps {
-  menu: ReactNode;
-  trigger: TriggerType;
+  menu: ReactNode
+  trigger: TriggerType
 }
 
 const Wrapper = styled.div<any>`
- ${styleComposition}
+  ${styleComposition}
 `
 
-const Dropdown: FC<DropdownProps> = ({
-  menu,
-  trigger,
-  children,
-  ...props
-}) => {
-  const node = useRef<{ contains:(e: EventTarget) => Boolean }>(null)
+const Dropdown: FC<DropdownProps> = ({ menu, trigger, children, ...props }) => {
+  const node = useRef<{ contains: (e: EventTarget) => Boolean }>(null)
   const [expand, setExpand] = useState(false)
 
   const handleClick = (e: Event) => {
