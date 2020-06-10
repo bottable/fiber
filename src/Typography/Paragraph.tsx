@@ -1,4 +1,6 @@
-import { styleComposition, StyleProps, paragraphStyle } from './styles'
+import { styleComposition, StyleProps } from '../styles'
+
+import { paragraphStyle } from './styles'
 
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'

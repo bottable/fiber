@@ -1,4 +1,4 @@
-import { styleComposition, StyleProps } from './styles'
+import { styleComposition, StyleProps } from '../style'
 
 import styled from 'styled-components'
 import React, { useState, FC, useRef, useEffect, ReactNode } from 'react'
