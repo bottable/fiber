@@ -3,37 +3,37 @@
 exports[`Text renders correctly 1`] = `
 Array [
   <span
-    className="sc-AxirZ hqkDwY"
+    className="sc-AxirZ bgtwkt"
     size={4}
   >
      This is a text 
   </span>,
   <span
-    className="sc-AxirZ hpLNBn"
+    className="sc-AxirZ bgtiWy"
     size={4}
   >
      This is a strong text 
   </span>,
   <span
-    className="sc-AxirZ bidIDo"
+    className="sc-AxirZ fKDQiZ"
     size={4}
   >
      This is a highlighted text 
   </span>,
   <span
-    className="sc-AxirZ hDfFCg"
+    className="sc-AxirZ cHUkvJ"
     size={4}
   >
      const fiber = "hello world" 
   </span>,
   <span
-    className="sc-AxirZ hqkDwY"
+    className="sc-AxirZ bgtwkt"
     size={4}
   >
      This is a text of size 4. 
   </span>,
   <span
-    className="sc-AxirZ isPnJF"
+    className="sc-AxirZ fCnSEs"
     size={5}
   >
     This is a code of size 5, highlighted.
