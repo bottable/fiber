@@ -5,30 +5,30 @@ exports[`Menu & Menu Items renders correctly 1`] = `
   className="sc-AxheI eXThOJ"
 >
   <a
-    className="sc-Axmtr cZNjXs"
+    className="sc-Axmtr kIRJDc"
   >
     <span
-      className="sc-AxiKw dtdouF"
+      className="sc-AxiKw fhcQjA"
       size={4}
     >
        Item 1 
     </span>
   </a>
   <a
-    className="sc-Axmtr cZNjXs"
+    className="sc-Axmtr kIRJDc"
   >
     <span
-      className="sc-AxiKw dtdouF"
+      className="sc-AxiKw fhcQjA"
       size={4}
     >
        Item 2 
     </span>
   </a>
   <a
-    className="sc-Axmtr cZNjXs"
+    className="sc-Axmtr kIRJDc"
   >
     <span
-      className="sc-AxiKw dtdouF"
+      className="sc-AxiKw fhcQjA"
       size={4}
     >
        Item 3 
