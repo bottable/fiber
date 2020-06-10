@@ -1,4 +1,4 @@
-import { styleComposition, StyleProps } from '../styles'
+import { styleComposition, StyleProps } from '../utils/styles'
 
 import { paragraphStyle } from './styles'
 

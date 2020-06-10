@@ -1,4 +1,4 @@
-import { styleComposition, StyleProps } from '../styles'
+import { styleComposition, StyleProps } from '../utils/styles'
 
 import styled from 'styled-components'
 import React, { useState, FC, useRef, useEffect, ReactNode } from 'react'
@@ -15,7 +15,7 @@ const Wrapper = styled.div<any>`
 `
 
 const Dropdown: FC<DropdownProps> = ({ menu, trigger, children, ...props }) => {
-  const node = useRef<{ contains: (e: EventTarget) => Boolean }>(null)
+  const node = useRef<{ contains:(e: EventTarget) => Boolean }>(null)
   const [expand, setExpand] = useState(false)
 
   const handleClick = (e: Event) => {
