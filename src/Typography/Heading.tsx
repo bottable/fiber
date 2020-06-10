@@ -1,4 +1,6 @@
-import { styleComposition, StyleProps, headingStyle } from './styles'
+import { styleComposition, StyleProps } from '../utils/styles'
+
+import { headingStyle } from './styles'
 
 import styled, { css } from 'styled-components'
 import {} from 'styled-system'

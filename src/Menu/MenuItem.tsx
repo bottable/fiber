@@ -1,4 +1,4 @@
-import { StyleProps, styleComposition } from '../styles'
+import { StyleProps, styleComposition } from '../utils/styles'
 
 import styled from 'styled-components'
 

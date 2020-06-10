@@ -1,4 +1,6 @@
-import { codeStyle, styleComposition, StyleProps } from './styles'
+import { styleComposition, StyleProps } from '../utils/styles'
+
+import { codeStyle } from './styles'
 
 import styled, { css } from 'styled-components'
 
