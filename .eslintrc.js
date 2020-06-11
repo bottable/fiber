@@ -48,7 +48,8 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-curly-newline': 'off',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error'
+    '@typescript-eslint/no-unused-vars': 'error',
+    'func-call-spacing': 'off'
   },
   settings: {
     react: {
