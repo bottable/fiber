@@ -5,7 +5,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
   className="sc-AxheI eXThOJ"
 >
   <a
-    className="sc-Axmtr kIRJDc"
+    className="sc-Axmtr cHRaGC"
   >
     <span
       className="sc-AxiKw fhcQjA"
@@ -15,7 +15,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
     </span>
   </a>
   <a
-    className="sc-Axmtr kIRJDc"
+    className="sc-Axmtr cHRaGC"
   >
     <span
       className="sc-AxiKw fhcQjA"
@@ -25,7 +25,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
     </span>
   </a>
   <a
-    className="sc-Axmtr kIRJDc"
+    className="sc-Axmtr cHRaGC"
   >
     <span
       className="sc-AxiKw fhcQjA"

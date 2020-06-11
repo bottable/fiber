@@ -13,6 +13,11 @@ const MenuItem = styled.a<MenuItemProps>`
   color: black;
   text-align: left;
   text-decoration: none;
+
+  &:hover {
+    background: ${(props) => props.theme.colors.gray3};
+    cursor: pointer;
+  }
 `
 
 export { MenuItem }
