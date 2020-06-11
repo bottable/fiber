@@ -22,7 +22,7 @@ const Wrapper = styled.div<any>`
   ${styleComposition}
 `
 
-const Dropdown: FC<DropdownProps> = ({ menu, trigger, children, ...props }) => {
+const useDropdownStatus = (trigger: TriggerType) => {
   const node = useRef<{ contains: (e: EventTarget) => Boolean }>(null)
   const [expand, setExpand] = useState(false)
 
@@ -41,18 +41,32 @@ const Dropdown: FC<DropdownProps> = ({ menu, trigger, children, ...props }) => {
     }
   }, [handleClick])
 
-  const useHandler = {
-    click: {
-      onClick: useCallback(() => setExpand(true), [setExpand])
-    },
-    hover: {
-      onMouseEnter: useCallback(() => setExpand(true), [setExpand]),
-      onMouseLeave: useCallback(() => setExpand(false), [setExpand])
-    }
+  const hoverProps = {
+    onMouseEnter: useCallback(() => setExpand(true), [setExpand]),
+    onMouseLeave: useCallback(() => setExpand(false), [setExpand])
+  }
+  const clickProps = {
+    onClick: useCallback(() => setExpand(true), [setExpand])
   }
 
+  let triggerProps
+  switch (trigger) {
+    case 'hover':
+      triggerProps = hoverProps
+      break
+    case 'click':
+      triggerProps = clickProps
+      break
+  }
+
+  return [node, expand, triggerProps]
+}
+
+const Dropdown: FC<DropdownProps> = ({ menu, trigger, children, ...props }) => {
+  const [node, expand, triggerProps] = useDropdownStatus(trigger)
+
   return (
-    <Wrapper ref={node} {...useHandler[trigger]} {...props}>
+    <Wrapper ref={node} {...triggerProps} {...props}>
       <div>
         {children}
         {expand ? menu : null}
