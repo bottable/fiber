@@ -28,7 +28,7 @@ const dividerVariant = ({
         position: relative;
         top: 50%;
         width: 50%;
-        margin: ${(p) => p.theme.space[3]} ${(p) => p.theme.space[1]};
+        margin: ${(p) => p.theme.space[3]} ${(p) => p.theme.space[2]};
         border: 0;
         border-top: ${(p) =>
           dashed ? p.theme.border.dashed : p.theme.border.md};
