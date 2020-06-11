@@ -6,14 +6,15 @@ import React, {
   FC,
   useRef,
   useEffect,
-  ReactNode,
+  ReactElement,
   useCallback
 } from 'react'
 
 export type TriggerType = 'hover' | 'click'
 
+export type MenuFunc = () => React.ReactElement
 export interface DropdownProps extends StyleProps {
-  menu: ReactNode
+  menu: ReactElement | MenuFunc
   trigger: TriggerType
 }
 
@@ -22,6 +23,16 @@ const Wrapper = styled.div<any>`
   ${styleComposition}
 
   display: inline-block;
+`
+
+const DropdownWrapper = styled.div<any>`
+  ${styleComposition}
+
+  position: absolute;
+  z-index: 999;
+  min-width: 160px;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 `
 
 const useDropdownStatus = (trigger: TriggerType) => {
@@ -69,10 +80,12 @@ const useDropdownStatus = (trigger: TriggerType) => {
 const Dropdown: FC<DropdownProps> = ({ menu, trigger, children, ...props }) => {
   const [node, expand, triggerProps] = useDropdownStatus(trigger)
 
+  const menuNode = typeof menu === 'function' ? (menu as MenuFunc)() : menu
+
   return (
     <Wrapper ref={node} {...triggerProps} {...props}>
       {children}
-      {expand ? menu : null}
+      <DropdownWrapper>{expand ? menuNode : null}</DropdownWrapper>
     </Wrapper>
   )
 }
