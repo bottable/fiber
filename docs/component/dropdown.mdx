@@ -58,3 +58,22 @@ import { Playground } from 'docz'
     )
   }}
 </Playground>
+
+### Use Function to render
+
+<Playground>
+  {() => {
+    const menu = () => (
+      <Menu>
+        <Menu.Item>
+          <Text> Item 1 </Text>
+        </Menu.Item>
+      </Menu>
+    )
+    return (
+      <Dropdown menu={menu} trigger={'hover'}>
+        <Text> Hover Me </Text>
+      </Dropdown>
+    )
+  }}
+</Playground>
