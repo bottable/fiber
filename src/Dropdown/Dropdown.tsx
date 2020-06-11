@@ -1,7 +1,14 @@
 import { styleComposition, StyleProps } from '../utils/styles'
 
 import styled from 'styled-components'
-import React, { useState, FC, useRef, useEffect, ReactNode } from 'react'
+import React, {
+  useState,
+  FC,
+  useRef,
+  useEffect,
+  ReactNode,
+  useCallback
+} from 'react'
 
 export type TriggerType = 'hover' | 'click'
 
@@ -10,6 +17,7 @@ export interface DropdownProps extends StyleProps {
   trigger: TriggerType
 }
 
+// TODO: ADD A BETTER TYPE FOR THIS
 const Wrapper = styled.div<any>`
   ${styleComposition}
 `
@@ -18,25 +26,28 @@ const Dropdown: FC<DropdownProps> = ({ menu, trigger, children, ...props }) => {
   const node = useRef<{ contains: (e: EventTarget) => Boolean }>(null)
   const [expand, setExpand] = useState(false)
 
-  const handleClick = (e: Event) => {
-    if (node!.current!.contains(e.target!)) return
-    setExpand(false)
-  }
+  const handleClick = useCallback(
+    (e: Event) => {
+      if (node!.current!.contains(e.target!)) return
+      setExpand(false)
+    },
+    [setExpand]
+  )
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick)
     return () => {
       document.removeEventListener('mousedown', handleClick)
     }
-  }, [])
+  }, [handleClick])
 
   const useHandler = {
     click: {
-      onClick: () => setExpand(true)
+      onClick: useCallback(() => setExpand(true), [setExpand])
     },
     hover: {
-      onMouseEnter: () => setExpand(true),
-      onMouseLeave: () => setExpand(false)
+      onMouseEnter: useCallback(() => setExpand(true), [setExpand]),
+      onMouseLeave: useCallback(() => setExpand(false), [setExpand])
     }
   }
 
