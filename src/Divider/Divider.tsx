@@ -1,4 +1,4 @@
-import { Text } from '../typography'
+import { Text } from '../Typography'
 
 import React, { ReactNode, FC } from 'react'
 import styled, { css } from 'styled-components'
