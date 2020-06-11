@@ -1,10 +1,17 @@
+import { Text } from '../typography'
+
 import React, { ReactNode, FC } from 'react'
 import styled, { css } from 'styled-components'
 
 export interface DividerProps {
   type?: 'horizontal' | 'vertical'
+  orientation?: 'left' | 'center' | 'right'
   children?: ReactNode
   dashed?: boolean
+}
+
+export interface StyledDividerProps extends DividerProps {
+  withText: boolean
 }
 
 const dividerStyle = css`
@@ -13,9 +20,11 @@ const dividerStyle = css`
 `
 
 const dividerVariant = ({
+  withText,
   type = 'horizontal',
-  dashed = false
-}: DividerProps) => {
+  dashed = false,
+  orientation = 'center'
+}: StyledDividerProps) => {
   if (type === 'horizontal') {
     return css`
       display: flex;
@@ -34,6 +43,24 @@ const dividerVariant = ({
           dashed ? p.theme.border.dashed : p.theme.border.md};
         transform: translateY(-50%);
       }
+
+      ${() => {
+        if (orientation === 'center' && withText) return
+
+        return css`
+          &::before {
+            flex: ${orientation === 'left' ? undefined : 1};
+            width: ${orientation === 'left' ? '5%' : undefined};
+            margin-right: 0;
+          }
+
+          &::after {
+            flex: ${orientation === 'left' ? 1 : undefined};
+            width: ${orientation === 'left' ? 'undefined' : '5%'};
+            margin-left: 0;
+          }
+        `
+      }}
     `
   } else {
     return css`
@@ -51,7 +78,7 @@ const dividerVariant = ({
   }
 }
 
-const DividerWrapper = styled.div<DividerProps>`
+const DividerWrapper = styled.div<StyledDividerProps>`
   ${dividerStyle};
   ${dividerVariant};
 `
@@ -60,7 +87,11 @@ const Divider: FC<DividerProps> = (props) => {
   const { type, children } = props
   const isVertical = type === 'vertical'
 
-  return <DividerWrapper {...props}>{!isVertical && children}</DividerWrapper>
+  return (
+    <DividerWrapper withText={!!children} {...props}>
+      <Text>{!isVertical && children}</Text>
+    </DividerWrapper>
+  )
 }
 
 export { Divider }
