@@ -15,7 +15,7 @@ const Wrapper = styled.div<any>`
 `
 
 const Dropdown: FC<DropdownProps> = ({ menu, trigger, children, ...props }) => {
-  const node = useRef<{ contains:(e: EventTarget) => Boolean }>(null)
+  const node = useRef<{ contains: (e: EventTarget) => Boolean }>(null)
   const [expand, setExpand] = useState(false)
 
   const handleClick = (e: Event) => {

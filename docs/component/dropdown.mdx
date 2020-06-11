@@ -4,7 +4,7 @@ route: /component/dropdown
 menu: Component
 ---
 
-import { Menu, MenuItem, Dropdown, Text } from 'fiber'
+import { Menu, Dropdown, Text } from 'fiber'
 import { Playground } from 'docz'
 
 # Dropdown
@@ -12,24 +12,24 @@ import { Playground } from 'docz'
 ## Hover
 
 <Playground>
- {() => {
-   const menu = (
-     <Menu>
-      <MenuItem>
-        <Text> Item 1 </Text>
-      </MenuItem>
-      <MenuItem>
-        <Text> Item 2 </Text>
-      </MenuItem>
-      <MenuItem>
-        <Text> Item 3 </Text>
-      </MenuItem>
-     </Menu>
-   )
+  {() => {
+    const menu = (
+      <Menu>
+        <Menu.Item>
+          <Text> Item 1 </Text>
+        </Menu.Item>
+        <Menu.Item>
+          <Text> Item 2 </Text>
+        </Menu.Item>
+        <Menu.Item>
+          <Text> Item 3 </Text>
+        </Menu.Item>
+      </Menu>
+    )
     return (
-        <Dropdown menu={menu} trigger={"hover"} >
-          <Text> Hover Me </Text>
-        </Dropdown>
+      <Dropdown menu={menu} trigger={'hover'}>
+        <Text> Hover Me </Text>
+      </Dropdown>
     )
   }}
 </Playground>
@@ -37,25 +37,24 @@ import { Playground } from 'docz'
 ## Click
 
 <Playground>
- {() => {
-   const menu = (
-     <Menu>
-      <MenuItem>
-        <Text> Item 1  </Text>
-      </MenuItem>
-      <MenuItem>
-        <Text> Item 2 </Text>
-      </MenuItem>
-      <MenuItem>
-        <Text> Item 3 </Text>
-      </MenuItem>
-     </Menu>
-   )
+  {() => {
+    const menu = (
+      <Menu>
+        <MenuItem>
+          <Text> Item 1 </Text>
+        </MenuItem>
+        <MenuItem>
+          <Text> Item 2 </Text>
+        </MenuItem>
+        <MenuItem>
+          <Text> Item 3 </Text>
+        </MenuItem>
+      </Menu>
+    )
     return (
-        <Dropdown menu={menu} trigger={"click"} >
-          <button> Click Me </button>
-        </Dropdown>
+      <Dropdown menu={menu} trigger={'click'}>
+        <button> Click Me </button>
+      </Dropdown>
     )
   }}
 </Playground>
-
