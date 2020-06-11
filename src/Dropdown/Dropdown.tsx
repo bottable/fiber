@@ -20,15 +20,19 @@ export interface DropdownProps extends StyleProps {
 // TODO: ADD A BETTER TYPE FOR THIS
 const Wrapper = styled.div<any>`
   ${styleComposition}
+
+  display: inline-block;
 `
 
 const useDropdownStatus = (trigger: TriggerType) => {
-  const node = useRef<{ contains: (e: EventTarget) => Boolean }>(null)
+  const node = useRef<
+    HTMLDivElement & { contains: (e: EventTarget) => Boolean }
+  >(null)
   const [expand, setExpand] = useState(false)
 
   const handleClick = useCallback(
     (e: Event) => {
-      if (node!.current!.contains(e.target!)) return
+      if (node.current!.contains(e.target!)) return
       setExpand(false)
     },
     [setExpand]
@@ -67,16 +71,13 @@ const Dropdown: FC<DropdownProps> = ({ menu, trigger, children, ...props }) => {
 
   return (
     <Wrapper ref={node} {...triggerProps} {...props}>
-      <div>
-        {children}
-        {expand ? menu : null}
-      </div>
+      {children}
+      {expand ? menu : null}
     </Wrapper>
   )
 }
 
 Dropdown.defaultProps = {
-  menu: undefined,
   trigger: 'hover'
 }
 
