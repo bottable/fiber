@@ -4,13 +4,17 @@ route: /component/divider
 menu: Component
 ---
 
-import { Divider } from 'fiber'
+import { Divider, Text } from 'fiber'
 import { Playground } from 'docz'
 
 # Heading
 
 <Playground>
-  <Divider>MOTHER</Divider>
+  <Divider>horizontal</Divider>
 
-  <Divider type="vertical">MOTHER</Divider>
+  <div>
+    <Text>LEFT TEXT</Text>
+    <Divider type="vertical"/>
+    <Text>RIGHT TEXT</Text>
+  </div>
 </Playground>

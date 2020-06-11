@@ -1,19 +1,21 @@
-import { ReactNode } from 'react'
+import React, { ReactNode, FC } from 'react'
 import styled, { css } from 'styled-components'
 
 export interface DividerProps {
   type?: 'horizontal' | 'vertical'
   children?: ReactNode
+  dashed?: boolean
 }
 
 const dividerStyle = css`
-  width: 100%;
-  min-width: 100%;
-  margin: ${(p) => p.theme.space[3]} 0;
+  border-color: ${(p) => p.theme.colors.gray3};
   color: ${(p) => p.theme.colors.gray3};
 `
 
-const dividerVariant = ({ type = 'horizontal' }: DividerProps) => {
+const dividerVariant = ({
+  type = 'horizontal',
+  dashed = false
+}: DividerProps) => {
   if (type === 'horizontal') {
     return css`
       display: flex;
@@ -26,27 +28,39 @@ const dividerVariant = ({ type = 'horizontal' }: DividerProps) => {
         position: relative;
         top: 50%;
         width: 50%;
+        margin: ${(p) => p.theme.space[3]} ${(p) => p.theme.space[1]};
         border: 0;
-        border-top: ${(p) => p.theme.border.md} ${(p) => p.theme.colors.gray3};
+        border-top: ${(p) =>
+          dashed ? p.theme.border.dashed : p.theme.border.md};
         transform: translateY(-50%);
       }
     `
   } else {
     return css`
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-
-      & > * {
-        display: none;
-        color: 'green';
-      }
+      display: inline-block;
+      position: relative;
+      top: 50%;
+      height: 90%;
+      min-height: ${(p) => p.theme.heights.sm};
+      margin: 0 ${(p) => p.theme.space[2]};
+      border-right: ${(p) => p.theme.border.md};
+      border-left: ${(p) => p.theme.border.md};
+      background: ${(p) => p.theme.colors.gray3};
+      vertical-align: middle;
     `
   }
 }
 
-const Divider = styled.div<DividerProps>`
+const DividerWrapper = styled.div<DividerProps>`
   ${dividerStyle};
   ${dividerVariant};
 `
+
+const Divider: FC<DividerProps> = (props) => {
+  const { type, children } = props
+  const isVertical = type === 'vertical'
+
+  return <DividerWrapper {...props}>{!isVertical && children}</DividerWrapper>
+}
+
 export { Divider }
