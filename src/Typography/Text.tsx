@@ -40,13 +40,13 @@ const textVariant = ({ size }: TextProps) => {
 }
 
 const Text = styled.span<TextProps>`
-  ${styleComposition};
   ${(props) => (props.code ? codeStyle : null)};
-
   ${textVariant};
 
   background-color: ${(props) => (props.highlight ? '#FFE69A' : null)};
   font-weight: ${(props) => (props.strong ? '700' : '400')};
+
+  ${styleComposition};
 `
 
 Text.defaultProps = {

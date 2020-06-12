@@ -65,9 +65,8 @@ const headingVariant = ({ size }: HeadingProps) => {
 }
 
 const Heading = styled.h1<HeadingProps>`
-  ${style};
-
   ${headingVariant};
+  ${style};
 `
 
 Heading.defaultProps = {

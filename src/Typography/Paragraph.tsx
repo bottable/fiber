@@ -25,9 +25,8 @@ const paragraphVariant = ({ fontSize = 16 }: ParagraphProps) => {
 }
 
 const Paragraph = styled.p<ParagraphProps>`
-  ${style};
-
   ${paragraphVariant};
+  ${style};
 `
 
 Paragraph.defaultProps = {

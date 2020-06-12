@@ -3,49 +3,49 @@
 exports[`Heading renders correctly 1`] = `
 Array [
   <h1
-    className="sc-AxjAm bHMOGx"
+    className="sc-AxjAm dpsURH"
     size={1}
   >
      Heading 1 
   </h1>,
   <h1
-    className="sc-AxjAm gTivYf"
+    className="sc-AxjAm kYmHex"
     size={2}
   >
      Heading 2 
   </h1>,
   <h1
-    className="sc-AxjAm geFGAB"
+    className="sc-AxjAm hbroGj"
     size={3}
   >
      Heading 3 
   </h1>,
   <h1
-    className="sc-AxjAm hEKOuq"
+    className="sc-AxjAm hLwZWA"
     size={4}
   >
      Heading 4 
   </h1>,
   <h1
-    className="sc-AxjAm kWnehD"
+    className="sc-AxjAm hrCVkR"
     size={5}
   >
      Heading 5 
   </h1>,
   <h1
-    className="sc-AxjAm eMStCC"
+    className="sc-AxjAm gunQFk"
     size={6}
   >
      Heading 6 
   </h1>,
   <h1
-    className="sc-AxjAm kREbBy"
+    className="sc-AxjAm dYvNeo"
     size={7}
   >
      Heading 7 
   </h1>,
   <h1
-    className="sc-AxjAm ggkWgX"
+    className="sc-AxjAm gmeiaJ"
     size={8}
   >
      Heading 8 
