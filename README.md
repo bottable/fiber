@@ -26,24 +26,28 @@ yarn start
 #### Create a component
 
 ```bash
-yarn hygen fiber component
+yarn hygen fiber new
 ```
 
 ```
-> What's your new Component called?
-> v1_component
+> What's your new member called?
+> codegen_sample
+> What's your category does it belong ex. component, layout ...etc?
+> example
 > What's your base HTML element?
-> h1
+> h2
 
 Loaded templates: _templates
-       added: docs/component/v1Component.mdx
-       added: src/V1Component/__test__/V1Component.spec.tsx
-       added: src/V1Component/V1Component.tsx
-       added: src/V1Component/index.ts
+       added: src/CodegenSample/index.ts
       inject: src/index.tsx
-       added: src/V1Component/styles.ts
-✨  Done in 17.33s.
+       added: docs/sample/codegenSample.mdx
+       added: src/CodegenSample/__test__/CodegenSample.spec.tsx
+       added: src/CodegenSample/CodegenSample.tsx
+       added: src/CodegenSample/styles.ts
+✨  Done in 10.06s.
 ```
+
+> Be sure to run `yarn test -u` after to create a new snapshot
 
 ## License
 
