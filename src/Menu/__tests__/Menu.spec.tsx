@@ -3,22 +3,42 @@ import { Menu, Text } from '../../'
 import React from 'react'
 import { render } from 'test/utils'
 
-describe('Menu & Menu Items', () => {
+describe('Block Menu & Menu Items', () => {
   it('renders correctly', () => {
-    const menu = render(
+    const block = render(
       <Menu>
-        <Menu.Inline>
+        <Menu.Item>
           <Text> Item 1 </Text>
-        </Menu.Inline>
-        <Menu.Inline>
+        </Menu.Item>
+        <Menu.Item>
           <Text> Item 2 </Text>
-        </Menu.Inline>
-        <Menu.Inline>
+        </Menu.Item>
+        <Menu.Item>
           <Text> Item 3 </Text>
-        </Menu.Inline>
+        </Menu.Item>
       </Menu>
     )
 
-    expect(menu).toMatchSnapshot()
+    expect(block).toMatchSnapshot()
+  })
+})
+
+describe('Inline Menu & Menu Items', () => {
+  it('renders correctly', () => {
+    const inline = render(
+      <Menu inline>
+        <Menu.Item>
+          <Text> Item 1 </Text>
+        </Menu.Item>
+        <Menu.Item>
+          <Text> Item 2 </Text>
+        </Menu.Item>
+        <Menu.Item>
+          <Text> Item 3 </Text>
+        </Menu.Item>
+      </Menu>
+    )
+
+    expect(inline).toMatchSnapshot()
   })
 })
