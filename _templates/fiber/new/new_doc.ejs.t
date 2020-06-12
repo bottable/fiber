@@ -1,11 +1,10 @@
 ---
-to: docs/component/<%=h.changeCase.camel(h.inflection.classify(component))%>.mdx
+to: docs/<%=h.changeCase.lower(category)%>/<%=h.changeCase.camel(h.inflection.classify(component))%>.mdx
 ---
-
 ---
 name: <%=h.inflection.classify(component)%>
-route: /component/<%=h.changeCase.camel(h.inflection.classify(component))%>
-menu: Component
+route: /<%=h.changeCase.lower(category)%>/<%=h.changeCase.lower(component)%>
+menu:  <%=h.capitalize(category)%>
 ---
 
 import { <%=h.inflection.classify(component)%> } from 'fiber'
