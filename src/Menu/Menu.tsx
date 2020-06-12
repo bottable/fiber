@@ -1,17 +1,10 @@
-import { StyleProps, styleComposition } from '../utils/styles'
+import { styleComposition } from '../utils/styles'
 
 import { MenuItem } from './MenuItem'
+import { MenuProps, MenuContext } from './useMenu'
 
 import React, { FC } from 'react'
 import styled from 'styled-components'
-
-export interface MenuProps extends StyleProps {
-  inline?: boolean
-}
-
-export const MenuContext = React.createContext<MenuProps>({
-  inline: true
-})
 
 type MenuFC<P> = FC<P> & {
   Item: FC
