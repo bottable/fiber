@@ -7,7 +7,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
   onMouseLeave={[Function]}
 >
   <span
-    className="sc-AxiKw fhcQjA"
+    className="sc-AxiKw ioUFXk"
     size={4}
   >
      Hover Me 
