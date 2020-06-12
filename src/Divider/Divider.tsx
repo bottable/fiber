@@ -58,13 +58,19 @@ const dividerVariant = ({
           &::before {
             flex: ${orientation === 'left' ? undefined : 1};
             width: ${orientation === 'left' ? '5%' : undefined};
-            margin-right: 0;
+            ${!withText &&
+            css`
+              margin-right: 0;
+            `}
           }
 
           &::after {
             flex: ${orientation === 'left' ? 1 : undefined};
             width: ${orientation === 'left' ? 'undefined' : '5%'};
-            margin-left: 0;
+            ${!withText &&
+            css`
+              margin-left: 0;
+            `}
           }
         `
       }}
