@@ -7,15 +7,15 @@ describe('Menu & Menu Items', () => {
   it('renders correctly', () => {
     const menu = render(
       <Menu>
-        <Menu.Item>
+        <Menu.Inline>
           <Text> Item 1 </Text>
-        </Menu.Item>
-        <Menu.Item>
+        </Menu.Inline>
+        <Menu.Inline>
           <Text> Item 2 </Text>
-        </Menu.Item>
-        <Menu.Item>
+        </Menu.Inline>
+        <Menu.Inline>
           <Text> Item 3 </Text>
-        </Menu.Item>
+        </Menu.Inline>
       </Menu>
     )
 
