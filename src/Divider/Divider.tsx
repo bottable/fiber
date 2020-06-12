@@ -2,8 +2,15 @@ import { Text } from '../Typography'
 
 import React, { ReactNode, FC } from 'react'
 import styled, { css } from 'styled-components'
+import {
+  compose,
+  space,
+  typography,
+  SpaceProps,
+  TypographyProps
+} from 'styled-system'
 
-export interface DividerProps {
+export interface DividerProps extends SpaceProps, TypographyProps {
   type?: 'horizontal' | 'vertical'
   orientation?: 'left' | 'center' | 'right'
   children?: ReactNode
@@ -81,6 +88,7 @@ const dividerVariant = ({
 const DividerWrapper = styled.div<StyledDividerProps>`
   ${dividerStyle};
   ${dividerVariant};
+  ${compose(space, typography)}
 `
 
 const Divider: FC<DividerProps> = (props) => {
@@ -89,7 +97,7 @@ const Divider: FC<DividerProps> = (props) => {
 
   return (
     <DividerWrapper withText={!!children} {...props}>
-      <Text>{!isVertical && children}</Text>
+      <Text {...props}>{!isVertical && children}</Text>
     </DividerWrapper>
   )
 }
