@@ -2,7 +2,7 @@ import { StyleProps, styleComposition } from '../utils/styles'
 
 import { MenuItem } from './MenuItem'
 
-import React, { FC, ReactNode } from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 
 export interface MenuProps extends StyleProps {
@@ -13,8 +13,8 @@ export const MenuContext = React.createContext<MenuProps>({
   inline: true
 })
 
-type IMenu<P> = FC<P> & {
-  Item: ReactNode
+type MenuFC<P> = FC<P> & {
+  Item: FC
 }
 
 const MenuWrapper = styled.ul<MenuProps>`
@@ -27,7 +27,7 @@ const MenuWrapper = styled.ul<MenuProps>`
   list-style-type: none;
 `
 
-const Menu: IMenu<MenuProps> = ({ children, inline }) => {
+const Menu: MenuFC<MenuProps> = ({ children, inline }) => {
   return (
     <MenuContext.Provider value={{ inline }}>
       <MenuWrapper>{children}</MenuWrapper>
