@@ -15,7 +15,6 @@ const BlockMenuItem = styled.li<any>`
   float: none;
   border-right: solid ${(props) => props.theme.colors.gray3} 0.5px;
   color: ${(props) => props.color};
-
   text-align: left;
   text-decoration: none;
 
