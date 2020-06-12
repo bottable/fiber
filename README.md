@@ -18,8 +18,31 @@ todo
 # install dependencies
 yarn
 
-# run at root directory
+# run demo at root directory
 yarn start
+
+```
+
+#### Create a component
+
+```bash
+yarn hygen fiber component
+```
+
+```
+> What's your new Component called?
+> v1_component
+> What's your base HTML element?
+> h1
+
+Loaded templates: _templates
+       added: docs/component/v1Component.mdx
+       added: src/V1Component/__test__/V1Component.spec.tsx
+       added: src/V1Component/V1Component.tsx
+       added: src/V1Component/index.ts
+      inject: src/index.tsx
+       added: src/V1Component/styles.ts
+✨  Done in 17.33s.
 ```
 
 ## License
