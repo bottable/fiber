@@ -1,4 +1,6 @@
-import { styleComposition, StyleProps, paragraphStyle } from './styles'
+import { styleComposition, StyleProps } from '../utils/styles'
+
+import { paragraphStyle } from './styles'
 
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
@@ -23,9 +25,8 @@ const paragraphVariant = ({ fontSize = 16 }: ParagraphProps) => {
 }
 
 const Paragraph = styled.p<ParagraphProps>`
-  ${style};
-
   ${paragraphVariant};
+  ${style};
 `
 
 Paragraph.defaultProps = {

@@ -1,4 +1,6 @@
-import { codeStyle, styleComposition, StyleProps } from './styles'
+import { styleComposition, StyleProps } from '../utils/styles'
+
+import { codeStyle } from './styles'
 
 import styled, { css } from 'styled-components'
 
@@ -38,13 +40,13 @@ const textVariant = ({ size }: TextProps) => {
 }
 
 const Text = styled.span<TextProps>`
-  ${styleComposition};
   ${(props) => (props.code ? codeStyle : null)};
-
   ${textVariant};
 
   background-color: ${(props) => (props.highlight ? '#FFE69A' : null)};
   font-weight: ${(props) => (props.strong ? '700' : '400')};
+
+  ${styleComposition};
 `
 
 Text.defaultProps = {

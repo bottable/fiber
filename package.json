@@ -21,6 +21,7 @@
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 jest --env=jsdom",
     "test:watch": "cross-env CI=1 jest",
+    "test:refresh": "jest --updateSnapshot --env=jsdom",
     "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
     "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
     "lint:js": "eslint . --ext .js,.jsx",
