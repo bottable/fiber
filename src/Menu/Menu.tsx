@@ -1,6 +1,6 @@
 import { styleComposition } from '../utils/styles'
 
-import { SubMenu } from './Submenu'
+import { SubMenu } from './SubMenu'
 import { MenuItem } from './MenuItem'
 import { MenuProps, MenuContext } from './useMenu'
 

@@ -2,47 +2,70 @@
 
 exports[`Block Menu & Menu Items renders correctly 1`] = `
 <ul
-  className="sc-AxmLO enoELj"
+  className="sc-fzplWN kCYiUw"
 >
-  <li
-    className="sc-AxheI bBCLtC"
+  <div
+    className="sc-Axmtr icUvKO"
+  >
+    <div
+      className="sc-AxheI kokSYy"
+      onClick={[Function]}
+    >
+      <span>
+         Sub Menu 1 
+      </span>
+      <i
+        className="sc-fzozJi grUWqN"
+      />
+    </div>
+    <ul
+      className="sc-AxmLO hAqXzN"
+    />
+  </div>
+  <div
+    className="sc-Axmtr icUvKO"
+  >
+    <div
+      className="sc-AxheI kokSYy"
+      onClick={[Function]}
+    >
+      <span>
+         Sub Menu 2 
+      </span>
+      <i
+        className="sc-fzozJi grUWqN"
+      />
+    </div>
+    <ul
+      className="sc-AxmLO hAqXzN"
+    />
+  </div>
+  <div
+    className="sc-fznZeY bCvFKa"
   >
     <span
       className="sc-AxiKw ioUFXk"
       size={4}
-    >
-       Item 1 
-    </span>
-  </li>
+    />
+  </div>
   <li
-    className="sc-AxheI bBCLtC"
+    className="sc-fzoLsD ePTHqD"
+    onClick={[Function]}
+    selected={false}
   >
-    <span
-      className="sc-AxiKw ioUFXk"
-      size={4}
-    >
-       Item 2 
-    </span>
-  </li>
-  <li
-    className="sc-AxheI bBCLtC"
-  >
-    <span
-      className="sc-AxiKw ioUFXk"
-      size={4}
-    >
-       Item 3 
-    </span>
+    Item 3
   </li>
 </ul>
 `;
 
 exports[`Inline Menu & Menu Items renders correctly 1`] = `
 <ul
-  className="sc-AxmLO enoELj"
+  className="sc-fzplWN kCYiUw"
 >
   <li
-    className="sc-AxheI sc-Axmtr gCqhiy"
+    className="sc-fzoLsD sc-fzpans cPjyk"
+    onClick={[Function]}
+    selected={false}
   >
     <span
       className="sc-AxiKw ioUFXk"
@@ -52,7 +75,9 @@ exports[`Inline Menu & Menu Items renders correctly 1`] = `
     </span>
   </li>
   <li
-    className="sc-AxheI sc-Axmtr gCqhiy"
+    className="sc-fzoLsD sc-fzpans cPjyk"
+    onClick={[Function]}
+    selected={false}
   >
     <span
       className="sc-AxiKw ioUFXk"
@@ -62,7 +87,9 @@ exports[`Inline Menu & Menu Items renders correctly 1`] = `
     </span>
   </li>
   <li
-    className="sc-AxheI sc-Axmtr gCqhiy"
+    className="sc-fzoLsD sc-fzpans cPjyk"
+    onClick={[Function]}
+    selected={false}
   >
     <span
       className="sc-AxiKw ioUFXk"
