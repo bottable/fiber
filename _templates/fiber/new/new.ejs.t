@@ -7,7 +7,6 @@ import { StyleProps } from '../utils/styles'
 import { Styled<%=h.inflection.classify(component)%> } from './styles'
 
 import React, { FC } from 'react'
-// import styled, { css } from 'styled-components'
 
 export interface <%=h.inflection.classify(component)%>Props extends StyleProps {
   // custom props here
