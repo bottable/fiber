@@ -1,5 +1,6 @@
 import { styleComposition } from '../utils/styles'
 
+import { SubMenu } from './SubMenu'
 import { MenuItem } from './MenuItem'
 import { MenuProps, MenuContext } from './useMenu'
 
@@ -8,6 +9,7 @@ import styled from 'styled-components'
 
 type MenuFC<P> = FC<P> & {
   Item: FC
+  Sub: FC<any>
 }
 
 const MenuWrapper = styled.ul<MenuProps>`
@@ -18,6 +20,7 @@ const MenuWrapper = styled.ul<MenuProps>`
   padding: 0;
   overflow: auto;
   list-style-type: none;
+  border-right: solid 1px ${(props) => props.theme.colors.gray3};
 `
 
 const Menu: MenuFC<MenuProps> = ({ children, inline }) => {
@@ -29,5 +32,6 @@ const Menu: MenuFC<MenuProps> = ({ children, inline }) => {
 }
 
 Menu.Item = MenuItem
+Menu.Sub = SubMenu
 
 export { Menu }

@@ -38,7 +38,7 @@ const DropdownWrapper = styled.div<any>`
 const useDropdownStatus = (trigger: TriggerType) => {
   const node = useRef<
     HTMLDivElement & { contains: (e: EventTarget) => Boolean }
-    // eslint-disable-next-line indent
+  // eslint-disable-next-line indent
   >(null)
   const [expand, setExpand] = useState(false)
 
