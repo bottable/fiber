@@ -1,31 +1,37 @@
 import { Text } from '..'
+import { MergeElementProps } from '../utils'
 
 import { baseStyle } from './styles'
 
 import styled, { css } from 'styled-components'
-import React, { FC, ReactNode } from 'react'
+import React, { ReactNode, Ref, MouseEventHandler, forwardRef } from 'react'
 import { rem } from 'polished'
 
-export interface ButtonProps {
-  disabled?: boolean
-  ghost?: boolean
-  href?: string
-  htmlType?: string
-  icon?: ReactNode
-  loading?: boolean | { delay: number }
-  shape?: string
-  size?: 'sm' | 'md' | 'lg'
-  target?: string
-  type?: 'primary' | 'default' | 'dashed' | 'text' | 'link'
-  onClick?: (event: any) => void
-  block?: boolean
-  danger?: boolean
-}
+export type ButtonProps = MergeElementProps<
+  'button',
+  {
+    disabled?: boolean
+    ghost?: boolean
+    href?: string
+    htmlType?: 'submit' | 'button' | 'reset'
+    icon?: ReactNode
+    loading?: boolean | { delay: number }
+    shape?: 'circle' | 'circle-outline' | 'round'
+    size?: 'sm' | 'md' | 'lg'
+    target?: string
+    type?: 'primary' | 'default' | 'dashed' | 'text' | 'link'
+    onClick?: MouseEventHandler<HTMLElement>
+    block?: boolean
+    danger?: boolean
+    children?: React.ReactNode
+    prefixCls?: string
+    className?: string
+  }
+>
 
-const buttonVariant = ({ type }: ButtonProps) => {
-  return css`
-    ${baseStyle}
-
+const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
+  const { children, type } = props
+  const buttonVariant = css`
     border: ${(p) => {
       switch (type) {
         case 'primary':
@@ -93,22 +99,19 @@ const buttonVariant = ({ type }: ButtonProps) => {
             return p.theme.colors.base
         }
       }};
-    };
+    }
   `
-}
 
-const ButtonComponent = styled.button<ButtonProps>`
-  ${buttonVariant};
-`
+  const StyledButton = styled.button<ButtonProps>`
+    ${baseStyle}
+    ${buttonVariant};
+  `
 
-ButtonComponent.defaultProps = {
-  type: 'default'
-}
-
-export const Button: FC<ButtonProps> = ({ children, ...props }) => {
   return (
-    <ButtonComponent {...props}>
+    <StyledButton ref={ref}>
       <Text>{children}</Text>
-    </ButtonComponent>
+    </StyledButton>
   )
-}
+})
+
+export { Button }
