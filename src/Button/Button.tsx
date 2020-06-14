@@ -36,11 +36,12 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     shape = 'default',
     danger = false,
     disabled = false,
-    ghost = false
-    // block = false
+    ghost = false,
+    block = false
   } = props
 
   const buttonVariant = css`
+    width: ${block ? '100%' : null};
     min-width: ${() => {
       if (shape !== 'circle') return null
       switch (size) {
