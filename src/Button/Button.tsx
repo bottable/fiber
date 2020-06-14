@@ -34,8 +34,12 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     type = 'default',
     size = 'md',
     shape = 'default',
-    danger = false
+    danger = false,
+    disabled = false
+    // ghost = false,
+    // block = false
   } = props
+
   const buttonVariant = css`
     min-width: ${() => {
       if (shape !== 'circle') return null
@@ -60,18 +64,12 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     }};
     padding-right: ${shape === 'circle' ? rem('0px') : null};
     padding-left: ${shape === 'circle' ? rem('0px') : null};
-    border: ${(p) => {
+    border-style: ${() => {
       switch (type) {
-        case 'primary':
-          return `${rem('1px')} solid ${
-            p.theme.colors[danger ? 'danger' : 'primary']
-          }`
-        case 'default':
-          return `${rem('1px')} solid ${p.theme.colors.gray4}`
         case 'dashed':
-          return `${rem('1px')} dashed ${p.theme.colors.gray4}`
+          return 'dashed'
         default:
-          return `${rem('1px')} solid white`
+          return 'solid'
       }
     }};
     border-radius: ${shape === 'default'
@@ -79,47 +77,67 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
       : shape === 'circle'
       ? '50%'
       : rem('40px')};
-    background-color: ${(p) => {
+    border-color: ${(p) => {
       switch (type) {
         case 'primary':
-          return p.theme.colors[danger ? 'danger' : 'primary']
+          return `${
+            p.theme.colors[disabled ? 'gray3' : danger ? 'danger' : 'primary']
+          }`
+        case 'default':
+        case 'dashed':
+          return `${p.theme.colors.gray4}`
         default:
           return 'white'
       }
     }};
+    background-color: ${(p) => {
+      if (disabled) {
+        switch (type) {
+          case 'primary':
+          case 'default':
+          case 'dashed':
+            return p.theme.colors.gray3
+          default:
+            return 'white'
+        }
+      } else {
+        switch (type) {
+          case 'primary':
+            return p.theme.colors[danger ? 'danger' : 'primary']
+          default:
+            return 'white'
+        }
+      }
+    }};
     color: ${(p) => {
+      if (disabled) return p.theme.colors.gray5
       switch (type) {
         case 'primary':
           return 'white'
         case 'link':
           return p.theme.colors[danger ? 'danger' : 'primary']
         default:
-          return p.theme.colors.gray6
+          return p.theme.colors.gray7
       }
     }};
     font-size: ${size === 'lg' ? rem('16px') : rem('14px')};
+    cursor: ${disabled ? 'not-allowed' : 'pointer'};
     &:hover {
-      border: ${(p) => {
+      border-color: ${(p) => {
+        if (disabled) return null
         switch (type) {
           case 'primary':
-            return `${rem('1px')} solid ${
-              p.theme.colors[danger ? 'danger' : 'dark']
-            }`
+            return `${p.theme.colors[danger ? 'danger' : 'dark']}`
           case 'text':
-            return `${rem('1px')} solid ${p.theme.colors.gray2}`
+            return `${p.theme.colors.gray2}`
           case 'link':
-            return `${rem('1px')} solid white`
-          case 'dashed':
-            return `${rem('1px')} dashed ${
-              p.theme.colors[danger ? 'danger' : 'primary']
-            }`
+            return 'white'
           default:
-            return `${rem('1px')} solid ${
-              p.theme.colors[danger ? 'danger' : 'primary']
-            }`
+            return `${p.theme.colors[danger ? 'danger' : 'primary']}`
         }
       }};
       background-color: ${(p) => {
+        if (disabled) return null
         switch (type) {
           case 'primary':
             return p.theme.colors[danger ? 'danger' : 'dark']
@@ -130,6 +148,7 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
         }
       }};
       color: ${(p) => {
+        if (disabled) return null
         switch (type) {
           case 'primary':
             return 'white'
