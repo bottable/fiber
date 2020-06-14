@@ -1,4 +1,3 @@
-import { Text } from '..'
 import { MergeElementProps } from '../utils'
 
 import { baseStyle } from './styles'
@@ -30,8 +29,13 @@ export type ButtonProps = MergeElementProps<
 >
 
 const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
-  const { children, type } = props
+  const { children, type = 'default', size = 'md' } = props
   const buttonVariant = css`
+    padding: ${size === 'lg'
+      ? `${rem('12px')} ${rem('18px')}`
+      : size === 'md'
+      ? `${rem('10px')} ${rem('16px')}`
+      : `${rem('6px')} ${rem('12px')}`};
     border: ${(p) => {
       switch (type) {
         case 'primary':
@@ -62,6 +66,7 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
           return p.theme.colors.gray6
       }
     }};
+    font-size: ${size === 'lg' ? rem('16px') : rem('14px')};
     &:hover {
       border: ${(p) => {
         switch (type) {
@@ -107,11 +112,7 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     ${buttonVariant};
   `
 
-  return (
-    <StyledButton ref={ref}>
-      <Text>{children}</Text>
-    </StyledButton>
-  )
+  return <StyledButton ref={ref}>{children}</StyledButton>
 })
 
 export { Button }
