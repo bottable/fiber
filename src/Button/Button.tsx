@@ -15,7 +15,7 @@ export type ButtonProps = MergeElementProps<
     htmlType?: 'submit' | 'button' | 'reset'
     icon?: ReactNode
     loading?: boolean | { delay: number }
-    shape?: 'circle' | 'circle-outline' | 'round'
+    shape?: 'default' | 'circle' | 'round'
     size?: 'sm' | 'md' | 'lg'
     target?: string
     type?: 'primary' | 'default' | 'dashed' | 'text' | 'link'
@@ -29,13 +29,31 @@ export type ButtonProps = MergeElementProps<
 >
 
 const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
-  const { children, type = 'default', size = 'md' } = props
+  const { children, type = 'default', size = 'md', shape = 'default' } = props
   const buttonVariant = css`
-    padding: ${size === 'lg'
-      ? `${rem('12px')} ${rem('18px')}`
-      : size === 'md'
-      ? `${rem('10px')} ${rem('16px')}`
-      : `${rem('6px')} ${rem('12px')}`};
+    min-width: ${() => {
+      if (shape !== 'circle') return null
+      switch (size) {
+        case 'lg':
+          return rem('44px')
+        case 'md':
+          return rem('38px')
+        case 'sm':
+          return rem('30px')
+      }
+    }};
+    padding: ${() => {
+      switch (size) {
+        case 'lg':
+          return `${rem('12px')} ${rem('18px')}`
+        case 'md':
+          return `${rem('10px')} ${rem('16px')}`
+        case 'sm':
+          return `${rem('6px')} ${rem('12px')}`
+      }
+    }};
+    padding-right: ${shape === 'circle' ? rem('0px') : null};
+    padding-left: ${shape === 'circle' ? rem('0px') : null};
     border: ${(p) => {
       switch (type) {
         case 'primary':
@@ -48,6 +66,11 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
           return `${rem('1px')} solid transparent`
       }
     }};
+    border-radius: ${shape === 'default'
+      ? rem('4px')
+      : shape === 'circle'
+      ? '50%'
+      : rem('40px')};
     background-color: ${(p) => {
       switch (type) {
         case 'primary':
