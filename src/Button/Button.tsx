@@ -29,7 +29,13 @@ export type ButtonProps = MergeElementProps<
 >
 
 const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
-  const { children, type = 'default', size = 'md', shape = 'default' } = props
+  const {
+    children,
+    type = 'default',
+    size = 'md',
+    shape = 'default',
+    danger = false
+  } = props
   const buttonVariant = css`
     min-width: ${() => {
       if (shape !== 'circle') return null
@@ -57,13 +63,15 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     border: ${(p) => {
       switch (type) {
         case 'primary':
-          return `${rem('1px')} solid ${p.theme.colors.primary}`
+          return `${rem('1px')} solid ${
+            p.theme.colors[danger ? 'danger' : 'primary']
+          }`
         case 'default':
           return `${rem('1px')} solid ${p.theme.colors.gray4}`
         case 'dashed':
           return `${rem('1px')} dashed ${p.theme.colors.gray4}`
         default:
-          return `${rem('1px')} solid transparent`
+          return `${rem('1px')} solid white`
       }
     }};
     border-radius: ${shape === 'default'
@@ -74,7 +82,7 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     background-color: ${(p) => {
       switch (type) {
         case 'primary':
-          return p.theme.colors.primary
+          return p.theme.colors[danger ? 'danger' : 'primary']
         default:
           return 'white'
       }
@@ -84,7 +92,7 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
         case 'primary':
           return 'white'
         case 'link':
-          return p.theme.colors.primary
+          return p.theme.colors[danger ? 'danger' : 'primary']
         default:
           return p.theme.colors.gray6
       }
@@ -94,21 +102,27 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
       border: ${(p) => {
         switch (type) {
           case 'primary':
-            return `${rem('1px')} solid ${p.theme.colors.dark}`
+            return `${rem('1px')} solid ${
+              p.theme.colors[danger ? 'danger' : 'dark']
+            }`
           case 'text':
             return `${rem('1px')} solid ${p.theme.colors.gray2}`
           case 'link':
-            return `${rem('1px')} solid transparent`
+            return `${rem('1px')} solid white`
           case 'dashed':
-            return `${rem('1px')} dashed ${p.theme.colors.base}`
+            return `${rem('1px')} dashed ${
+              p.theme.colors[danger ? 'danger' : 'primary']
+            }`
           default:
-            return `${rem('1px')} solid ${p.theme.colors.base}`
+            return `${rem('1px')} solid ${
+              p.theme.colors[danger ? 'danger' : 'primary']
+            }`
         }
       }};
       background-color: ${(p) => {
         switch (type) {
           case 'primary':
-            return p.theme.colors.dark
+            return p.theme.colors[danger ? 'danger' : 'dark']
           case 'text':
             return p.theme.colors.gray2
           default:
@@ -122,9 +136,9 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
           case 'text':
             return p.theme.colors.gray6
           case 'link':
-            return p.theme.colors.light
+            return p.theme.colors[danger ? 'danger' : 'light']
           default:
-            return p.theme.colors.base
+            return p.theme.colors[danger ? 'danger' : 'primary']
         }
       }};
     }
