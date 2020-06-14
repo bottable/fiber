@@ -35,8 +35,8 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     size = 'md',
     shape = 'default',
     danger = false,
-    disabled = false
-    // ghost = false,
+    disabled = false,
+    ghost = false
     // block = false
   } = props
 
@@ -78,19 +78,33 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
       ? '50%'
       : rem('40px')};
     border-color: ${(p) => {
-      switch (type) {
-        case 'primary':
-          return `${
-            p.theme.colors[disabled ? 'gray3' : danger ? 'danger' : 'primary']
-          }`
-        case 'default':
-        case 'dashed':
-          return `${p.theme.colors.gray4}`
-        default:
-          return 'white'
+      if (ghost) {
+        switch (type) {
+          case 'primary':
+            return `${
+              p.theme.colors[disabled ? 'gray3' : danger ? 'danger' : 'primary']
+            }`
+          case 'link':
+            return 'transparent'
+          default:
+            return 'white'
+        }
+      } else {
+        switch (type) {
+          case 'primary':
+            return `${
+              p.theme.colors[disabled ? 'gray3' : danger ? 'danger' : 'primary']
+            }`
+          case 'default':
+          case 'dashed':
+            return `${p.theme.colors.gray4}`
+          default:
+            return 'white'
+        }
       }
     }};
     background-color: ${(p) => {
+      if (ghost) return 'transparent'
       if (disabled) {
         switch (type) {
           case 'primary':
@@ -111,13 +125,22 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     }};
     color: ${(p) => {
       if (disabled) return p.theme.colors.gray5
-      switch (type) {
-        case 'primary':
-          return 'white'
-        case 'link':
-          return p.theme.colors[danger ? 'danger' : 'primary']
-        default:
-          return p.theme.colors.gray7
+      if (ghost) {
+        switch (type) {
+          case 'primary':
+            return p.theme.colors.primary
+          default:
+            return 'white'
+        }
+      } else {
+        switch (type) {
+          case 'primary':
+            return 'white'
+          case 'link':
+            return p.theme.colors[danger ? 'danger' : 'primary']
+          default:
+            return p.theme.colors.gray7
+        }
       }
     }};
     font-size: ${size === 'lg' ? rem('16px') : rem('14px')};
@@ -125,19 +148,30 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     &:hover {
       border-color: ${(p) => {
         if (disabled) return null
-        switch (type) {
-          case 'primary':
-            return `${p.theme.colors[danger ? 'danger' : 'dark']}`
-          case 'text':
-            return `${p.theme.colors.gray2}`
-          case 'link':
-            return 'white'
-          default:
-            return `${p.theme.colors[danger ? 'danger' : 'primary']}`
+        if (ghost) {
+          switch (type) {
+            case 'primary':
+            case 'default':
+            case 'dashed':
+              return `${p.theme.colors[danger ? 'danger' : 'dark']}`
+            default:
+              return 'transparent'
+          }
+        } else {
+          switch (type) {
+            case 'primary':
+              return `${p.theme.colors[danger ? 'danger' : 'dark']}`
+            case 'text':
+              return `${p.theme.colors.gray2}`
+            case 'link':
+              return 'white'
+            default:
+              return `${p.theme.colors[danger ? 'danger' : 'primary']}`
+          }
         }
       }};
       background-color: ${(p) => {
-        if (disabled) return null
+        if (disabled || ghost) return null
         switch (type) {
           case 'primary':
             return p.theme.colors[danger ? 'danger' : 'dark']
@@ -149,15 +183,24 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
       }};
       color: ${(p) => {
         if (disabled) return null
-        switch (type) {
-          case 'primary':
-            return 'white'
-          case 'text':
-            return p.theme.colors.gray6
-          case 'link':
-            return p.theme.colors[danger ? 'danger' : 'light']
-          default:
-            return p.theme.colors[danger ? 'danger' : 'primary']
+        if (ghost) {
+          switch (type) {
+            case 'text':
+              return p.theme.colors.gray7
+            default:
+              return p.theme.colors[danger ? 'danger' : 'dark']
+          }
+        } else {
+          switch (type) {
+            case 'primary':
+              return 'white'
+            case 'text':
+              return p.theme.colors.gray7
+            case 'link':
+              return p.theme.colors[danger ? 'danger' : 'light']
+            default:
+              return p.theme.colors[danger ? 'danger' : 'primary']
+          }
         }
       }};
     }
