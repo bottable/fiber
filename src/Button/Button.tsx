@@ -3,7 +3,14 @@ import { MergeElementProps } from '../utils'
 import { baseStyle } from './styles'
 
 import styled, { css } from 'styled-components'
-import React, { ReactNode, Ref, MouseEventHandler, forwardRef } from 'react'
+import React, {
+  ReactNode,
+  MouseEventHandler,
+  forwardRef,
+  useState,
+  useEffect,
+  useRef
+} from 'react'
 import { rem } from 'polished'
 
 export type ButtonProps = MergeElementProps<
@@ -28,7 +35,7 @@ export type ButtonProps = MergeElementProps<
   }
 >
 
-const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
+const Button = forwardRef((props: ButtonProps, ref: any) => {
   const {
     children,
     type = 'default',
@@ -39,6 +46,11 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     ghost = false,
     block = false
   } = props
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  if (!ref) ref = useRef<HTMLButtonElement>(null)
+
+  const [activeStyle, setActiveStyle] = useState<any>(null)
 
   const buttonVariant = css`
     width: ${block ? '100%' : null};
@@ -207,9 +219,35 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
     }
   `
 
+  useEffect(() => {
+    setActiveStyle(css`
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        margin-top: -27px;
+        width: ${rem(`${ref.current.offsetWidth}px`)};
+        margin-left: ${rem(`${-ref.current.offsetWidth * 0.125}px`)};
+        height: 38px;
+        background-color: #555;
+        border-radius: ${rem('40px')};
+        opacity: 0;
+        transition: all 0.5s;
+      }
+
+      &:active:after {
+        opacity: 0.5;
+        width: ${rem(`${ref.current.offsetWidth / 2}px`)};
+        margin-left: ${rem(`${ref.current.offsetWidth * 0.125}px`)};
+        transition: 0s;
+      }
+    `)
+  }, [])
+
   const StyledButton = styled.button<ButtonProps>`
     ${baseStyle}
     ${buttonVariant};
+    ${activeStyle}
   `
 
   return <StyledButton ref={ref}>{children}</StyledButton>
