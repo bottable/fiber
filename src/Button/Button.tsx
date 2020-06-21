@@ -224,7 +224,7 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
     setActiveStyle(css`
       &:after {
         content: '';
-        display: block;
+        display: var(--display, none);
         position: fixed;
         height: ${rem(`${ref.current.offsetHeight * 2}px`)};
         width: ${rem(`${ref.current.offsetHeight * 2}px`)};
@@ -238,8 +238,6 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
 
       &:active:after {
         content: '';
-        display: block;
-        position: fixed;
         height: ${rem(`${ref.current.offsetHeight}px`)};
         width: ${rem(`${ref.current.offsetHeight}px`)};
         left: calc(
@@ -255,15 +253,15 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
       }
     `)
 
-    document.addEventListener('mousedown', (e) => {
-      if (e.target !== ref.current) return
+    // document.addEventListener('mousedown', (e) => {
+    //   if (e.target !== ref.current) return
 
-      const x = e.clientX
-      const y = e.clientY
+    //   const x = e.clientX
+    //   const y = e.clientY
 
-      ref.current.style.setProperty('--mouse-x', `${x}px`)
-      ref.current.style.setProperty('--mouse-y', `${y}px`)
-    })
+    //   ref.current.style.setProperty('--mouse-x', `${x}px`)
+    //   ref.current.style.setProperty('--mouse-y', `${y}px`)
+    // })
   }, [])
 
   const StyledButton = styled.button<ButtonProps>`
@@ -276,8 +274,23 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
     if (onClick) (onClick as React.MouseEventHandler<HTMLButtonElement>)(e)
   }
 
+  const handleMouseDown = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    const x = e.clientX
+    const y = e.clientY
+
+    ref.current.style.setProperty('--display', 'block')
+    ref.current.style.setProperty('--mouse-x', `${x}px`)
+    ref.current.style.setProperty('--mouse-y', `${y}px`)
+
+    setTimeout(() => {
+      ref.current.style.setProperty('--display', 'none')
+    }, 500)
+  }
+
   return (
-    <StyledButton ref={ref} onClick={handleClick}>
+    <StyledButton ref={ref} onClick={handleClick} onMouseDown={handleMouseDown}>
       {children}
     </StyledButton>
   )
