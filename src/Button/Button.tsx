@@ -44,7 +44,8 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
     danger = false,
     disabled = false,
     ghost = false,
-    block = false
+    block = false,
+    onClick
   } = props
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -224,24 +225,45 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
       &:after {
         content: '';
         display: block;
-        position: absolute;
-        margin-top: -27px;
-        width: ${rem(`${ref.current.offsetWidth}px`)};
-        margin-left: ${rem(`${-ref.current.offsetWidth * 0.125}px`)};
-        height: 38px;
+        position: fixed;
+        height: ${rem(`${ref.current.offsetHeight * 2}px`)};
+        width: ${rem(`${ref.current.offsetHeight * 2}px`)};
+        left: calc(var(--mouse-x, 0) - ${rem(`${ref.current.offsetHeight}px`)});
+        top: calc(var(--mouse-y, 0) - ${rem(`${ref.current.offsetHeight}px`)});
         background-color: #555;
-        border-radius: ${rem('40px')};
+        border-radius: 50%;
         opacity: 0;
         transition: all 0.5s;
       }
 
       &:active:after {
+        content: '';
+        display: block;
+        position: fixed;
+        height: ${rem(`${ref.current.offsetHeight}px`)};
+        width: ${rem(`${ref.current.offsetHeight}px`)};
+        left: calc(
+          var(--mouse-x, 0) - ${rem(`${ref.current.offsetHeight / 2}px`)}
+        );
+        top: calc(
+          var(--mouse-y, 0) - ${rem(`${ref.current.offsetHeight / 2}px`)}
+        );
+        background-color: #555;
+        border-radius: 50%;
         opacity: 0.5;
-        width: ${rem(`${ref.current.offsetWidth / 2}px`)};
-        margin-left: ${rem(`${ref.current.offsetWidth * 0.125}px`)};
         transition: 0s;
       }
     `)
+
+    document.addEventListener('mousedown', (e) => {
+      if (e.target !== ref.current) return
+
+      const x = e.clientX
+      const y = e.clientY
+
+      ref.current.style.setProperty('--mouse-x', `${x}px`)
+      ref.current.style.setProperty('--mouse-y', `${y}px`)
+    })
   }, [])
 
   const StyledButton = styled.button<ButtonProps>`
@@ -250,7 +272,15 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
     ${activeStyle}
   `
 
-  return <StyledButton ref={ref}>{children}</StyledButton>
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (onClick) (onClick as React.MouseEventHandler<HTMLButtonElement>)(e)
+  }
+
+  return (
+    <StyledButton ref={ref} onClick={handleClick}>
+      {children}
+    </StyledButton>
+  )
 })
 
 export { Button }
