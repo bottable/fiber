@@ -244,7 +244,13 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
             `${-domRect.top}px`
           )} + var(--mouse-y, 0)) calc(${rem(
             `${domRect.left + ref.current.offsetHeight}px`
-          )} - var(--mouse-x, 0)))`
+          )} - var(--mouse-x, 0)) round ${
+            shape === 'default'
+              ? rem('4px')
+              : shape === 'circle'
+              ? '50%'
+              : rem('40px')
+          })`
         }};
       }
 
@@ -272,7 +278,13 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
             `${-domRect.top - ref.current.offsetHeight / 2}px`
           )} + var(--mouse-y, 0)) calc(${rem(
             `${domRect.left + ref.current.offsetHeight / 2}px`
-          )} - var(--mouse-x, 0)))`
+          )} - var(--mouse-x, 0)) round ${
+            shape === 'default'
+              ? rem('4px')
+              : shape === 'circle'
+              ? '50%'
+              : rem('40px')
+          })`
         }};
       }
     `)
