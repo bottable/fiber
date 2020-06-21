@@ -234,6 +234,18 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
         border-radius: 50%;
         opacity: 0;
         transition: all 0.5s;
+        clip-path: ${() => {
+          const domRect = ref.current.getBoundingClientRect()
+          return `inset(calc(${rem(
+            `${domRect.bottom}px`
+          )} - var(--mouse-y, 0)) calc(${rem(
+            `${-domRect.right + ref.current.offsetHeight}px`
+          )} + var(--mouse-x, 0)) calc(${rem(
+            `${-domRect.top}px`
+          )} + var(--mouse-y, 0)) calc(${rem(
+            `${domRect.left + ref.current.offsetHeight}px`
+          )} - var(--mouse-x, 0)))`
+        }};
       }
 
       &:active:after {
@@ -250,18 +262,20 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
         border-radius: 50%;
         opacity: 0.5;
         transition: 0s;
+        clip-path: ${() => {
+          const domRect = ref.current.getBoundingClientRect()
+          return `inset(calc(${rem(
+            `${domRect.bottom - ref.current.offsetHeight / 2}px`
+          )} - var(--mouse-y, 0)) calc(${rem(
+            `${-domRect.right + ref.current.offsetHeight / 2}px`
+          )} + var(--mouse-x, 0)) calc(${rem(
+            `${-domRect.top - ref.current.offsetHeight / 2}px`
+          )} + var(--mouse-y, 0)) calc(${rem(
+            `${domRect.left + ref.current.offsetHeight / 2}px`
+          )} - var(--mouse-x, 0)))`
+        }};
       }
     `)
-
-    // document.addEventListener('mousedown', (e) => {
-    //   if (e.target !== ref.current) return
-
-    //   const x = e.clientX
-    //   const y = e.clientY
-
-    //   ref.current.style.setProperty('--mouse-x', `${x}px`)
-    //   ref.current.style.setProperty('--mouse-y', `${y}px`)
-    // })
   }, [])
 
   const StyledButton = styled.button<ButtonProps>`
