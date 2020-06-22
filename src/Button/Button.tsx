@@ -226,10 +226,10 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
         content: '';
         display: var(--display, none);
         position: fixed;
-        height: ${rem(`${ref.current.offsetHeight * 2}px`)};
-        width: ${rem(`${ref.current.offsetHeight * 2}px`)};
-        left: calc(var(--mouse-x, 0) - ${rem(`${ref.current.offsetHeight}px`)});
-        top: calc(var(--mouse-y, 0) - ${rem(`${ref.current.offsetHeight}px`)});
+        height: ${rem(`${ref.current.offsetWidth * 2}px`)};
+        width: ${rem(`${ref.current.offsetWidth * 2}px`)};
+        left: calc(var(--mouse-x, 0) - ${rem(`${ref.current.offsetWidth}px`)});
+        top: calc(var(--mouse-y, 0) - ${rem(`${ref.current.offsetWidth}px`)});
         background-color: #555;
         border-radius: 50%;
         opacity: 0;
@@ -237,13 +237,13 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
         clip-path: ${() => {
           const domRect = ref.current.getBoundingClientRect()
           return `inset(calc(${rem(
-            `${domRect.bottom}px`
+            `${domRect.top + ref.current.offsetWidth}px`
           )} - var(--mouse-y, 0)) calc(${rem(
-            `${-domRect.right + ref.current.offsetHeight}px`
+            `${-domRect.left}px`
           )} + var(--mouse-x, 0)) calc(${rem(
-            `${-domRect.top}px`
+            `${-domRect.bottom + ref.current.offsetWidth}px`
           )} + var(--mouse-y, 0)) calc(${rem(
-            `${domRect.left + ref.current.offsetHeight}px`
+            `${domRect.right}px`
           )} - var(--mouse-x, 0)) round ${
             shape === 'default'
               ? rem('4px')
