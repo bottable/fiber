@@ -1,11 +1,66 @@
 ---
-name: Fiber
+name: Getting Started
 route: /
 ---
 
-import { Text } from 'fiber'
-import { Playground, Props } from 'docz'
-
 # Fiber 🧸
 
-<Text code> {'<Fiber />'} </Text>
+> A React UI Component library
+
+[![NPM](https://img.shields.io/npm/v/fiber.svg)](https://www.npmjs.com/package/fiber) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Netlify Status](https://api.netlify.com/api/v1/badges/6726ed9a-832e-42bd-85e4-731a5677a8c9/deploy-status)](https://app.netlify.com/sites/bottable-fiber/deploys)
+
+## Install
+
+todo
+
+## Usage
+
+todo
+
+## Development
+
+```bash
+# install dependencies
+yarn
+
+# run demo at root directory
+yarn start
+
+```
+
+#### Create a component
+
+```bash
+yarn hygen fiber new
+```
+
+```
+> What's your new member called?
+> codegen_sample
+> What's your category does it belong ex. component, layout ...etc?
+> example
+> What's your base HTML element?
+> h2
+
+Loaded templates: _templates
+       added: src/CodegenSample/index.ts
+      inject: src/index.tsx
+       added: docs/sample/codegenSample.mdx
+       added: src/CodegenSample/__test__/CodegenSample.spec.tsx
+       added: src/CodegenSample/CodegenSample.tsx
+       added: src/CodegenSample/styles.ts
+✨  Done in 10.06s.
+```
+
+> Be sure to run `yarn test -u` after to create a new snapshot
+
+## License
+
+MIT © [bottable](https://github.com/bottable)
+
+<a href='https://www.netlify.com'>
+  <img
+    src='https://www.netlify.com/img/global/badges/netlify-color-accent.svg'
+    alt='Deploys by Netlify'
+  />
+</a>
