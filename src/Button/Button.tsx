@@ -2,13 +2,13 @@ import { MergeElementProps } from '../utils'
 
 import { baseStyle } from './styles'
 
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import React, {
   ReactNode,
   MouseEventHandler,
   forwardRef,
-  useState,
-  useEffect,
+  // useState,
+  // useEffect,
   useRef
 } from 'react'
 import { rem } from 'polished'
@@ -19,7 +19,7 @@ export type ButtonProps = MergeElementProps<
     disabled?: boolean
     ghost?: boolean
     href?: string
-    htmlType?: 'submit' | 'button' | 'reset'
+    htmlType?: 'submit' | 'button' | 'reset' | undefined
     icon?: ReactNode
     loading?: boolean | { delay: number }
     shape?: 'default' | 'circle' | 'round'
@@ -35,266 +35,341 @@ export type ButtonProps = MergeElementProps<
   }
 >
 
-const Button = forwardRef((props: ButtonProps, ref: any) => {
-  const {
-    children,
-    type = 'default',
-    size = 'md',
-    shape = 'default',
-    danger = false,
-    disabled = false,
-    ghost = false,
-    block = false,
-    onClick
-  } = props
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  if (!ref) ref = useRef<HTMLButtonElement>(null)
-
-  const [activeStyle, setActiveStyle] = useState<any>(null)
-
-  const buttonVariant = css`
-    width: ${block ? '100%' : null};
-    min-width: ${() => {
-      if (shape !== 'circle') return null
-      switch (size) {
-        case 'lg':
-          return rem('44px')
-        case 'md':
-          return rem('38px')
-        case 'sm':
-          return rem('30px')
-      }
-    }};
-    padding: ${() => {
-      switch (size) {
-        case 'lg':
-          return `${rem('12px')} ${rem('18px')}`
-        case 'md':
-          return `${rem('10px')} ${rem('16px')}`
-        case 'sm':
-          return `${rem('6px')} ${rem('12px')}`
-      }
-    }};
-    padding-right: ${shape === 'circle' ? rem('0px') : null};
-    padding-left: ${shape === 'circle' ? rem('0px') : null};
-    border-style: ${() => {
-      switch (type) {
-        case 'dashed':
-          return 'dashed'
-        default:
-          return 'solid'
-      }
-    }};
-    border-radius: ${shape === 'default'
+const BaseButton = styled.button<ButtonProps>`
+  ${baseStyle}
+  width: ${({ block }) => (block ? '100%' : null)};
+  min-width: ${({ shape, size }) => {
+    if (shape !== 'circle') return null
+    switch (size) {
+      case 'lg':
+        return rem('44px')
+      case 'sm':
+        return rem('30px')
+      default:
+        return rem('38px')
+    }
+  }};
+  padding: ${({ size }) => {
+    switch (size) {
+      case 'lg':
+        return `${rem('12px')} ${rem('18px')}`
+      case 'sm':
+        return `${rem('6px')} ${rem('12px')}`
+      default:
+        return `${rem('10px')} ${rem('16px')}`
+    }
+  }};
+  padding-right: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
+  padding-left: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
+  border-radius: ${({ shape }) =>
+    shape === 'default'
       ? rem('4px')
       : shape === 'circle'
       ? '50%'
       : rem('40px')};
-    border-color: ${(p) => {
-      if (ghost) {
-        switch (type) {
-          case 'primary':
-            return `${
-              p.theme.colors[disabled ? 'gray3' : danger ? 'danger' : 'primary']
-            }`
-          case 'link':
-            return 'transparent'
-          default:
-            return 'white'
-        }
-      } else {
-        switch (type) {
-          case 'primary':
-            return `${
-              p.theme.colors[disabled ? 'gray3' : danger ? 'danger' : 'primary']
-            }`
-          case 'default':
-          case 'dashed':
-            return `${p.theme.colors.gray4}`
-          default:
-            return 'white'
-        }
-      }
-    }};
-    background-color: ${(p) => {
-      if (ghost) return 'transparent'
-      if (disabled) {
-        switch (type) {
-          case 'primary':
-          case 'default':
-          case 'dashed':
-            return p.theme.colors.gray3
-          default:
-            return 'white'
-        }
-      } else {
-        switch (type) {
-          case 'primary':
-            return p.theme.colors[danger ? 'danger' : 'primary']
-          default:
-            return 'white'
-        }
-      }
-    }};
-    color: ${(p) => {
-      if (disabled) return p.theme.colors.gray5
-      if (ghost) {
-        switch (type) {
-          case 'primary':
-            return p.theme.colors.primary
-          default:
-            return 'white'
-        }
-      } else {
-        switch (type) {
-          case 'primary':
-            return 'white'
-          case 'link':
-            return p.theme.colors[danger ? 'danger' : 'primary']
-          default:
-            return p.theme.colors.gray7
-        }
-      }
-    }};
-    font-size: ${size === 'lg' ? rem('16px') : rem('14px')};
-    cursor: ${disabled ? 'not-allowed' : 'pointer'};
-    &:hover {
-      border-color: ${(p) => {
-        if (disabled) return null
-        if (ghost) {
-          switch (type) {
-            case 'primary':
-            case 'default':
-            case 'dashed':
-              return `${p.theme.colors[danger ? 'danger' : 'dark']}`
-            default:
-              return 'transparent'
-          }
-        } else {
-          switch (type) {
-            case 'primary':
-              return `${p.theme.colors[danger ? 'danger' : 'dark']}`
-            case 'text':
-              return `${p.theme.colors.gray2}`
-            case 'link':
-              return 'white'
-            default:
-              return `${p.theme.colors[danger ? 'danger' : 'primary']}`
-          }
-        }
-      }};
-      background-color: ${(p) => {
-        if (disabled || ghost) return null
-        switch (type) {
-          case 'primary':
-            return p.theme.colors[danger ? 'danger' : 'dark']
-          case 'text':
-            return p.theme.colors.gray2
-          default:
-            return 'white'
-        }
-      }};
-      color: ${(p) => {
-        if (disabled) return null
-        if (ghost) {
-          switch (type) {
-            case 'text':
-              return p.theme.colors.gray7
-            default:
-              return p.theme.colors[danger ? 'danger' : 'dark']
-          }
-        } else {
-          switch (type) {
-            case 'primary':
-              return 'white'
-            case 'text':
-              return p.theme.colors.gray7
-            case 'link':
-              return p.theme.colors[danger ? 'danger' : 'light']
-            default:
-              return p.theme.colors[danger ? 'danger' : 'primary']
-          }
-        }
-      }};
+  font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+`
+
+const PrimaryButton = styled(BaseButton)`
+  border-style: solid;
+  border-color: ${({ disabled, danger, theme }) =>
+    theme.colors[disabled ? 'gray3' : danger ? 'danger' : 'primary']};
+  background-color: ${({ ghost, disabled, danger, theme }) => {
+    if (ghost) return 'transparent'
+    if (disabled) {
+      return theme.colors.gray3
+    } else {
+      return theme.colors[danger ? 'danger' : 'primary']
     }
-  `
-
-  useEffect(() => {
-    setActiveStyle(css`
-      &:after {
-        content: '';
-        display: var(--display, none);
-        position: fixed;
-        height: ${rem(`${ref.current.offsetWidth * 2}px`)};
-        width: ${rem(`${ref.current.offsetWidth * 2}px`)};
-        left: calc(var(--mouse-x, 0) - ${rem(`${ref.current.offsetWidth}px`)});
-        top: calc(var(--mouse-y, 0) - ${rem(`${ref.current.offsetWidth}px`)});
-        background-color: #555;
-        border-radius: 50%;
-        opacity: 0;
-        transition: all 0.5s;
-        clip-path: ${() => {
-          const domRect = ref.current.getBoundingClientRect()
-          return `inset(calc(${rem(
-            `${domRect.top + ref.current.offsetWidth}px`
-          )} - var(--mouse-y, 0)) calc(${rem(
-            `${-domRect.left}px`
-          )} + var(--mouse-x, 0)) calc(${rem(
-            `${-domRect.bottom + ref.current.offsetWidth}px`
-          )} + var(--mouse-y, 0)) calc(${rem(
-            `${domRect.right}px`
-          )} - var(--mouse-x, 0)) round ${
-            shape === 'default'
-              ? rem('4px')
-              : shape === 'circle'
-              ? '50%'
-              : rem('40px')
-          })`
-        }};
+  }};
+  color: ${({ ghost, disabled, theme }) => {
+    if (disabled) return theme.colors.gray5
+    if (ghost) {
+      return theme.colors.primary
+    } else {
+      return 'white'
+    }
+  }};
+  &:hover {
+    border-color: ${({ disabled, danger, theme }) => {
+      if (disabled) return null
+      return `${theme.colors[danger ? 'danger' : 'dark']}`
+    }};
+    background-color: ${({ ghost, disabled, danger, theme }) => {
+      if (disabled || ghost) return null
+      return theme.colors[danger ? 'danger' : 'dark']
+    }};
+    color: ${({ ghost, disabled, danger, theme }) => {
+      if (disabled) return null
+      if (ghost) {
+        return theme.colors[danger ? 'danger' : 'dark']
+      } else {
+        return 'white'
       }
+    }};
+  }
+`
 
-      &:active:after {
-        content: '';
-        height: ${rem(`${ref.current.offsetHeight}px`)};
-        width: ${rem(`${ref.current.offsetHeight}px`)};
-        left: calc(
-          var(--mouse-x, 0) - ${rem(`${ref.current.offsetHeight / 2}px`)}
-        );
-        top: calc(
-          var(--mouse-y, 0) - ${rem(`${ref.current.offsetHeight / 2}px`)}
-        );
-        background-color: #555;
-        border-radius: 50%;
-        opacity: 0.5;
-        transition: 0s;
-        clip-path: ${() => {
-          const domRect = ref.current.getBoundingClientRect()
-          return `inset(calc(${rem(
-            `${domRect.bottom - ref.current.offsetHeight / 2}px`
-          )} - var(--mouse-y, 0)) calc(${rem(
-            `${-domRect.right + ref.current.offsetHeight / 2}px`
-          )} + var(--mouse-x, 0)) calc(${rem(
-            `${-domRect.top - ref.current.offsetHeight / 2}px`
-          )} + var(--mouse-y, 0)) calc(${rem(
-            `${domRect.left + ref.current.offsetHeight / 2}px`
-          )} - var(--mouse-x, 0)) round ${
-            shape === 'default'
-              ? rem('4px')
-              : shape === 'circle'
-              ? '50%'
-              : rem('40px')
-          })`
-        }};
+const DefaultButton = styled(BaseButton)`
+  border-style: solid;
+  border-color: ${({ ghost, theme }) => {
+    if (ghost) {
+      return 'white'
+    } else {
+      return `${theme.colors.gray4}`
+    }
+  }};
+  background-color: ${({ ghost, disabled, theme }) => {
+    if (ghost) return 'transparent'
+    if (disabled) {
+      return theme.colors.gray3
+    } else {
+      return 'white'
+    }
+  }};
+  color: ${({ ghost, disabled, theme }) => {
+    if (disabled) return theme.colors.gray5
+    if (ghost) {
+      return 'white'
+    } else {
+      return theme.colors.gray7
+    }
+  }};
+  &:hover {
+    border-color: ${({ ghost, disabled, danger, theme }) => {
+      if (disabled) return null
+      return `${theme.colors[danger ? 'danger' : ghost ? 'dark' : 'primary']}`
+    }};
+    background-color: ${({ ghost, disabled }) => {
+      if (disabled || ghost) return null
+      return 'white'
+    }};
+    color: ${({ ghost, disabled, danger, theme }) => {
+      if (disabled) return null
+      if (ghost) {
+        return theme.colors[danger ? 'danger' : 'dark']
+      } else {
+        return theme.colors[danger ? 'danger' : 'primary']
       }
-    `)
-  }, [])
+    }};
+  }
+`
 
-  const StyledButton = styled.button<ButtonProps>`
-    ${baseStyle}
-    ${buttonVariant};
-    ${activeStyle}
-  `
+const DashedButton = styled(BaseButton)`
+  border-style: dashed;
+  border-color: ${({ ghost, theme }) => {
+    if (ghost) {
+      return 'white'
+    } else {
+      return `${theme.colors.gray4}`
+    }
+  }};
+  background-color: ${({ ghost, disabled, theme }) => {
+    if (ghost) return 'transparent'
+    if (disabled) {
+      return theme.colors.gray3
+    } else {
+      return 'white'
+    }
+  }};
+  color: ${({ ghost, disabled, theme }) => {
+    if (disabled) return theme.colors.gray5
+    if (ghost) {
+      return 'white'
+    } else {
+      return theme.colors.gray7
+    }
+  }};
+  &:hover {
+    border-color: ${({ ghost, disabled, danger, theme }) => {
+      if (disabled) return null
+      return `${theme.colors[danger ? 'danger' : ghost ? 'dark' : 'primary']}`
+    }};
+    background-color: ${({ ghost, disabled }) => {
+      if (disabled || ghost) return null
+      return 'white'
+    }};
+    color: ${({ ghost, disabled, danger, theme }) => {
+      if (disabled) return null
+      return `${theme.colors[danger ? 'danger' : ghost ? 'dark' : 'primary']}`
+    }};
+  }
+`
+
+const TextButton = styled(BaseButton)`
+  border-style: solid;
+  border-color: white;
+  background-color: ${({ ghost }) => {
+    if (ghost) return 'transparent'
+    return 'white'
+  }};
+  color: ${({ ghost, disabled, theme }) => {
+    if (disabled) return theme.colors.gray5
+    if (ghost) {
+      return 'white'
+    } else {
+      return theme.colors.gray7
+    }
+  }};
+  &:hover {
+    border-color: ${({ ghost, disabled, theme }) => {
+      if (disabled) return null
+      if (ghost) {
+        return 'transparent'
+      } else {
+        return `${theme.colors.gray2}`
+      }
+    }};
+    background-color: ${({ ghost, disabled, theme }) => {
+      if (disabled || ghost) return null
+      return theme.colors.gray2
+    }};
+    color: ${({ disabled, theme }) => {
+      if (disabled) return null
+      return theme.colors.gray7
+    }};
+  }
+`
+
+const LinkButton = styled(BaseButton)`
+  border-style: solid;
+  border-color: ${({ ghost }) => {
+    if (ghost) {
+      return 'transparent'
+    } else {
+      return 'white'
+    }
+  }};
+  background-color: ${({ ghost }) => {
+    if (ghost) return 'transparent'
+    return 'white'
+  }};
+  color: ${({ ghost, disabled, danger, theme }) => {
+    if (disabled) return theme.colors.gray5
+    if (ghost) {
+      return 'white'
+    } else {
+      return theme.colors[danger ? 'danger' : 'primary']
+    }
+  }};
+  &:hover {
+    border-color: ${({ ghost, disabled }) => {
+      if (disabled) return null
+      if (ghost) {
+        return 'transparent'
+      } else {
+        return 'white'
+      }
+    }};
+    background-color: ${({ ghost, disabled }) => {
+      if (disabled || ghost) return null
+      return 'white'
+    }};
+    color: ${({ ghost, disabled, danger, theme }) => {
+      if (disabled) return null
+      return theme.colors[danger ? 'danger' : ghost ? 'dark' : 'light']
+    }};
+  }
+`
+
+const Button = forwardRef((props: ButtonProps, ref: any) => {
+  const { children, type = 'default', onClick, ...rest } = props
+
+  let StyledButton
+
+  switch (type) {
+    case 'primary':
+      StyledButton = PrimaryButton
+      break
+    case 'dashed':
+      StyledButton = DashedButton
+      break
+    case 'text':
+      StyledButton = TextButton
+      break
+    case 'link':
+      StyledButton = LinkButton
+      break
+    default:
+      StyledButton = DefaultButton
+      break
+  }
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  if (!ref) ref = useRef<HTMLButtonElement>(null)
+
+  // const [activeStyle, setActiveStyle] = useState<any>(null)
+
+  // useEffect(() => {
+  //   setActiveStyle(css`
+  //     &:after {
+  //       content: '';
+  //       display: var(--display, none);
+  //       position: fixed;
+  //       height: ${rem(`${ref.current.offsetWidth * 2}px`)};
+  //       width: ${rem(`${ref.current.offsetWidth * 2}px`)};
+  //       left: calc(var(--mouse-x, 0) - ${rem(`${ref.current.offsetWidth}px`)});
+  //       top: calc(var(--mouse-y, 0) - ${rem(`${ref.current.offsetWidth}px`)});
+  //       background-color: #555;
+  //       border-radius: 50%;
+  //       opacity: 0;
+  //       transition: all 0.5s;
+  //       clip-path: ${() => {
+  //         const domRect = ref.current.getBoundingClientRect()
+  //         return `inset(calc(${rem(
+  //           `${domRect.top + ref.current.offsetWidth}px`
+  //         )} - var(--mouse-y, 0)) calc(${rem(
+  //           `${-domRect.left}px`
+  //         )} + var(--mouse-x, 0)) calc(${rem(
+  //           `${-domRect.bottom + ref.current.offsetWidth}px`
+  //         )} + var(--mouse-y, 0)) calc(${rem(
+  //           `${domRect.right}px`
+  //         )} - var(--mouse-x, 0)) round ${
+  //           shape === 'default'
+  //             ? rem('4px')
+  //             : shape === 'circle'
+  //             ? '50%'
+  //             : rem('40px')
+  //         })`
+  //       }};
+  //     }
+
+  //     &:active:after {
+  //       content: '';
+  //       height: ${rem(`${ref.current.offsetHeight}px`)};
+  //       width: ${rem(`${ref.current.offsetHeight}px`)};
+  //       left: calc(
+  //         var(--mouse-x, 0) - ${rem(`${ref.current.offsetHeight / 2}px`)}
+  //       );
+  //       top: calc(
+  //         var(--mouse-y, 0) - ${rem(`${ref.current.offsetHeight / 2}px`)}
+  //       );
+  //       background-color: #555;
+  //       border-radius: 50%;
+  //       opacity: 0.5;
+  //       transition: 0s;
+  //       clip-path: ${() => {
+  //         const domRect = ref.current.getBoundingClientRect()
+  //         return `inset(calc(${rem(
+  //           `${domRect.bottom - ref.current.offsetHeight / 2}px`
+  //         )} - var(--mouse-y, 0)) calc(${rem(
+  //           `${-domRect.right + ref.current.offsetHeight / 2}px`
+  //         )} + var(--mouse-x, 0)) calc(${rem(
+  //           `${-domRect.top - ref.current.offsetHeight / 2}px`
+  //         )} + var(--mouse-y, 0)) calc(${rem(
+  //           `${domRect.left + ref.current.offsetHeight / 2}px`
+  //         )} - var(--mouse-x, 0)) round ${
+  //           shape === 'default'
+  //             ? rem('4px')
+  //             : shape === 'circle'
+  //             ? '50%'
+  //             : rem('40px')
+  //         })`
+  //       }};
+  //     }
+  //   `)
+  // }, [])
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (onClick) (onClick as React.MouseEventHandler<HTMLButtonElement>)(e)
@@ -316,7 +391,12 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
   }
 
   return (
-    <StyledButton ref={ref} onClick={handleClick} onMouseDown={handleMouseDown}>
+    <StyledButton
+      ref={ref}
+      onClick={handleClick}
+      onMouseDown={handleMouseDown}
+      {...rest}
+    >
       {children}
     </StyledButton>
   )
