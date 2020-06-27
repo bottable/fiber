@@ -2,14 +2,13 @@ import { MergeElementProps } from '../utils'
 
 import { baseStyle } from './styles'
 
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import React, {
   ReactNode,
   MouseEventHandler,
   forwardRef,
-  // useState,
-  // useEffect,
-  useRef
+  useRef,
+  useState
 } from 'react'
 import { rem } from 'polished'
 
@@ -34,6 +33,18 @@ export type ButtonProps = MergeElementProps<
     className?: string
   }
 >
+
+type RippleProps = {
+  mouseX: number
+  mouseY: number
+  width: number
+  height: number
+  top: number
+  bottom: number
+  left: number
+  right: number
+  shape?: 'default' | 'circle' | 'round'
+}
 
 const BaseButton = styled.button<ButtonProps>`
   ${baseStyle}
@@ -273,6 +284,66 @@ const LinkButton = styled(BaseButton)`
   }
 `
 
+const RippleSpan = styled.span<RippleProps>`
+  display: block;
+  position: fixed;
+  background-color: #555;
+  border-radius: 50%;
+  opacity: 0;
+  animation: ${({
+      mouseX,
+      mouseY,
+      width,
+      height,
+      top,
+      bottom,
+      left,
+      right,
+      shape
+    }) => {
+      return keyframes`
+  from {
+    opacity: 0.5;
+    height: ${rem(`${height}px`)};
+    width: ${rem(`${height}px`)};
+    left: ${rem(`${mouseX - height / 2}px`)};
+    top: ${rem(`${mouseY - height / 2}px`)};
+    clip-path: ${`inset(${rem(`${bottom - height / 2 - mouseY}px`)} ${rem(
+      `${-right + height / 2 + mouseX}px`
+    )} ${rem(`${-top - height / 2 + mouseY}px`)} ${rem(
+      `${left + height / 2 - mouseX}px`
+    )} round ${
+      shape === 'default'
+        ? rem('4px')
+        : shape === 'circle'
+        ? '50%'
+        : rem('40px')
+    })`};
+  }
+
+  to {
+    opacity: 0;
+    height: ${rem(`${width * 2}px`)};
+    width: ${rem(`${width * 2}px`)};
+    left: ${rem(`${mouseX - width}px`)};
+    top: ${rem(`${mouseY - width}px`)};
+    clip-path: ${`inset(${rem(`${top + width - mouseY}px`)} ${rem(
+      `${-left + mouseX}px`
+    )} ${rem(`${-bottom + width + mouseY}px`)} ${rem(
+      `${right - mouseX}px`
+    )} round ${
+      shape === 'default'
+        ? rem('4px')
+        : shape === 'circle'
+        ? '50%'
+        : rem('40px')
+    })`};
+  }
+`
+    }}
+    0.5s linear 0s 1;
+`
+
 const Button = forwardRef((props: ButtonProps, ref: any) => {
   const { children, type = 'default', onClick, ...rest } = props
 
@@ -296,80 +367,10 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
       break
   }
 
+  const [ripple, setRipple] = useState<any>(null)
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   if (!ref) ref = useRef<HTMLButtonElement>(null)
-
-  // const [activeStyle, setActiveStyle] = useState<any>(null)
-
-  // useEffect(() => {
-  //   setActiveStyle(css`
-  //     &:after {
-  //       content: '';
-  //       display: var(--display, none);
-  //       position: fixed;
-  //       height: ${rem(`${ref.current.offsetWidth * 2}px`)};
-  //       width: ${rem(`${ref.current.offsetWidth * 2}px`)};
-  //       left: calc(var(--mouse-x, 0) - ${rem(`${ref.current.offsetWidth}px`)});
-  //       top: calc(var(--mouse-y, 0) - ${rem(`${ref.current.offsetWidth}px`)});
-  //       background-color: #555;
-  //       border-radius: 50%;
-  //       opacity: 0;
-  //       transition: all 0.5s;
-  //       clip-path: ${() => {
-  //         const domRect = ref.current.getBoundingClientRect()
-  //         return `inset(calc(${rem(
-  //           `${domRect.top + ref.current.offsetWidth}px`
-  //         )} - var(--mouse-y, 0)) calc(${rem(
-  //           `${-domRect.left}px`
-  //         )} + var(--mouse-x, 0)) calc(${rem(
-  //           `${-domRect.bottom + ref.current.offsetWidth}px`
-  //         )} + var(--mouse-y, 0)) calc(${rem(
-  //           `${domRect.right}px`
-  //         )} - var(--mouse-x, 0)) round ${
-  //           shape === 'default'
-  //             ? rem('4px')
-  //             : shape === 'circle'
-  //             ? '50%'
-  //             : rem('40px')
-  //         })`
-  //       }};
-  //     }
-
-  //     &:active:after {
-  //       content: '';
-  //       height: ${rem(`${ref.current.offsetHeight}px`)};
-  //       width: ${rem(`${ref.current.offsetHeight}px`)};
-  //       left: calc(
-  //         var(--mouse-x, 0) - ${rem(`${ref.current.offsetHeight / 2}px`)}
-  //       );
-  //       top: calc(
-  //         var(--mouse-y, 0) - ${rem(`${ref.current.offsetHeight / 2}px`)}
-  //       );
-  //       background-color: #555;
-  //       border-radius: 50%;
-  //       opacity: 0.5;
-  //       transition: 0s;
-  //       clip-path: ${() => {
-  //         const domRect = ref.current.getBoundingClientRect()
-  //         return `inset(calc(${rem(
-  //           `${domRect.bottom - ref.current.offsetHeight / 2}px`
-  //         )} - var(--mouse-y, 0)) calc(${rem(
-  //           `${-domRect.right + ref.current.offsetHeight / 2}px`
-  //         )} + var(--mouse-x, 0)) calc(${rem(
-  //           `${-domRect.top - ref.current.offsetHeight / 2}px`
-  //         )} + var(--mouse-y, 0)) calc(${rem(
-  //           `${domRect.left + ref.current.offsetHeight / 2}px`
-  //         )} - var(--mouse-x, 0)) round ${
-  //           shape === 'default'
-  //             ? rem('4px')
-  //             : shape === 'circle'
-  //             ? '50%'
-  //             : rem('40px')
-  //         })`
-  //       }};
-  //     }
-  //   `)
-  // }, [])
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (onClick) (onClick as React.MouseEventHandler<HTMLButtonElement>)(e)
@@ -381,13 +382,22 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
     const x = e.clientX
     const y = e.clientY
 
-    ref.current.style.setProperty('--display', 'block')
-    ref.current.style.setProperty('--mouse-x', `${x}px`)
-    ref.current.style.setProperty('--mouse-y', `${y}px`)
-
-    setTimeout(() => {
-      ref.current.style.setProperty('--display', 'none')
-    }, 500)
+    setRipple(
+      <RippleSpan
+        mouseX={x}
+        mouseY={y}
+        width={ref.current.offsetWidth}
+        height={ref.current.offsetHeight}
+        top={ref.current.getBoundingClientRect().top}
+        bottom={ref.current.getBoundingClientRect().bottom}
+        left={ref.current.getBoundingClientRect().left}
+        right={ref.current.getBoundingClientRect().right}
+        shape={rest.shape}
+        onAnimationEnd={() => {
+          setRipple(null)
+        }}
+      />
+    )
   }
 
   return (
@@ -398,6 +408,7 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
       {...rest}
     >
       {children}
+      {ripple}
     </StyledButton>
   )
 })
