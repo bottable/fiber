@@ -56,14 +56,14 @@ export const BaseButton = styled.button<ButtonProps>`
 
 export const PrimaryButton = styled(BaseButton)`
   border-style: solid;
-  border-color: ${({ disabled, danger, theme }) =>
-    theme.colors[disabled ? 'gray3' : danger ? 'danger' : 'primary']};
-  background-color: ${({ ghost, disabled, danger, theme }) => {
+  border-color: ${({ disabled, theme }) =>
+    theme.colors[disabled ? 'gray3' : 'primary']};
+  background-color: ${({ ghost, disabled, theme }) => {
     if (ghost) return 'transparent'
     if (disabled) {
       return theme.colors.gray3
     } else {
-      return theme.colors[danger ? 'danger' : 'primary']
+      return theme.colors.primary
     }
   }};
   color: ${({ ghost, disabled, theme }) => {
@@ -75,18 +75,18 @@ export const PrimaryButton = styled(BaseButton)`
     }
   }};
   &:hover {
-    border-color: ${({ disabled, danger, theme }) => {
+    border-color: ${({ disabled, theme }) => {
       if (disabled) return null
-      return `${theme.colors[danger ? 'danger' : 'dark']}`
+      return `${theme.colors.dark}`
     }};
-    background-color: ${({ ghost, disabled, danger, theme }) => {
+    background-color: ${({ ghost, disabled, theme }) => {
       if (disabled || ghost) return null
-      return theme.colors[danger ? 'danger' : 'dark']
+      return theme.colors.dark
     }};
-    color: ${({ ghost, disabled, danger, theme }) => {
+    color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
       if (ghost) {
-        return theme.colors[danger ? 'danger' : 'dark']
+        return theme.colors.dark
       } else {
         return 'white'
       }
@@ -120,20 +120,20 @@ export const DefaultButton = styled(BaseButton)`
     }
   }};
   &:hover {
-    border-color: ${({ ghost, disabled, danger, theme }) => {
+    border-color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
-      return `${theme.colors[danger ? 'danger' : ghost ? 'dark' : 'primary']}`
+      return `${theme.colors[ghost ? 'dark' : 'primary']}`
     }};
     background-color: ${({ ghost, disabled }) => {
       if (disabled || ghost) return null
       return 'white'
     }};
-    color: ${({ ghost, disabled, danger, theme }) => {
+    color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
       if (ghost) {
-        return theme.colors[danger ? 'danger' : 'dark']
+        return theme.colors.dark
       } else {
-        return theme.colors[danger ? 'danger' : 'primary']
+        return theme.colors.primary
       }
     }};
   }
@@ -165,17 +165,17 @@ export const DashedButton = styled(BaseButton)`
     }
   }};
   &:hover {
-    border-color: ${({ ghost, disabled, danger, theme }) => {
+    border-color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
-      return `${theme.colors[danger ? 'danger' : ghost ? 'dark' : 'primary']}`
+      return `${theme.colors[ghost ? 'dark' : 'primary']}`
     }};
     background-color: ${({ ghost, disabled }) => {
       if (disabled || ghost) return null
       return 'white'
     }};
-    color: ${({ ghost, disabled, danger, theme }) => {
+    color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
-      return `${theme.colors[danger ? 'danger' : ghost ? 'dark' : 'primary']}`
+      return `${theme.colors[ghost ? 'dark' : 'primary']}`
     }};
   }
 `
@@ -228,12 +228,12 @@ export const LinkButton = styled(BaseButton)`
     if (ghost) return 'transparent'
     return 'white'
   }};
-  color: ${({ ghost, disabled, danger, theme }) => {
+  color: ${({ ghost, disabled, theme }) => {
     if (disabled) return theme.colors.gray5
     if (ghost) {
       return 'white'
     } else {
-      return theme.colors[danger ? 'danger' : 'primary']
+      return theme.colors.primary
     }
   }};
   &:hover {
@@ -249,9 +249,9 @@ export const LinkButton = styled(BaseButton)`
       if (disabled || ghost) return null
       return 'white'
     }};
-    color: ${({ ghost, disabled, danger, theme }) => {
+    color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
-      return theme.colors[danger ? 'danger' : ghost ? 'dark' : 'light']
+      return theme.colors[ghost ? 'dark' : 'light']
     }};
   }
 `

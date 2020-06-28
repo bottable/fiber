@@ -35,7 +35,6 @@ export type ButtonProps = MergeElementProps<
     type?: 'primary' | 'default' | 'dashed' | 'text' | 'link'
     onClick?: MouseEventHandler<HTMLElement>
     block?: boolean
-    danger?: boolean
     children?: React.ReactNode
     prefixCls?: string
     className?: string
