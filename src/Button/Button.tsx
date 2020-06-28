@@ -3,13 +3,7 @@ import { MergeElementProps } from '../utils'
 import { baseStyle } from './styles'
 
 import styled, { keyframes } from 'styled-components'
-import React, {
-  ReactNode,
-  MouseEventHandler,
-  forwardRef,
-  useRef,
-  useState
-} from 'react'
+import React, { MouseEventHandler, forwardRef, useRef, useState } from 'react'
 import { rem } from 'polished'
 
 export type ButtonProps = MergeElementProps<
@@ -19,7 +13,7 @@ export type ButtonProps = MergeElementProps<
     ghost?: boolean
     href?: string
     htmlType?: 'submit' | 'button' | 'reset' | undefined
-    icon?: ReactNode
+    icon?: React.ReactElement
     loading?: boolean | { delay: number }
     shape?: 'default' | 'circle' | 'round'
     size?: 'sm' | 'md' | 'lg'
@@ -38,7 +32,6 @@ type RippleProps = {
   mouseX: number
   mouseY: number
   width: number
-  height: number
   top: number
   bottom: number
   left: number
@@ -51,6 +44,16 @@ const BaseButton = styled.button<ButtonProps>`
   width: ${({ block }) => (block ? '100%' : null)};
   min-width: ${({ shape, size }) => {
     if (shape !== 'circle') return null
+    switch (size) {
+      case 'lg':
+        return rem('44px')
+      case 'sm':
+        return rem('30px')
+      default:
+        return rem('38px')
+    }
+  }};
+  height: ${({ size }) => {
     switch (size) {
       case 'lg':
         return rem('44px')
@@ -73,11 +76,7 @@ const BaseButton = styled.button<ButtonProps>`
   padding-right: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
   padding-left: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
   border-radius: ${({ shape }) =>
-    shape === 'default'
-      ? rem('4px')
-      : shape === 'circle'
-      ? '50%'
-      : rem('40px')};
+    shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')};
   font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `
@@ -290,34 +289,18 @@ const RippleSpan = styled.span<RippleProps>`
   background-color: #555;
   border-radius: 50%;
   opacity: 0;
-  animation: ${({
-      mouseX,
-      mouseY,
-      width,
-      height,
-      top,
-      bottom,
-      left,
-      right,
-      shape
-    }) => {
+  animation: ${({ mouseX, mouseY, width, top, bottom, left, right, shape }) => {
       return keyframes`
   from {
     opacity: 0.5;
-    height: ${rem(`${height}px`)};
-    width: ${rem(`${height}px`)};
-    left: ${rem(`${mouseX - height / 2}px`)};
-    top: ${rem(`${mouseY - height / 2}px`)};
-    clip-path: ${`inset(${rem(`${bottom - height / 2 - mouseY}px`)} ${rem(
-      `${-right + height / 2 + mouseX}px`
-    )} ${rem(`${-top - height / 2 + mouseY}px`)} ${rem(
-      `${left + height / 2 - mouseX}px`
-    )} round ${
-      shape === 'default'
-        ? rem('4px')
-        : shape === 'circle'
-        ? '50%'
-        : rem('40px')
+    height: 0px;
+    width: 0px;
+    left: ${rem(`${mouseX}px`)};
+    top: ${rem(`${mouseY}px`)};
+    clip-path: ${`inset(${rem(`${top - mouseY}px`)} ${rem(
+      `${-right + mouseX}px`
+    )} ${rem(`${-bottom + mouseY}px`)} ${rem(`${left - mouseX}px`)} round ${
+      shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')
     })`};
   }
 
@@ -332,11 +315,7 @@ const RippleSpan = styled.span<RippleProps>`
     )} ${rem(`${-bottom + width + mouseY}px`)} ${rem(
       `${right - mouseX}px`
     )} round ${
-      shape === 'default'
-        ? rem('4px')
-        : shape === 'circle'
-        ? '50%'
-        : rem('40px')
+      shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')
     })`};
   }
 `
@@ -345,7 +324,7 @@ const RippleSpan = styled.span<RippleProps>`
 `
 
 const Button = forwardRef((props: ButtonProps, ref: any) => {
-  const { children, type = 'default', onClick, ...rest } = props
+  const { children, type = 'default', onClick, icon, ...rest } = props
 
   let StyledButton
 
@@ -379,15 +358,20 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
   const handleMouseDown = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    const x = e.clientX
-    const y = e.clientY
+    const x =
+      rest.shape === 'circle'
+        ? ref.current.getBoundingClientRect().left + ref.current.offsetWidth / 2
+        : e.clientX
+    const y =
+      rest.shape === 'circle'
+        ? ref.current.getBoundingClientRect().top + ref.current.offsetHeight / 2
+        : e.clientY
 
     setRipple(
       <RippleSpan
         mouseX={x}
         mouseY={y}
         width={ref.current.offsetWidth}
-        height={ref.current.offsetHeight}
         top={ref.current.getBoundingClientRect().top}
         bottom={ref.current.getBoundingClientRect().bottom}
         left={ref.current.getBoundingClientRect().left}
@@ -400,6 +384,10 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
     )
   }
 
+  const iconStyle = {
+    height: rest.size === 'lg' ? rem('19px') : rem('18px')
+  }
+
   return (
     <StyledButton
       ref={ref}
@@ -407,6 +395,7 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
       onMouseDown={handleMouseDown}
       {...rest}
     >
+      {icon ? <icon.type style={iconStyle} /> : null}
       {children}
       {ripple}
     </StyledButton>
