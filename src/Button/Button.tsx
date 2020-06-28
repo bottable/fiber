@@ -9,7 +9,13 @@ import {
   RippleSpan
 } from './styles'
 
-import React, { MouseEventHandler, forwardRef, useRef, useState } from 'react'
+import React, {
+  MouseEventHandler,
+  forwardRef,
+  useRef,
+  useState,
+  useEffect
+} from 'react'
 import { rem } from 'polished'
 
 type Shape = 'default' | 'circle' | 'round'
@@ -72,6 +78,11 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
 
   const [ripples, setRipples] = useState<React.ReactNode[]>([])
 
+  const prevRipplesRef = useRef<React.ReactNode[]>()
+  useEffect(() => {
+    prevRipplesRef.current = ripples
+  })
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   if (!ref) ref = useRef<HTMLButtonElement>(null)
 
@@ -97,9 +108,8 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
     const x = ref.current.offsetLeft + left
     const y = ref.current.offsetTop + top
 
-    const oldRipples = [...ripples]
     const newRipples = [
-      ...ripples,
+      ...prevRipplesRef.current!,
       <RippleSpan
         x={x}
         y={y}
@@ -110,9 +120,9 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
         shape={rest.shape}
         width={ref.current.offsetWidth * 2}
         onAnimationEnd={() => {
-          setRipples(ripples.slice(1))
+          setRipples(prevRipplesRef.current?.slice(1)!)
         }}
-        key={oldRipples.length}
+        key={`${new Date().getTime()}`}
       />
     ]
 
