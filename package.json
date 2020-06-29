@@ -98,6 +98,8 @@
     "dist"
   ],
   "dependencies": {
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
     "@types/enzyme": "^3.10.5",
     "@types/react-helmet": "^6.0.0",
     "@types/react-helmet-async": "^1.0.3",

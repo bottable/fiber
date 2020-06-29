@@ -1,0 +1,124 @@
+---
+name: Button
+route: /component/button
+menu: Component
+---
+
+import { Button } from 'fiber'
+import { Playground } from 'docz'
+import DeleteIcon from '@material-ui/icons/Delete'
+
+# Button
+
+## Type
+
+<Playground>
+  <div>
+    <Button type='primary'>Primary Button</Button>
+    <Button>Default Button</Button>
+    <Button type='dashed'>Dashed Button</Button>
+    <Button type='text'>Text Button</Button>
+    <Button type='link'>Link Button</Button>
+  </div>
+</Playground>
+
+## Size
+
+<Playground>
+  <div>
+    <Button size='lg'>Large Button</Button>
+    <Button>Medium Button</Button>
+    <Button size='sm'>Small Button</Button>
+  </div>
+</Playground>
+
+## Shape
+
+<Playground>
+  <div>
+    <Button>Default Shape</Button>
+    <Button shape='circle'>O</Button>
+    <Button shape='round'>Round Shape</Button>
+  </div>
+</Playground>
+
+## Disabled
+
+<Playground>
+  <div>
+    <Button type='primary' disabled>
+      Primary Button
+    </Button>
+    <Button disabled>Default Button</Button>
+    <Button type='dashed' disabled>
+      Dashed Button
+    </Button>
+    <Button type='text' disabled>
+      Text Button
+    </Button>
+    <Button type='link' disabled>
+      Link Button
+    </Button>
+  </div>
+</Playground>
+
+## Ghost
+
+<Playground>
+  <div style={{ backgroundColor: 'rgb(190, 200, 200)', paddingTop: 12 }}>
+    <Button type='primary' ghost>
+      Primary Button
+    </Button>
+    <Button ghost>Default Button</Button>
+    <Button type='dashed' ghost>
+      Dashed Button
+    </Button>
+    <Button type='text' ghost>
+      Text Button
+    </Button>
+    <Button type='link' ghost>
+      Link Button
+    </Button>
+  </div>
+</Playground>
+
+## Block
+
+<Playground>
+  <div
+    style={{ width: 200, border: '1px solid black', padding: 25, margin: 10 }}
+  >
+    <Button type='primary' block>
+      Primary Button
+    </Button>
+    <Button block>Default Button</Button>
+    <Button type='dashed' block>
+      Dashed Button
+    </Button>
+    <Button type='text' block>
+      Text Button
+    </Button>
+    <Button type='link' block>
+      Link Button
+    </Button>
+  </div>
+</Playground>
+
+## Icon
+
+<Playground>
+  <div>
+    <Button icon={<DeleteIcon />} />
+    <Button icon={<DeleteIcon />} shape='circle' />
+    <Button icon={<DeleteIcon />} shape='round' />
+  </div>
+  <div>
+    <Button icon={<DeleteIcon />} size='lg'>
+      Trash
+    </Button>
+    <Button icon={<DeleteIcon />}>Trash</Button>
+    <Button icon={<DeleteIcon />} size='sm'>
+      Trash
+    </Button>
+  </div>
+</Playground>
