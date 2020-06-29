@@ -74,6 +74,7 @@ export const PrimaryButton = styled(BaseButton)`
       return 'white'
     }
   }};
+
   &:hover {
     border-color: ${({ disabled, theme }) => {
       if (disabled) return null
@@ -119,6 +120,7 @@ export const DefaultButton = styled(BaseButton)`
       return theme.colors.gray7
     }
   }};
+
   &:hover {
     border-color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
@@ -164,6 +166,7 @@ export const DashedButton = styled(BaseButton)`
       return theme.colors.gray7
     }
   }};
+
   &:hover {
     border-color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
@@ -195,6 +198,7 @@ export const TextButton = styled(BaseButton)`
       return theme.colors.gray7
     }
   }};
+
   &:hover {
     border-color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
@@ -236,6 +240,7 @@ export const LinkButton = styled(BaseButton)`
       return theme.colors.primary
     }
   }};
+
   &:hover {
     border-color: ${({ ghost, disabled }) => {
       if (disabled) return null
@@ -256,47 +261,51 @@ export const LinkButton = styled(BaseButton)`
   }
 `
 
-export const RippleSpan = styled.span<RippleProps>`
-  position: absolute;
-  background: #555;
-  transform: translate(-50%, -50%);
-  left: ${({ x }) => rem(`${x}px`)};
-  top: ${({ y }) => rem(`${y}px`)};
-  pointer-events: none;
-  border-radius: 50%;
-  animation: ${({ width, top, right, bottom, left, shape }) => {
-      return keyframes`
+const rippleAnimation = ({
+  width,
+  top,
+  right,
+  bottom,
+  left,
+  shape
+}: RippleProps) => {
+  const fromInset = `inset(${rem(`${-top}px`)} ${rem(`${-right}px`)} ${rem(
+    `${-bottom}px`
+  )} ${rem(`${-left}px`)} round ${
+    shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')
+  })`
+
+  const toInset = `inset(${rem(`${-top + width / 2}px`)} ${rem(
+    `${-right + width / 2}px`
+  )} ${rem(`${-bottom + width / 2}px`)} ${rem(
+    `${-left + width / 2}px`
+  )} round ${
+    shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')
+  })`
+
+  return keyframes`
     from {
+      width: 0;
+      height: 0;
       opacity: 0.5;
-      width: 0px;
-      height: 0px;
-      clip-path: ${`inset(${rem(`${-top}px`)} ${rem(`${-right}px`)} ${rem(
-        `${-bottom}px`
-      )} ${rem(`${-left}px`)} round ${
-        shape === 'circle'
-          ? '50%'
-          : shape === 'round'
-          ? rem('40px')
-          : rem('4px')
-      })`}
+      clip-path: ${fromInset}
     }
     to {
-      opacity: 0;
       width: ${rem(`${width}px`)};
       height: ${rem(`${width}px`)};
-      clip-path: ${`inset(${rem(`${-top + width / 2}px`)} ${rem(
-        `${-right + width / 2}px`
-      )} ${rem(`${-bottom + width / 2}px`)} ${rem(
-        `${-left + width / 2}px`
-      )} round ${
-        shape === 'circle'
-          ? '50%'
-          : shape === 'round'
-          ? rem('40px')
-          : rem('4px')
-      })`}
+      opacity: 0;
+      clip-path: ${toInset}
     }
 `
-    }}
-    0.5s linear 1;
+}
+
+export const RippleSpan = styled.span<RippleProps>`
+  position: absolute;
+  top: ${({ y }) => rem(`${y}px`)};
+  left: ${({ x }) => rem(`${x}px`)};
+  border-radius: 50%;
+  background: #555;
+  transform: translate(-50%, -50%);
+  animation: ${rippleAnimation} 0.5s linear 1;
+  pointer-events: none;
 `

@@ -25,7 +25,6 @@ export type ButtonProps = MergeElementProps<
   {
     disabled?: boolean
     ghost?: boolean
-    href?: string
     htmlType?: 'submit' | 'button' | 'reset' | undefined
     icon?: React.ReactElement
     loading?: boolean | { delay: number }
@@ -52,7 +51,7 @@ export type RippleProps = {
 }
 
 const Button = forwardRef((props: ButtonProps, ref: any) => {
-  const { children, type = 'default', onClick, icon, ...rest } = props
+  const { children, type, onClick, icon, ...rest } = props
 
   let StyledButton
 
