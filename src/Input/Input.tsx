@@ -1,5 +1,7 @@
 import { MergeElementProps } from '../utils'
 
+import { BaseInput } from './styles'
+
 import React from 'react'
 
 export type InputProps = MergeElementProps<
@@ -10,7 +12,7 @@ export type InputProps = MergeElementProps<
 >
 
 const Input = React.forwardRef((props: InputProps, ref: any) => {
-  return <input {...props} ref={ref} />
+  return <BaseInput {...props} ref={ref} />
 })
 
 export { Input }
