@@ -6,6 +6,7 @@
   "rules": {
     "comment-empty-line-before": null,
     "declaration-empty-line-before": null,
-    "value-keyword-case": null
+    "value-keyword-case": null,
+    "declaration-bang-space-before": null
   }
 }

@@ -1,10 +1,10 @@
 import { InputProps } from './'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
-export const BaseInput = styled.input<InputProps>`
-  display: ${({ span }) => (span ? 'table-cell' : 'inline-block')};
-  float: ${({ span }) => (span ? 'left' : null)};
+const baseStyle = css<InputProps>`
+  display: ${({ addon }) => (addon ? 'table-cell' : 'inline-block')};
+  float: ${({ addon }) => (addon ? 'left' : null)};
   border: ${rem('1px')} solid #d9d9d9;
   border-radius: ${rem('2px')};
   border-top-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
@@ -12,7 +12,6 @@ export const BaseInput = styled.input<InputProps>`
   border-bottom-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
   border-bottom-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
   color: rgb(0, 0, 0, 0.6);
-  font-size: ${rem('14px')};
   &:focus,
   &:hover {
     border-color: ${({ theme }) => theme.colors.base};
@@ -21,16 +20,29 @@ export const BaseInput = styled.input<InputProps>`
   line-height: 1.5715;
 `
 
+const fixInputStyle = css<InputProps>`
+  padding: 0;
+  border: none;
+  outline: none;
+  color: rgb(0, 0, 0, 0.6);
+`
+
+export const BaseInput = styled.input<InputProps>`
+  ${({ fix }) => (!fix ? baseStyle : fixInputStyle)}
+`
+
 export const SmallInput = styled(BaseInput)`
-  padding: ${`0 ${rem('7px')}`};
+  padding: ${({ fix }) => (!fix ? `0 ${rem('7px')}` : null)};
+  font-size: ${rem('14px')};
 `
 
 export const MediumInput = styled(BaseInput)`
-  padding: ${`${rem('4px')} ${rem('11px')}`};
+  padding: ${({ fix }) => (!fix ? `${rem('4px')} ${rem('11px')}` : null)};
+  font-size: ${rem('14px')};
 `
 
 export const LargeInput = styled(BaseInput)`
-  padding: ${`${rem('6.5px')} ${rem('11px')}`};
+  padding: ${({ fix }) => (!fix ? `${rem('6.5px')} ${rem('11px')}` : null)};
   font-size: ${rem('16px')};
 `
 
@@ -84,8 +96,57 @@ export const Addon = styled.span<InputProps>`
   }
 `
 
-export const StyledSpan = styled.span<InputProps>`
+export const Fix = styled.span<InputProps>`
+  &:first-child {
+    margin-right: ${rem('4px')};
+  }
+  &:last-child {
+    margin-left: ${rem('4px')};
+  }
+  svg {
+    width: ${({ size }) => {
+      switch (size) {
+        case 'lg':
+          return rem('16px')
+        default:
+          return rem('14px')
+      }
+    }};
+    height: ${({ size }) => {
+      switch (size) {
+        case 'lg':
+          return rem('16px')
+        default:
+          return rem('14px')
+      }
+    }};
+    vertical-align: middle;
+  }
+`
+
+export const TableSpan = styled.span`
   display: table;
   margin: 0;
   padding: 0;
+`
+
+export const BlockSpan = styled.span`
+  display: inline-block;
+  text-align: start;
+  vertical-align: top;
+`
+
+export const InputSpan = styled.span`
+  ${baseStyle}
+  padding: ${({ size }) => {
+    switch (size) {
+      case 'sm':
+        return `0 ${rem('7px')}`
+      case 'lg':
+        return `${rem('6.5px')} ${rem('11px')}`
+      default:
+        return `${rem('4px')} ${rem('11px')}`
+    }
+  }};
+  font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
 `
