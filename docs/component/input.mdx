@@ -4,7 +4,7 @@ route: /component/input
 menu: Component
 ---
 
-import { Input } from 'fiber'
+import { Input, PasswordInput } from 'fiber'
 import { Playground } from 'docz'
 import SettingsIcon from '@material-ui/icons/Settings'
 
@@ -66,5 +66,13 @@ import SettingsIcon from '@material-ui/icons/Settings'
 <Playground>
   <div>
     <Input placeholder='Disabled' disabled />
+  </div>
+</Playground>
+
+## Password
+
+<Playground>
+  <div>
+    <PasswordInput placeholder='Password' />
   </div>
 </Playground>
