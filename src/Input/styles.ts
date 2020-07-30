@@ -25,4 +25,5 @@ export const MediumInput = styled(BaseInput)`
 
 export const LargeInput = styled(BaseInput)`
   padding: ${`${rem('6.5px')} ${rem('11px')}`};
+  font-size: ${rem('16px')};
 `
