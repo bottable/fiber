@@ -5,7 +5,8 @@ import { rem } from 'polished'
 const baseStyle = css<InputProps>`
   display: ${({ addon }) => (addon ? 'table-cell' : 'inline-block')};
   float: ${({ addon }) => (addon ? 'left' : null)};
-  border: ${rem('1px')} solid #d9d9d9;
+  border: ${({ bordered }) =>
+    bordered === false ? 'none' : `${rem('1px')} solid #d9d9d9;`};
   border-radius: ${rem('2px')};
   border-top-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
   border-top-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
@@ -18,6 +19,9 @@ const baseStyle = css<InputProps>`
     outline: none;
   }
   line-height: 1.5715;
+  &::placeholder {
+    color: #d9d9d9;
+  }
 `
 
 const fixInputStyle = css<InputProps>`

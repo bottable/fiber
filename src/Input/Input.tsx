@@ -24,6 +24,7 @@ export type InputProps = MergeElementProps<
     suffix?: React.ReactNode
     addon?: {} | null | undefined
     fix?: {} | null | undefined
+    bordered?: boolean
   }
 >
 
