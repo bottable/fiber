@@ -2,6 +2,10 @@
 
 exports[`Input renders correctly 1`] = `
 <input
-  className="sc-AxjAm sc-AxiKw frUwXg"
+  className="sc-AxjAm sc-AxiKw eKsuNU"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
 />
 `;

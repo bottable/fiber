@@ -17,6 +17,7 @@ export type InputProps = MergeElementProps<
   'input',
   {
     size?: 'sm' | 'md' | 'lg'
+    onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>
     addonBefore?: React.ReactNode
     addonAfter?: React.ReactNode
     prefix?: React.ReactNode
@@ -28,7 +29,17 @@ export type InputProps = MergeElementProps<
 
 const Input = React.forwardRef(
   (props: InputProps, ref: React.Ref<HTMLInputElement>) => {
-    const { size, prefix, suffix, ...rest } = props
+    const {
+      size,
+      prefix,
+      suffix,
+      onChange,
+      onPressEnter,
+      onKeyDown,
+      onFocus,
+      onBlur,
+      ...rest
+    } = props
     const { addonBefore, addonAfter } = props
 
     let StyledInput
@@ -47,8 +58,44 @@ const Input = React.forwardRef(
 
     const addon = addonBefore || addonAfter
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onChange) {
+        onChange(e)
+      }
+    }
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.keyCode === 13 && onPressEnter) {
+        onPressEnter(e)
+      }
+      if (onKeyDown) {
+        onKeyDown(e)
+      }
+    }
+
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+      if (onFocus) {
+        onFocus(e)
+      }
+    }
+
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      if (onBlur) {
+        onBlur(e)
+      }
+    }
+
     let input = (
-      <StyledInput {...rest} ref={ref} addon={addon} fix={prefix || suffix} />
+      <StyledInput
+        {...rest}
+        ref={ref}
+        addon={addon}
+        fix={prefix || suffix}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+      />
     )
 
     const addonBeforeNode = addonBefore && (
