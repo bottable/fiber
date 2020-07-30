@@ -2,6 +2,6 @@
 
 exports[`Input renders correctly 1`] = `
 <input
-  className="sc-AxjAm sc-AxiKw cRpZoc"
+  className="sc-AxjAm sc-AxiKw frUwXg"
 />
 `;

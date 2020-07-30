@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { rem } from 'polished'
 
 export const BaseInput = styled.input<InputProps>`
-  display: ${({ span }) => (span ? 'table-cell' : 'inline-flex')};
+  display: ${({ span }) => (span ? 'table-cell' : 'inline-block')};
   float: ${({ span }) => (span ? 'left' : null)};
   border: ${rem('1px')} solid #d9d9d9;
   border-radius: ${rem('2px')};
@@ -18,6 +18,7 @@ export const BaseInput = styled.input<InputProps>`
     border-color: ${({ theme }) => theme.colors.base};
     outline: none;
   }
+  line-height: 1.5715;
 `
 
 export const SmallInput = styled(BaseInput)`
@@ -40,6 +41,7 @@ export const Addon = styled.span<InputProps>`
   border: ${rem('1px')} solid #d9d9d9;
   border-radius: ${rem('2px')};
   background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.65);
   font-size: ${({ size }) => {
     switch (size) {
       case 'lg':
