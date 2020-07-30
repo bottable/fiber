@@ -6,6 +6,7 @@ menu: Component
 
 import { Input } from 'fiber'
 import { Playground } from 'docz'
+import SettingsIcon from '@material-ui/icons/Settings'
 
 # Input
 
@@ -24,5 +25,15 @@ import { Playground } from 'docz'
     <br />
     <br />
     <Input size='sm' placeholder='Small Input' />
+  </div>
+</Playground>
+
+## Addon
+
+<Playground>
+  <div>
+    <Input addonBefore='http://' addonAfter='.com' />
+    <br />
+    <Input addonAfter={<SettingsIcon />} />
   </div>
 </Playground>
