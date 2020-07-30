@@ -12,22 +12,27 @@ const baseStyle = css<InputProps>`
   border-top-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
   border-bottom-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
   border-bottom-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
-  color: rgb(0, 0, 0, 0.6);
+  background-color: ${({ disabled }) => (disabled ? '#f5f5f5' : null)};
+  color: ${({ disabled }) =>
+    disabled ? 'rgb(0, 0, 0, 0.25)' : 'rgb(0, 0, 0, 0.6)'};
   &:focus,
   &:hover {
-    border-color: ${({ theme }) => theme.colors.base};
+    border-color: ${({ theme, disabled }) =>
+      disabled ? null : theme.colors.base};
     outline: none;
   }
   line-height: 1.5715;
   &::placeholder {
     color: #d9d9d9;
   }
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : null)};
 `
 
 const fixInputStyle = css<InputProps>`
   padding: 0;
   border: none;
   outline: none;
+  background-color: ${({ disabled }) => (disabled ? '#f5f5f5' : null)};
   color: rgb(0, 0, 0, 0.6);
 `
 

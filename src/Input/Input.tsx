@@ -25,6 +25,7 @@ export type InputProps = MergeElementProps<
     addon?: {} | null | undefined
     fix?: {} | null | undefined
     bordered?: boolean
+    disabled?: boolean
   }
 >
 
