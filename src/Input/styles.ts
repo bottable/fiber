@@ -3,6 +3,18 @@ import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
 const baseStyle = css<InputProps>`
+  background-color: ${({ disabled }) => (disabled ? '#f5f5f5' : null)};
+  color: ${({ disabled }) =>
+    disabled ? 'rgb(0, 0, 0, 0.25)' : 'rgb(0, 0, 0, 0.6)'};
+  line-height: 1.5715;
+  &::placeholder {
+    color: #d9d9d9;
+  }
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : null)};
+`
+
+const inputStyle = css<InputProps>`
+  ${baseStyle}
   display: ${({ addonBefore, addonAfter }) =>
     addonBefore || addonAfter ? 'table-cell' : 'inline-block'};
   float: ${({ addonBefore, addonAfter }) =>
@@ -14,33 +26,23 @@ const baseStyle = css<InputProps>`
   border-top-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
   border-bottom-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
   border-bottom-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
-  background-color: ${({ disabled }) => (disabled ? '#f5f5f5' : null)};
-  color: ${({ disabled }) =>
-    disabled ? 'rgb(0, 0, 0, 0.25)' : 'rgb(0, 0, 0, 0.6)'};
   &:focus,
   &:hover {
     border-color: ${({ theme, disabled }) =>
       disabled ? null : theme.colors.base};
     outline: none;
   }
-  line-height: 1.5715;
-  &::placeholder {
-    color: #d9d9d9;
-  }
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : null)};
 `
 
 const fixInputStyle = css<InputProps>`
+  ${baseStyle}
   padding: 0;
   border: none;
   outline: none;
-  background-color: ${({ disabled }) => (disabled ? '#f5f5f5' : null)};
-  color: rgb(0, 0, 0, 0.6);
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : null)};
 `
 
 export const BaseInput = styled.input<InputProps>`
-  ${({ fix }) => (!fix ? baseStyle : fixInputStyle)}
+  ${({ fix }) => (!fix ? inputStyle : fixInputStyle)}
 `
 
 export const SmallInput = styled(BaseInput)`
@@ -149,7 +151,7 @@ export const BlockSpan = styled.span`
 `
 
 export const InputSpan = styled.span`
-  ${baseStyle}
+  ${inputStyle}
   padding: ${({ size }) => {
     switch (size) {
       case 'lg':

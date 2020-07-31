@@ -2,7 +2,7 @@
 
 exports[`Input renders correctly 1`] = `
 <input
-  className="sc-AxjAm sc-AxiKw vryhZ"
+  className="sc-AxjAm sc-AxiKw lbijtZ"
   onBlur={[Function]}
   onChange={[Function]}
   onFocus={[Function]}
