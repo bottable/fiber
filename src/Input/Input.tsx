@@ -22,10 +22,10 @@ export type InputProps = MergeElementProps<
     addonAfter?: React.ReactNode
     prefix?: React.ReactNode
     suffix?: React.ReactNode
-    addon?: {} | null | undefined
-    fix?: {} | null | undefined
+    fix?: boolean
     bordered?: boolean
     disabled?: boolean
+    button?: boolean
   }
 >
 
@@ -35,6 +35,7 @@ const Input = React.forwardRef(
       size,
       prefix,
       suffix,
+      button,
       onChange,
       onPressEnter,
       onKeyDown,
@@ -57,8 +58,6 @@ const Input = React.forwardRef(
         StyledInput = MediumInput
         break
     }
-
-    const addon = addonBefore || addonAfter
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (onChange) {
@@ -87,30 +86,37 @@ const Input = React.forwardRef(
       }
     }
 
+    const fix = Boolean(prefix || suffix)
+
     let input = (
       <StyledInput
         {...rest}
         ref={ref}
-        addon={addon}
-        fix={prefix || suffix}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         onFocus={handleFocus}
         onBlur={handleBlur}
+        fix={fix}
       />
     )
 
     const addonBeforeNode = addonBefore && (
-      <Addon size={size}>{addonBefore}</Addon>
+      <Addon size={size} button={button}>
+        {addonBefore}
+      </Addon>
     )
-    const addonAfterNode = addonAfter && <Addon size={size}>{addonAfter}</Addon>
+    const addonAfterNode = addonAfter && (
+      <Addon size={size} button={button}>
+        {addonAfter}
+      </Addon>
+    )
 
     const prefixNode = prefix && <Fix size={size}>{prefix}</Fix>
     const suffixNode = suffix && <Fix size={size}>{suffix}</Fix>
 
-    if (prefix || suffix) {
+    if (fix) {
       input = (
-        <InputSpan {...rest} addon={addon} size={size}>
+        <InputSpan {...rest} size={size}>
           {prefixNode}
           {input}
           {suffixNode}
@@ -118,7 +124,7 @@ const Input = React.forwardRef(
       )
     }
 
-    if (addon) {
+    if (addonBefore || addonAfter) {
       return (
         <BlockSpan>
           <TableSpan>

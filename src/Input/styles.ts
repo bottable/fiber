@@ -3,8 +3,10 @@ import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
 const baseStyle = css<InputProps>`
-  display: ${({ addon }) => (addon ? 'table-cell' : 'inline-block')};
-  float: ${({ addon }) => (addon ? 'left' : null)};
+  display: ${({ addonBefore, addonAfter }) =>
+    addonBefore || addonAfter ? 'table-cell' : 'inline-block'};
+  float: ${({ addonBefore, addonAfter }) =>
+    addonBefore || addonAfter ? 'left' : null};
   border: ${({ bordered }) =>
     bordered === false ? 'none' : `${rem('1px')} solid #d9d9d9;`};
   border-radius: ${rem('2px')};
@@ -34,6 +36,7 @@ const fixInputStyle = css<InputProps>`
   outline: none;
   background-color: ${({ disabled }) => (disabled ? '#f5f5f5' : null)};
   color: rgb(0, 0, 0, 0.6);
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : null)};
 `
 
 export const BaseInput = styled.input<InputProps>`
@@ -41,25 +44,25 @@ export const BaseInput = styled.input<InputProps>`
 `
 
 export const SmallInput = styled(BaseInput)`
-  padding: ${({ fix }) => (!fix ? `0 ${rem('7px')}` : null)};
+  padding: ${({ fix }) => (!fix ? `${rem('3px')} ${rem('12px')}` : null)};
   font-size: ${rem('14px')};
 `
 
 export const MediumInput = styled(BaseInput)`
-  padding: ${({ fix }) => (!fix ? `${rem('4px')} ${rem('11px')}` : null)};
+  padding: ${({ fix }) => (!fix ? `${rem('7px')} ${rem('16px')}` : null)};
   font-size: ${rem('14px')};
 `
 
 export const LargeInput = styled(BaseInput)`
-  padding: ${({ fix }) => (!fix ? `${rem('6.5px')} ${rem('11px')}` : null)};
+  padding: ${({ fix }) => (!fix ? `${rem('9px')} ${rem('18px')}` : null)};
   font-size: ${rem('16px')};
 `
 
 export const Addon = styled.span<InputProps>`
   display: table-cell;
   width: ${rem('1px')};
-  padding: ${`0 ${rem('11px')}`};
-  border: ${rem('1px')} solid #d9d9d9;
+  padding: ${({ button }) => (button ? 'none' : `0 ${rem('11px')}`)};
+  border: ${({ button }) => (button ? 'none' : `${rem('1px')} solid #d9d9d9`)};
   border-radius: ${rem('2px')};
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.65);
@@ -88,17 +91,17 @@ export const Addon = styled.span<InputProps>`
     width: ${({ size }) => {
       switch (size) {
         case 'lg':
-          return rem('16px')
+          return rem('19px')
         default:
-          return rem('14px')
+          return rem('18px')
       }
     }};
     height: ${({ size }) => {
       switch (size) {
         case 'lg':
-          return rem('16px')
+          return rem('19px')
         default:
-          return rem('14px')
+          return rem('18px')
       }
     }};
     vertical-align: middle;
@@ -116,17 +119,17 @@ export const Fix = styled.span<InputProps>`
     width: ${({ size }) => {
       switch (size) {
         case 'lg':
-          return rem('16px')
+          return rem('19px')
         default:
-          return rem('14px')
+          return rem('18px')
       }
     }};
     height: ${({ size }) => {
       switch (size) {
         case 'lg':
-          return rem('16px')
+          return rem('19px')
         default:
-          return rem('14px')
+          return rem('18px')
       }
     }};
     vertical-align: middle;
@@ -149,12 +152,12 @@ export const InputSpan = styled.span`
   ${baseStyle}
   padding: ${({ size }) => {
     switch (size) {
-      case 'sm':
-        return `0 ${rem('7px')}`
       case 'lg':
-        return `${rem('6.5px')} ${rem('11px')}`
+        return `${rem('9px')} ${rem('18px')}`
+      case 'sm':
+        return `${rem('3px')} ${rem('12px')}`
       default:
-        return `${rem('4px')} ${rem('11px')}`
+        return `${rem('7px')} ${rem('16px')}`
     }
   }};
   font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};

@@ -4,7 +4,7 @@ route: /component/button
 menu: Component
 ---
 
-import { Button } from 'fiber'
+import { Button, Space } from 'fiber'
 import { Playground } from 'docz'
 import DeleteIcon from '@material-ui/icons/Delete'
 
@@ -13,39 +13,39 @@ import DeleteIcon from '@material-ui/icons/Delete'
 ## Type
 
 <Playground>
-  <div>
+  <Space>
     <Button type='primary'>Primary Button</Button>
     <Button>Default Button</Button>
     <Button type='dashed'>Dashed Button</Button>
     <Button type='text'>Text Button</Button>
     <Button type='link'>Link Button</Button>
-  </div>
+  </Space>
 </Playground>
 
 ## Size
 
 <Playground>
-  <div>
+  <Space>
     <Button size='lg'>Large Button</Button>
     <Button>Medium Button</Button>
     <Button size='sm'>Small Button</Button>
-  </div>
+  </Space>
 </Playground>
 
 ## Shape
 
 <Playground>
-  <div>
+  <Space>
     <Button>Default Shape</Button>
     <Button shape='circle'>O</Button>
     <Button shape='round'>Round Shape</Button>
-  </div>
+  </Space>
 </Playground>
 
 ## Disabled
 
 <Playground>
-  <div>
+  <Space>
     <Button type='primary' disabled>
       Primary Button
     </Button>
@@ -59,13 +59,13 @@ import DeleteIcon from '@material-ui/icons/Delete'
     <Button type='link' disabled>
       Link Button
     </Button>
-  </div>
+  </Space>
 </Playground>
 
 ## Ghost
 
 <Playground>
-  <div style={{ backgroundColor: 'rgb(190, 200, 200)', paddingTop: 12 }}>
+  <Space style={{ backgroundColor: 'rgb(190, 200, 200)', paddingTop: 12 }}>
     <Button type='primary' ghost>
       Primary Button
     </Button>
@@ -79,7 +79,7 @@ import DeleteIcon from '@material-ui/icons/Delete'
     <Button type='link' ghost>
       Link Button
     </Button>
-  </div>
+  </Space>
 </Playground>
 
 ## Block
@@ -91,13 +91,21 @@ import DeleteIcon from '@material-ui/icons/Delete'
     <Button type='primary' block>
       Primary Button
     </Button>
+    <br />
+    <br />
     <Button block>Default Button</Button>
+    <br />
+    <br />
     <Button type='dashed' block>
       Dashed Button
     </Button>
+    <br />
+    <br />
     <Button type='text' block>
       Text Button
     </Button>
+    <br />
+    <br />
     <Button type='link' block>
       Link Button
     </Button>
@@ -108,17 +116,22 @@ import DeleteIcon from '@material-ui/icons/Delete'
 
 <Playground>
   <div>
-    <Button icon={<DeleteIcon />} />
-    <Button icon={<DeleteIcon />} shape='circle' />
-    <Button icon={<DeleteIcon />} shape='round' />
+    <Space>
+      <Button icon={<DeleteIcon />} />
+      <Button icon={<DeleteIcon />} shape='circle' />
+      <Button icon={<DeleteIcon />} shape='round' />
+    </Space>
   </div>
+  <br />
   <div>
-    <Button icon={<DeleteIcon />} size='lg'>
-      Trash
-    </Button>
-    <Button icon={<DeleteIcon />}>Trash</Button>
-    <Button icon={<DeleteIcon />} size='sm'>
-      Trash
-    </Button>
+    <Space>
+      <Button icon={<DeleteIcon />} size='lg'>
+        Trash
+      </Button>
+      <Button icon={<DeleteIcon />}>Trash</Button>
+      <Button icon={<DeleteIcon />} size='sm'>
+        Trash
+      </Button>
+    </Space>
   </div>
 </Playground>

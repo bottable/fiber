@@ -5,8 +5,6 @@ import { rem } from 'polished'
 const baseStyle = css`
   display: inline-flex;
   justify-content: center;
-  margin-right: ${rem('8px')};
-  margin-bottom: ${rem('12px')};
   border-width: ${rem('1px')};
   outline: none;
   ${(p) => p.theme.transition};
@@ -50,6 +48,8 @@ export const BaseButton = styled.button<ButtonProps>`
   padding-left: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
   border-radius: ${({ shape }) =>
     shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')};
+    border-top-left-radius: ${({ addon }) => (addon ? 0 : null)};
+  border-bottom-left-radius: ${({ addon }) => (addon ? 0 : null)};
   font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `

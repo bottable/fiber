@@ -4,7 +4,7 @@ route: /component/input
 menu: Component
 ---
 
-import { Input, PasswordInput } from 'fiber'
+import { Input, PasswordInput, SearchInput } from 'fiber'
 import { Playground } from 'docz'
 import SettingsIcon from '@material-ui/icons/Settings'
 
@@ -74,5 +74,18 @@ import SettingsIcon from '@material-ui/icons/Settings'
 <Playground>
   <div>
     <PasswordInput placeholder='Password' />
+  </div>
+</Playground>
+
+## Search
+
+<Playground>
+  <div>
+    <SearchInput
+      placeholder='Search'
+      onSearch={(value) => console.log(value)}
+      enterButton
+    />
+    <br />
   </div>
 </Playground>
