@@ -35,7 +35,7 @@ export type ButtonProps = MergeElementProps<
     onClick?: MouseEventHandler<HTMLElement>
     block?: boolean
     children?: React.ReactNode
-    className?: string
+    addon?: boolean
   }
 >
 
