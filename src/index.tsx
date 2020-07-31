@@ -1,5 +1,6 @@
 export * from './ExampleComponent'
 export * from './UIProvider'
+export * from './Dropdown'
 export * from './CodegenSample'
 export * from './Typography'
 export * from './Space'
