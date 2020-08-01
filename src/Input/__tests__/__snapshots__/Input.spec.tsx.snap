@@ -101,10 +101,10 @@ Array [
   <div>
     <span
       className="sc-AxmLO jwCNVt"
+      onClick={[Function]}
     >
       <span
         className="sc-AxgMl fYUEHd"
-        onClick={[Function]}
       >
         ￥
       </span>
@@ -117,7 +117,6 @@ Array [
       />
       <span
         className="sc-AxgMl fYUEHd"
-        onClick={[Function]}
       >
         RMB
       </span>
@@ -127,10 +126,10 @@ Array [
     <span
       className="sc-AxmLO jZKHJt"
       disabled={true}
+      onClick={[Function]}
     >
       <span
         className="sc-AxgMl fYUEHd"
-        onClick={[Function]}
       >
         ￥
       </span>
@@ -144,7 +143,6 @@ Array [
       />
       <span
         className="sc-AxgMl fYUEHd"
-        onClick={[Function]}
       >
         RMB
       </span>
@@ -164,6 +162,7 @@ Array [
         </span>
         <span
           className="sc-AxmLO fqqYry"
+          onClick={[Function]}
         >
           <input
             className="sc-AxjAm sc-AxiKw jiCEWJ"
@@ -174,7 +173,6 @@ Array [
           />
           <span
             className="sc-AxgMl fYUEHd"
-            onClick={[Function]}
           >
             .com
           </span>
@@ -206,6 +204,7 @@ Array [
   <div>
     <span
       className="sc-AxmLO jwCNVt"
+      onClick={[Function]}
       placeholder="Password"
       type="password"
     >
@@ -220,7 +219,6 @@ Array [
       />
       <span
         className="sc-AxgMl fYUEHd"
-        onClick={[Function]}
       >
         <svg
           aria-hidden={true}
