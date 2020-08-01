@@ -4,7 +4,8 @@ route: /component/stepper
 menu: Component
 ---
 
-import { Stepper, Step } from 'fiber'
+import { useState } from 'react'
+import { Stepper, Step, Button, Space } from 'fiber'
 import { Playground } from 'docz'
 import PersonIcon from '@material-ui/icons/Person'
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser'
@@ -14,40 +15,164 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 # Stepper
 
 <Playground>
-  <Stepper current={1}>
-    <Step title='first' subtitle='subtitle'></Step>
-    <Step title='second' subtitle='subtitle'></Step>
-    <Step title='third' subtitle='subtitle'></Step>
-  </Stepper>
+  {() => {
+    const [current, setCurrent] = useState(0)
+    return (
+      <>
+        <Stepper current={current}>
+          <Step title='first' subtitle='subtitle'></Step>
+          <Step title='second' subtitle='subtitle'></Step>
+          <Step title='third' subtitle='subtitle'></Step>
+        </Stepper>
+        <br />
+        <Space>
+          <Button
+            onClick={() => {
+              setCurrent((prevCurrent) => Math.max(prevCurrent - 1, 0))
+            }}
+          >
+            Previous
+          </Button>
+          <Button
+            onClick={() => {
+              setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 3))
+            }}
+          >
+            Next
+          </Button>
+        </Space>
+      </>
+    )
+  }}
 </Playground>
 
 ## Vertical Stepper
 
 <Playground>
-  <Stepper current={1} vertical>
-    <Step title='first'></Step>
-    <Step title='second' subtitle='subtitle'>
-      <div
-        style={{
-          width: 200,
-          border: '1px solid black',
-          padding: 25
-        }}
-      >
-        Content goes here
-      </div>
-    </Step>
-    <Step title='third' subtitle='subtitle'></Step>
-  </Stepper>
+  {() => {
+    const [current, setCurrent] = useState(0)
+    return (
+      <>
+        <Stepper current={current} vertical>
+          <Step title='first'>
+            <div
+              style={{
+                width: 200,
+                border: '1px solid black',
+                padding: 25
+              }}
+            >
+              First Content
+              <Space>
+                <Button
+                  onClick={() => {
+                    setCurrent((prevCurrent) => Math.max(prevCurrent - 1, 0))
+                  }}
+                >
+                  Previous
+                </Button>
+                <Button
+                  onClick={() => {
+                    setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 3))
+                  }}
+                >
+                  Next
+                </Button>
+              </Space>
+            </div>
+          </Step>
+          <Step title='second' subtitle='subtitle'>
+            <div
+              style={{
+                width: 200,
+                border: '1px solid black',
+                padding: 25
+              }}
+            >
+              Second Content
+              <Space>
+                <Button
+                  onClick={() => {
+                    setCurrent((prevCurrent) => Math.max(prevCurrent - 1, 0))
+                  }}
+                >
+                  Previous
+                </Button>
+                <Button
+                  onClick={() => {
+                    setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 3))
+                  }}
+                >
+                  Next
+                </Button>
+              </Space>
+            </div>
+          </Step>
+          <Step title='third' subtitle='subtitle'>
+            <div
+              style={{
+                width: 200,
+                border: '1px solid black',
+                padding: 25
+              }}
+            >
+              Third Content
+              <Space>
+                <Button
+                  onClick={() => {
+                    setCurrent((prevCurrent) => Math.max(prevCurrent - 1, 0))
+                  }}
+                >
+                  Previous
+                </Button>
+                <Button
+                  onClick={() => {
+                    setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 3))
+                  }}
+                >
+                  Next
+                </Button>
+              </Space>
+            </div>
+          </Step>
+        </Stepper>
+        <br />
+      </>
+    )
+  }}
 </Playground>
 
 ## Customizable Icons
 
 <Playground>
-  <Stepper current={1}>
-    <Step title='Login' icon={<PersonIcon />}></Step>
-    <Step title='Verification' icon={<VerifiedUserIcon />}></Step>
-    <Step title='Pay' icon={<PaymentIcon />}></Step>
-    <Step title='Done' icon={<InsertEmoticonIcon />}></Step>
-  </Stepper>
+  {() => {
+    const [current, setCurrent] = useState(0)
+    return (
+      <>
+        <Stepper current={current}>
+          <Step title='Login' icon={<PersonIcon />}></Step>
+          <Step title='Verification' icon={<VerifiedUserIcon />}></Step>
+          <Step title='Pay' icon={<PaymentIcon />}></Step>
+          <Step title='Done' icon={<InsertEmoticonIcon />}></Step>
+        </Stepper>
+        <br />
+        <Space>
+          <Button
+            onClick={() => {
+              setCurrent((prevCurrent) => Math.max(prevCurrent - 1, 0))
+            }}
+          >
+            Previous
+          </Button>
+          <Button
+            onClick={() => {
+              setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 3))
+            }}
+          >
+            Next
+          </Button>
+        </Space>
+      </>
+    )
+  }}
 </Playground>

@@ -2,18 +2,18 @@
 
 exports[`Menu & Menu Items renders correctly 1`] = `
 <div
-  className="sc-fznxsB eLzbhQ"
+  className="sc-fznJRM bKpmrM"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <span
-    className="sc-fzozJi cZHUGO"
+    className="sc-fzoLsD ctijiA"
     size={4}
   >
      Hover Me 
   </span>
   <div
-    className="sc-fznJRM fjFGXj"
+    className="sc-fznWqX gptLBk"
   />
 </div>
 `;

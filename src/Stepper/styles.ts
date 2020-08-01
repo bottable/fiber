@@ -33,11 +33,13 @@ export const StyledStep = styled.div<StepProps>`
 export const IconContainer = styled.div<StepProps>`
   display: inline-flex;
   position: relative;
-  width: ${rem('24px')};
-  height: ${rem('24px')};
   margin-right: ${rem('8px')};
   color: ${({ theme, status, icon }) =>
-    status === 'wait' ? theme.colors.gray6 : icon ? theme.colors.base : '#fff'};
+    status === 'wait'
+      ? theme.colors.gray6
+      : icon || status !== 'process'
+      ? theme.colors.base
+      : '#fff'};
   svg {
     width: ${rem('24px')};
     height: ${rem('24px')};
@@ -57,6 +59,7 @@ export const IconContainer = styled.div<StepProps>`
   }
     `
       : null}
+  transition: color 0.3s;
 `
 
 export const ContentContainer = styled.div`
@@ -110,5 +113,10 @@ export const Circle = styled.span<StepProps>`
       status === 'wait' ? theme.colors.gray6 : theme.colors.base};
   border-radius: 50%;
   background-color: ${({ theme, status }) =>
-    status === 'wait' ? 'transparent' : theme.colors.base};
+    status === 'wait'
+      ? 'transparent'
+      : status === 'process'
+      ? theme.colors.base
+      : '#fff'};
+  transition: background-color 0.3s, border-color 0.3s;
 `
