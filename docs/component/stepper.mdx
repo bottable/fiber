@@ -6,14 +6,18 @@ menu: Component
 
 import { Stepper, Step } from 'fiber'
 import { Playground } from 'docz'
+import PersonIcon from '@material-ui/icons/Person'
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser'
+import PaymentIcon from '@material-ui/icons/Payment'
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 
 # Stepper
 
 <Playground>
   <Stepper current={1}>
-    <Step title='first' subTitle='subtitle'></Step>
-    <Step title='second' subTitle='subtitle'></Step>
-    <Step title='third' subTitle='subtitle'></Step>
+    <Step title='first' subtitle='subtitle'></Step>
+    <Step title='second' subtitle='subtitle'></Step>
+    <Step title='third' subtitle='subtitle'></Step>
   </Stepper>
 </Playground>
 
@@ -21,8 +25,29 @@ import { Playground } from 'docz'
 
 <Playground>
   <Stepper current={1} vertical>
-    <Step title='first' subTitle='subtitle'></Step>
-    <Step title='second' subTitle='subtitle'></Step>
-    <Step title='third' subTitle='subtitle'></Step>
+    <Step title='first'></Step>
+    <Step title='second' subtitle='subtitle'>
+      <div
+        style={{
+          width: 200,
+          border: '1px solid black',
+          padding: 25
+        }}
+      >
+        Content goes here
+      </div>
+    </Step>
+    <Step title='third' subtitle='subtitle'></Step>
+  </Stepper>
+</Playground>
+
+## Customizable Icons
+
+<Playground>
+  <Stepper current={1}>
+    <Step title='Login' icon={<PersonIcon />}></Step>
+    <Step title='Verification' icon={<VerifiedUserIcon />}></Step>
+    <Step title='Pay' icon={<PaymentIcon />}></Step>
+    <Step title='Done' icon={<InsertEmoticonIcon />}></Step>
   </Stepper>
 </Playground>

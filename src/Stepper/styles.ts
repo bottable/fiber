@@ -33,19 +33,11 @@ export const StyledStep = styled.div<StepProps>`
 export const IconContainer = styled.div<StepProps>`
   display: inline-flex;
   position: relative;
-  align-items: center;
-  justify-content: center;
   width: ${rem('24px')};
   height: ${rem('24px')};
   margin-right: ${rem('8px')};
-  border: ${rem('1px')} solid
-    ${({ theme, status }) =>
-      status === 'wait' ? theme.colors.gray6 : theme.colors.base};
-  border-radius: 50%;
-  background-color: ${({ theme, status }) =>
-    status === 'wait' ? 'transparent' : theme.colors.base};
-  color: ${({ theme, status }) =>
-    status === 'wait' ? theme.colors.gray6 : '#fff'};
+  color: ${({ theme, status, icon }) =>
+    status === 'wait' ? theme.colors.gray6 : icon ? theme.colors.base : '#fff'};
   svg {
     width: ${rem('24px')};
     height: ${rem('24px')};
@@ -69,6 +61,7 @@ export const IconContainer = styled.div<StepProps>`
 
 export const ContentContainer = styled.div`
   display: inline-block;
+  min-height: ${rem('48px')};
   vertical-align: top;
 `
 
@@ -76,6 +69,8 @@ export const TitleContainer = styled.div<StepProps>`
   display: inline-block;
   position: relative;
   padding-right: ${rem('16px')};
+  padding-bottom: ${({ vertical, subtitle }) =>
+    vertical && !subtitle ? rem('6px') : null};
   color: ${({ theme }) => theme.colors.gray7};
   font-size: ${rem('16px')};
   ${({ last, status, vertical, theme }) =>
@@ -98,6 +93,22 @@ export const SubtitleContainer = styled.div<StepProps>`
   display: block;
   position: relative;
   max-width: ${rem('140px')};
+  padding-bottom: ${({ vertical }) => (vertical ? rem('6px') : null)};
   color: ${({ theme }) => theme.colors.gray6};
   font-size: ${rem('14px')};
+`
+
+export const Circle = styled.span<StepProps>`
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: ${rem('24px')};
+  height: ${rem('24px')};
+  border: ${rem('1px')} solid
+    ${({ theme, status }) =>
+      status === 'wait' ? theme.colors.gray6 : theme.colors.base};
+  border-radius: 50%;
+  background-color: ${({ theme, status }) =>
+    status === 'wait' ? 'transparent' : theme.colors.base};
 `

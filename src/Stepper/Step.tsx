@@ -3,7 +3,8 @@ import {
   IconContainer,
   ContentContainer,
   TitleContainer,
-  SubtitleContainer
+  SubtitleContainer,
+  Circle
 } from './styles'
 
 import React, { FC } from 'react'
@@ -17,29 +18,38 @@ export type StepProps = {
   status?: 'wait' | 'process' | 'finish' | 'error'
   disabled?: boolean
   title?: React.ReactNode
-  subTitle?: React.ReactNode
+  subtitle?: React.ReactNode
   number?: number
   last?: boolean
   vertical?: boolean
 }
 
-const Step: FC<StepProps> = (props) => {
+const Step: FC<StepProps> = ({ children, ...props }) => {
   const { title, ...rest } = props
-  const { subTitle, icon, status, number } = props
+  const { subtitle, icon, status, number, vertical } = props
+
+  const titleNode = <TitleContainer {...rest}>{title}</TitleContainer>
+  const subtitleNode = (
+    <SubtitleContainer {...rest}>{subtitle}</SubtitleContainer>
+  )
 
   const renderIcon = () => {
+    if (icon) return icon
+    let node
     if (status === 'process' || status === 'wait') {
-      return number
-    } else if (status === 'finish') return <CheckIcon />
-    else return <CloseIcon />
+      node = number
+    } else if (status === 'finish') node = <CheckIcon />
+    else node = <CloseIcon />
+    return <Circle {...rest}>{node}</Circle>
   }
 
   return (
     <StyledStep {...rest}>
-      <IconContainer {...rest}>{icon || renderIcon()}</IconContainer>
+      <IconContainer {...rest}>{renderIcon()}</IconContainer>
       <ContentContainer {...rest}>
-        <TitleContainer {...rest}>{title}</TitleContainer>
-        <SubtitleContainer {...rest}>{subTitle}</SubtitleContainer>
+        {title && titleNode}
+        {subtitle && subtitleNode}
+        {vertical && status === 'process' && children}
       </ContentContainer>
     </StyledStep>
   )
