@@ -1,8 +1,14 @@
-import { StyledStep, NumberIcon } from './styles'
+import {
+  StyledStep,
+  IconContainer,
+  ContentContainer,
+  TitleContainer,
+  SubtitleContainer
+} from './styles'
 
 import React, { FC } from 'react'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import CancelIcon from '@material-ui/icons/Cancel'
+import CheckIcon from '@material-ui/icons/Check'
+import CloseIcon from '@material-ui/icons/Close'
 
 export type StepProps = {
   description?: React.ReactNode
@@ -20,16 +26,18 @@ const Step: FC<StepProps> = (props) => {
 
   const renderIcon = () => {
     if (status === 'process' || status === 'wait') {
-      return <NumberIcon status={status}>{number}</NumberIcon>
-    } else if (status === 'finish') return <CheckCircleIcon />
-    else return <CancelIcon />
+      return number
+    } else if (status === 'finish') return <CheckIcon />
+    else return <CloseIcon />
   }
 
   return (
     <StyledStep {...rest}>
-      {icon || renderIcon()}
-      {title}
-      {subTitle}
+      <IconContainer status={status}>{icon || renderIcon()}</IconContainer>
+      <ContentContainer>
+        <TitleContainer>{title}</TitleContainer>
+        <SubtitleContainer>{subTitle}</SubtitleContainer>
+      </ContentContainer>
     </StyledStep>
   )
 }

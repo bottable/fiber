@@ -25,7 +25,7 @@ const Stepper: FC<StepperProps> = ({ children, ...props }) => {
         children?.map((step: React.ReactElement, idx: number) =>
           React.cloneElement(step, {
             status: step.props.status || status(idx),
-            number: idx,
+            number: idx + 1,
             key: idx
           })
         )!

@@ -10,7 +10,6 @@ export const StyledStepper = styled.div<StepperProps>`
   width: 100%;
   margin: 0;
   padding: 0;
-  color: rgba(0, 0, 0, 0.65);
   font-size: 14px;
   line-height: 1.5715;
   list-style: none;
@@ -24,18 +23,44 @@ export const StyledStep = styled.div<StepProps>`
   vertical-align: top;
 `
 
-export const NumberIcon = styled.span<StepProps>`
+export const IconContainer = styled.div<StepProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: ${rem('20px')};
-  height: ${rem('20px')};
+  width: ${rem('24px')};
+  height: ${rem('24px')};
+  margin-right: ${rem('8px')};
   border: ${rem('1px')} solid
     ${({ theme, status }) =>
-      status === 'process' ? theme.colors.base : theme.colors.gray6};
+      status === 'wait' ? theme.colors.gray6 : theme.colors.base};
   border-radius: 50%;
   background-color: ${({ theme, status }) =>
-    status === 'process' ? theme.colors.base : 'transparent'};
+    status === 'wait' ? 'transparent' : theme.colors.base};
   color: ${({ theme, status }) =>
-    status === 'process' ? '#fff' : theme.colors.gray6};
+    status === 'wait' ? theme.colors.gray6 : '#fff'};
+  svg {
+    width: ${rem('24px')};
+    height: ${rem('24px')};
+  }
+`
+
+export const ContentContainer = styled.div`
+  display: inline-block;
+  vertical-align: top;
+`
+
+export const TitleContainer = styled.div<StepProps>`
+  display: inline-block;
+  position: relative;
+  padding-right: ${rem('16px')};
+  color: ${({ theme }) => theme.colors.gray7};
+  font-size: ${rem('16px')};
+`
+
+export const SubtitleContainer = styled.div<StepProps>`
+  display: block;
+  position: relative;
+  max-width: ${rem('140px')};
+  color: ${({ theme }) => theme.colors.gray6};
+  font-size: ${rem('14px')};
 `
