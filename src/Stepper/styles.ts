@@ -6,7 +6,7 @@ import { rem } from 'polished'
 
 export const StyledStepper = styled.div<StepperProps>`
   display: flex;
-  box-sizing: border-box;
+  flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
   width: 100%;
   margin: 0;
   padding: 0;
@@ -17,18 +17,22 @@ export const StyledStepper = styled.div<StepperProps>`
 `
 
 export const StyledStep = styled.div<StepProps>`
-  display: inline-block;
+  display: ${({ vertical }) => (vertical ? 'block' : 'inline-block')};
   flex: 1;
   padding-top: ${rem('4px')};
   overflow: hidden;
   vertical-align: top;
   &:not(:first-child) {
-    padding-left: ${rem('16px')};
+    padding-left: ${({ vertical }) => (vertical ? null : rem('16px'))};
+  }
+  &:last-child {
+    flex: none;
   }
 `
 
 export const IconContainer = styled.div<StepProps>`
   display: inline-flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   width: ${rem('24px')};
@@ -46,6 +50,21 @@ export const IconContainer = styled.div<StepProps>`
     width: ${rem('24px')};
     height: ${rem('24px')};
   }
+  ${({ last, status, vertical, theme }) =>
+    !last && vertical
+      ? `
+  &::after {
+    position: absolute;
+    top: 120%;
+    left: ${rem('12px')};
+    display: block;
+    width: ${rem('1px')};
+    height: 9999px;
+    background: ${status === 'finish' ? theme.colors.base : theme.colors.gray4};
+    content: '';
+  }
+    `
+      : null}
 `
 
 export const ContentContainer = styled.div`
@@ -59,8 +78,8 @@ export const TitleContainer = styled.div<StepProps>`
   padding-right: ${rem('16px')};
   color: ${({ theme }) => theme.colors.gray7};
   font-size: ${rem('16px')};
-  ${({ last, status, theme }) =>
-    !last
+  ${({ last, status, vertical, theme }) =>
+    !last && !vertical
       ? `
   &::after {
     position: absolute;

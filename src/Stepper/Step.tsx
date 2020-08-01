@@ -20,10 +20,12 @@ export type StepProps = {
   subTitle?: React.ReactNode
   number?: number
   last?: boolean
+  vertical?: boolean
 }
 
 const Step: FC<StepProps> = (props) => {
-  const { title, subTitle, icon, status, number, last, ...rest } = props
+  const { title, ...rest } = props
+  const { subTitle, icon, status, number } = props
 
   const renderIcon = () => {
     if (status === 'process' || status === 'wait') {
@@ -34,12 +36,10 @@ const Step: FC<StepProps> = (props) => {
 
   return (
     <StyledStep {...rest}>
-      <IconContainer status={status}>{icon || renderIcon()}</IconContainer>
-      <ContentContainer>
-        <TitleContainer last={last} status={status}>
-          {title}
-        </TitleContainer>
-        <SubtitleContainer>{subTitle}</SubtitleContainer>
+      <IconContainer {...rest}>{icon || renderIcon()}</IconContainer>
+      <ContentContainer {...rest}>
+        <TitleContainer {...rest}>{title}</TitleContainer>
+        <SubtitleContainer {...rest}>{subTitle}</SubtitleContainer>
       </ContentContainer>
     </StyledStep>
   )
