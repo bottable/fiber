@@ -58,6 +58,7 @@ export const IconContainer = styled.div<StepProps>`
     width: ${rem('1px')};
     height: 9999px;
     background: ${status === 'finish' ? theme.colors.base : theme.colors.gray4};
+    transition: background-color 0.3s, border-color 0.3s;
     content: '';
   }
     `
@@ -91,6 +92,7 @@ export const TitleContainer = styled.div<StepProps>`
     width: 9999px;
     height: ${rem('1px')};
     background: ${status === 'finish' ? theme.colors.base : theme.colors.gray4};
+    transition: background 0.3s;
     content: '';
   }`
       : null}

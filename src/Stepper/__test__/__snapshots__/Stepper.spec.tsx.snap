@@ -33,7 +33,7 @@ Array [
         className="sc-AxhCb tdqZj"
       >
         <div
-          className="sc-AxhUy lbRCYf"
+          className="sc-AxhUy kVdvnf"
         >
           first
         </div>
@@ -63,7 +63,7 @@ Array [
         className="sc-AxhCb tdqZj"
       >
         <div
-          className="sc-AxhUy FRpZE"
+          className="sc-AxhUy ePhQRI"
         >
           second
         </div>
@@ -115,7 +115,7 @@ Array [
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxiKw LKDaf"
+        className="sc-AxiKw dCWsep"
       >
         <span
           className="sc-AxheI bLPmTn"
@@ -154,7 +154,7 @@ Array [
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxiKw iFclgE"
+        className="sc-AxiKw geRQiS"
       >
         <span
           className="sc-AxheI kGgmfc"
@@ -246,7 +246,7 @@ Array [
         className="sc-AxhCb tdqZj"
       >
         <div
-          className="sc-AxhUy lbRCYf"
+          className="sc-AxhUy kVdvnf"
         >
           Login
         </div>
@@ -276,7 +276,7 @@ Array [
         className="sc-AxhCb tdqZj"
       >
         <div
-          className="sc-AxhUy FRpZE"
+          className="sc-AxhUy ePhQRI"
         >
           Verification
         </div>
@@ -306,7 +306,7 @@ Array [
         className="sc-AxhCb tdqZj"
       >
         <div
-          className="sc-AxhUy FRpZE"
+          className="sc-AxhUy ePhQRI"
         >
           Pay
         </div>
