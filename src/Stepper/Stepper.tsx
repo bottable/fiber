@@ -21,15 +21,14 @@ const Stepper: FC<StepperProps> = ({ children, ...props }) => {
 
   return (
     <StyledStepper>
-      {
-        children?.map((step: React.ReactElement, idx: number) =>
-          React.cloneElement(step, {
-            status: step.props.status || status(idx),
-            number: idx + 1,
-            key: idx
-          })
-        )!
-      }
+      {children?.map((step: React.ReactElement, idx: number) =>
+        React.cloneElement(step, {
+          status: step.props.status || status(idx),
+          number: idx + 1,
+          last: idx === children.length - 1,
+          key: idx
+        })
+      )}
     </StyledStepper>
   )
 }

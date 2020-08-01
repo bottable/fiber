@@ -19,8 +19,12 @@ export const StyledStepper = styled.div<StepperProps>`
 export const StyledStep = styled.div<StepProps>`
   display: inline-block;
   flex: 1;
+  padding-top: ${rem('4px')};
   overflow: hidden;
   vertical-align: top;
+  &:not(:first-child) {
+    padding-left: ${rem('16px')};
+  }
 `
 
 export const IconContainer = styled.div<StepProps>`
@@ -55,6 +59,20 @@ export const TitleContainer = styled.div<StepProps>`
   padding-right: ${rem('16px')};
   color: ${({ theme }) => theme.colors.gray7};
   font-size: ${rem('16px')};
+  ${({ last, status, theme }) =>
+    !last
+      ? `
+  &::after {
+    position: absolute;
+    top: ${rem('16px')};
+    left: 100%;
+    display: block;
+    width: 9999px;
+    height: ${rem('1px')};
+    background: ${status === 'finish' ? theme.colors.base : theme.colors.gray4};
+    content: '';
+  }`
+      : null}
 `
 
 export const SubtitleContainer = styled.div<StepProps>`
