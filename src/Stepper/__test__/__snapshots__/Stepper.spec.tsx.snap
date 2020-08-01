@@ -2,7 +2,6 @@
 
 exports[`Stepper renders correctly 1`] = `
 <div
-  className="rc-steps rc-steps-horizontal sc-AxjAm StDqN rc-steps-label-horizontal"
-  style={Object {}}
+  className="sc-AxjAm jwflCi"
 />
 `;
