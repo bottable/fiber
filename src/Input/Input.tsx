@@ -12,6 +12,7 @@ import {
 } from './styles'
 
 import React from 'react'
+import { composeRef } from 'rc-util/lib/ref'
 
 export type InputProps = MergeElementProps<
   'input',
@@ -31,6 +32,8 @@ export type InputProps = MergeElementProps<
 
 const Input = React.forwardRef(
   (props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+    const inputRef = React.useRef<HTMLInputElement>(null)
+
     const {
       size,
       prefix,
@@ -91,7 +94,7 @@ const Input = React.forwardRef(
     let input = (
       <StyledInput
         {...rest}
-        ref={ref}
+        ref={composeRef<HTMLInputElement>(inputRef, ref)}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         onFocus={handleFocus}
@@ -116,7 +119,11 @@ const Input = React.forwardRef(
 
     if (fix) {
       input = (
-        <InputSpan {...rest} size={size}>
+        <InputSpan
+          {...rest}
+          size={size}
+          onClick={() => inputRef.current?.focus()}
+        >
           {prefixNode}
           {input}
           {suffixNode}

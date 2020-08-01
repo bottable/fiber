@@ -104,6 +104,7 @@ Array [
     >
       <span
         className="sc-AxgMl fYUEHd"
+        onClick={[Function]}
       >
         ￥
       </span>
@@ -116,6 +117,7 @@ Array [
       />
       <span
         className="sc-AxgMl fYUEHd"
+        onClick={[Function]}
       >
         RMB
       </span>
@@ -128,6 +130,7 @@ Array [
     >
       <span
         className="sc-AxgMl fYUEHd"
+        onClick={[Function]}
       >
         ￥
       </span>
@@ -141,6 +144,7 @@ Array [
       />
       <span
         className="sc-AxgMl fYUEHd"
+        onClick={[Function]}
       >
         RMB
       </span>
@@ -170,6 +174,7 @@ Array [
           />
           <span
             className="sc-AxgMl fYUEHd"
+            onClick={[Function]}
           >
             .com
           </span>
@@ -215,6 +220,7 @@ Array [
       />
       <span
         className="sc-AxgMl fYUEHd"
+        onClick={[Function]}
       >
         <svg
           aria-hidden={true}

@@ -16,67 +16,72 @@ export interface SearchProps extends InputProps {
   enterButton?: React.ReactNode
 }
 
-const Search = React.forwardRef((props: SearchProps, ref: any) => {
-  const inputRef = React.useRef<any>(null)
+const Search = React.forwardRef(
+  (props: SearchProps, ref: React.Ref<HTMLInputElement>) => {
+    const inputRef = React.useRef<HTMLInputElement>(null)
 
-  const {
-    onChange: customOnChange,
-    onSearch: customOnSearch,
-    addonAfter,
-    enterButton,
-    ...rest
-  } = props
+    const {
+      onChange: customOnChange,
+      onSearch: customOnSearch,
+      addonAfter,
+      enterButton,
+      ...rest
+    } = props
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e && e.target && e.type === 'click' && customOnSearch) {
-      customOnSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e)
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (e && e.target && e.type === 'click' && customOnSearch) {
+        customOnSearch(
+          (e as React.ChangeEvent<HTMLInputElement>).target.value,
+          e
+        )
+      }
+      if (customOnChange) {
+        customOnChange(e)
+      }
     }
-    if (customOnChange) {
-      customOnChange(e)
+
+    const onSearch = (
+      e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>
+    ) => {
+      const { disabled } = props
+
+      if (disabled) return
+
+      if (customOnSearch) return customOnSearch(inputRef.current?.value!, e)
     }
-  }
 
-  const onSearch = (
-    e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>
-  ) => {
-    const { disabled } = props
+    const renderAddonAfter = () => {
+      const { disabled, size } = props
 
-    if (disabled) return
+      if (!enterButton) return addonAfter
 
-    if (customOnSearch) return customOnSearch(inputRef.current?.value!, e)
-  }
+      const button = (
+        <Button
+          type='primary'
+          size={size}
+          disabled={disabled}
+          onClick={onSearch}
+          addon
+        >
+          {enterButton === true ? <SearchIcon /> : enterButton}
+        </Button>
+      )
 
-  const renderAddonAfter = () => {
-    const { disabled, size } = props
+      return button
+    }
 
-    if (!enterButton) return addonAfter
-
-    const button = (
-      <Button
-        type='primary'
-        size={size}
-        disabled={disabled}
-        onClick={onSearch}
-        addon
-      >
-        {enterButton === true ? <SearchIcon /> : enterButton}
-      </Button>
+    return (
+      <Input
+        ref={composeRef<HTMLInputElement>(inputRef, ref)}
+        onPressEnter={onSearch}
+        addonAfter={renderAddonAfter()}
+        onChange={onChange}
+        button
+        {...rest}
+      />
     )
-
-    return button
   }
-
-  return (
-    <Input
-      ref={composeRef<any>(inputRef, ref)}
-      onPressEnter={onSearch}
-      addonAfter={renderAddonAfter()}
-      onChange={onChange}
-      button
-      {...rest}
-    />
-  )
-})
+)
 
 Search.displayName = 'Search'
 
