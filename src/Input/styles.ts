@@ -3,12 +3,13 @@ import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
 const baseStyle = css<InputProps>`
-  background-color: ${({ disabled }) => (disabled ? '#f5f5f5' : null)};
-  color: ${({ disabled }) =>
-    disabled ? 'rgb(0, 0, 0, 0.25)' : 'rgb(0, 0, 0, 0.6)'};
+  background-color: ${({ disabled, theme }) =>
+    disabled ? theme.colors.gray2 : null};
+  color: ${({ disabled, theme }) =>
+    disabled ? theme.colors.gray5 : theme.colors.gray7};
   line-height: 1.5715;
   &::placeholder {
-    color: #d9d9d9;
+    color: ${({ theme }) => theme.colors.gray5};
   }
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : null)};
 `
@@ -19,8 +20,8 @@ const inputStyle = css<InputProps>`
     addonBefore || addonAfter ? 'table-cell' : 'inline-block'};
   float: ${({ addonBefore, addonAfter }) =>
     addonBefore || addonAfter ? 'left' : null};
-  border: ${({ bordered }) =>
-    bordered === false ? 'none' : `${rem('1px')} solid #d9d9d9;`};
+  border: ${({ bordered, theme }) =>
+    bordered === false ? 'none' : `${rem('1px')} solid ${theme.colors.gray5};`};
   border-radius: ${rem('2px')};
   border-top-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
   border-top-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
@@ -64,10 +65,11 @@ export const Addon = styled.span<InputProps>`
   display: table-cell;
   width: ${rem('1px')};
   padding: ${({ button }) => (button ? 'none' : `0 ${rem('11px')}`)};
-  border: ${({ button }) => (button ? 'none' : `${rem('1px')} solid #d9d9d9`)};
+  border: ${({ button, theme }) =>
+    button ? 'none' : `${rem('1px')} solid ${theme.colors.gray5}`};
   border-radius: ${rem('2px')};
-  background-color: #fafafa;
-  color: rgba(0, 0, 0, 0.65);
+  background-color: ${({ theme }) => theme.colors.gray2};
+  color: ${({ theme }) => theme.colors.gray7};
   font-size: ${({ size }) => {
     switch (size) {
       case 'lg':
