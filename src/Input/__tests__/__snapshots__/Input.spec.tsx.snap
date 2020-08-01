@@ -3,7 +3,7 @@
 exports[`Input renders correctly 1`] = `
 Array [
   <input
-    className="sc-AxjAm sc-AxiKw lbijtZ"
+    className="sc-AxjAm sc-AxiKw jnfwww"
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
@@ -11,7 +11,7 @@ Array [
   />,
   <div>
     <input
-      className="sc-AxjAm sc-AxhCb gismOp"
+      className="sc-AxjAm sc-AxhCb bQRQcw"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -21,7 +21,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-AxjAm sc-AxiKw lbijtZ"
+      className="sc-AxjAm sc-AxiKw jnfwww"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -31,7 +31,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-AxjAm sc-AxirZ fGgCCy"
+      className="sc-AxjAm sc-AxirZ fBHNTf"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -47,19 +47,19 @@ Array [
         className="sc-AxheI eElXNJ"
       >
         <span
-          className="sc-AxhUy kovJwY"
+          className="sc-AxhUy iWeRlw"
         >
           http://
         </span>
         <input
-          className="sc-AxjAm sc-AxiKw iMLmLy"
+          className="sc-AxjAm sc-AxiKw jErbun"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
         />
         <span
-          className="sc-AxhUy kovJwY"
+          className="sc-AxhUy iWeRlw"
         >
           .com
         </span>
@@ -74,14 +74,14 @@ Array [
         className="sc-AxheI eElXNJ"
       >
         <input
-          className="sc-AxjAm sc-AxiKw gEtrvi"
+          className="sc-AxjAm sc-AxiKw gJVoJX"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
         />
         <span
-          className="sc-AxhUy kovJwY"
+          className="sc-AxhUy iWeRlw"
         >
           <svg
             aria-hidden={true}
@@ -100,7 +100,7 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-AxmLO jwCNVt"
+      className="sc-AxmLO bhiPVD"
       onClick={[Function]}
     >
       <span
@@ -109,7 +109,7 @@ Array [
         ￥
       </span>
       <input
-        className="sc-AxjAm sc-AxiKw jiCEWJ"
+        className="sc-AxjAm sc-AxiKw iMaMGA"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -124,7 +124,7 @@ Array [
     <br />
     <br />
     <span
-      className="sc-AxmLO jZKHJt"
+      className="sc-AxmLO jgHcWq"
       disabled={true}
       onClick={[Function]}
     >
@@ -134,7 +134,7 @@ Array [
         ￥
       </span>
       <input
-        className="sc-AxjAm sc-AxiKw jkEtbE"
+        className="sc-AxjAm sc-AxiKw fffKRM"
         disabled={true}
         onBlur={[Function]}
         onChange={[Function]}
@@ -156,16 +156,16 @@ Array [
         className="sc-AxheI eElXNJ"
       >
         <span
-          className="sc-AxhUy kovJwY"
+          className="sc-AxhUy iWeRlw"
         >
           http://
         </span>
         <span
-          className="sc-AxmLO fqqYry"
+          className="sc-AxmLO fXcAhU"
           onClick={[Function]}
         >
           <input
-            className="sc-AxjAm sc-AxiKw jiCEWJ"
+            className="sc-AxjAm sc-AxiKw iMaMGA"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -182,7 +182,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-AxjAm sc-AxiKw gofHpS"
+      className="sc-AxjAm sc-AxiKw cGpFgj"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -192,7 +192,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-AxjAm sc-AxiKw eDcHmp"
+      className="sc-AxjAm sc-AxiKw eEKXt"
       disabled={true}
       onBlur={[Function]}
       onChange={[Function]}
@@ -203,13 +203,13 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-AxmLO jwCNVt"
+      className="sc-AxmLO bhiPVD"
       onClick={[Function]}
       placeholder="Password"
       type="password"
     >
       <input
-        className="sc-AxjAm sc-AxiKw jiCEWJ"
+        className="sc-AxjAm sc-AxiKw iMaMGA"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -247,7 +247,7 @@ Array [
         className="sc-AxheI eElXNJ"
       >
         <input
-          className="sc-AxjAm sc-AxiKw gEtrvi"
+          className="sc-AxjAm sc-AxiKw gJVoJX"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -255,10 +255,10 @@ Array [
           placeholder="Search"
         />
         <span
-          className="sc-AxhUy enwzPG"
+          className="sc-AxhUy gHPGxO"
         >
           <button
-            className="sc-fzokOt sc-fzqBZW eVwWTq"
+            className="sc-fznxsB sc-fznJRM cWuwOr"
             onClick={[Function]}
             onMouseDown={[Function]}
           >
