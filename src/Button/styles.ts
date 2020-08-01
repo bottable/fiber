@@ -304,7 +304,7 @@ export const RippleSpan = styled.span<RippleProps>`
   top: ${({ y }) => rem(`${y}px`)};
   left: ${({ x }) => rem(`${x}px`)};
   border-radius: 50%;
-  background: #555;
+  background: ${({ theme }) => theme.colors.gray7};
   transform: translate(-50%, -50%);
   animation: ${rippleAnimation} 0.5s linear 1;
   pointer-events: none;

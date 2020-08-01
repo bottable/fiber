@@ -31,8 +31,8 @@ const DropdownWrapper = styled.div<any>`
   position: absolute;
   z-index: 999;
   min-width: 160px;
-  background-color: #f9f9f9;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  background-color: ${({ theme }) => theme.colors.gray2};
+  box-shadow: ${({ theme }) => `0 8px 16px 0 ${theme.colors.gray4}`};
 `
 
 const useDropdownStatus = (trigger: TriggerType) => {
