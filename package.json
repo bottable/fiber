@@ -110,6 +110,7 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "gatsby": "2.22.15",
     "polished": "^3.6.4",
+    "rc-steps": "^4.1.2",
     "rc-util": "^5.0.6",
     "react-helmet": "^6.0.0",
     "react-helmet-async": "^1.0.6",

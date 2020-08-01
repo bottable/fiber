@@ -4,11 +4,15 @@ route: /component/stepper
 menu: Component
 ---
 
-import { Stepper } from 'fiber'
+import { Stepper, Step } from 'fiber'
 import { Playground } from 'docz'
 
 # Stepper
 
 <Playground>
-  <Stepper> Stepper </Stepper>
+  <Stepper current={1}>
+    <Step title='first'></Step>
+    <Step title='second'></Step>
+    <Step title='third'></Step>
+  </Stepper>
 </Playground>
