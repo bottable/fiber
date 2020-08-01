@@ -1,6 +1,6 @@
 import { StyledStepper } from './styles'
 
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 
 export type StepperProps = {
   current?: number
@@ -10,12 +10,23 @@ export type StepperProps = {
 }
 
 const Stepper: FC<StepperProps> = ({ children, ...props }) => {
-  const { current = 0, vertical } = props
+  const { current: currentProps, vertical, onChange } = props
+  const [current, setCurrent] = useState<number>(currentProps!)
+
+  useEffect(() => {
+    setCurrent(currentProps!)
+  }, [currentProps])
 
   const status = (idx: number) => {
     if (idx < current) return 'finish'
     else if (idx > current) return 'wait'
     return 'process'
+  }
+
+  const handleChange = (idx: number) => {
+    if (!onChange || idx === current) return
+    setCurrent(idx)
+    onChange(idx)
   }
 
   return (
@@ -26,6 +37,8 @@ const Stepper: FC<StepperProps> = ({ children, ...props }) => {
           number: idx + 1,
           last: idx === children.length - 1,
           vertical: vertical,
+          clickable: Boolean(onChange && current !== idx),
+          handleChange: handleChange,
           key: idx
         })
       )}

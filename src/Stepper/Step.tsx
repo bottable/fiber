@@ -7,30 +7,46 @@ import {
   Circle
 } from './styles'
 
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import CheckIcon from '@material-ui/icons/Check'
 import CloseIcon from '@material-ui/icons/Close'
 
 export type StepProps = {
-  description?: React.ReactNode
   icon?: React.ReactNode
-  onClick?: React.MouseEventHandler<HTMLElement>
   status?: 'wait' | 'process' | 'finish' | 'error'
-  disabled?: boolean
   title?: React.ReactNode
   subtitle?: React.ReactNode
   number?: number
   last?: boolean
   vertical?: boolean
+  clickable?: boolean
+  hover?: boolean
+  handleChange?: (current: number) => void
 }
 
 const Step: FC<StepProps> = ({ children, ...props }) => {
   const { title, ...rest } = props
-  const { subtitle, icon, status, number, vertical } = props
+  const {
+    subtitle,
+    icon,
+    status,
+    number,
+    vertical,
+    clickable,
+    handleChange
+  } = props
 
-  const titleNode = <TitleContainer {...rest}>{title}</TitleContainer>
+  const [hover, setHover] = useState<boolean>(false)
+
+  const titleNode = (
+    <TitleContainer {...rest} hover={hover}>
+      {title}
+    </TitleContainer>
+  )
   const subtitleNode = (
-    <SubtitleContainer {...rest}>{subtitle}</SubtitleContainer>
+    <SubtitleContainer {...rest} hover={hover}>
+      {subtitle}
+    </SubtitleContainer>
   )
 
   const renderIcon = () => {
@@ -40,12 +56,27 @@ const Step: FC<StepProps> = ({ children, ...props }) => {
       node = number
     } else if (status === 'finish') node = <CheckIcon />
     else node = <CloseIcon />
-    return <Circle {...rest}>{node}</Circle>
+    return (
+      <Circle {...rest} hover={hover}>
+        {node}
+      </Circle>
+    )
   }
 
   return (
-    <StyledStep {...rest}>
-      <IconContainer {...rest}>{renderIcon()}</IconContainer>
+    <StyledStep
+      {...rest}
+      onMouseEnter={() => setHover(Boolean(true && clickable))}
+      onMouseLeave={() => setHover(false)}
+      onClick={() => {
+        setHover(false)
+        if (handleChange) handleChange(number! - 1)
+      }}
+      hover={hover}
+    >
+      <IconContainer {...rest} hover={hover}>
+        {renderIcon()}
+      </IconContainer>
       <ContentContainer {...rest}>
         {title && titleNode}
         {subtitle && subtitleNode}
