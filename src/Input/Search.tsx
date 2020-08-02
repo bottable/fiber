@@ -1,6 +1,7 @@
-import { Button } from '../'
+import { Button } from '../Button'
 
-import { Input, InputProps } from './'
+import { Input, InputProps } from './Input'
+
 import React from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 import SearchIcon from '@material-ui/icons/Search'

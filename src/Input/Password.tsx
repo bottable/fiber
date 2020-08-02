@@ -1,4 +1,5 @@
-import { Input, InputProps } from './'
+import { Input, InputProps } from './Input'
+
 import React, { useState } from 'react'
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
 import VisibilityIcon from '@material-ui/icons/Visibility'
