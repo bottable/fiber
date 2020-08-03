@@ -1,4 +1,10 @@
-import { StyledCard, ContentContainer } from './styles'
+import {
+  StyledCard,
+  HeaderContainer,
+  TitleContainer,
+  ExtraContainer,
+  ContentContainer
+} from './styles'
 import Meta from './Meta'
 import Footer from './Footer'
 
@@ -15,8 +21,22 @@ export type CardProps = {
 }
 
 const Card: CardFC<CardProps> = ({ children, ...props }) => {
+  const { title, extra } = props
+
+  const titleNode = title ? <TitleContainer>{title}</TitleContainer> : null
+  const extraNode = extra ? <ExtraContainer>{extra}</ExtraContainer> : null
+
+  const header =
+    title || extra ? (
+      <HeaderContainer>
+        {titleNode}
+        {extraNode}
+      </HeaderContainer>
+    ) : null
+
   return (
     <StyledCard {...props}>
+      {header}
       <ContentContainer>{children}</ContentContainer>
     </StyledCard>
   )
