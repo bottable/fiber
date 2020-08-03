@@ -18,26 +18,32 @@ type CardFC<P> = FC<P> & {
 export type CardProps = {
   title?: string
   extra?: React.ReactNode
+  size?: 'md' | 'sm'
 }
 
 const Card: CardFC<CardProps> = ({ children, ...props }) => {
-  const { title, extra } = props
+  const { title, ...rest } = props
+  const { extra, size } = props
 
-  const titleNode = title ? <TitleContainer>{title}</TitleContainer> : null
-  const extraNode = extra ? <ExtraContainer>{extra}</ExtraContainer> : null
+  const titleNode = title ? (
+    <TitleContainer size={size}>{title}</TitleContainer>
+  ) : null
+  const extraNode = extra ? (
+    <ExtraContainer size={size}>{extra}</ExtraContainer>
+  ) : null
 
   const header =
     title || extra ? (
-      <HeaderContainer>
+      <HeaderContainer size={size}>
         {titleNode}
         {extraNode}
       </HeaderContainer>
     ) : null
 
   return (
-    <StyledCard {...props}>
+    <StyledCard {...rest}>
       {header}
-      <ContentContainer>{children}</ContentContainer>
+      <ContentContainer size={size}>{children}</ContentContainer>
     </StyledCard>
   )
 }

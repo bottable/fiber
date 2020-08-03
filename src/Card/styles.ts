@@ -3,7 +3,7 @@ import { CardProps } from './Card'
 import styled from 'styled-components'
 import { rem } from 'polished'
 
-export const StyledCard = styled.div<CardProps>`
+export const StyledCard = styled.div`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -20,26 +20,26 @@ export const HeaderContainer = styled.div<CardProps>`
   align-items: center;
   min-height: ${rem('48px')};
   margin-bottom: ${rem('-1px')};
-  padding: 0 ${rem('24px')};
+  padding: 0 ${({ size }) => (size === 'sm' ? rem('12px') : rem('24px'))};
   border-bottom: ${rem('1px')} solid ${({ theme }) => theme.colors.gray4};
   border-radius: ${rem('2px')} ${rem('2px')} 0 0;
   background: 0 0;
   color: ${({ theme }) => theme.colors.gray8};
-  font-size: ${rem('16px')};
+  font-size: ${({ size }) => (size === 'sm' ? rem('14px') : rem('16px'))};
   font-weight: 500;
 `
 
 export const TitleContainer = styled.div<CardProps>`
   display: inline-block;
   flex: 1;
-  padding: ${rem('16px')} 0;
+  padding: ${({ size }) => (size === 'sm' ? rem('8px') : rem('16px'))} 0;
   overflow: hidden;
   text-overflow: ellipsis;
 `
 
 export const ExtraContainer = styled.div<CardProps>`
   margin-left: auto;
-  padding: ${rem('16px')} 0;
+  padding: ${({ size }) => (size === 'sm' ? rem('8px') : rem('16px'))} 0;
   float: right;
   color: ${({ theme }) => theme.colors.base};
   font-size: ${rem('14px')};
@@ -58,7 +58,7 @@ export const ExtraContainer = styled.div<CardProps>`
 `
 
 export const ContentContainer = styled.div<CardProps>`
-  padding: ${rem('24px')};
+  padding: ${({ size }) => (size === 'sm' ? rem('12px') : rem('24px'))};
 `
 
 export const StyledMeta = styled.div<CardProps>``
