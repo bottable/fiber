@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider renders correctly 1`] = `
+<input
+  className="sc-AxjAm hTunXb"
+/>
+`;
