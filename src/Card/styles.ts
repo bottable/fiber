@@ -67,6 +67,26 @@ export const ContentContainer = styled.div<CardProps>`
   padding: ${({ size }) => (size === 'sm' ? rem('12px') : rem('24px'))};
 `
 
-export const StyledMeta = styled.div<CardProps>``
+export const ActionsContainer = styled.div<CardProps>`
+  display: flex;
+  border-top: ${rem('1px')} solid ${({ theme }) => theme.colors.gray4};
+`
 
-export const StyledFooter = styled.div<CardProps>``
+export const Action = styled.div<CardProps>`
+  flex: 1;
+  height: ${rem('24px')};
+  margin: ${rem('12px')} 0;
+  text-align: center;
+  &:hover {
+    color: ${({ theme }) => theme.colors.light};
+    cursor: pointer;
+  }
+  &:not(:last-child) {
+    border-right: ${({ theme }) => `${rem('1px')} solid ${theme.colors.gray4}`};
+  }
+  svg {
+    width: ${rem('24px')};
+    height: ${rem('24px')};
+  }
+  ${({ theme }) => theme.transition}
+`

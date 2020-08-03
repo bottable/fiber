@@ -1,11 +1,387 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card renders correctly 1`] = `
-<div
-  className="sc-AxjAm cLazpZ"
->
-  <div
-    className="sc-AxhUy gHKwLs"
-  />
-</div>
+Array [
+  <div>
+    <div
+      className="sc-AxjAm cLazpZ"
+      style={
+        Object {
+          "width": 300,
+        }
+      }
+    >
+      <div
+        className="sc-AxhUy gHKwLs"
+      >
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm cLazpZ"
+      style={
+        Object {
+          "width": 300,
+        }
+      }
+    >
+      <div
+        className="sc-AxirZ hpwXmn"
+      >
+        <div
+          className="sc-AxiKw PyuZw"
+        >
+          Default size card
+        </div>
+        <div
+          className="sc-AxhCb ekOLyM"
+        >
+          <a
+            href="#"
+          >
+            More
+          </a>
+        </div>
+      </div>
+      <div
+        className="sc-AxhUy gHKwLs"
+      >
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm cLazpZ"
+      style={
+        Object {
+          "width": 300,
+        }
+      }
+    >
+      <div
+        className="sc-AxirZ hpwXmn"
+      >
+        <div
+          className="sc-AxiKw PyuZw"
+        >
+          Medium card
+        </div>
+      </div>
+      <div
+        className="sc-AxhUy gHKwLs"
+      >
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+      </div>
+    </div>
+    <br />
+    <div
+      className="sc-AxjAm cLazpZ"
+      size="sm"
+      style={
+        Object {
+          "width": 300,
+        }
+      }
+    >
+      <div
+        className="sc-AxirZ jNtecM"
+        size="sm"
+      >
+        <div
+          className="sc-AxiKw giBzay"
+          size="sm"
+        >
+          Small card
+        </div>
+      </div>
+      <div
+        className="sc-AxhUy hxqVyW"
+        size="sm"
+      >
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      style={
+        Object {
+          "background": "rgb(236, 236, 236)",
+          "padding": 30,
+          "width": 300,
+        }
+      }
+    >
+      <div
+        className="sc-AxjAm dbubJq"
+        style={
+          Object {
+            "width": 300,
+          }
+        }
+      >
+        <div
+          className="sc-AxirZ hpwXmn"
+        >
+          <div
+            className="sc-AxiKw PyuZw"
+          >
+            No borders
+          </div>
+        </div>
+        <div
+          className="sc-AxhUy gHKwLs"
+        >
+          <p
+            style={
+              Object {
+                "margin": 0,
+              }
+            }
+          >
+            Card content
+          </p>
+          <p
+            style={
+              Object {
+                "margin": 0,
+              }
+            }
+          >
+            Card content
+          </p>
+          <p
+            style={
+              Object {
+                "margin": 0,
+              }
+            }
+          >
+            Card content
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm bSDCLu"
+      style={
+        Object {
+          "width": 300,
+        }
+      }
+    >
+      <div
+        className="sc-AxirZ hpwXmn"
+      >
+        <div
+          className="sc-AxiKw PyuZw"
+        >
+          Hoverable
+        </div>
+      </div>
+      <div
+        className="sc-AxhUy gHKwLs"
+      >
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm cLazpZ"
+      style={
+        Object {
+          "width": 300,
+        }
+      }
+    >
+      <div
+        className="sc-AxirZ hpwXmn"
+      >
+        <div
+          className="sc-AxiKw PyuZw"
+        >
+          Actions
+        </div>
+      </div>
+      <div
+        className="sc-AxhUy gHKwLs"
+      >
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+        <p
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
+        >
+          Card content
+        </p>
+      </div>
+      <div
+        className="sc-AxgMl fZFoSa"
+      >
+        <div
+          className="sc-AxheI igKBMW"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.95 10.78c.03-.25.05-.51.05-.78s-.02-.53-.06-.78l1.69-1.32c.15-.12.19-.34.1-.51l-1.6-2.77c-.1-.18-.31-.24-.49-.18l-1.99.8c-.42-.32-.86-.58-1.35-.78L12 2.34c-.03-.2-.2-.34-.4-.34H8.4c-.2 0-.36.14-.39.34l-.3 2.12c-.49.2-.94.47-1.35.78l-1.99-.8c-.18-.07-.39 0-.49.18l-1.6 2.77c-.1.18-.06.39.1.51l1.69 1.32c-.04.25-.07.52-.07.78s.02.53.06.78L2.37 12.1c-.15.12-.19.34-.1.51l1.6 2.77c.1.18.31.24.49.18l1.99-.8c.42.32.86.58 1.35.78l.3 2.12c.04.2.2.34.4.34h3.2c.2 0 .37-.14.39-.34l.3-2.12c.49-.2.94-.47 1.35-.78l1.99.8c.18.07.39 0 .49-.18l1.6-2.77c.1-.18.06-.39-.1-.51l-1.67-1.32zM10 13c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"
+              transform="scale(1.2, 1.2)"
+            />
+          </svg>
+        </div>
+        <div
+          className="sc-AxheI igKBMW"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+            />
+          </svg>
+        </div>
+        <div
+          className="sc-AxheI igKBMW"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;

@@ -6,6 +6,9 @@ menu: Component
 
 import { Card } from 'fiber'
 import { Playground } from 'docz'
+import SettingsIcon from '@material-ui/icons/Settings'
+import CreateIcon from '@material-ui/icons/Create'
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 
 # Card
 
@@ -63,6 +66,20 @@ import { Playground } from 'docz'
 
 <Playground>
   <Card title='Hoverable' style={{ width: 300 }} hoverable={true}>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+  </Card>
+</Playground>
+
+## Actions
+
+<Playground>
+  <Card
+    title='Actions'
+    style={{ width: 300 }}
+    actions={[<SettingsIcon />, <CreateIcon />, <MoreHorizIcon />]}
+  >
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>

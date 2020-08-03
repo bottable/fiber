@@ -3,7 +3,9 @@ import {
   HeaderContainer,
   TitleContainer,
   ExtraContainer,
-  ContentContainer
+  ContentContainer,
+  ActionsContainer,
+  Action
 } from './styles'
 
 import React, { FC } from 'react'
@@ -14,11 +16,13 @@ export type CardProps = {
   size?: 'md' | 'sm'
   bordered?: boolean
   hoverable?: boolean
+  actions?: React.ReactNode[]
+  style?: Object
 }
 
 const Card: FC<CardProps> = ({ children, ...props }) => {
   const { title, ...rest } = props
-  const { extra, size } = props
+  const { extra, size, actions } = props
 
   const titleNode = title ? (
     <TitleContainer size={size}>{title}</TitleContainer>
@@ -35,10 +39,19 @@ const Card: FC<CardProps> = ({ children, ...props }) => {
       </HeaderContainer>
     ) : null
 
+  const actionsNode = actions ? (
+    <ActionsContainer>
+      {actions.map((action, idx) => (
+        <Action key={idx}>{action}</Action>
+      ))}
+    </ActionsContainer>
+  ) : null
+
   return (
     <StyledCard {...rest}>
       {header}
       <ContentContainer size={size}>{children}</ContentContainer>
+      {actionsNode}
     </StyledCard>
   )
 }
