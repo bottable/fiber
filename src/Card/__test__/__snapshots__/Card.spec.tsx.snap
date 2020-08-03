@@ -2,6 +2,10 @@
 
 exports[`Card renders correctly 1`] = `
 <div
-  className="sc-AxjAm jzbbdJ"
-/>
+  className="sc-AxjAm coOZSy"
+>
+  <div
+    className="sc-AxirZ kYdARY"
+  />
+</div>
 `;

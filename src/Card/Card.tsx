@@ -1,6 +1,4 @@
-import { StyleProps } from '../utils/styles'
-
-import { StyledCard } from './styles'
+import { StyledCard, ContentContainer } from './styles'
 import Meta from './Meta'
 import Footer from './Footer'
 
@@ -11,12 +9,17 @@ type CardFC<P> = FC<P> & {
   Footer: FC
 }
 
-export interface CardProps extends StyleProps {
-  // custom props here
+export type CardProps = {
+  title?: string
+  extra?: React.ReactNode
 }
 
 const Card: CardFC<CardProps> = ({ children, ...props }) => {
-  return <StyledCard {...props}>{children}</StyledCard>
+  return (
+    <StyledCard {...props}>
+      <ContentContainer>{children}</ContentContainer>
+    </StyledCard>
+  )
 }
 
 Card.Meta = Meta
