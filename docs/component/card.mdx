@@ -10,6 +10,16 @@ import { Playground } from 'docz'
 # Card
 
 <Playground>
+  <Card style={{ width: 300 }}>
+    <p>Card content</p>
+    <p>Card content</p>
+    <p>Card content</p>
+  </Card>
+</Playground>
+
+## Header
+
+<Playground>
   <Card
     title='Default size card'
     extra={<a href='#'>More</a>}
@@ -24,18 +34,13 @@ import { Playground } from 'docz'
 ## Size
 
 <Playground>
-  <Card title='Medium card' extra={<a href='#'>More</a>} style={{ width: 300 }}>
+  <Card title='Medium card' style={{ width: 300 }}>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
   </Card>
   <br />
-  <Card
-    title='Small card'
-    size='sm'
-    extra={<a href='#'>More</a>}
-    style={{ width: 300 }}
-  >
+  <Card title='Small card' size='sm' style={{ width: 300 }}>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
@@ -46,16 +51,20 @@ import { Playground } from 'docz'
 
 <Playground>
   <div style={{ width: 300, background: 'rgb(236, 236, 236)', padding: 30 }}>
-    <Card
-      title='No borders'
-      extra={<a href='#'>More</a>}
-      style={{ width: 300 }}
-      bordered={false}
-    >
+    <Card title='No borders' style={{ width: 300 }} bordered={false}>
       <p style={{ margin: 0 }}>Card content</p>
       <p style={{ margin: 0 }}>Card content</p>
       <p style={{ margin: 0 }}>Card content</p>
     </Card>
-    <br />
   </div>
+</Playground>
+
+## Hoverable
+
+<Playground>
+  <Card title='Hoverable' style={{ width: 300 }} hoverable={true}>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+  </Card>
 </Playground>

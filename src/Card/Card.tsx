@@ -5,24 +5,18 @@ import {
   ExtraContainer,
   ContentContainer
 } from './styles'
-import Meta from './Meta'
-import Footer from './Footer'
 
 import React, { FC } from 'react'
-
-type CardFC<P> = FC<P> & {
-  Meta: FC
-  Footer: FC
-}
 
 export type CardProps = {
   title?: string
   extra?: React.ReactNode
   size?: 'md' | 'sm'
   bordered?: boolean
+  hoverable?: boolean
 }
 
-const Card: CardFC<CardProps> = ({ children, ...props }) => {
+const Card: FC<CardProps> = ({ children, ...props }) => {
   const { title, ...rest } = props
   const { extra, size } = props
 
@@ -52,8 +46,5 @@ const Card: CardFC<CardProps> = ({ children, ...props }) => {
 Card.defaultProps = {
   bordered: true
 }
-
-Card.Meta = Meta
-Card.Footer = Footer
 
 export { Card }
