@@ -1,15 +1,25 @@
-import { StyleProps } from '../utils/styles'
-
-import { StyledTag } from './styles'
+import { StyledTag, IconContainer } from './styles'
 
 import React, { FC } from 'react'
+import CloseIcon from '@material-ui/icons/Close'
 
-export interface TagProps extends StyleProps {
-  // custom props here
+export type TagProps = {
+  closable?: boolean
 }
 
 const Tag: FC<TagProps> = ({ children, ...props }) => {
-  return <StyledTag {...props}>{children}</StyledTag>
+  const { closable } = props
+
+  return (
+    <StyledTag {...props}>
+      {children}
+      {closable ? (
+        <IconContainer>
+          <CloseIcon />
+        </IconContainer>
+      ) : null}
+    </StyledTag>
+  )
 }
 
 export { Tag }
