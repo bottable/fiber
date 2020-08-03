@@ -1,5 +1,6 @@
 export * from './ExampleComponent'
 export * from './UIProvider'
+export * from './Card'
 export * from './Tag'
 export * from './Stepper'
 export * from './CodegenSample'
