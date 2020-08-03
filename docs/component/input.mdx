@@ -1,0 +1,91 @@
+---
+name: Input
+route: /component/input
+menu: Component
+---
+
+import { Input, PasswordInput, SearchInput } from 'fiber'
+import { Playground } from 'docz'
+import SettingsIcon from '@material-ui/icons/Settings'
+
+# Input
+
+<Playground>
+  <Input />
+</Playground>
+
+## Size
+
+<Playground>
+  <div>
+    <Input size='lg' placeholder='Large Input' />
+    <br />
+    <br />
+    <Input placeholder='Medium Input' />
+    <br />
+    <br />
+    <Input size='sm' placeholder='Small Input' />
+  </div>
+</Playground>
+
+## Addon
+
+<Playground>
+  <div>
+    <Input addonBefore='http://' addonAfter='.com' />
+    <br />
+    <br />
+    <Input addonAfter={<SettingsIcon />} />
+  </div>
+</Playground>
+
+## Prefix and Suffix
+
+<Playground>
+  <div>
+    <Input prefix='￥' suffix='RMB' />
+    <br />
+    <br />
+    <Input prefix='￥' suffix='RMB' disabled />
+    <br />
+    <br />
+    <Input addonBefore='http://' suffix='.com' />
+  </div>
+</Playground>
+
+## Borderless
+
+<Playground>
+  <div>
+    <Input placeholder='Borderless' bordered={false} />
+  </div>
+</Playground>
+
+## Disabled
+
+<Playground>
+  <div>
+    <Input placeholder='Disabled' disabled />
+  </div>
+</Playground>
+
+## Password
+
+<Playground>
+  <div>
+    <PasswordInput placeholder='Password' />
+  </div>
+</Playground>
+
+## Search
+
+<Playground>
+  <div>
+    <SearchInput
+      placeholder='Search'
+      onSearch={(value) => console.log(value)}
+      enterButton
+    />
+    <br />
+  </div>
+</Playground>

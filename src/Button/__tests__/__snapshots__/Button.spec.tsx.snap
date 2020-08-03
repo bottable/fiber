@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+Array [
+  <div>
+    <button
+      className="sc-AxjAm sc-AxirZ iIIQOJ"
+      disabled={true}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Primary Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxiKw glXpAT"
+      disabled={true}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Default Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxhCb dxZlal"
+      disabled={true}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Dashed Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxhUy RBYoV"
+      disabled={true}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Text Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxgMl hnzazq"
+      disabled={true}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Link Button
+    </button>
+  </div>,
+  <div
+    style={
+      Object {
+        "backgroundColor": "rgb(190, 200, 200)",
+        "paddingTop": 12,
+      }
+    }
+  >
+    <button
+      className="sc-AxjAm sc-AxirZ cFzCsa"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Primary Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxiKw bUOUbO"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Default Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxhCb etWIA"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Dashed Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxhUy dGKOyz"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Text Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxgMl ljYYAE"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Link Button
+    </button>
+  </div>,
+  <div
+    style={
+      Object {
+        "border": "1px solid black",
+        "margin": 10,
+        "padding": 25,
+        "width": 200,
+      }
+    }
+  >
+    <button
+      className="sc-AxjAm sc-AxirZ gwwfsc"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Primary Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxiKw hKOurx"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Default Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxhCb eLNfQD"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Dashed Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxhUy gxIVyU"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Text Button
+    </button>
+    <button
+      className="sc-AxjAm sc-AxgMl bSxxZf"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      Link Button
+    </button>
+  </div>,
+  <div>
+    <button
+      className="sc-AxjAm sc-AxiKw erduTB"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        style={
+          Object {
+            "height": "1.125rem",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+        />
+      </svg>
+    </button>
+    <button
+      className="sc-AxjAm sc-AxiKw dmhxQt"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      shape="circle"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        style={
+          Object {
+            "height": "1.125rem",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+        />
+      </svg>
+    </button>
+    <button
+      className="sc-AxjAm sc-AxiKw kRIaZZ"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      shape="round"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        style={
+          Object {
+            "height": "1.125rem",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+        />
+      </svg>
+    </button>
+  </div>,
+  <div>
+    <button
+      className="sc-AxjAm sc-AxiKw hRbaCc"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      size="lg"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        style={
+          Object {
+            "height": "1.1875rem",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+        />
+      </svg>
+      Trash
+    </button>
+    <button
+      className="sc-AxjAm sc-AxiKw erduTB"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        style={
+          Object {
+            "height": "1.125rem",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+        />
+      </svg>
+      Trash
+    </button>
+    <button
+      className="sc-AxjAm sc-AxiKw laiCOA"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      size="sm"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        style={
+          Object {
+            "height": "1.125rem",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+        />
+      </svg>
+      Trash
+    </button>
+  </div>,
+]
+`;

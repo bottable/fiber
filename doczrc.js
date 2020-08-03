@@ -4,5 +4,6 @@ module.exports = {
   title: 'Fiber UI',
   description: 'A React UI Component library 🧸',
   typescript: true,
-  dest: '/build'
+  dest: '/build',
+  menu: ['Getting Started', 'Example', 'Component', 'Layout']
 }

@@ -1,4 +1,4 @@
-import themes, { ThemeType } from './themes'
+import themes from './themes'
 import { LocaleProvider } from './locales'
 import defaultLocale from './locales/locales/en_US'
 import { GlobalStyle, fontStyle } from './styles'
@@ -12,7 +12,7 @@ const { blue: defaultTheme } = themes
 
 interface UIProviderProps {
   children: ReactNode
-  theme?: ThemeType
+  theme?: Object
   locale?: Locale
 }
 

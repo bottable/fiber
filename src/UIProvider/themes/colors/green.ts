@@ -23,4 +23,4 @@ const colors = {
   primary: '#2c72e2'
 }
 
-export default { colors }
+export default colors
