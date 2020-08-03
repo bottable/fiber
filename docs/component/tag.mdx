@@ -36,20 +36,34 @@ import FacebookIcon from '@material-ui/icons/Facebook'
 ## Color
 
 <Playground>
-  <Tag color='blue'>Blue</Tag>
-  <Tag color='green'>Green</Tag>
-  <Tag color='magenta'>Magenta</Tag>
-  <Tag color='orange'>Orange</Tag>
-  <Tag color='purple'>Purple</Tag>
-  <Tag color='red'>Red</Tag>
-  <Tag color='teal'>Teal</Tag>
-  <Tag color='yellow'>Yellow</Tag>
+  <div>
+    <Tag color='blue'>Blue</Tag>
+    <Tag color='green'>Green</Tag>
+    <Tag color='magenta'>Magenta</Tag>
+    <Tag color='orange'>Orange</Tag>
+    <Tag color='purple'>Purple</Tag>
+    <Tag color='red'>Red</Tag>
+    <Tag color='teal'>Teal</Tag>
+    <Tag color='yellow'>Yellow</Tag>
+  </div>
+  <div>
+    <Tag color='#f50'>#f50</Tag>
+    <Tag color='#2db7f5'>#2db7f5</Tag>
+    <Tag color='#87d068'>#87d068</Tag>
+    <Tag color='#108ee9'>#108ee9</Tag>
+  </div>
 </Playground>
 
 ## Icon
 
 <Playground>
-  <Tag icon={<FacebookIcon />}>Facebook</Tag>
-  <Tag icon={<YouTubeIcon />}>YouTube</Tag>
-  <Tag icon={<TwitterIcon />}>Twitter</Tag>
+  <Tag icon={<FacebookIcon />} color='#3b5999'>
+    Facebook
+  </Tag>
+  <Tag icon={<YouTubeIcon />} color='#cd201f'>
+    YouTube
+  </Tag>
+  <Tag icon={<TwitterIcon />} color='#55acee'>
+    Twitter
+  </Tag>
 </Playground>

@@ -13,11 +13,23 @@ export const StyledTag = styled.span<TagProps>`
   border-style: solid;
   border-radius: ${rem('2px')};
   border-color: ${({ color, theme }) =>
-    color ? theme.colors[color].light : theme.colors.gray4};
+    color
+      ? !theme.colors[color]
+        ? color
+        : theme.colors[color].light
+      : theme.colors.gray4};
   background: ${({ color, theme }) =>
-    color ? theme.colors[color].lightest : theme.colors.gray2};
+    color
+      ? !theme.colors[color]
+        ? color
+        : theme.colors[color].lightest
+      : theme.colors.gray2};
   color: ${({ color, theme }) =>
-    color ? theme.colors[color].base : theme.colors.gray7};
+    color
+      ? !theme.colors[color]
+        ? '#fff'
+        : theme.colors[color].base
+      : theme.colors.gray7};
   font-size: ${rem('12px')};
   line-height: ${rem('20px')};
   cursor: default;
@@ -25,7 +37,11 @@ export const StyledTag = styled.span<TagProps>`
     outline: none;
     background-color: transparent;
     color: ${({ color, theme }) =>
-      color ? theme.colors[color].base : theme.colors.gray7};
+      color
+        ? !theme.colors[color]
+          ? color
+          : theme.colors[color].base
+        : theme.colors.gray7};
     text-decoration: none;
     cursor: pointer;
   }
@@ -38,7 +54,11 @@ export const StyledTag = styled.span<TagProps>`
 const baseContainerStyle = css<TagProps>`
   display: inline-block;
   color: ${({ color, theme }) =>
-    color ? theme.colors[color].base : theme.colors.gray7};
+    color
+      ? !theme.colors[color]
+        ? '#fff'
+        : theme.colors[color].base
+      : theme.colors.gray7};
   font-size: ${rem('10px')};
   vertical-align: middle;
   cursor: pointer;
