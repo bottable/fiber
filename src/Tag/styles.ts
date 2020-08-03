@@ -12,16 +12,20 @@ export const StyledTag = styled.span<TagProps>`
   border-width: ${rem('1px')};
   border-style: solid;
   border-radius: ${rem('2px')};
-  border-color: ${({ theme }) => theme.colors.gray4};
-  background: ${({ theme }) => theme.colors.gray2};
-  color: ${({ theme }) => theme.colors.gray7};
+  border-color: ${({ color, theme }) =>
+    color ? theme.colors[color].light : theme.colors.gray4};
+  background: ${({ color, theme }) =>
+    color ? theme.colors[color].lightest : theme.colors.gray2};
+  color: ${({ color, theme }) =>
+    color ? theme.colors[color].base : theme.colors.gray7};
   font-size: ${rem('12px')};
   line-height: ${rem('20px')};
   cursor: default;
   a {
     outline: none;
     background-color: transparent;
-    color: ${({ theme }) => theme.colors.gray7};
+    color: ${({ color, theme }) =>
+      color ? theme.colors[color].base : theme.colors.gray7};
     text-decoration: none;
     cursor: pointer;
   }
@@ -36,7 +40,8 @@ export const IconContainer = styled.span`
   width: ${rem('10px')};
   height: ${rem('10px')};
   margin-left: ${rem('3px')};
-  color: ${({ theme }) => theme.colors.gray7};
+  color: ${({ color, theme }) =>
+    color ? theme.colors[color].base : theme.colors.gray7};
   font-size: ${rem('10px')};
   vertical-align: middle;
   cursor: pointer;

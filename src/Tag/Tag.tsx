@@ -7,10 +7,20 @@ export type TagProps = {
   closable?: boolean
   visible?: boolean
   onClose?: Function
+  color?:
+    | 'blue'
+    | 'green'
+    | 'magenta'
+    | 'neutral'
+    | 'orange'
+    | 'purple'
+    | 'red'
+    | 'teal'
+    | 'yellow'
 }
 
 const Tag: FC<TagProps> = ({ children, ...props }) => {
-  const { closable, visible: visibleProps, onClose } = props
+  const { closable, visible: visibleProps, onClose, color } = props
   const [visible, setVisible] = useState<boolean>(true)
   useEffect(() => {
     if (typeof visibleProps === 'boolean') {
@@ -29,7 +39,7 @@ const Tag: FC<TagProps> = ({ children, ...props }) => {
     <StyledTag {...props} visible={visible}>
       {children}
       {closable ? (
-        <IconContainer>
+        <IconContainer color={color}>
           <CloseIcon onClick={handleClose} />
         </IconContainer>
       ) : null}
