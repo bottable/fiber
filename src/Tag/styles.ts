@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { rem } from 'polished'
 
 export const StyledTag = styled.span<TagProps>`
-  display: inline-block;
+  display: ${({ visible }) => (visible ? 'inline-block' : 'none')};
   box-sizing: border-box;
   height: auto;
   margin-right: ${rem('8px')};

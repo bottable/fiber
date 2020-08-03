@@ -10,9 +10,22 @@ import { Playground } from 'docz'
 # Tag
 
 <Playground>
-  <Tag>Tag 1</Tag>
-  <Tag>
-    <a href='https://github.com/bottable/fiber'>Link</a>
-  </Tag>
-  <Tag closable>Tag 2</Tag>
+  {() => {
+    const preventDefault = (e) => {
+      e.preventDefault()
+      console.log('Default Prevented')
+    }
+    return (
+      <>
+        <Tag>Tag 1</Tag>
+        <Tag>
+          <a href='https://github.com/bottable/fiber'>Link</a>
+        </Tag>
+        <Tag closable>Tag 2</Tag>
+        <Tag closable onClose={preventDefault}>
+          Prevent Default
+        </Tag>
+      </>
+    )
+  }}
 </Playground>
