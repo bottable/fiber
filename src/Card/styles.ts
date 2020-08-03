@@ -3,11 +3,12 @@ import { CardProps } from './Card'
 import styled from 'styled-components'
 import { rem } from 'polished'
 
-export const StyledCard = styled.div`
+export const StyledCard = styled.div<CardProps>`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: ${rem('1px')} solid ${({ theme }) => theme.colors.gray4};
+  border: ${rem('1px')} solid
+    ${({ bordered, theme }) => (bordered ? theme.colors.gray4 : '#fff')};
   border-radius: ${rem('2px')};
   background: #fff;
   color: ${({ theme }) => theme.colors.gray6};

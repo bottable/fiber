@@ -19,6 +19,7 @@ export type CardProps = {
   title?: string
   extra?: React.ReactNode
   size?: 'md' | 'sm'
+  bordered?: boolean
 }
 
 const Card: CardFC<CardProps> = ({ children, ...props }) => {
@@ -46,6 +47,10 @@ const Card: CardFC<CardProps> = ({ children, ...props }) => {
       <ContentContainer size={size}>{children}</ContentContainer>
     </StyledCard>
   )
+}
+
+Card.defaultProps = {
+  bordered: true
 }
 
 Card.Meta = Meta
