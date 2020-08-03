@@ -6,6 +6,9 @@ menu: Component
 
 import { Tag } from 'fiber'
 import { Playground } from 'docz'
+import TwitterIcon from '@material-ui/icons/Twitter'
+import YouTubeIcon from '@material-ui/icons/YouTube'
+import FacebookIcon from '@material-ui/icons/Facebook'
 
 # Tag
 
@@ -30,7 +33,7 @@ import { Playground } from 'docz'
   }}
 </Playground>
 
-## Colors
+## Color
 
 <Playground>
   <Tag color='blue'>Blue</Tag>
@@ -41,4 +44,12 @@ import { Playground } from 'docz'
   <Tag color='red'>Red</Tag>
   <Tag color='teal'>Teal</Tag>
   <Tag color='yellow'>Yellow</Tag>
+</Playground>
+
+## Icon
+
+<Playground>
+  <Tag icon={<FacebookIcon />}>Facebook</Tag>
+  <Tag icon={<YouTubeIcon />}>YouTube</Tag>
+  <Tag icon={<TwitterIcon />}>Twitter</Tag>
 </Playground>

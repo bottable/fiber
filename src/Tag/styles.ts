@@ -1,6 +1,6 @@
 import { TagProps } from './Tag'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
 export const StyledTag = styled.span<TagProps>`
@@ -35,16 +35,32 @@ export const StyledTag = styled.span<TagProps>`
   }
 `
 
-export const IconContainer = styled.span`
+const baseContainerStyle = css<TagProps>`
   display: inline-block;
-  width: ${rem('10px')};
-  height: ${rem('10px')};
-  margin-left: ${rem('3px')};
   color: ${({ color, theme }) =>
     color ? theme.colors[color].base : theme.colors.gray7};
   font-size: ${rem('10px')};
   vertical-align: middle;
   cursor: pointer;
+`
+
+export const IconContainer = styled.span<TagProps>`
+  ${baseContainerStyle}
+  width: ${rem('12px')};
+  height: ${rem('12px')};
+  margin-right: ${rem('3px')};
+  svg {
+    width: ${rem('12px')};
+    height: ${rem('12px')};
+    float: left;
+  }
+`
+
+export const CloseContainer = styled.span<TagProps>`
+  ${baseContainerStyle}
+  width: ${rem('10px')};
+  height: ${rem('10px')};
+  margin-left: ${rem('3px')};
   svg {
     width: ${rem('10px')};
     height: ${rem('10px')};

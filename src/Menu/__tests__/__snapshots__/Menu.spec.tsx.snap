@@ -2,33 +2,33 @@
 
 exports[`Block Menu & Menu Items renders correctly 1`] = `
 <ul
-  className="sc-fznWqX wiwyw"
+  className="sc-fzoiQi dnPtoq"
 >
   <li
-    className="sc-fznxsB fPPOqo"
+    className="sc-fznJRM evxLXU"
   >
     <span
-      className="sc-fzplWN cNSBYd"
+      className="sc-fznyAO ljNgEp"
       size={4}
     >
        Item 1 
     </span>
   </li>
   <li
-    className="sc-fznxsB fPPOqo"
+    className="sc-fznJRM evxLXU"
   >
     <span
-      className="sc-fzplWN cNSBYd"
+      className="sc-fznyAO ljNgEp"
       size={4}
     >
        Item 2 
     </span>
   </li>
   <li
-    className="sc-fznxsB fPPOqo"
+    className="sc-fznJRM evxLXU"
   >
     <span
-      className="sc-fzplWN cNSBYd"
+      className="sc-fznyAO ljNgEp"
       size={4}
     >
        Item 3 
@@ -39,33 +39,33 @@ exports[`Block Menu & Menu Items renders correctly 1`] = `
 
 exports[`Inline Menu & Menu Items renders correctly 1`] = `
 <ul
-  className="sc-fznWqX wiwyw"
+  className="sc-fzoiQi dnPtoq"
 >
   <li
-    className="sc-fznxsB sc-fznJRM kTyDqT"
+    className="sc-fznJRM sc-fznWqX KIRcE"
   >
     <span
-      className="sc-fzplWN cNSBYd"
+      className="sc-fznyAO ljNgEp"
       size={4}
     >
        Item 1 
     </span>
   </li>
   <li
-    className="sc-fznxsB sc-fznJRM kTyDqT"
+    className="sc-fznJRM sc-fznWqX KIRcE"
   >
     <span
-      className="sc-fzplWN cNSBYd"
+      className="sc-fznyAO ljNgEp"
       size={4}
     >
        Item 2 
     </span>
   </li>
   <li
-    className="sc-fznxsB sc-fznJRM kTyDqT"
+    className="sc-fznJRM sc-fznWqX KIRcE"
   >
     <span
-      className="sc-fzplWN cNSBYd"
+      className="sc-fznyAO ljNgEp"
       size={4}
     >
        Item 3 
