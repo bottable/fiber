@@ -11,63 +11,34 @@ import {
 } from './colors'
 import * as misc from './misc'
 
-// TODO: Write a better version of this...
-
-const blueTheme = {
-  ...blue,
-  ...misc
+const theme = {
+  blue: { colors: blue },
+  green: { colors: green },
+  magenta: { colors: magenta },
+  neutral: { colors: neutral },
+  orange: { colors: orange },
+  purple: { colors: purple },
+  red: { colors: red },
+  teal: { colors: teal },
+  yellow: { colors: yellow }
 }
 
-const greenTheme = {
-  ...green,
-  ...misc
+for (const [key, value] of Object.entries(theme)) {
+  theme[key] = {
+    colors: {
+      ...value.colors,
+      blue: blue,
+      green: green,
+      magenta: magenta,
+      neutral: neutral,
+      orange: orange,
+      purple: purple,
+      red: red,
+      teal: teal,
+      yellow: yellow
+    },
+    ...misc
+  }
 }
 
-const magentaTheme = {
-  ...magenta,
-  ...misc
-}
-
-const neutralTheme = {
-  ...neutral,
-  ...misc
-}
-
-const orangeTheme = {
-  ...orange,
-  ...misc
-}
-
-const purpleTheme = {
-  ...purple,
-  ...misc
-}
-
-const redTheme = {
-  ...red,
-  ...misc
-}
-
-const tealTheme = {
-  ...teal,
-  ...misc
-}
-
-const yellowTheme = {
-  ...yellow,
-  ...misc
-}
-
-export default {
-  blue: blueTheme,
-  green: greenTheme,
-  magenta: magentaTheme,
-  neutral: neutralTheme,
-  orange: orangeTheme,
-  purple: purpleTheme,
-  red: redTheme,
-  teal: tealTheme,
-  yellow: yellowTheme
-}
-
-export type ThemeType = typeof blueTheme
+export default theme
