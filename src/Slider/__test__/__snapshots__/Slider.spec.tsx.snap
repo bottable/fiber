@@ -2,6 +2,7 @@
 
 exports[`Slider renders correctly 1`] = `
 <input
-  className="sc-AxjAm hTunXb"
+  className="sc-AxjAm zprWU"
+  type="range"
 />
 `;

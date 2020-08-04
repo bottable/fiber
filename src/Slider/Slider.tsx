@@ -1,15 +1,14 @@
-import { StyleProps } from '../utils/styles'
-
 import { StyledSlider } from './styles'
 
 import React, { FC } from 'react'
 
-export interface SliderProps extends StyleProps {
-  // custom props here
+export type SliderProps = {
+  defaultValue?: number
+  value?: number
 }
 
-const Slider: FC<SliderProps> = ({ children, ...props }) => {
-  return <StyledSlider {...props}>{children}</StyledSlider>
+const Slider: FC<SliderProps> = (props) => {
+  return <StyledSlider type='range' {...props} />
 }
 
 export { Slider }
