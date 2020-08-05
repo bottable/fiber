@@ -9,7 +9,7 @@ export const StyledSlider = styled.div<SliderProps>`
   margin: 0;
   padding: ${rem('5px')} 0;
   opacity: ${({ hover, focus }) => (hover || focus ? 1 : 0.6)};
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   ${({ theme }) => theme.transition}
 `
 
@@ -29,7 +29,8 @@ export const Track = styled.div<SliderProps>`
   left: 0;
   height: ${rem('4px')};
   border-radius: ${rem('2px')};
-  background-color: ${({ theme }) => theme.colors.base};
+  background-color: ${({ disabled, theme }) =>
+    disabled ? theme.colors.gray6 : theme.colors.base};
 `
 
 export const Thumb = styled.div<SliderProps>`
@@ -38,10 +39,15 @@ export const Thumb = styled.div<SliderProps>`
   width: ${rem('14px')};
   height: ${rem('14px')};
   border-radius: 50%;
-  background: ${({ focus, theme }) =>
-    focus ? theme.colors.dark : theme.colors.base};
+  background: ${({ focus, disabled, theme }) =>
+    disabled
+      ? theme.colors.gray6
+      : focus
+      ? theme.colors.dark
+      : theme.colors.base};
   &:hover {
-    background: ${({ theme }) => theme.colors.dark};
+    background: ${({ disabled, theme }) =>
+      disabled ? null : theme.colors.dark};
   }
   ${({ theme }) => theme.transition}
   transition: left 0s

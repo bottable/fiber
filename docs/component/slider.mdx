@@ -5,7 +5,7 @@ menu: Component
 ---
 
 import { useState } from 'react'
-import { Slider } from 'fiber'
+import { Slider, Text } from 'fiber'
 import { Playground } from 'docz'
 
 # Slider
@@ -27,4 +27,20 @@ import { Playground } from 'docz'
       </>
     )
   }}
+</Playground>
+
+## Step
+
+<Playground>
+  <Text>Step = 2</Text>
+  <Slider defaultValue={30} step={2} />
+  <br />
+  <Text>Step = 10</Text>
+  <Slider defaultValue={30} step={10} />
+</Playground>
+
+## Disabled
+
+<Playground>
+  <Slider defaultValue={30} disabled />
 </Playground>

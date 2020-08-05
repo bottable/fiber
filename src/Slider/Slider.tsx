@@ -11,11 +11,12 @@ export type SliderProps = {
   onChange?: (value: number) => void
   hover?: boolean
   focus?: boolean
+  disabled?: boolean
 }
 
 const Slider: FC<SliderProps> = (props) => {
   const { onChange, ...rest } = props
-  const { defaultValue, min, max, step, value: valueProps } = props
+  const { defaultValue, min, max, step, value: valueProps, disabled } = props
 
   useEffect(() => {
     if (valueProps) updateValue(0, valueProps)
@@ -57,6 +58,7 @@ const Slider: FC<SliderProps> = (props) => {
   const handleMouseDown = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
+    if (disabled) return
     setFocus(true)
     updateValue(event.clientX)
     document.addEventListener('mousemove', handleMouseMove)
@@ -115,11 +117,16 @@ const Slider: FC<SliderProps> = (props) => {
       focus={focus}
     >
       <Rail />
-      <Track ref={trackRef} style={{ width: `${initialPercentage}%` }} />
+      <Track
+        ref={trackRef}
+        style={{ width: `${initialPercentage}%` }}
+        disabled={disabled}
+      />
       <Thumb
         ref={thumbRef}
         style={{ left: getLeft(initialPercentage) }}
         focus={focus}
+        disabled={disabled}
       />
     </StyledSlider>
   )
