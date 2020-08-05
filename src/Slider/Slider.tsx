@@ -1,6 +1,6 @@
 import { StyledSlider, Thumb, Track, Rail } from './styles'
 
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 
 export type SliderProps = {
   defaultValue?: number
@@ -8,11 +8,16 @@ export type SliderProps = {
   min?: number
   max?: number
   onChange?: (value: number) => void
+  hover?: boolean
+  focus?: boolean
 }
 
 const Slider: FC<SliderProps> = (props) => {
   const { onChange, ...rest } = props
   const { defaultValue, min, max } = props
+
+  const [hover, setHover] = useState<boolean>(false)
+  const [focus, setFocus] = useState<boolean>(false)
 
   const sliderRef = React.useRef<HTMLDivElement>(null)
   const thumbRef = React.useRef<HTMLDivElement>(null)
@@ -31,6 +36,7 @@ const Slider: FC<SliderProps> = (props) => {
   }
 
   const handleMouseUp = () => {
+    setFocus(false)
     document.removeEventListener('mouseup', handleMouseUp)
     document.removeEventListener('mousemove', handleMouseMove)
   }
@@ -38,6 +44,7 @@ const Slider: FC<SliderProps> = (props) => {
   const handleMouseDown = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
+    setFocus(true)
     updateValue(event.clientX)
     document.addEventListener('mousemove', handleMouseMove)
     document.addEventListener('mouseup', handleMouseUp)
@@ -66,10 +73,22 @@ const Slider: FC<SliderProps> = (props) => {
   const initialPercentage = getPercentage(defaultValue!, min!, max!)
 
   return (
-    <StyledSlider {...rest} ref={sliderRef} onMouseDown={handleMouseDown}>
+    <StyledSlider
+      {...rest}
+      ref={sliderRef}
+      onMouseDown={handleMouseDown}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      hover={hover}
+      focus={focus}
+    >
       <Rail />
       <Track ref={trackRef} style={{ width: `${initialPercentage}%` }} />
-      <Thumb ref={thumbRef} style={{ left: getLeft(initialPercentage) }} />
+      <Thumb
+        ref={thumbRef}
+        style={{ left: getLeft(initialPercentage) }}
+        focus={focus}
+      />
     </StyledSlider>
   )
 }

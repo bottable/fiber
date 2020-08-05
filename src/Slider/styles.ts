@@ -8,6 +8,7 @@ export const StyledSlider = styled.div<SliderProps>`
   height: ${rem('4px')};
   margin: 0;
   padding: ${rem('4px')} 0;
+  opacity: ${({ hover, focus }) => (hover || focus ? 1 : 0.6)};
   cursor: pointer;
 `
 
@@ -36,5 +37,9 @@ export const Thumb = styled.div<SliderProps>`
   width: ${rem('14px')};
   height: ${rem('14px')};
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.base};
+  background: ${({ focus, theme }) =>
+    focus ? theme.colors.dark : theme.colors.base};
+  &:hover {
+    background: ${({ theme }) => theme.colors.dark};
+  }
 `

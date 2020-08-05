@@ -2,11 +2,13 @@
 
 exports[`Slider renders correctly 1`] = `
 <div
-  className="sc-AxjAm grRds"
+  className="sc-AxjAm jvRFfZ"
   defaultValue={0}
   max={100}
   min={0}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="sc-AxirZ jUQwiX"
@@ -20,7 +22,7 @@ exports[`Slider renders correctly 1`] = `
     }
   />
   <div
-    className="sc-AxhCb jEFTOF"
+    className="sc-AxhCb dSYNxe"
     style={
       Object {
         "left": "calc(0% - 5px)",
