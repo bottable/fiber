@@ -10,5 +10,10 @@ import { Playground } from 'docz'
 # Slider
 
 <Playground>
-  <Slider defaultValue={30} />
+  <Slider
+    defaultValue={30}
+    onChange={(value) => {
+      console.log(value)
+    }}
+  />
 </Playground>

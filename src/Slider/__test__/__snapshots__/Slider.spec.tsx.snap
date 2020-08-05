@@ -2,17 +2,30 @@
 
 exports[`Slider renders correctly 1`] = `
 <div
-  className="sc-AxjAm RqhKA"
+  className="sc-AxjAm grRds"
+  defaultValue={0}
+  max={100}
+  min={0}
   onMouseDown={[Function]}
 >
   <div
-    className="sc-AxirZ jXPCfE"
+    className="sc-AxirZ jUQwiX"
   />
   <div
-    className="sc-AxiKw jnmysa"
+    className="sc-AxiKw kDrLQd"
+    style={
+      Object {
+        "width": "0%",
+      }
+    }
   />
   <div
-    className="sc-AxhCb gTmYuO"
+    className="sc-AxhCb jEFTOF"
+    style={
+      Object {
+        "left": "calc(0% - 5px)",
+      }
+    }
   />
 </div>
 `;
