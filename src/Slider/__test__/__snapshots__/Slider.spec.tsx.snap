@@ -2,7 +2,7 @@
 
 exports[`Slider renders correctly 1`] = `
 <div
-  className="sc-AxjAm jvRFfZ"
+  className="sc-AxjAm fDieno"
   defaultValue={0}
   max={100}
   min={0}
@@ -22,7 +22,7 @@ exports[`Slider renders correctly 1`] = `
     }
   />
   <div
-    className="sc-AxhCb dSYNxe"
+    className="sc-AxhCb cMPGku"
     style={
       Object {
         "left": "calc(0% - 5px)",

@@ -7,9 +7,10 @@ export const StyledSlider = styled.div<SliderProps>`
   position: relative;
   height: ${rem('4px')};
   margin: 0;
-  padding: ${rem('4px')} 0;
+  padding: ${rem('5px')} 0;
   opacity: ${({ hover, focus }) => (hover || focus ? 1 : 0.6)};
   cursor: pointer;
+  ${({ theme }) => theme.transition}
 `
 
 export const Rail = styled.div<SliderProps>`
@@ -42,4 +43,6 @@ export const Thumb = styled.div<SliderProps>`
   &:hover {
     background: ${({ theme }) => theme.colors.dark};
   }
+  ${({ theme }) => theme.transition}
+  transition: left 0s
 `

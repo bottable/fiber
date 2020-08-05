@@ -4,11 +4,21 @@ route: /component/slider
 menu: Component
 ---
 
+import { useState } from 'react'
 import { Slider } from 'fiber'
 import { Playground } from 'docz'
 
 # Slider
 
 <Playground>
-  <Slider defaultValue={30} />
+  {() => {
+    const [value, setValue] = useState(30)
+    return (
+      <>
+        <Slider defaultValue={30} />
+        <br />
+        <Slider value={value} onChange={setValue} />
+      </>
+    )
+  }}
 </Playground>

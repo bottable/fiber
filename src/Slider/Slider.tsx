@@ -1,6 +1,6 @@
 import { StyledSlider, Thumb, Track, Rail } from './styles'
 
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 
 export type SliderProps = {
   defaultValue?: number
@@ -14,7 +14,11 @@ export type SliderProps = {
 
 const Slider: FC<SliderProps> = (props) => {
   const { onChange, ...rest } = props
-  const { defaultValue, min, max } = props
+  const { defaultValue, min, max, value } = props
+
+  useEffect(() => {
+    if (value) updateValue(0, value)
+  }, [value])
 
   const [hover, setHover] = useState<boolean>(false)
   const [focus, setFocus] = useState<boolean>(false)
@@ -50,27 +54,34 @@ const Slider: FC<SliderProps> = (props) => {
     document.addEventListener('mouseup', handleMouseUp)
   }
 
-  const updateValue = (x: number) => {
+  const updateValue = (clientX: number, x?: number) => {
     if (!thumbRef.current || !sliderRef.current || !trackRef.current) return
-    let newX = x - sliderRef.current.getBoundingClientRect().left
+    let newPercentage = 0
+    if (!x) {
+      let newX = clientX - sliderRef.current.getBoundingClientRect().left
 
-    const end = sliderRef.current.offsetWidth - thumbRef.current.offsetWidth
+      const end = sliderRef.current.offsetWidth - thumbRef.current.offsetWidth
 
-    const start = 0
+      const start = 0
 
-    if (newX < start) newX = 0
+      if (newX < start) newX = 0
 
-    if (newX > end) newX = end
+      if (newX > end) newX = end
 
-    const newPercentage = getPercentage(newX, start, end)
+      newPercentage = getPercentage(newX, start, end)
+    } else {
+      newPercentage = getPercentage(x, min!, max!)
+    }
 
-    thumbRef.current.style.left = getLeft(newPercentage)
-    trackRef.current.style.width = `${newPercentage}%`
+    if (!value) {
+      thumbRef.current.style.left = getLeft(newPercentage)
+      trackRef.current.style.width = `${newPercentage}%`
+    }
 
     if (onChange) onChange(getValue(newPercentage, min!, max!))
   }
 
-  const initialPercentage = getPercentage(defaultValue!, min!, max!)
+  const initialPercentage = getPercentage(value! | defaultValue!, min!, max!)
 
   return (
     <StyledSlider
