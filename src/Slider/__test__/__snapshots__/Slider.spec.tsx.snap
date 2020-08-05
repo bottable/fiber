@@ -2,7 +2,7 @@
 
 exports[`Slider renders correctly 1`] = `
 <div
-  className="sc-AxjAm hUkrzg"
+  className="sc-AxjAm jfpXCR"
   defaultValue={0}
   max={100}
   min={0}
@@ -12,10 +12,10 @@ exports[`Slider renders correctly 1`] = `
   step={1}
 >
   <div
-    className="sc-AxirZ jUQwiX"
+    className="sc-AxirZ fhVXcz"
   />
   <div
-    className="sc-AxiKw kDrLQd"
+    className="sc-AxiKw kzdXqR"
     style={
       Object {
         "width": "0%",
@@ -23,7 +23,7 @@ exports[`Slider renders correctly 1`] = `
     }
   />
   <div
-    className="sc-AxhCb cMPGku"
+    className="sc-AxhCb hcKYRV"
     style={
       Object {
         "left": "calc(0% - 5px)",

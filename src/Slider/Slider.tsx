@@ -12,11 +12,20 @@ export type SliderProps = {
   hover?: boolean
   focus?: boolean
   disabled?: boolean
+  vertical?: boolean
 }
 
 const Slider: FC<SliderProps> = (props) => {
   const { onChange, ...rest } = props
-  const { defaultValue, min, max, step, value: valueProps, disabled } = props
+  const {
+    defaultValue,
+    min,
+    max,
+    step,
+    value: valueProps,
+    disabled,
+    vertical
+  } = props
 
   useEffect(() => {
     if (valueProps) updateValue(0, valueProps)
@@ -46,7 +55,7 @@ const Slider: FC<SliderProps> = (props) => {
   }
 
   const handleMouseMove = (event: MouseEvent) => {
-    updateValue(event.clientX)
+    updateValue(vertical ? event.clientY : event.clientX)
   }
 
   const handleMouseUp = () => {
@@ -60,29 +69,33 @@ const Slider: FC<SliderProps> = (props) => {
   ) => {
     if (disabled) return
     setFocus(true)
-    updateValue(event.clientX)
+    updateValue(vertical ? event.clientY : event.clientX)
     document.addEventListener('mousemove', handleMouseMove)
     document.addEventListener('mouseup', handleMouseUp)
   }
 
-  const updateValue = (clientX: number, x?: number) => {
+  const updateValue = (clientCoord: number, coord?: number) => {
     if (!thumbRef.current || !sliderRef.current || !trackRef.current) return
     let newPercentage = 0
-    if (!x) {
-      let newX = clientX - sliderRef.current.getBoundingClientRect().left
+    if (!coord) {
+      let newCoord =
+        clientCoord -
+        sliderRef.current.getBoundingClientRect()[vertical ? 'top' : 'left']
 
-      const end = sliderRef.current.offsetWidth - thumbRef.current.offsetWidth
+      const end =
+        sliderRef.current[vertical ? 'offsetHeight' : 'offsetWidth'] -
+        thumbRef.current[vertical ? 'offsetHeight' : 'offsetWidth']
 
       const start = 0
 
-      if (newX < start) newX = 0
+      if (newCoord < start) newCoord = 0
 
-      if (newX > end) newX = end
+      if (newCoord > end) newCoord = end
 
-      newPercentage = getPercentage(newX, start, end)
-      x = getValue(newPercentage, min!, max!, step!)
+      newPercentage = getPercentage(newCoord, start, end)
+      coord = getValue(newPercentage, min!, max!, step!)
     }
-    newPercentage = getPercentage(x, min!, max!)
+    newPercentage = getPercentage(coord, min!, max!)
 
     const newValue = getValue(newPercentage, min!, max!, step!)
 
@@ -91,8 +104,10 @@ const Slider: FC<SliderProps> = (props) => {
     valueRef.current = newValue
 
     if (!valueProps) {
-      thumbRef.current.style.left = getLeft(newPercentage)
-      trackRef.current.style.width = `${newPercentage}%`
+      thumbRef.current.style[vertical ? 'top' : 'left'] = getLeft(newPercentage)
+      trackRef.current.style[
+        vertical ? 'height' : 'width'
+      ] = `${newPercentage}%`
     }
 
     if (onChange) {
@@ -106,6 +121,12 @@ const Slider: FC<SliderProps> = (props) => {
     max!
   )
 
+  const trackInitialStyle = {}
+  trackInitialStyle[vertical ? 'height' : 'width'] = `${initialPercentage}%`
+
+  const thumbInitialStyle = {}
+  thumbInitialStyle[vertical ? 'top' : 'left'] = getLeft(initialPercentage)
+
   return (
     <StyledSlider
       {...rest}
@@ -116,17 +137,19 @@ const Slider: FC<SliderProps> = (props) => {
       hover={hover}
       focus={focus}
     >
-      <Rail />
+      <Rail vertical={vertical} />
       <Track
         ref={trackRef}
-        style={{ width: `${initialPercentage}%` }}
+        style={trackInitialStyle}
         disabled={disabled}
+        vertical={vertical}
       />
       <Thumb
         ref={thumbRef}
-        style={{ left: getLeft(initialPercentage) }}
+        style={thumbInitialStyle}
         focus={focus}
         disabled={disabled}
+        vertical={vertical}
       />
     </StyledSlider>
   )
