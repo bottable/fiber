@@ -1,8 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Slider renders correctly 1`] = `
-<input
-  className="sc-AxjAm zprWU"
-  type="range"
-/>
+<div
+  className="sc-AxjAm RqhKA"
+  onMouseDown={[Function]}
+>
+  <div
+    className="sc-AxirZ jXPCfE"
+  />
+  <div
+    className="sc-AxiKw jnmysa"
+  />
+  <div
+    className="sc-AxhCb gTmYuO"
+  />
+</div>
 `;
