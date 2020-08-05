@@ -23,8 +23,8 @@ const horizontalRail = css`
 `
 
 const verticalRail = css`
-  top: 0;
-  bottom: auto;
+  top: auto;
+  bottom: 0;
   width: ${rem('4px')};
   height: 100%;
 `
@@ -36,9 +36,17 @@ const horizontalTrack = css`
 `
 
 const verticalTrack = css`
-  top: 0;
-  bottom: auto;
+  top: auto;
+  bottom: 0;
   width: ${rem('4px')};
+`
+
+const horizontalThumb = css`
+  top: ${rem('-5px')};
+`
+
+const verticalThumb = css`
+  left: ${rem('-5px')};
 `
 
 export const StyledSlider = styled.div<SliderProps>`
@@ -66,9 +74,8 @@ export const Track = styled.div<SliderProps>`
 `
 
 export const Thumb = styled.div<SliderProps>`
+  ${({ vertical }) => (vertical ? verticalThumb : horizontalThumb)}
   position: relative;
-  top: ${rem('-5px')};
-  left: ${({ vertical }) => (vertical ? rem('-5px') : null)};
   width: ${rem('14px')};
   height: ${rem('14px')};
   border-radius: 50%;

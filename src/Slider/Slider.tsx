@@ -44,6 +44,8 @@ const Slider: FC<SliderProps> = (props) => {
 
   const getLeft = (percentage: number) => `calc(${percentage}% - 5px)`
 
+  const getTop = (percentage: number) => `calc(${100 - percentage}% - 5px)`
+
   const getValue = (
     percentage: number,
     min: number,
@@ -78,9 +80,9 @@ const Slider: FC<SliderProps> = (props) => {
     if (!thumbRef.current || !sliderRef.current || !trackRef.current) return
     let newPercentage = 0
     if (!coord) {
-      let newCoord =
-        clientCoord -
-        sliderRef.current.getBoundingClientRect()[vertical ? 'top' : 'left']
+      let newCoord = vertical
+        ? sliderRef.current.getBoundingClientRect().bottom - clientCoord
+        : clientCoord - sliderRef.current.getBoundingClientRect().left
 
       const end =
         sliderRef.current[vertical ? 'offsetHeight' : 'offsetWidth'] -
@@ -104,7 +106,9 @@ const Slider: FC<SliderProps> = (props) => {
     valueRef.current = newValue
 
     if (!valueProps) {
-      thumbRef.current.style[vertical ? 'top' : 'left'] = getLeft(newPercentage)
+      thumbRef.current.style[vertical ? 'top' : 'left'] = vertical
+        ? getTop(newPercentage)
+        : getLeft(newPercentage)
       trackRef.current.style[
         vertical ? 'height' : 'width'
       ] = `${newPercentage}%`
@@ -125,7 +129,9 @@ const Slider: FC<SliderProps> = (props) => {
   trackInitialStyle[vertical ? 'height' : 'width'] = `${initialPercentage}%`
 
   const thumbInitialStyle = {}
-  thumbInitialStyle[vertical ? 'top' : 'left'] = getLeft(initialPercentage)
+  thumbInitialStyle[vertical ? 'top' : 'left'] = vertical
+    ? getTop(initialPercentage)
+    : getLeft(initialPercentage)
 
   return (
     <StyledSlider

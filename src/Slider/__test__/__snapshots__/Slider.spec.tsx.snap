@@ -23,7 +23,7 @@ exports[`Slider renders correctly 1`] = `
     }
   />
   <div
-    className="sc-AxhCb hcKYRV"
+    className="sc-AxhCb GprYK"
     style={
       Object {
         "left": "calc(0% - 5px)",
