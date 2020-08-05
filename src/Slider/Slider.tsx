@@ -7,6 +7,7 @@ export type SliderProps = {
   value?: number
   min?: number
   max?: number
+  step?: number
   onChange?: (value: number) => void
   hover?: boolean
   focus?: boolean
@@ -14,11 +15,11 @@ export type SliderProps = {
 
 const Slider: FC<SliderProps> = (props) => {
   const { onChange, ...rest } = props
-  const { defaultValue, min, max, value } = props
+  const { defaultValue, min, max, step, value: valueProps } = props
 
   useEffect(() => {
-    if (value) updateValue(0, value)
-  }, [value])
+    if (valueProps) updateValue(0, valueProps)
+  }, [valueProps])
 
   const [hover, setHover] = useState<boolean>(false)
   const [focus, setFocus] = useState<boolean>(false)
@@ -26,14 +27,22 @@ const Slider: FC<SliderProps> = (props) => {
   const sliderRef = React.useRef<HTMLDivElement>(null)
   const thumbRef = React.useRef<HTMLDivElement>(null)
   const trackRef = React.useRef<HTMLDivElement>(null)
+  const valueRef = React.useRef<number>(valueProps! | defaultValue!)
 
   const getPercentage = (current: number, min: number, max: number) =>
     (100 * (current - min)) / (max - min)
 
   const getLeft = (percentage: number) => `calc(${percentage}% - 5px)`
 
-  const getValue = (percentage: number, min: number, max: number) =>
-    ((max - min) / 100) * percentage + min
+  const getValue = (
+    percentage: number,
+    min: number,
+    max: number,
+    step: number
+  ) => {
+    const rawValue = ((max - min) / 100) * percentage + min
+    return Math.round(rawValue / step) * step
+  }
 
   const handleMouseMove = (event: MouseEvent) => {
     updateValue(event.clientX)
@@ -69,19 +78,31 @@ const Slider: FC<SliderProps> = (props) => {
       if (newX > end) newX = end
 
       newPercentage = getPercentage(newX, start, end)
-    } else {
-      newPercentage = getPercentage(x, min!, max!)
+      x = getValue(newPercentage, min!, max!, step!)
     }
+    newPercentage = getPercentage(x, min!, max!)
 
-    if (!value) {
+    const newValue = getValue(newPercentage, min!, max!, step!)
+
+    if (newValue === valueRef.current) return
+
+    valueRef.current = newValue
+
+    if (!valueProps) {
       thumbRef.current.style.left = getLeft(newPercentage)
       trackRef.current.style.width = `${newPercentage}%`
     }
 
-    if (onChange) onChange(getValue(newPercentage, min!, max!))
+    if (onChange) {
+      onChange(newValue)
+    }
   }
 
-  const initialPercentage = getPercentage(value! | defaultValue!, min!, max!)
+  const initialPercentage = getPercentage(
+    valueProps! | defaultValue!,
+    min!,
+    max!
+  )
 
   return (
     <StyledSlider
@@ -107,7 +128,8 @@ const Slider: FC<SliderProps> = (props) => {
 Slider.defaultProps = {
   min: 0,
   max: 100,
-  defaultValue: 0
+  defaultValue: 0,
+  step: 1
 }
 
 export { Slider }

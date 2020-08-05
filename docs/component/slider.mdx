@@ -17,7 +17,13 @@ import { Playground } from 'docz'
       <>
         <Slider defaultValue={30} />
         <br />
-        <Slider value={value} onChange={setValue} />
+        <Slider
+          value={value}
+          onChange={(value) => {
+            console.log(value)
+            setValue(value)
+          }}
+        />
       </>
     )
   }}

@@ -9,6 +9,7 @@ exports[`Slider renders correctly 1`] = `
   onMouseDown={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  step={1}
 >
   <div
     className="sc-AxirZ jUQwiX"
