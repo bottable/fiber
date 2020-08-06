@@ -1,5 +1,7 @@
 import { MergeElementProps } from '../utils'
 
+import Password from './Password'
+import Search from './Search'
 import {
   SmallInput,
   MediumInput,
@@ -30,120 +32,129 @@ export type InputProps = MergeElementProps<
   }
 >
 
-const Input = React.forwardRef(
-  (props: InputProps, ref: React.Ref<HTMLInputElement>) => {
-    const inputRef = React.useRef<HTMLInputElement>(null)
+type InputFC<P> = React.ForwardRefExoticComponent<P> & {
+  Password?: React.ForwardRefExoticComponent<P>
+  Search?: React.ForwardRefExoticComponent<P>
+}
 
-    const {
-      size,
-      prefix,
-      suffix,
-      button,
-      onChange,
-      onPressEnter,
-      onKeyDown,
-      onFocus,
-      onBlur,
-      ...rest
-    } = props
-    const { addonBefore, addonAfter } = props
+const Input: InputFC<InputProps> = React.forwardRef<
+  HTMLInputElement,
+  InputProps
+>((props, ref) => {
+  const inputRef = React.useRef<HTMLInputElement>(null)
 
-    let StyledInput
+  const {
+    size,
+    prefix,
+    suffix,
+    button,
+    onChange,
+    onPressEnter,
+    onKeyDown,
+    onFocus,
+    onBlur,
+    ...rest
+  } = props
+  const { addonBefore, addonAfter } = props
 
-    switch (size) {
-      case 'sm':
-        StyledInput = SmallInput
-        break
-      case 'lg':
-        StyledInput = LargeInput
-        break
-      default:
-        StyledInput = MediumInput
-        break
-    }
+  let StyledInput
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (onChange) {
-        onChange(e)
-      }
-    }
-
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.keyCode === 13 && onPressEnter) {
-        onPressEnter(e)
-      }
-      if (onKeyDown) {
-        onKeyDown(e)
-      }
-    }
-
-    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-      if (onFocus) {
-        onFocus(e)
-      }
-    }
-
-    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-      if (onBlur) {
-        onBlur(e)
-      }
-    }
-
-    const fix = Boolean(prefix || suffix)
-
-    let input = (
-      <StyledInput
-        {...rest}
-        ref={composeRef<HTMLInputElement>(inputRef, ref)}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        fix={fix}
-      />
-    )
-
-    const addonBeforeNode = addonBefore && (
-      <Addon size={size} button={button}>
-        {addonBefore}
-      </Addon>
-    )
-    const addonAfterNode = addonAfter && (
-      <Addon size={size} button={button}>
-        {addonAfter}
-      </Addon>
-    )
-
-    const prefixNode = prefix && <Fix size={size}>{prefix}</Fix>
-    const suffixNode = suffix && <Fix size={size}>{suffix}</Fix>
-
-    if (fix) {
-      input = (
-        <InputSpan
-          {...rest}
-          size={size}
-          onClick={() => inputRef.current?.focus()}
-        >
-          {prefixNode}
-          {input}
-          {suffixNode}
-        </InputSpan>
-      )
-    }
-
-    if (addonBefore || addonAfter) {
-      return (
-        <BlockSpan>
-          <TableSpan>
-            {addonBeforeNode}
-            {input}
-            {addonAfterNode}
-          </TableSpan>
-        </BlockSpan>
-      )
-    }
-    return input
+  switch (size) {
+    case 'sm':
+      StyledInput = SmallInput
+      break
+    case 'lg':
+      StyledInput = LargeInput
+      break
+    default:
+      StyledInput = MediumInput
+      break
   }
-)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(e)
+    }
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.keyCode === 13 && onPressEnter) {
+      onPressEnter(e)
+    }
+    if (onKeyDown) {
+      onKeyDown(e)
+    }
+  }
+
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (onFocus) {
+      onFocus(e)
+    }
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (onBlur) {
+      onBlur(e)
+    }
+  }
+
+  const fix = Boolean(prefix || suffix)
+
+  let input = (
+    <StyledInput
+      {...rest}
+      ref={composeRef<HTMLInputElement>(inputRef, ref)}
+      onChange={handleChange}
+      onKeyDown={handleKeyDown}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      fix={fix}
+    />
+  )
+
+  const addonBeforeNode = addonBefore && (
+    <Addon size={size} button={button}>
+      {addonBefore}
+    </Addon>
+  )
+  const addonAfterNode = addonAfter && (
+    <Addon size={size} button={button}>
+      {addonAfter}
+    </Addon>
+  )
+
+  const prefixNode = prefix && <Fix size={size}>{prefix}</Fix>
+  const suffixNode = suffix && <Fix size={size}>{suffix}</Fix>
+
+  if (fix) {
+    input = (
+      <InputSpan
+        {...rest}
+        size={size}
+        onClick={() => inputRef.current?.focus()}
+      >
+        {prefixNode}
+        {input}
+        {suffixNode}
+      </InputSpan>
+    )
+  }
+
+  if (addonBefore || addonAfter) {
+    return (
+      <BlockSpan>
+        <TableSpan>
+          {addonBeforeNode}
+          {input}
+          {addonAfterNode}
+        </TableSpan>
+      </BlockSpan>
+    )
+  }
+  return input
+})
+
+Input.Password = Password
+Input.Search = Search
 
 export { Input }

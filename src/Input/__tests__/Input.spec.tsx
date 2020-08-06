@@ -1,4 +1,4 @@
-import { Input, PasswordInput, SearchInput } from '..'
+import { Input } from '..'
 
 import React from 'react'
 import { render } from 'test/utils'
@@ -40,18 +40,6 @@ describe('Input', () => {
 
         <div>
           <Input placeholder='Disabled' disabled />
-        </div>
-
-        <div>
-          <PasswordInput placeholder='Password' />
-        </div>
-        <div>
-          <SearchInput
-            placeholder='Search'
-            onSearch={(value) => console.log(value)}
-            enterButton
-          />
-          <br />
         </div>
       </>
     )
