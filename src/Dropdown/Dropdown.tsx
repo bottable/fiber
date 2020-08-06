@@ -1,42 +1,19 @@
-import { styleComposition, StyleProps } from '../utils/styles'
+import { Wrapper, DropdownWrapper } from './styles'
 
-import styled from 'styled-components'
-import React, {
-  useState,
-  FC,
-  useRef,
-  useEffect,
-  ReactElement,
-  useCallback
-} from 'react'
+import React, { useState, FC, useRef, useEffect, useCallback } from 'react'
 
-export type TriggerType = 'hover' | 'click'
-
-export type MenuFunc = () => React.ReactElement
-export interface DropdownProps extends StyleProps {
-  menu: ReactElement | MenuFunc
-  trigger: TriggerType
+export type DropdownProps = {
+  overlay?: () => React.ReactElement | React.ReactElement
+  trigger?: 'hover' | 'click'
 }
 
-// TODO: ADD A BETTER TYPE FOR THIS
-const Wrapper = styled.div<any>`
-  ${styleComposition}
-
-  display: inline-block;
-`
-
-const DropdownWrapper = styled.div<any>`
-  ${styleComposition}
-
-  position: absolute;
-  z-index: 999;
-  min-width: 160px;
-  background-color: ${({ theme }) => theme.colors.gray2};
-  box-shadow: ${({ theme }) => `0 8px 16px 0 ${theme.colors.gray4}`};
-`
-
-const useDropdownStatus = (trigger: TriggerType) => {
-  const node = useRef<
+const Dropdown: FC<DropdownProps> = ({
+  overlay,
+  trigger,
+  children,
+  ...props
+}) => {
+  const wrapperRef = useRef<
     HTMLDivElement & { contains: (e: EventTarget) => Boolean }
     // eslint-disable-next-line indent
   >(null)
@@ -44,7 +21,7 @@ const useDropdownStatus = (trigger: TriggerType) => {
 
   const handleClick = useCallback(
     (e: Event) => {
-      if (node.current!.contains(e.target!)) return
+      if (wrapperRef.current!.contains(e.target!)) return
       setExpand(false)
     },
     [setExpand]
@@ -75,18 +52,12 @@ const useDropdownStatus = (trigger: TriggerType) => {
       break
   }
 
-  return [node, expand, triggerProps]
-}
-
-const Dropdown: FC<DropdownProps> = ({ menu, trigger, children, ...props }) => {
-  const [node, expand, triggerProps] = useDropdownStatus(trigger)
-
-  const menuNode = typeof menu === 'function' ? (menu as MenuFunc)() : menu
+  const overlayNode = typeof overlay === 'function' ? overlay() : overlay
 
   return (
-    <Wrapper ref={node} {...triggerProps} {...props}>
+    <Wrapper ref={wrapperRef} {...triggerProps} {...props}>
       {children}
-      <DropdownWrapper>{expand ? menuNode : null}</DropdownWrapper>
+      <DropdownWrapper>{expand ? overlayNode : null}</DropdownWrapper>
     </Wrapper>
   )
 }

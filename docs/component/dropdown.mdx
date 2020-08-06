@@ -4,8 +4,9 @@ route: /component/dropdown
 menu: Component
 ---
 
-import { Menu, Dropdown, Text } from 'fiber'
+import { Menu, Dropdown, Button } from 'fiber'
 import { Playground } from 'docz'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 # Dropdown
 
@@ -16,22 +17,31 @@ import { Playground } from 'docz'
     const menu = (
       <Menu>
         <Menu.Item>
-          <Text> Item 1 </Text>
+          <a href="#">
+            1st menu item
+          </a>
         </Menu.Item>
         <Menu.Item>
-          <Text> Item 2 </Text>
+          <a href="#">
+            2nd menu item
+          </a>
         </Menu.Item>
         <Menu.Item>
-          <Text> Item 3 </Text>
+          <a href="#">
+            3rd menu item
+          </a>
         </Menu.Item>
+        <Menu.Item danger>a danger item</Menu.Item>
       </Menu>
-    )
-    return (
-      <Dropdown menu={menu} trigger={'hover'}>
-        <Text> Hover Me </Text>
-      </Dropdown>
-    )
-  }}
+    );
+  return (
+    <Dropdown overlay={menu}>
+      <a onClick={e => e.preventDefault()}>
+        Hover me <ExpandMoreIcon />
+      </a>
+    </Dropdown>)
+}}
+
 </Playground>
 
 ## Click
@@ -41,19 +51,20 @@ import { Playground } from 'docz'
     const menu = (
       <Menu>
         <Menu.Item>
-          <Text> Item 1 </Text>
+          <a href='#'>1st menu item</a>
         </Menu.Item>
         <Menu.Item>
-          <Text> Item 2 </Text>
+          <a href='#'>2nd menu item</a>
         </Menu.Item>
         <Menu.Item>
-          <Text> Item 3 </Text>
+          <a href='#'>3rd menu item</a>
         </Menu.Item>
+        <Menu.Item danger>a danger item</Menu.Item>
       </Menu>
     )
     return (
-      <Dropdown menu={menu} trigger={'click'}>
-        <button> Click Me </button>
+      <Dropdown overlay={menu} trigger={'click'}>
+        <Button> Click Me </Button>
       </Dropdown>
     )
   }}
@@ -66,13 +77,20 @@ import { Playground } from 'docz'
     const menu = () => (
       <Menu>
         <Menu.Item>
-          <Text> Item 1 </Text>
+          <a href='#'>1st menu item</a>
         </Menu.Item>
+        <Menu.Item>
+          <a href='#'>2nd menu item</a>
+        </Menu.Item>
+        <Menu.Item>
+          <a href='#'>3rd menu item</a>
+        </Menu.Item>
+        <Menu.Item danger>a danger item</Menu.Item>
       </Menu>
     )
     return (
-      <Dropdown menu={menu} trigger={'hover'}>
-        <Text> Hover Me </Text>
+      <Dropdown overlay={menu} trigger={'hover'}>
+        Hover Me
       </Dropdown>
     )
   }}
