@@ -1,4 +1,4 @@
-import { StyledSlider, Thumb, Track, Rail } from './styles'
+import { StyledSlider, Thumb, Track, Rail, Mark } from './styles'
 
 import React, { FC, useState, useEffect } from 'react'
 
@@ -13,6 +13,7 @@ export type SliderProps = {
   focus?: boolean
   disabled?: boolean
   vertical?: boolean
+  marks?: Object
 }
 
 const Slider: FC<SliderProps> = (props) => {
@@ -24,7 +25,8 @@ const Slider: FC<SliderProps> = (props) => {
     step,
     value: valueProps,
     disabled,
-    vertical
+    vertical,
+    marks
   } = props
 
   useEffect(() => {
@@ -42,9 +44,13 @@ const Slider: FC<SliderProps> = (props) => {
   const getPercentage = (current: number, min: number, max: number) =>
     (100 * (current - min)) / (max - min)
 
-  const getLeft = (percentage: number) => `calc(${percentage}% - 5px)`
+  const getLeft = (percentage: number) => `calc(${percentage}% - 7px)`
 
   const getTop = (percentage: number) => `calc(${100 - percentage}% - 5px)`
+
+  const getLeftMark = (percentage: number) => `calc(${percentage}% - 10px)`
+
+  const getTopMark = (percentage: number) => `calc(${100 - percentage}% - 10px)`
 
   const getValue = (
     percentage: number,
@@ -133,6 +139,26 @@ const Slider: FC<SliderProps> = (props) => {
     ? getTop(initialPercentage)
     : getLeft(initialPercentage)
 
+  const marksArray = []
+
+  if (marks) {
+    for (const [key, value] of Object.entries(marks)) {
+      const markPercentage = getPercentage(parseInt(key), min!, max!)
+      const objectBool = typeof value === 'object'
+
+      const markStyle = objectBool ? { ...value.style } : {}
+      markStyle[vertical ? 'top' : 'left'] = vertical
+        ? getTopMark(markPercentage)
+        : getLeftMark(markPercentage)
+
+      marksArray.push(
+        <Mark key={key} style={markStyle}>
+          {objectBool ? value.label : value}
+        </Mark>
+      )
+    }
+  }
+
   return (
     <StyledSlider
       {...rest}
@@ -157,6 +183,7 @@ const Slider: FC<SliderProps> = (props) => {
         disabled={disabled}
         vertical={vertical}
       />
+      {marksArray}
     </StyledSlider>
   )
 }

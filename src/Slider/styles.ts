@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
 const horizontalSlider = css`
-  width: 100%;
   height: ${rem('4px')};
   padding: ${rem('5px')} 0;
 `
@@ -49,10 +48,19 @@ const verticalThumb = css`
   left: ${rem('-5px')};
 `
 
+const horizontalMark = css`
+  top: ${rem('20px')};
+`
+
+const verticalMark = css`
+  left: ${rem('20px')};
+`
+
 export const StyledSlider = styled.div<SliderProps>`
   ${({ vertical }) => (vertical ? verticalSlider : horizontalSlider)}
   position: relative;
-  margin: 0;
+  margin: ${({ marks }) => (marks ? rem('30px') : null)};
+  margin-top: 0;
   opacity: ${({ hover, focus }) => (hover || focus ? 1 : 0.6)};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   ${({ theme }) => theme.transition}
@@ -90,5 +98,21 @@ export const Thumb = styled.div<SliderProps>`
       disabled ? null : theme.colors.dark};
   }
   ${({ theme }) => theme.transition}
-  transition: left 0s
+  transition: left 0s;
+`
+
+export const Mark = styled.span<SliderProps>`
+  ${({ vertical }) => (vertical ? verticalMark : horizontalMark)}
+  position: absolute;
+  opacity: 1;
+  font-size: ${rem('14px')};
+  &::after {
+    content: '';
+    display: block;
+    width: ${rem('1px')};
+    height: ${rem('8px')};
+    margin-top: ${rem('-27px')};
+    margin-left: ${rem('9.5px')};
+    background: black;
+  }
 `

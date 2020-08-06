@@ -52,3 +52,22 @@ import { Playground } from 'docz'
     <Slider defaultValue={30} vertical />
   </div>
 </Playground>
+
+## Marks
+
+<Playground>
+  <Slider
+    defaultValue={30}
+    marks={{
+      0: '0°C',
+      26: '26°C',
+      37: '37°C',
+      100: {
+        style: {
+          color: '#f50'
+        },
+        label: <strong>100°C</strong>
+      }
+    }}
+  />
+</Playground>
