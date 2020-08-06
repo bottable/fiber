@@ -1,34 +1,365 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Slider renders correctly 1`] = `
-<div
-  className="sc-AxjAm bGksCP"
-  defaultValue={0}
-  max={100}
-  min={0}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  step={1}
->
-  <div
-    className="sc-AxirZ fhVXcz"
-  />
-  <div
-    className="sc-AxiKw kzdXqR"
-    style={
-      Object {
-        "width": "0%",
+Array [
+  <div>
+    <div
+      className="sc-AxjAm bGksCP"
+      defaultValue={30}
+      max={100}
+      min={0}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      step={1}
+    >
+      <div
+        className="sc-AxirZ fhVXcz"
+      />
+      <div
+        className="sc-AxiKw kzdXqR"
+        style={
+          Object {
+            "width": "30%",
+          }
+        }
+      />
+      <div
+        className="sc-AxhCb hLBspB"
+        style={
+          Object {
+            "left": "calc(30% - 7px)",
+          }
+        }
+      />
+    </div>
+    <br />
+    <div
+      className="sc-AxjAm bGksCP"
+      defaultValue={0}
+      max={100}
+      min={0}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      step={1}
+      value={30}
+    >
+      <div
+        className="sc-AxirZ fhVXcz"
+      />
+      <div
+        className="sc-AxiKw kzdXqR"
+        style={
+          Object {
+            "width": "30%",
+          }
+        }
+      />
+      <div
+        className="sc-AxhCb hLBspB"
+        style={
+          Object {
+            "left": "calc(30% - 7px)",
+          }
+        }
+      />
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm bGksCP"
+      defaultValue={30}
+      max={100}
+      min={0}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      step={2}
+    >
+      <div
+        className="sc-AxirZ fhVXcz"
+      />
+      <div
+        className="sc-AxiKw kzdXqR"
+        style={
+          Object {
+            "width": "30%",
+          }
+        }
+      />
+      <div
+        className="sc-AxhCb hLBspB"
+        style={
+          Object {
+            "left": "calc(30% - 7px)",
+          }
+        }
+      />
+    </div>
+    <br />
+    <div
+      className="sc-AxjAm bGksCP"
+      defaultValue={30}
+      max={100}
+      min={0}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      step={10}
+    >
+      <div
+        className="sc-AxirZ fhVXcz"
+      />
+      <div
+        className="sc-AxiKw kzdXqR"
+        style={
+          Object {
+            "width": "30%",
+          }
+        }
+      />
+      <div
+        className="sc-AxhCb hLBspB"
+        style={
+          Object {
+            "left": "calc(30% - 7px)",
+          }
+        }
+      />
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm gBySVw"
+      defaultValue={30}
+      disabled={true}
+      max={100}
+      min={0}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      step={1}
+    >
+      <div
+        className="sc-AxirZ fhVXcz"
+      />
+      <div
+        className="sc-AxiKw iDCBuG"
+        disabled={true}
+        style={
+          Object {
+            "width": "30%",
+          }
+        }
+      />
+      <div
+        className="sc-AxhCb iElMfU"
+        disabled={true}
+        style={
+          Object {
+            "left": "calc(30% - 7px)",
+          }
+        }
+      />
+    </div>
+  </div>,
+  <div>
+    <div
+      style={
+        Object {
+          "height": 300,
+        }
       }
-    }
-  />
-  <div
-    className="sc-AxhCb hLBspB"
-    style={
-      Object {
-        "left": "calc(0% - 7px)",
+    >
+      <div
+        className="sc-AxjAm gVzrnm"
+        defaultValue={30}
+        max={100}
+        min={0}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        step={1}
+      >
+        <div
+          className="sc-AxirZ gyBgpI"
+        />
+        <div
+          className="sc-AxiKw hrpxVb"
+          style={
+            Object {
+              "height": "30%",
+            }
+          }
+        />
+        <div
+          className="sc-AxhCb edA-DlR"
+          style={
+            Object {
+              "top": "calc(70% - 7px)",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      className="sc-AxjAm clVYtQ"
+      defaultValue={30}
+      max={100}
+      min={0}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      step={1}
+    >
+      <div
+        className="sc-AxirZ fhVXcz"
+      />
+      <div
+        className="sc-AxiKw kzdXqR"
+        style={
+          Object {
+            "width": "30%",
+          }
+        }
+      />
+      <div
+        className="sc-AxhCb hLBspB"
+        style={
+          Object {
+            "left": "calc(30% - 7px)",
+          }
+        }
+      />
+      <span
+        className="sc-AxhUy mCshu"
+        style={
+          Object {
+            "left": "calc(0% + 0px)",
+          }
+        }
+      >
+        0°C
+      </span>
+      <span
+        className="sc-AxhUy mCshu"
+        style={
+          Object {
+            "left": "calc(26% + 0px)",
+          }
+        }
+      >
+        26°C
+      </span>
+      <span
+        className="sc-AxhUy mCshu"
+        style={
+          Object {
+            "left": "calc(37% + 0px)",
+          }
+        }
+      >
+        37°C
+      </span>
+      <span
+        className="sc-AxhUy mCshu"
+        style={
+          Object {
+            "color": "#f50",
+            "left": "calc(100% + 0px)",
+          }
+        }
+      >
+        <strong>
+          100°C
+        </strong>
+      </span>
+    </div>
+    <br />
+    <div
+      style={
+        Object {
+          "height": 300,
+        }
       }
-    }
-  />
-</div>
+    >
+      <div
+        className="sc-AxjAm iKOdhd"
+        defaultValue={30}
+        max={100}
+        min={0}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        step={1}
+      >
+        <div
+          className="sc-AxirZ gyBgpI"
+        />
+        <div
+          className="sc-AxiKw hrpxVb"
+          style={
+            Object {
+              "height": "30%",
+            }
+          }
+        />
+        <div
+          className="sc-AxhCb edA-DlR"
+          style={
+            Object {
+              "top": "calc(70% - 7px)",
+            }
+          }
+        />
+        <span
+          className="sc-AxhUy gcMRcy"
+          style={
+            Object {
+              "top": "calc(100% - 10px)",
+            }
+          }
+        >
+          0°C
+        </span>
+        <span
+          className="sc-AxhUy gcMRcy"
+          style={
+            Object {
+              "top": "calc(74% - 10px)",
+            }
+          }
+        >
+          26°C
+        </span>
+        <span
+          className="sc-AxhUy gcMRcy"
+          style={
+            Object {
+              "top": "calc(63% - 10px)",
+            }
+          }
+        >
+          37°C
+        </span>
+        <span
+          className="sc-AxhUy gcMRcy"
+          style={
+            Object {
+              "color": "#f50",
+              "top": "calc(0% - 10px)",
+            }
+          }
+        >
+          <strong>
+            100°C
+          </strong>
+        </span>
+      </div>
+    </div>
+  </div>,
+]
 `;

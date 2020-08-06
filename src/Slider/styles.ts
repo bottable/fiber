@@ -50,10 +50,29 @@ const verticalThumb = css`
 
 const horizontalMark = css`
   top: ${rem('20px')};
+  transform: translateX(-50%);
+  &::after {
+    content: '';
+    display: block;
+    width: ${rem('1px')};
+    height: ${rem('8px')};
+    margin-top: ${rem('-27px')};
+    margin-left: calc(50% - 0.5px);
+    background: black;
+  }
 `
 
 const verticalMark = css`
-  left: ${rem('20px')};
+  left: ${rem('25px')};
+  &::after {
+    content: '';
+    display: block;
+    width: ${rem('8px')};
+    height: ${rem('1px')};
+    margin-top: ${rem('-11.5px')};
+    margin-left: ${rem('-11px')};
+    background: black;
+  }
 `
 
 export const StyledSlider = styled.div<SliderProps>`
@@ -104,15 +123,5 @@ export const Thumb = styled.div<SliderProps>`
 export const Mark = styled.span<SliderProps>`
   ${({ vertical }) => (vertical ? verticalMark : horizontalMark)}
   position: absolute;
-  opacity: 1;
   font-size: ${rem('14px')};
-  &::after {
-    content: '';
-    display: block;
-    width: ${rem('1px')};
-    height: ${rem('8px')};
-    margin-top: ${rem('-27px')};
-    margin-left: ${rem('9.5px')};
-    background: black;
-  }
 `

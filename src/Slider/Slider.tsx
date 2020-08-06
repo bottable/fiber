@@ -46,9 +46,9 @@ const Slider: FC<SliderProps> = (props) => {
 
   const getLeft = (percentage: number) => `calc(${percentage}% - 7px)`
 
-  const getTop = (percentage: number) => `calc(${100 - percentage}% - 5px)`
+  const getTop = (percentage: number) => `calc(${100 - percentage}% - 7px)`
 
-  const getLeftMark = (percentage: number) => `calc(${percentage}% - 10px)`
+  const getLeftMark = (percentage: number) => `calc(${percentage}% + 0px)`
 
   const getTopMark = (percentage: number) => `calc(${100 - percentage}% - 10px)`
 
@@ -152,7 +152,7 @@ const Slider: FC<SliderProps> = (props) => {
         : getLeftMark(markPercentage)
 
       marksArray.push(
-        <Mark key={key} style={markStyle}>
+        <Mark key={key} style={markStyle} vertical={vertical}>
           {objectBool ? value.label : value}
         </Mark>
       )
