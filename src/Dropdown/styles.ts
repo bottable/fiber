@@ -24,10 +24,15 @@ export const Wrapper = styled.div<DropdownProps>`
 `
 
 export const DropdownWrapper = styled.div<DropdownProps>`
+  display: ${({ expand }) => (expand ? null : 'none')};
   position: absolute;
   z-index: 999;
-  top: 120%;
+  top: 100%;
   min-width: ${rem('160px')};
+  padding: ${({ theme }) => `${theme.radii.md}`} 0;
+  border-top: ${({ theme }) => theme.border.md} #fff;
+  border-bottom: ${({ theme }) => theme.border.md} #fff;
+  border-radius: ${({ theme }) => theme.radii.md};
   background-color: #fff;
   box-shadow: ${({ theme }) => `0 8px 16px 0 ${theme.colors.gray4}`};
 `

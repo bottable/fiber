@@ -1,31 +1,32 @@
-import { styleComposition } from '../utils/styles'
-
 import { MenuItem } from './MenuItem'
-import { MenuProps, MenuContext } from './useMenu'
+import { MenuWrapper } from './styles'
 
 import React, { FC } from 'react'
-import styled from 'styled-components'
 
-type MenuFC<P> = FC<P> & {
-  Item: FC
+export type MenuProps = {
+  inline?: boolean
+  children?: React.ReactElement | React.ReactElement[]
 }
 
-const MenuWrapper = styled.ul<MenuProps>`
-  ${styleComposition}
-
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-  list-style-type: none;
-`
+type MenuFC<P> = FC<P> & {
+  Item: FC<P>
+}
 
 const Menu: MenuFC<MenuProps> = ({ children, inline }) => {
-  return (
-    <MenuContext.Provider value={{ inline }}>
-      <MenuWrapper>{children}</MenuWrapper>
-    </MenuContext.Provider>
-  )
+  let childrenNode
+  if (children) {
+    if (Array.isArray(children)) {
+      const childrenArray = children as React.ReactElement[]
+      childrenNode = childrenArray.map(
+        (child: React.ReactElement, idx: number) =>
+          React.cloneElement(child, { inline: inline, key: idx })
+      )
+    } else {
+      childrenNode = React.cloneElement(children, { inline: inline })
+    }
+  }
+
+  return <MenuWrapper>{childrenNode}</MenuWrapper>
 }
 
 Menu.Item = MenuItem

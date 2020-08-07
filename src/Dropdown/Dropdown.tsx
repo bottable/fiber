@@ -2,9 +2,11 @@ import { Wrapper, DropdownWrapper } from './styles'
 
 import React, { useState, FC, useRef, useEffect, useCallback } from 'react'
 
+export type MenuFunc = () => React.ReactElement
 export type DropdownProps = {
-  overlay?: () => React.ReactElement | React.ReactElement
+  overlay?: React.ReactElement | MenuFunc
   trigger?: 'hover' | 'click'
+  expand?: boolean
 }
 
 const Dropdown: FC<DropdownProps> = ({
@@ -57,7 +59,7 @@ const Dropdown: FC<DropdownProps> = ({
   return (
     <Wrapper ref={wrapperRef} {...triggerProps} {...props}>
       {children}
-      <DropdownWrapper>{expand ? overlayNode : null}</DropdownWrapper>
+      <DropdownWrapper expand={expand}>{overlayNode}</DropdownWrapper>
     </Wrapper>
   )
 }

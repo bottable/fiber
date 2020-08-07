@@ -20,7 +20,7 @@ describe('Menu & Menu Items', () => {
     )
 
     const dropdown = render(
-      <Dropdown menu={menu} trigger='hover'>
+      <Dropdown overlay={menu} trigger='hover'>
         <Text> Hover Me </Text>
       </Dropdown>
     )
