@@ -4,6 +4,7 @@ route: /component/dropdown
 menu: Component
 ---
 
+import { useState } from 'react'
 import { Menu, Dropdown, Button } from 'fiber'
 import { Playground } from 'docz'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -17,28 +18,20 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
     const menu = (
       <Menu>
         <Menu.Item>
-          <a href="#">
-            1st menu item
-          </a>
+          1st menu item
         </Menu.Item>
         <Menu.Item>
-          <a href="#">
-            2nd menu item
-          </a>
+           2nd menu item
         </Menu.Item>
         <Menu.Item>
-          <a href="#">
             3rd menu item
-          </a>
         </Menu.Item>
         <Menu.Item danger>a danger item</Menu.Item>
       </Menu>
     );
   return (
     <Dropdown overlay={menu}>
-      <a onClick={e => e.preventDefault()}>
-        Hover me <ExpandMoreIcon />
-      </a>
+      Hover me <ExpandMoreIcon />
     </Dropdown>)
 }}
 
@@ -50,15 +43,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
   {() => {
     const menu = (
       <Menu>
-        <Menu.Item>
-          <a href='#'>1st menu item</a>
-        </Menu.Item>
-        <Menu.Item>
-          <a href='#'>2nd menu item</a>
-        </Menu.Item>
-        <Menu.Item>
-          <a href='#'>3rd menu item</a>
-        </Menu.Item>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item>3rd menu item</Menu.Item>
         <Menu.Item danger>a danger item</Menu.Item>
       </Menu>
     )
@@ -76,15 +63,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
   {() => {
     const menu = () => (
       <Menu>
-        <Menu.Item>
-          <a href='#'>1st menu item</a>
-        </Menu.Item>
-        <Menu.Item>
-          <a href='#'>2nd menu item</a>
-        </Menu.Item>
-        <Menu.Item>
-          <a href='#'>3rd menu item</a>
-        </Menu.Item>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item>3rd menu item</Menu.Item>
         <Menu.Item danger>a danger item</Menu.Item>
       </Menu>
     )
@@ -100,20 +81,28 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 <Playground>
   {() => {
-    const menu = () => (
+    const [value, setValue] = useState('')
+    const menuArray = ['1st menu item', '2nd menu item', '3rd menu item']
+    const menu = (
       <Menu>
-        <Menu.Item>
-          <a href='#'>1st menu item</a>
-        </Menu.Item>
-        <Menu.Item>
-          <a href='#'>2nd menu item</a>
-        </Menu.Item>
-        <Menu.Item>
-          <a href='#'>3rd menu item</a>
-        </Menu.Item>
-        <Menu.Item danger>a danger item</Menu.Item>
+        {menuArray.map((menuItem, idx) => (
+          <Menu.Item
+            onClick={() => {
+              setValue(menuItem)
+            }}
+            key={idx}
+          >
+            {menuItem}
+          </Menu.Item>
+        ))}
       </Menu>
     )
-    return <Dropdown.Input overlay={menu} />
+    return (
+      <Dropdown.Input
+        overlay={menu}
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+      />
+    )
   }}
 </Playground>

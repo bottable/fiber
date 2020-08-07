@@ -13,7 +13,7 @@ import {
   BlockSpan
 } from './styles'
 
-import React, { FC } from 'react'
+import React, { FC, useState, useRef, useEffect } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export type InputProps = MergeElementProps<
@@ -30,6 +30,7 @@ export type InputProps = MergeElementProps<
     disabled?: boolean
     button?: boolean
     dropdown?: boolean
+    value?: string
   }
 >
 
@@ -42,7 +43,7 @@ const Input: InputFC<InputProps> = React.forwardRef<
   HTMLInputElement,
   InputProps
 >((props, ref) => {
-  const inputRef = React.useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const {
     size,
@@ -54,9 +55,18 @@ const Input: InputFC<InputProps> = React.forwardRef<
     onKeyDown,
     onFocus,
     onBlur,
+    value: valueProps,
     ...rest
   } = props
   const { addonBefore, addonAfter } = props
+
+  const [value, setValue] = useState<string>('')
+
+  useEffect(() => {
+    if (valueProps) {
+      setValue(valueProps)
+    }
+  }, [valueProps])
 
   let StyledInput
 
@@ -73,6 +83,9 @@ const Input: InputFC<InputProps> = React.forwardRef<
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!valueProps) {
+      setValue(e.target.value)
+    }
     if (onChange) {
       onChange(e)
     }
@@ -110,6 +123,7 @@ const Input: InputFC<InputProps> = React.forwardRef<
       onFocus={handleFocus}
       onBlur={handleBlur}
       fix={fix}
+      value={value}
     />
   )
 
