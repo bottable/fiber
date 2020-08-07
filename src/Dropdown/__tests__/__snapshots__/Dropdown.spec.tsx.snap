@@ -13,13 +13,13 @@ exports[`Menu & Menu Items renders correctly 1`] = `
      Hover Me 
   </span>
   <div
-    className="sc-fzoxKX kgAyAw"
+    className="sc-fzoxKX fnDfFs"
   >
     <ul
       className="sc-fzolEj gihGsH"
     >
       <li
-        className="sc-fzqBkg hUEcUi"
+        className="sc-fzqBkg dIaaqs"
       >
         <span
           className="sc-fznWqX boOzlI"
@@ -29,7 +29,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         </span>
       </li>
       <li
-        className="sc-fzqBkg hUEcUi"
+        className="sc-fzqBkg dIaaqs"
       >
         <span
           className="sc-fznWqX boOzlI"
@@ -39,7 +39,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         </span>
       </li>
       <li
-        className="sc-fzqBkg hUEcUi"
+        className="sc-fzqBkg dIaaqs"
       >
         <span
           className="sc-fznWqX boOzlI"

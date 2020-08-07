@@ -5,7 +5,7 @@ exports[`Block Menu & Menu Items renders correctly 1`] = `
   className="sc-fzolEj gihGsH"
 >
   <li
-    className="sc-fzqBkg hUEcUi"
+    className="sc-fzqBkg dIaaqs"
   >
     <span
       className="sc-fznWqX boOzlI"
@@ -15,7 +15,7 @@ exports[`Block Menu & Menu Items renders correctly 1`] = `
     </span>
   </li>
   <li
-    className="sc-fzqBkg hUEcUi"
+    className="sc-fzqBkg dIaaqs"
   >
     <span
       className="sc-fznWqX boOzlI"
@@ -25,7 +25,7 @@ exports[`Block Menu & Menu Items renders correctly 1`] = `
     </span>
   </li>
   <li
-    className="sc-fzqBkg hUEcUi"
+    className="sc-fzqBkg dIaaqs"
   >
     <span
       className="sc-fznWqX boOzlI"
@@ -42,7 +42,7 @@ exports[`Inline Menu & Menu Items renders correctly 1`] = `
   className="sc-fzolEj gihGsH"
 >
   <li
-    className="sc-fzqBkg izsgBO"
+    className="sc-fzqBkg geVNnc"
   >
     <span
       className="sc-fznWqX boOzlI"
@@ -52,7 +52,7 @@ exports[`Inline Menu & Menu Items renders correctly 1`] = `
     </span>
   </li>
   <li
-    className="sc-fzqBkg izsgBO"
+    className="sc-fzqBkg geVNnc"
   >
     <span
       className="sc-fznWqX boOzlI"
@@ -62,7 +62,7 @@ exports[`Inline Menu & Menu Items renders correctly 1`] = `
     </span>
   </li>
   <li
-    className="sc-fzqBkg izsgBO"
+    className="sc-fzqBkg geVNnc"
   >
     <span
       className="sc-fznWqX boOzlI"

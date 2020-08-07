@@ -13,7 +13,7 @@ import {
   BlockSpan
 } from './styles'
 
-import React from 'react'
+import React, { FC } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export type InputProps = MergeElementProps<
@@ -29,12 +29,13 @@ export type InputProps = MergeElementProps<
     bordered?: boolean
     disabled?: boolean
     button?: boolean
+    dropdown?: boolean
   }
 >
 
-type InputFC<P> = React.ForwardRefExoticComponent<P> & {
-  Password?: React.ForwardRefExoticComponent<P>
-  Search?: React.ForwardRefExoticComponent<P>
+type InputFC<P> = FC<P> & {
+  Password?: FC<P>
+  Search?: FC<P>
 }
 
 const Input: InputFC<InputProps> = React.forwardRef<

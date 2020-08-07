@@ -1,5 +1,5 @@
 import { MenuProps } from './Menu'
-import { MenuItemProps } from './MenuItem'
+import { ItemProps } from './Item'
 
 import styled from 'styled-components'
 
@@ -11,12 +11,10 @@ export const MenuWrapper = styled.ul<MenuProps>`
   list-style-type: none;
 `
 
-export const StyledMenuItem = styled.li<MenuItemProps>`
+export const StyledItem = styled.li<ItemProps>`
   display: ${({ inline }) => (inline ? 'inline-block' : 'block')};
   padding: 8px 10px;
   float: none;
-  border: none;
-  border-right: solid ${(props) => props.theme.colors.gray3} 0.5px;
   color: ${({ danger, theme }) =>
     danger ? theme.colors.danger : theme.colors.gray7};
   text-align: left;

@@ -95,3 +95,25 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
     )
   }}
 </Playground>
+
+### Input Dropdown
+
+<Playground>
+  {() => {
+    const menu = () => (
+      <Menu>
+        <Menu.Item>
+          <a href='#'>1st menu item</a>
+        </Menu.Item>
+        <Menu.Item>
+          <a href='#'>2nd menu item</a>
+        </Menu.Item>
+        <Menu.Item>
+          <a href='#'>3rd menu item</a>
+        </Menu.Item>
+        <Menu.Item danger>a danger item</Menu.Item>
+      </Menu>
+    )
+    return <Dropdown.Input overlay={menu} />
+  }}
+</Playground>

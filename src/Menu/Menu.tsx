@@ -1,4 +1,4 @@
-import { MenuItem } from './MenuItem'
+import Item from './Item'
 import { MenuWrapper } from './styles'
 
 import React, { FC } from 'react'
@@ -9,7 +9,7 @@ export type MenuProps = {
 }
 
 type MenuFC<P> = FC<P> & {
-  Item: FC<P>
+  Item: React.FC<P>
 }
 
 const Menu: MenuFC<MenuProps> = ({ children, inline }) => {
@@ -29,6 +29,6 @@ const Menu: MenuFC<MenuProps> = ({ children, inline }) => {
   return <MenuWrapper>{childrenNode}</MenuWrapper>
 }
 
-Menu.Item = MenuItem
+Menu.Item = Item
 
 export { Menu }

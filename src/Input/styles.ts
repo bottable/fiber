@@ -26,8 +26,10 @@ const inputStyle = css<InputProps>`
   border-radius: ${rem('2px')};
   border-top-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
   border-top-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
-  border-bottom-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
-  border-bottom-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
+  border-bottom-right-radius: ${({ addonAfter, dropdown }) =>
+    addonAfter || dropdown ? 0 : null};
+  border-bottom-left-radius: ${({ addonBefore, dropdown }) =>
+    addonBefore || dropdown ? 0 : null};
   &:focus,
   &:hover {
     border-color: ${({ theme, disabled }) =>

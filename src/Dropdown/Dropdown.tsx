@@ -1,4 +1,5 @@
 import { Wrapper, DropdownWrapper } from './styles'
+import Input from './Input'
 
 import React, { useState, FC, useRef, useEffect, useCallback } from 'react'
 
@@ -7,12 +8,21 @@ export type DropdownProps = {
   overlay?: React.ReactElement | MenuFunc
   trigger?: 'hover' | 'click'
   expand?: boolean
+  width?: number
+  dropdown?: boolean
 }
 
-const Dropdown: FC<DropdownProps> = ({
+type DropdownFC<P> = FC<P> & {
+  Input: FC<P>
+}
+
+const Dropdown: DropdownFC<DropdownProps> = ({
   overlay,
   trigger,
   children,
+  expand: expandProps,
+  width,
+  dropdown,
   ...props
 }) => {
   const wrapperRef = useRef<
@@ -30,11 +40,16 @@ const Dropdown: FC<DropdownProps> = ({
   )
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClick)
-    return () => {
-      document.removeEventListener('mousedown', handleClick)
+    if (typeof expandProps === 'boolean') {
+      setExpand(expandProps)
+      return () => {}
+    } else {
+      document.addEventListener('mousedown', handleClick)
+      return () => {
+        document.removeEventListener('mousedown', handleClick)
+      }
     }
-  }, [handleClick])
+  }, [handleClick, expandProps])
 
   const hoverProps = {
     onMouseEnter: useCallback(() => setExpand(true), [setExpand]),
@@ -45,13 +60,15 @@ const Dropdown: FC<DropdownProps> = ({
   }
 
   let triggerProps
-  switch (trigger) {
-    case 'hover':
-      triggerProps = hoverProps
-      break
-    case 'click':
-      triggerProps = clickProps
-      break
+  if (typeof expandProps !== 'boolean') {
+    switch (trigger) {
+      case 'hover':
+        triggerProps = hoverProps
+        break
+      case 'click':
+        triggerProps = clickProps
+        break
+    }
   }
 
   const overlayNode = typeof overlay === 'function' ? overlay() : overlay
@@ -59,7 +76,9 @@ const Dropdown: FC<DropdownProps> = ({
   return (
     <Wrapper ref={wrapperRef} {...triggerProps} {...props}>
       {children}
-      <DropdownWrapper expand={expand}>{overlayNode}</DropdownWrapper>
+      <DropdownWrapper expand={expand} width={width} dropdown={dropdown}>
+        {overlayNode}
+      </DropdownWrapper>
     </Wrapper>
   )
 }
@@ -67,5 +86,7 @@ const Dropdown: FC<DropdownProps> = ({
 Dropdown.defaultProps = {
   trigger: 'hover'
 }
+
+Dropdown.Input = Input
 
 export { Dropdown }
