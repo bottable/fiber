@@ -19,7 +19,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
       className="sc-fzolEj gihGsH"
     >
       <li
-        className="sc-fzqBkg jSGLjR"
+        className="sc-fzqBkg hUEcUi"
       >
         <span
           className="sc-fznWqX boOzlI"
@@ -29,7 +29,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         </span>
       </li>
       <li
-        className="sc-fzqBkg jSGLjR"
+        className="sc-fzqBkg hUEcUi"
       >
         <span
           className="sc-fznWqX boOzlI"
@@ -39,7 +39,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         </span>
       </li>
       <li
-        className="sc-fzqBkg jSGLjR"
+        className="sc-fzqBkg hUEcUi"
       >
         <span
           className="sc-fznWqX boOzlI"

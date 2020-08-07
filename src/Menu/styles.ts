@@ -12,7 +12,7 @@ export const MenuWrapper = styled.ul<MenuProps>`
 `
 
 export const StyledMenuItem = styled.li<MenuItemProps>`
-  display: block;
+  display: ${({ inline }) => (inline ? 'inline-block' : 'block')};
   padding: 8px 10px;
   float: none;
   border: none;
