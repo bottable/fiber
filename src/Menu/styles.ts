@@ -13,7 +13,7 @@ export const MenuWrapper = styled.ul<MenuProps>`
 
 export const StyledItem = styled.li<ItemProps>`
   display: ${({ inline }) => (inline ? 'inline-block' : 'block')};
-  padding: 8px 10px;
+  padding: ${({ theme }) => `${theme.paddings.xs} ${theme.paddings.sm}`};
   float: none;
   color: ${({ danger, theme }) =>
     danger ? theme.colors.danger : theme.colors.gray7};
@@ -22,6 +22,7 @@ export const StyledItem = styled.li<ItemProps>`
   a {
     color: inherit;
     text-decoration: inherit;
+    cursor: auto;
   }
 
   &:hover {

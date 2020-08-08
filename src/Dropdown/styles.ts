@@ -12,8 +12,6 @@ export const Wrapper = styled.div<DropdownProps>`
     color: ${({ theme }) => theme.colors.dark};
   }
 
-  cursor: pointer;
-
   svg {
     width: ${({ theme }) => theme.fontSizes.md};
     height: ${({ theme }) => theme.fontSizes.md};
@@ -37,7 +35,7 @@ export const DropdownWrapper = styled.div<DropdownProps>`
   border-top-left-radius: ${({ dropdown }) => (dropdown ? 0 : null)};
   border-top-right-radius: ${({ dropdown }) => (dropdown ? 0 : null)};
   background-color: #fff;
-  box-shadow: ${({ theme }) => `0 8px 16px 0 ${theme.colors.gray4}`};
+  ${({ theme }) => theme.boxShadow}
 `
 
 export const Description = styled.div`

@@ -5,7 +5,7 @@ exports[`Block Menu & Menu Items renders correctly 1`] = `
   className="sc-fzolEj gihGsH"
 >
   <li
-    className="sc-fzqBkg fVZwYy"
+    className="sc-fzqBkg bUZGFd"
     onClick={[Function]}
   >
     <span
@@ -16,7 +16,7 @@ exports[`Block Menu & Menu Items renders correctly 1`] = `
     </span>
   </li>
   <li
-    className="sc-fzqBkg fVZwYy"
+    className="sc-fzqBkg bUZGFd"
     onClick={[Function]}
   >
     <span
@@ -27,7 +27,7 @@ exports[`Block Menu & Menu Items renders correctly 1`] = `
     </span>
   </li>
   <li
-    className="sc-fzqBkg fVZwYy"
+    className="sc-fzqBkg bUZGFd"
     onClick={[Function]}
   >
     <span
@@ -45,7 +45,7 @@ exports[`Inline Menu & Menu Items renders correctly 1`] = `
   className="sc-fzolEj gihGsH"
 >
   <li
-    className="sc-fzqBkg isVjVi"
+    className="sc-fzqBkg gdqDQZ"
     onClick={[Function]}
   >
     <span
@@ -56,7 +56,7 @@ exports[`Inline Menu & Menu Items renders correctly 1`] = `
     </span>
   </li>
   <li
-    className="sc-fzqBkg isVjVi"
+    className="sc-fzqBkg gdqDQZ"
     onClick={[Function]}
   >
     <span
@@ -67,7 +67,7 @@ exports[`Inline Menu & Menu Items renders correctly 1`] = `
     </span>
   </li>
   <li
-    className="sc-fzqBkg isVjVi"
+    className="sc-fzqBkg gdqDQZ"
     onClick={[Function]}
   >
     <span
