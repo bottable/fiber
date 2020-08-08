@@ -63,7 +63,7 @@ const Input: InputFC<InputProps> = React.forwardRef<
   const [value, setValue] = useState<string>('')
 
   useEffect(() => {
-    if (valueProps) {
+    if (typeof valueProps === 'string') {
       setValue(valueProps)
     }
   }, [valueProps])
@@ -83,7 +83,7 @@ const Input: InputFC<InputProps> = React.forwardRef<
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!valueProps) {
+    if (typeof valueProps !== 'string') {
       setValue(e.target.value)
     }
     if (onChange) {
