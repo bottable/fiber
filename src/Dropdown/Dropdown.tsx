@@ -1,4 +1,4 @@
-import { Wrapper, DropdownWrapper } from './styles'
+import { Wrapper, DropdownWrapper, Description } from './styles'
 import Input from './Input'
 
 import React, { useState, FC, useRef, useEffect, useCallback } from 'react'
@@ -12,6 +12,7 @@ export type DropdownProps = {
   width?: number
   dropdown?: boolean
   collapse?: () => void
+  description?: string
 }
 
 type DropdownFC<P> = FC<P> & {
@@ -30,7 +31,8 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       expand: expandProps,
       width,
       dropdown,
-      collapse,
+      collapse: collapseProps,
+      description,
       ...props
     },
     ref
@@ -41,10 +43,14 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
     >(null)
     const [expand, setExpand] = useState(false)
 
+    const collapse = () => {
+      if (collapseProps) collapseProps()
+      else setExpand(false)
+    }
+
     const handleClick = (e: Event) => {
       if (wrapperRef.current!.contains(e.target!)) return
-      if (collapse) collapse()
-      else setExpand(false)
+      collapse()
     }
 
     useEffect(() => {
@@ -87,6 +93,10 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
         ? (overlay() as React.ReactElement)
         : (overlay as React.ReactElement)
 
+    const descriptionNode = description ? (
+      <Description>{description}</Description>
+    ) : null
+
     return (
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
@@ -95,11 +105,9 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       >
         {children}
         <DropdownWrapper expand={expand} width={width} dropdown={dropdown}>
+          {descriptionNode}
           {React.cloneElement(overlayNode, {
-            collapse: () => {
-              if (collapse) collapse()
-              else setExpand(false)
-            }
+            collapse: collapse
           })}
         </DropdownWrapper>
       </Wrapper>

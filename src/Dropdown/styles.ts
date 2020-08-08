@@ -39,3 +39,8 @@ export const DropdownWrapper = styled.div<DropdownProps>`
   background-color: #fff;
   box-shadow: ${({ theme }) => `0 8px 16px 0 ${theme.colors.gray4}`};
 `
+
+export const Description = styled.div`
+  color: ${({ theme }) => theme.colors.gray6};
+  text-align: center;
+`

@@ -25,7 +25,7 @@ export const StyledItem = styled.li<ItemProps>`
   }
 
   &:hover {
-    background: ${(props) => props.theme.colors.gray3};
+    background: ${(props) => props.theme.colors.gray4};
     cursor: pointer;
   }
 `
