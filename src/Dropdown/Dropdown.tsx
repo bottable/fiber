@@ -1,7 +1,7 @@
 import { Wrapper, DropdownWrapper, Description } from './styles'
 import Input from './Input'
 
-import React, { useState, FC, useRef, useEffect, useCallback } from 'react'
+import React, { useState, FC, useRef, useEffect } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export type MenuFunc = () => React.ReactElement
@@ -10,10 +10,10 @@ export type DropdownProps = {
   trigger?: 'hover' | 'click'
   expand?: boolean
   width?: number
-  dropdown?: boolean
-  collapse?: () => void
+  topped?: boolean
   description?: string
   placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight'
+  onExpandChange?: (flag: boolean) => void
 }
 
 type DropdownFC<P> = FC<P> & {
@@ -31,10 +31,10 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       children,
       expand: expandProps,
       width,
-      dropdown,
-      collapse: collapseProps,
+      topped,
       description,
       placement,
+      onExpandChange,
       ...props
     },
     ref
@@ -45,14 +45,15 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
     >(null)
     const [expand, setExpand] = useState(false)
 
-    const collapse = () => {
-      if (collapseProps) collapseProps()
-      else setExpand(false)
+    const handleExpandChange = (flag: boolean) => {
+      if (onExpandChange) {
+        onExpandChange(flag)
+      } else setExpand(flag)
     }
 
     const handleClick = (e: Event) => {
       if (wrapperRef.current!.contains(e.target!)) return
-      collapse()
+      handleExpandChange(false)
     }
 
     useEffect(() => {
@@ -70,24 +71,21 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       }
     }, [expandProps])
 
-    const hoverProps = {
-      onMouseEnter: useCallback(() => setExpand(true), [setExpand]),
-      onMouseLeave: useCallback(() => setExpand(false), [setExpand])
-    }
-    const clickProps = {
-      onClick: useCallback(() => setExpand(true), [setExpand])
-    }
+    let hoverProps = {}
+    let clickProps = {}
 
-    let triggerProps
-    if (typeof expandProps !== 'boolean') {
-      switch (trigger) {
-        case 'hover':
-          triggerProps = hoverProps
-          break
-        case 'click':
-          triggerProps = clickProps
-          break
-      }
+    switch (trigger) {
+      case 'hover':
+        hoverProps = {
+          onMouseEnter: () => handleExpandChange(true),
+          onMouseLeave: () => handleExpandChange(false)
+        }
+        break
+      case 'click':
+        clickProps = {
+          onClick: () => handleExpandChange(true)
+        }
+        break
     }
 
     const overlayNode =
@@ -99,22 +97,28 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       <Description>{description}</Description>
     ) : null
 
+    const childrenNode = Array.isArray(children)
+      ? ((<span>{children}</span>) as React.ReactElement)
+      : (children as React.ReactElement)
+
     return (
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
-        {...triggerProps}
+        {...hoverProps}
         {...props}
       >
-        {children}
+        {React.cloneElement(childrenNode, { ...clickProps })}
         <DropdownWrapper
           expand={expand}
           width={width}
-          dropdown={dropdown}
+          topped={topped}
           placement={placement}
         >
           {descriptionNode}
           {React.cloneElement(overlayNode, {
-            collapse: collapse
+            collapse: () => {
+              handleExpandChange(false)
+            }
           })}
         </DropdownWrapper>
       </Wrapper>

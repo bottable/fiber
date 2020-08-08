@@ -41,8 +41,8 @@ export const DropdownWrapper = styled.div<DropdownProps>`
   border-top: ${({ theme }) => theme.border.md} #fff;
   border-bottom: ${({ theme }) => theme.border.md} #fff;
   border-radius: ${({ theme }) => theme.radii.md};
-  border-top-left-radius: ${({ dropdown }) => (dropdown ? 0 : null)};
-  border-top-right-radius: ${({ dropdown }) => (dropdown ? 0 : null)};
+  border-top-left-radius: ${({ topped }) => (topped ? 0 : null)};
+  border-top-right-radius: ${({ topped }) => (topped ? 0 : null)};
   background-color: #fff;
   ${({ theme }) => theme.boxShadow}
 `

@@ -5,22 +5,16 @@ import { DropdownProps, Dropdown } from './Dropdown'
 import React, { useState, useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
-export interface InputDropdownProps extends DropdownProps {
-  style?: object
-}
+export interface InputDropdownProps extends DropdownProps {}
 
 const InputDropdown = React.forwardRef<HTMLInputElement, InputDropdownProps>(
-  ({ overlay, style, ...props }, ref) => {
+  ({ overlay, ...props }, ref) => {
     const [expand, setExpand] = useState<boolean>(false)
     const [width, setWidth] = useState<number>()
     const inputRef = useRef<HTMLInputElement>(null)
 
-    const handleFocus = () => {
-      setExpand(true)
-    }
-
-    const collapse = () => {
-      setExpand(false)
+    const handleExpandChange = (flag: boolean) => {
+      setExpand(flag)
     }
 
     if (inputRef.current && !width) {
@@ -32,14 +26,12 @@ const InputDropdown = React.forwardRef<HTMLInputElement, InputDropdownProps>(
         overlay={overlay}
         expand={expand}
         width={width}
-        dropdown
+        topped
         trigger='click'
-        collapse={collapse}
+        onExpandChange={handleExpandChange}
       >
         <Input
           ref={composeRef<HTMLInputElement>(inputRef, ref)}
-          onFocus={handleFocus}
-          style={style}
           dropdown={expand}
           {...props}
         />
