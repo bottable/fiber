@@ -3,6 +3,7 @@ import Input from './Input'
 
 import React, { useState, FC, useRef, useEffect } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
+import { rem } from 'polished'
 
 export type MenuFunc = () => React.ReactElement
 export type DropdownProps = {
@@ -12,7 +13,13 @@ export type DropdownProps = {
   width?: number
   topped?: boolean
   description?: string
-  placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight'
+  placement?:
+    | 'bottomLeft'
+    | 'bottomCenter'
+    | 'bottomRight'
+    | 'topLeft'
+    | 'topCenter'
+    | 'topRight'
   onExpandChange?: (flag: boolean) => void
 }
 
@@ -43,6 +50,8 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       HTMLDivElement & { contains: (e: EventTarget) => Boolean }
       // eslint-disable-next-line indent
     >(null)
+    const childrenRef = useRef<HTMLSpanElement>(null)
+    const dropdownRef = useRef<HTMLDivElement>(null)
     const [expand, setExpand] = useState(false)
 
     const handleExpandChange = (flag: boolean) => {
@@ -101,18 +110,30 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       ? ((<span>{children}</span>) as React.ReactElement)
       : (children as React.ReactElement)
 
+    if (
+      childrenRef.current &&
+      dropdownRef.current &&
+      placement &&
+      placement.includes('Center')
+    ) {
+      const offset =
+        (childrenRef.current.offsetWidth - dropdownRef.current.offsetWidth) / 2
+      dropdownRef.current.style.left = rem(`${offset}px`)
+    }
+
     return (
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
         {...hoverProps}
         {...props}
       >
-        {React.cloneElement(childrenNode, { ...clickProps })}
+        {React.cloneElement(childrenNode, { ...clickProps, ref: childrenRef })}
         <DropdownWrapper
           expand={expand}
           width={width}
           topped={topped}
           placement={placement}
+          ref={dropdownRef}
         >
           {descriptionNode}
           {React.cloneElement(overlayNode, {
