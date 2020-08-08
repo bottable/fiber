@@ -15,8 +15,12 @@ export const StyledItem = styled.li<ItemProps>`
   display: ${({ inline }) => (inline ? 'inline-block' : 'block')};
   padding: ${({ theme }) => `${theme.paddings.xs} ${theme.paddings.sm}`};
   float: none;
-  color: ${({ danger, theme }) =>
-    danger ? theme.colors.danger : theme.colors.gray7};
+  color: ${({ danger, disabled, theme }) =>
+    disabled
+      ? theme.colors.gray6
+      : danger
+      ? theme.colors.danger
+      : theme.colors.gray7};
   text-align: left;
   text-decoration: none;
   a {
@@ -26,7 +30,9 @@ export const StyledItem = styled.li<ItemProps>`
   }
 
   &:hover {
-    background: ${(props) => props.theme.colors.gray4};
-    cursor: pointer;
+    background: ${({ disabled, theme }) =>
+      disabled ? null : theme.colors.gray4};
   }
+
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `

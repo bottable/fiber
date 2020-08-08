@@ -19,7 +19,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
       className="sc-fzolEj gihGsH"
     >
       <li
-        className="sc-fzqBkg bUZGFd"
+        className="sc-fzqBkg hHeiAv"
         onClick={[Function]}
       >
         <span
@@ -30,7 +30,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         </span>
       </li>
       <li
-        className="sc-fzqBkg bUZGFd"
+        className="sc-fzqBkg hHeiAv"
         onClick={[Function]}
       >
         <span
@@ -41,7 +41,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         </span>
       </li>
       <li
-        className="sc-fzqBkg bUZGFd"
+        className="sc-fzqBkg hHeiAv"
         onClick={[Function]}
       >
         <span

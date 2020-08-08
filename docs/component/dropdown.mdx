@@ -17,24 +17,18 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
   {() => {
     const menu = (
       <Menu>
-        <Menu.Item>
-          1st menu item
-        </Menu.Item>
-        <Menu.Item>
-           2nd menu item
-        </Menu.Item>
-        <Menu.Item>
-            3rd menu item
-        </Menu.Item>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item>3rd menu item</Menu.Item>
         <Menu.Item danger>a danger item</Menu.Item>
       </Menu>
-    );
-  return (
-    <Dropdown overlay={menu}>
-      Hover me <ExpandMoreIcon />
-    </Dropdown>)
-}}
-
+    )
+    return (
+      <Dropdown overlay={menu}>
+        Hover me <ExpandMoreIcon />
+      </Dropdown>
+    )
+  }}
 </Playground>
 
 ## Click
@@ -101,6 +95,25 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
           <Button>topRight</Button>
         </Dropdown>
       </Space>
+    )
+  }}
+</Playground>
+
+## Disabled Menu Item
+
+<Playground>
+  {() => {
+    const menu = (
+      <Menu>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item disabled>3rd menu item</Menu.Item>
+      </Menu>
+    )
+    return (
+      <Dropdown overlay={menu}>
+        Hover me <ExpandMoreIcon />
+      </Dropdown>
     )
   }}
 </Playground>
