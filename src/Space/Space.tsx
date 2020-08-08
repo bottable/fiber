@@ -65,11 +65,17 @@ export const Space: FC<SpaceProps> = ({ children, ...props }) => {
 
   return (
     <StyledBlock {...props}>
-      {items.map((child, i) => (
-        <StyledChildDiv key={i} {...props}>
-          {child}
-        </StyledChildDiv>
-      ))}
+      {items.map((child, idx) => {
+        const style: any = {}
+        if (idx === items.length - 1) {
+          style.margin = 0
+        }
+        return (
+          <StyledChildDiv key={idx} {...props} style={style}>
+            {child}
+          </StyledChildDiv>
+        )
+      })}
     </StyledBlock>
   )
 }

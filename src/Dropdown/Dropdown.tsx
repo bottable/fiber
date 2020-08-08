@@ -13,6 +13,7 @@ export type DropdownProps = {
   dropdown?: boolean
   collapse?: () => void
   description?: string
+  placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight'
 }
 
 type DropdownFC<P> = FC<P> & {
@@ -33,6 +34,7 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       dropdown,
       collapse: collapseProps,
       description,
+      placement,
       ...props
     },
     ref
@@ -104,7 +106,12 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
         {...props}
       >
         {children}
-        <DropdownWrapper expand={expand} width={width} dropdown={dropdown}>
+        <DropdownWrapper
+          expand={expand}
+          width={width}
+          dropdown={dropdown}
+          placement={placement}
+        >
           {descriptionNode}
           {React.cloneElement(overlayNode, {
             collapse: collapse
@@ -116,7 +123,8 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
 )
 
 Dropdown.defaultProps = {
-  trigger: 'hover'
+  trigger: 'hover',
+  placement: 'bottomLeft'
 }
 
 Dropdown.Input = Input

@@ -5,7 +5,7 @@ menu: Component
 ---
 
 import { useState } from 'react'
-import { Menu, Dropdown, Button } from 'fiber'
+import { Menu, Dropdown, Button, Space } from 'fiber'
 import { Playground } from 'docz'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
@@ -46,7 +46,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
         <Menu.Item>1st menu item</Menu.Item>
         <Menu.Item>2nd menu item</Menu.Item>
         <Menu.Item>3rd menu item</Menu.Item>
-        <Menu.Item danger>a danger item</Menu.Item>
       </Menu>
     )
     return (
@@ -66,13 +65,42 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
         <Menu.Item>1st menu item</Menu.Item>
         <Menu.Item>2nd menu item</Menu.Item>
         <Menu.Item>3rd menu item</Menu.Item>
-        <Menu.Item danger>a danger item</Menu.Item>
       </Menu>
     )
     return (
       <Dropdown overlay={menu} description='Menu of items'>
         Hover me <ExpandMoreIcon />
       </Dropdown>
+    )
+  }}
+</Playground>
+
+## Placement
+
+<Playground>
+  {() => {
+    const menu = (
+      <Menu>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item>3rd menu item</Menu.Item>
+      </Menu>
+    )
+    return (
+      <Space>
+        <Dropdown overlay={menu} placement='bottomLeft'>
+          <Button>bottomLeft</Button>
+        </Dropdown>
+        <Dropdown overlay={menu} placement='bottomRight'>
+          <Button>bottomRight</Button>
+        </Dropdown>
+        <Dropdown overlay={menu} placement='topLeft'>
+          <Button>topLeft</Button>
+        </Dropdown>
+        <Dropdown overlay={menu} placement='topRight'>
+          <Button>topRight</Button>
+        </Dropdown>
+      </Space>
     )
   }}
 </Playground>

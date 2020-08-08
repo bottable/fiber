@@ -25,8 +25,17 @@ export const DropdownWrapper = styled.div<DropdownProps>`
   display: ${({ expand }) => (expand ? null : 'none')};
   position: absolute;
   z-index: 999;
-  top: 100%;
-  width: ${({ width }) => (width ? rem(`${width}px`) : null)};
+  ${({ placement }) => {
+    let output = ''
+    if (!placement) return null
+
+    if (placement.includes('bottom')) output += '\ntop: 100%;'
+    else output += '\nbottom: 100%;'
+
+    if (placement.includes('Right')) output += '\nright: 0;'
+    return output
+  }}
+  width: ${({ width }) => (width ? rem(`${width}px`) : '200px')};
   min-width: ${rem('160px')};
   padding: ${({ theme }) => `${theme.radii.md}`} 0;
   border-top: ${({ theme }) => theme.border.md} #fff;

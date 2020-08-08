@@ -4,12 +4,13 @@ exports[`Space renders correctly 1`] = `
 Array [
   <div>
     <div
-      className="sc-AxjAm givZzL"
+      className="sc-AxjAm jowjGw"
       size="sm"
     >
       <div
         className="sc-AxirZ dEnRRl"
         size="sm"
+        style={Object {}}
       >
         <h1>
           Small
@@ -18,6 +19,7 @@ Array [
       <div
         className="sc-AxirZ dEnRRl"
         size="sm"
+        style={Object {}}
       >
         <h1>
           Size
@@ -26,6 +28,11 @@ Array [
       <div
         className="sc-AxirZ dEnRRl"
         size="sm"
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
       >
         <h1>
           !
@@ -35,12 +42,13 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm givZzL"
+      className="sc-AxjAm jowjGw"
       size="md"
     >
       <div
         className="sc-AxirZ ghIeLP"
         size="md"
+        style={Object {}}
       >
         <h1>
           Middle
@@ -49,6 +57,7 @@ Array [
       <div
         className="sc-AxirZ ghIeLP"
         size="md"
+        style={Object {}}
       >
         <h1>
           Size
@@ -57,6 +66,11 @@ Array [
       <div
         className="sc-AxirZ ghIeLP"
         size="md"
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
       >
         <h1>
           !
@@ -66,12 +80,13 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm givZzL"
+      className="sc-AxjAm jowjGw"
       size="lg"
     >
       <div
         className="sc-AxirZ dcHUaw"
         size="lg"
+        style={Object {}}
       >
         <h1>
           Large
@@ -80,6 +95,7 @@ Array [
       <div
         className="sc-AxirZ dcHUaw"
         size="lg"
+        style={Object {}}
       >
         <h1>
           Size
@@ -88,6 +104,11 @@ Array [
       <div
         className="sc-AxirZ dcHUaw"
         size="lg"
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
       >
         <h1>
           !
@@ -97,12 +118,13 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm givZzL"
+      className="sc-AxjAm jowjGw"
       size={100}
     >
       <div
         className="sc-AxirZ irtZIl"
         size={100}
+        style={Object {}}
       >
         <h1>
           Number 100
@@ -111,6 +133,7 @@ Array [
       <div
         className="sc-AxirZ irtZIl"
         size={100}
+        style={Object {}}
       >
         <h1>
           Size
@@ -119,6 +142,11 @@ Array [
       <div
         className="sc-AxirZ irtZIl"
         size={100}
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
       >
         <h1>
           !
@@ -134,12 +162,13 @@ Array [
     }
   >
     <div
-      className="sc-AxjAm givZzL"
+      className="sc-AxjAm jowjGw"
       direction="horizontal"
     >
       <div
         className="sc-AxirZ dEnRRl"
         direction="horizontal"
+        style={Object {}}
       >
         <div
           style={
@@ -157,6 +186,11 @@ Array [
       <div
         className="sc-AxirZ dEnRRl"
         direction="horizontal"
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
       >
         <div
           style={
@@ -175,12 +209,13 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm ewgPNz"
+      className="sc-AxjAm hYaSVo"
       direction="vertical"
     >
       <div
         className="sc-AxirZ ewVSuO"
         direction="vertical"
+        style={Object {}}
       >
         <div
           style={
@@ -198,6 +233,11 @@ Array [
       <div
         className="sc-AxirZ ewVSuO"
         direction="vertical"
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
       >
         <div
           style={
@@ -233,15 +273,17 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm givZzL"
+        className="sc-AxjAm jowjGw"
       >
         <div
           className="sc-AxirZ dEnRRl"
+          style={Object {}}
         >
           center
         </div>
         <div
           className="sc-AxirZ dEnRRl"
+          style={Object {}}
         >
           <button>
             Primary
@@ -249,6 +291,11 @@ Array [
         </div>
         <div
           className="sc-AxirZ dEnRRl"
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
         >
           <span
             style={
@@ -275,15 +322,17 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm dHQyPK"
+        className="sc-AxjAm cixmHd"
       >
         <div
           className="sc-AxirZ dEnRRl"
+          style={Object {}}
         >
           start
         </div>
         <div
           className="sc-AxirZ dEnRRl"
+          style={Object {}}
         >
           <button>
             Primary
@@ -291,6 +340,11 @@ Array [
         </div>
         <div
           className="sc-AxirZ dEnRRl"
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
         >
           <span
             style={
@@ -317,15 +371,17 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm eRUfyh"
+        className="sc-AxjAm hkwaHe"
       >
         <div
           className="sc-AxirZ dEnRRl"
+          style={Object {}}
         >
           end
         </div>
         <div
           className="sc-AxirZ dEnRRl"
+          style={Object {}}
         >
           <button>
             Primary
@@ -333,6 +389,11 @@ Array [
         </div>
         <div
           className="sc-AxirZ dEnRRl"
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
         >
           <span
             style={
@@ -359,15 +420,17 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm dAKKQr"
+        className="sc-AxjAm cfhoDs"
       >
         <div
           className="sc-AxirZ dEnRRl"
+          style={Object {}}
         >
           baseline
         </div>
         <div
           className="sc-AxirZ dEnRRl"
+          style={Object {}}
         >
           <button>
             Primary
@@ -375,6 +438,11 @@ Array [
         </div>
         <div
           className="sc-AxirZ dEnRRl"
+          style={
+            Object {
+              "margin": 0,
+            }
+          }
         >
           <span
             style={
