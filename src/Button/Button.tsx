@@ -17,6 +17,7 @@ import React, {
   useEffect
 } from 'react'
 import { rem } from 'polished'
+import { composeRef } from 'rc-util/lib/ref'
 
 type Shape = 'default' | 'circle' | 'round'
 
@@ -36,6 +37,7 @@ export type ButtonProps = MergeElementProps<
     block?: boolean
     children?: React.ReactNode
     addon?: boolean
+    dropdown?: boolean
   }
 >
 
@@ -50,8 +52,9 @@ export type RippleProps = {
   shape?: Shape
 }
 
-const Button = forwardRef((props: ButtonProps, ref: any) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { children, type, onClick, icon, ...rest } = props
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   let StyledButton
 
@@ -80,9 +83,6 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
     prevRipplesRef.current = ripples
   })
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  if (!ref) ref = useRef<HTMLButtonElement>(null)
-
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (onClick) (onClick as React.MouseEventHandler<HTMLButtonElement>)(e)
   }
@@ -90,20 +90,21 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
   const handleMouseDown = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    const clientRect = ref.current.getBoundingClientRect()
+    if (!buttonRef.current) return
+    const clientRect = buttonRef.current.getBoundingClientRect()
 
     let top, right, bottom, left
 
     if (rest.shape === 'circle') {
-      top = right = bottom = left = ref.current.offsetHeight / 2
+      top = right = bottom = left = buttonRef.current.offsetHeight / 2
     } else {
       top = e.clientY - clientRect.top
       right = clientRect.right - e.clientX
       bottom = clientRect.bottom - e.clientY
       left = e.clientX - clientRect.left
     }
-    const x = ref.current.offsetLeft + left
-    const y = ref.current.offsetTop + top
+    const x = buttonRef.current.offsetLeft + left
+    const y = buttonRef.current.offsetTop + top
 
     const newRipples = [
       ...prevRipplesRef.current!,
@@ -115,7 +116,7 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
         bottom={bottom}
         left={left}
         shape={rest.shape}
-        width={ref.current.offsetWidth * 2}
+        width={buttonRef.current.offsetWidth * 2}
         onAnimationEnd={() => {
           setRipples(prevRipplesRef.current?.slice(1)!)
         }}
@@ -132,7 +133,7 @@ const Button = forwardRef((props: ButtonProps, ref: any) => {
 
   return (
     <StyledButton
-      ref={ref}
+      ref={composeRef(buttonRef, ref)}
       onClick={handleClick}
       onMouseDown={handleMouseDown}
       {...rest}

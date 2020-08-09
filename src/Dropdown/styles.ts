@@ -25,17 +25,17 @@ const Border = css<DropdownProps>`
   padding: ${({ theme }) => `${theme.radii.md}`} 0;
   border-top: ${({ theme }) => theme.border.md} #fff;
   border-bottom: ${({ theme }) => theme.border.md} #fff;
-  border-radius: ${({ theme }) => theme.radii.md};
-  border-top-left-radius: ${({ topped }) => (topped ? 0 : null)};
-  border-top-right-radius: ${({ topped }) => (topped ? 0 : null)};
 `
 
 export const DropdownWrapper = styled.div<DropdownProps>`
   position: absolute;
   z-index: 999;
   width: ${({ width }) => (width ? rem(`${width}px`) : null)};
-  min-width: ${rem('160px')};
-  height: ${({ expand }) => (expand ? null : '0')};
+  min-width: ${({ width }) => (width ? null : rem('160px'))};
+  max-height: ${({ expand, n }) => {
+    if (!expand) return '0'
+    return rem(`${n}px`)
+  }};
   overflow: hidden;
   ${({ placement }) => {
     let output = ''
@@ -48,8 +48,12 @@ export const DropdownWrapper = styled.div<DropdownProps>`
     return output
   }}
   ${({ expand }) => (expand ? Border : null)}
+  border-radius: ${({ theme }) => theme.radii.md};
+  border-top-left-radius: ${({ topped }) => (topped ? 0 : null)};
+  border-top-right-radius: ${({ topped }) => (topped ? 0 : null)};
   background-color: #fff;
   ${({ theme }) => theme.boxShadow}
+  transition: max-height 100ms ease;
 `
 
 export const Description = styled.div`

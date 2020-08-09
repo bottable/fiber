@@ -1,5 +1,6 @@
 import { Wrapper, DropdownWrapper, Description } from './styles'
 import Input from './Input'
+import Button from './Button'
 
 import React, { useState, FC, useRef, useEffect } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
@@ -21,10 +22,12 @@ export type DropdownProps = {
     | 'topCenter'
     | 'topRight'
   onExpandChange?: (flag: boolean) => void
+  n?: number
 }
 
 type DropdownFC<P> = FC<P> & {
   Input?: FC<P>
+  Button?: FC<P>
 }
 
 const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
@@ -107,8 +110,8 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
     ) : null
 
     const childrenNode = Array.isArray(children)
-      ? ((<span>{children}</span>) as React.ReactElement)
-      : (children as React.ReactElement)
+      ? ((<span>{children}</span>) as any)
+      : (children as any)
 
     if (
       childrenRef.current &&
@@ -121,19 +124,31 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       dropdownRef.current.style.left = rem(`${offset}px`)
     }
 
+    let n = overlayNode
+      ? Array.isArray(overlayNode.props.children)
+        ? overlayNode.props.children.length
+        : 1
+      : 0
+    n *= 37
+    n += description ? 21 : 0
+
     return (
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
         {...hoverProps}
         {...props}
       >
-        {React.cloneElement(childrenNode, { ...clickProps, ref: childrenRef })}
+        {React.cloneElement(childrenNode, {
+          ...clickProps,
+          ref: composeRef(childrenRef, childrenNode.ref)
+        })}
         <DropdownWrapper
           expand={expand}
           width={width}
           topped={topped}
           placement={placement}
           ref={dropdownRef}
+          n={n}
         >
           {descriptionNode}
           {React.cloneElement(overlayNode, {
@@ -153,5 +168,6 @@ Dropdown.defaultProps = {
 }
 
 Dropdown.Input = Input
+Dropdown.Button = Button
 
 export { Dropdown }

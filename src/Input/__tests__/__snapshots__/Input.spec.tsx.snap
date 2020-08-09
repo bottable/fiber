@@ -3,7 +3,7 @@
 exports[`Input renders correctly 1`] = `
 Array [
   <input
-    className="sc-Axmtr sc-fzozJi eNJIne"
+    className="sc-Axmtr sc-fzozJi eDidkc"
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
@@ -12,7 +12,7 @@ Array [
   />,
   <div>
     <input
-      className="sc-Axmtr sc-fzoLsD eTDKKw"
+      className="sc-Axmtr sc-fzoLsD blqpLG"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -23,7 +23,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-Axmtr sc-fzozJi eNJIne"
+      className="sc-Axmtr sc-fzozJi eDidkc"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -34,7 +34,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-Axmtr sc-AxmLO fStmSg"
+      className="sc-Axmtr sc-AxmLO jinumu"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -56,7 +56,7 @@ Array [
           http://
         </span>
         <input
-          className="sc-Axmtr sc-fzozJi drOfrh"
+          className="sc-Axmtr sc-fzozJi kCGqaz"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -79,7 +79,7 @@ Array [
         className="sc-fznyAO hddION"
       >
         <input
-          className="sc-Axmtr sc-fzozJi kbezuR"
+          className="sc-Axmtr sc-fzozJi Djwrf"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -106,7 +106,7 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-fznZeY endlHw"
+      className="sc-fznZeY lKquB"
       onClick={[Function]}
     >
       <span
@@ -115,7 +115,7 @@ Array [
         ￥
       </span>
       <input
-        className="sc-Axmtr sc-fzozJi erbnCC"
+        className="sc-Axmtr sc-fzozJi dEuBrB"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -131,7 +131,7 @@ Array [
     <br />
     <br />
     <span
-      className="sc-fznZeY jatWqt"
+      className="sc-fznZeY eiDxMA"
       disabled={true}
       onClick={[Function]}
     >
@@ -141,7 +141,7 @@ Array [
         ￥
       </span>
       <input
-        className="sc-Axmtr sc-fzozJi gwvxXG"
+        className="sc-Axmtr sc-fzozJi fhdxyx"
         disabled={true}
         onBlur={[Function]}
         onChange={[Function]}
@@ -169,11 +169,11 @@ Array [
           http://
         </span>
         <span
-          className="sc-fznZeY XRhln"
+          className="sc-fznZeY dXqthS"
           onClick={[Function]}
         >
           <input
-            className="sc-Axmtr sc-fzozJi erbnCC"
+            className="sc-Axmtr sc-fzozJi dEuBrB"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -191,7 +191,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-Axmtr sc-fzozJi nnhJl"
+      className="sc-Axmtr sc-fzozJi gWzOWf"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -202,7 +202,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-Axmtr sc-fzozJi jrNaqH"
+      className="sc-Axmtr sc-fzozJi ScXyJ"
       disabled={true}
       onBlur={[Function]}
       onChange={[Function]}

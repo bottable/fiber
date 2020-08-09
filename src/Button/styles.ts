@@ -7,7 +7,7 @@ const baseStyle = css`
   justify-content: center;
   border-width: ${rem('1px')};
   outline: none;
-  ${(p) => p.theme.transition};
+  ${({ theme }) => theme.transition};
 `
 
 export const BaseButton = styled.button<ButtonProps>`
@@ -48,8 +48,10 @@ export const BaseButton = styled.button<ButtonProps>`
   padding-left: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
   border-radius: ${({ shape }) =>
     shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')};
-    border-top-left-radius: ${({ addon }) => (addon ? 0 : null)};
-  border-bottom-left-radius: ${({ addon }) => (addon ? 0 : null)};
+  border-top-left-radius: ${({ addon }) => (addon ? 0 : null)};
+  border-bottom-right-radius: ${({ dropdown }) => (dropdown ? 0 : null)};
+  border-bottom-left-radius: ${({ addon, dropdown }) =>
+    addon || dropdown ? 0 : null};
   font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `

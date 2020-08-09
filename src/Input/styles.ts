@@ -13,6 +13,7 @@ const baseStyle = css<InputProps>`
     color: ${({ theme }) => theme.colors.gray5};
   }
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : null)};
+  ${({ theme }) => theme.transition};
 `
 
 const inputStyle = css<InputProps>`
@@ -23,7 +24,7 @@ const inputStyle = css<InputProps>`
     addonBefore || addonAfter ? 'left' : null};
   border: ${({ bordered, theme }) =>
     bordered === false ? 'none' : `${rem('1px')} solid ${theme.colors.gray5};`};
-  border-radius: ${rem('2px')};
+  border-radius: ${({ theme }) => theme.radii.md};
   border-top-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
   border-top-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
   border-bottom-right-radius: ${({ addonAfter, dropdown }) =>

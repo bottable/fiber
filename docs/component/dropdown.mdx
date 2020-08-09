@@ -124,6 +124,21 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
   }}
 </Playground>
 
+### Button Dropdown
+
+<Playground>
+  {() => {
+    const menu = (
+      <Menu>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item>3rd menu item</Menu.Item>
+      </Menu>
+    )
+    return <Dropdown.Button overlay={menu}>Button Dropdown</Dropdown.Button>
+  }}
+</Playground>
+
 ### Input Dropdown
 
 <Playground>
