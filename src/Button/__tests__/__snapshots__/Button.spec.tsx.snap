@@ -4,44 +4,54 @@ exports[`Button renders correctly 1`] = `
 Array [
   <div>
     <button
-      className="sc-AxjAm sc-AxirZ dRhYLB"
+      className="sc-AxjAm sc-AxhUy kMTKjg"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Primary Button
+      <span>
+        Primary Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxiKw bbzDIb"
+      className="sc-AxjAm sc-AxgMl gDJHoc"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Default Button
+      <span>
+        Default Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxhCb XtWyh"
+      className="sc-AxjAm sc-AxheI lmcRsY"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Dashed Button
+      <span>
+        Dashed Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxhUy gdqZfh"
+      className="sc-AxjAm sc-Axmtr bEhBGe"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Text Button
+      <span>
+        Text Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxgMl eYpDlS"
+      className="sc-AxjAm sc-AxmLO vvxYy"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Link Button
+      <span>
+        Link Button
+      </span>
     </button>
   </div>,
   <div
@@ -53,39 +63,49 @@ Array [
     }
   >
     <button
-      className="sc-AxjAm sc-AxirZ dnFsqu"
+      className="sc-AxjAm sc-AxhUy iHaYhf"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Primary Button
+      <span>
+        Primary Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxiKw ddnzIO"
+      className="sc-AxjAm sc-AxgMl hdMHXV"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Default Button
+      <span>
+        Default Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxhCb kIignA"
+      className="sc-AxjAm sc-AxheI dqeAph"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Dashed Button
+      <span>
+        Dashed Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxhUy divbjH"
+      className="sc-AxjAm sc-Axmtr XTyXw"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Text Button
+      <span>
+        Text Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxgMl caTxcc"
+      className="sc-AxjAm sc-AxmLO blfriI"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Link Button
+      <span>
+        Link Button
+      </span>
     </button>
   </div>,
   <div
@@ -99,176 +119,186 @@ Array [
     }
   >
     <button
-      className="sc-AxjAm sc-AxirZ hsFlcU"
+      className="sc-AxjAm sc-AxhUy hSstat"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Primary Button
+      <span>
+        Primary Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxiKw irgWjJ"
+      className="sc-AxjAm sc-AxgMl eEzNQm"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Default Button
+      <span>
+        Default Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxhCb hFTAUr"
+      className="sc-AxjAm sc-AxheI komEOe"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Dashed Button
+      <span>
+        Dashed Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxhUy eHocWI"
+      className="sc-AxjAm sc-Axmtr dsHFKT"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Text Button
+      <span>
+        Text Button
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxgMl yMNNr"
+      className="sc-AxjAm sc-AxmLO dtzOGL"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      Link Button
+      <span>
+        Link Button
+      </span>
     </button>
   </div>,
   <div>
     <button
-      className="sc-AxjAm sc-AxiKw fpVmGd"
+      className="sc-AxjAm sc-AxgMl cqJcy"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root"
-        focusable="false"
-        style={
-          Object {
-            "height": "1.125rem",
-          }
-        }
-        viewBox="0 0 24 24"
+      <span
+        className="sc-AxirZ hDqbjo"
       >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-        />
-      </svg>
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxiKw iMnTKx"
+      className="sc-AxjAm sc-AxgMl cGqiqe"
       onClick={[Function]}
       onMouseDown={[Function]}
       shape="circle"
     >
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root"
-        focusable="false"
-        style={
-          Object {
-            "height": "1.125rem",
-          }
-        }
-        viewBox="0 0 24 24"
+      <span
+        className="sc-AxirZ hDqbjo"
       >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-        />
-      </svg>
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxiKw cLyquJ"
+      className="sc-AxjAm sc-AxgMl fTfiLC"
       onClick={[Function]}
       onMouseDown={[Function]}
       shape="round"
     >
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root"
-        focusable="false"
-        style={
-          Object {
-            "height": "1.125rem",
-          }
-        }
-        viewBox="0 0 24 24"
+      <span
+        className="sc-AxirZ hDqbjo"
       >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-        />
-      </svg>
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </span>
     </button>
   </div>,
   <div>
     <button
-      className="sc-AxjAm sc-AxiKw dfcumE"
+      className="sc-AxjAm sc-AxgMl cMkzVH"
       onClick={[Function]}
       onMouseDown={[Function]}
       size="lg"
     >
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root"
-        focusable="false"
-        style={
-          Object {
-            "height": "1.1875rem",
-          }
-        }
-        viewBox="0 0 24 24"
+      <span
+        className="sc-AxirZ hDqbjo"
       >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-        />
-      </svg>
-      Trash
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </span>
+      <span>
+        Trash
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxiKw fpVmGd"
+      className="sc-AxjAm sc-AxgMl cqJcy"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root"
-        focusable="false"
-        style={
-          Object {
-            "height": "1.125rem",
-          }
-        }
-        viewBox="0 0 24 24"
+      <span
+        className="sc-AxirZ hDqbjo"
       >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-        />
-      </svg>
-      Trash
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </span>
+      <span>
+        Trash
+      </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxiKw fOSlgE"
+      className="sc-AxjAm sc-AxgMl bLjdqL"
       onClick={[Function]}
       onMouseDown={[Function]}
       size="sm"
     >
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root"
-        focusable="false"
-        style={
-          Object {
-            "height": "1.125rem",
-          }
-        }
-        viewBox="0 0 24 24"
+      <span
+        className="sc-AxirZ hDqbjo"
       >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-        />
-      </svg>
-      Trash
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </span>
+      <span>
+        Trash
+      </span>
     </button>
   </div>,
 ]

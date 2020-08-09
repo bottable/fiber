@@ -6,7 +6,10 @@ import {
   DashedButton,
   TextButton,
   LinkButton,
-  RippleSpan
+  RippleSpan,
+  Icon,
+  StartIcon,
+  EndIcon
 } from './styles'
 
 import React, {
@@ -16,7 +19,6 @@ import React, {
   useState,
   useEffect
 } from 'react'
-import { rem } from 'polished'
 import { composeRef } from 'rc-util/lib/ref'
 
 type Shape = 'default' | 'circle' | 'round'
@@ -27,7 +29,9 @@ export type ButtonProps = MergeElementProps<
     disabled?: boolean
     ghost?: boolean
     htmlType?: 'submit' | 'button' | 'reset' | undefined
-    icon?: React.ReactElement
+    icon?: React.ReactNode
+    startIcon?: React.ReactNode
+    endIcon?: React.ReactNode
     loading?: boolean | { delay: number }
     shape?: Shape
     size?: 'sm' | 'md' | 'lg'
@@ -53,7 +57,7 @@ export type RippleProps = {
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  const { children, type, onClick, icon, ...rest } = props
+  const { children, type, onClick, icon, startIcon, endIcon, ...rest } = props
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   let StyledButton
@@ -127,9 +131,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     setRipples(newRipples)
   }
 
-  const iconStyle = {
-    height: rest.size === 'lg' ? rem('19px') : rem('18px')
-  }
+  const iconNode = icon ? <Icon>{icon}</Icon> : null
+  const startIconNode = startIcon ? <StartIcon>{startIcon}</StartIcon> : null
+  const endIconNode = endIcon ? <EndIcon>{endIcon}</EndIcon> : null
+
+  const childrenNode = children ? <span>{children}</span> : null
 
   return (
     <StyledButton
@@ -139,8 +145,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       {...rest}
     >
       {ripples}
-      {icon ? <icon.type style={iconStyle} /> : null}
-      {children}
+      {iconNode}
+      {startIconNode}
+      {childrenNode}
+      {endIconNode}
     </StyledButton>
   )
 })

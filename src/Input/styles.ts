@@ -65,6 +65,26 @@ export const LargeInput = styled(BaseInput)`
   font-size: ${rem('16px')};
 `
 
+const svgStyle = css<InputProps>`
+  width: ${({ size }) => {
+    switch (size) {
+      case 'lg':
+        return rem('19px')
+      default:
+        return rem('18px')
+    }
+  }};
+  height: ${({ size }) => {
+    switch (size) {
+      case 'lg':
+        return rem('19px')
+      default:
+        return rem('18px')
+    }
+  }};
+  vertical-align: middle;
+`
+
 export const Addon = styled.span<InputProps>`
   display: table-cell;
   width: ${rem('1px')};
@@ -96,23 +116,7 @@ export const Addon = styled.span<InputProps>`
     border-bottom-left-radius: 0;
   }
   svg {
-    width: ${({ size }) => {
-      switch (size) {
-        case 'lg':
-          return rem('19px')
-        default:
-          return rem('18px')
-      }
-    }};
-    height: ${({ size }) => {
-      switch (size) {
-        case 'lg':
-          return rem('19px')
-        default:
-          return rem('18px')
-      }
-    }};
-    vertical-align: middle;
+    ${svgStyle}
   }
 `
 
@@ -124,23 +128,7 @@ export const Fix = styled.span<InputProps>`
     margin-left: ${rem('4px')};
   }
   svg {
-    width: ${({ size }) => {
-      switch (size) {
-        case 'lg':
-          return rem('19px')
-        default:
-          return rem('18px')
-      }
-    }};
-    height: ${({ size }) => {
-      switch (size) {
-        case 'lg':
-          return rem('19px')
-        default:
-          return rem('18px')
-      }
-    }};
-    vertical-align: middle;
+    ${svgStyle}
   }
 `
 

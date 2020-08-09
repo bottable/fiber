@@ -135,7 +135,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
         <Menu.Item>3rd menu item</Menu.Item>
       </Menu>
     )
-    return <Dropdown.Button overlay={menu}>Button Dropdown</Dropdown.Button>
+    return (
+      <Dropdown.Button overlay={menu} endIcon={<ExpandMoreIcon />}>
+        Button Dropdown
+      </Dropdown.Button>
+    )
   }}
 </Playground>
 

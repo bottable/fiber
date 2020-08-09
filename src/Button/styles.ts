@@ -10,6 +10,26 @@ const baseStyle = css`
   ${({ theme }) => theme.transition};
 `
 
+const svgStyle = css<ButtonProps>`
+  width: ${({ size }) => {
+    switch (size) {
+      case 'lg':
+        return rem('19px')
+      default:
+        return rem('18px')
+    }
+  }};
+  height: ${({ size }) => {
+    switch (size) {
+      case 'lg':
+        return rem('19px')
+      default:
+        return rem('18px')
+    }
+  }};
+  vertical-align: middle;
+`
+
 export const BaseButton = styled.button<ButtonProps>`
   ${baseStyle}
   width: ${({ block }) => (block ? '100%' : null)};
@@ -54,6 +74,21 @@ export const BaseButton = styled.button<ButtonProps>`
     addon || dropdown ? 0 : null};
   font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+`
+
+export const Icon = styled.span<ButtonProps>`
+  line-height: 1;
+  svg {
+    ${svgStyle}
+  }
+`
+
+export const StartIcon = styled(Icon)`
+  margin-right: ${rem('4px')};
+`
+
+export const EndIcon = styled(Icon)`
+  margin-left: ${rem('4px')};
 `
 
 export const PrimaryButton = styled(BaseButton)`
