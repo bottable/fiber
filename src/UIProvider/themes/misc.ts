@@ -45,4 +45,17 @@ const border = {
   dashed: '1px dashed'
 }
 
-export { fontSizes, space, paddings, heights, radii, transition, border }
+const boxShadow = `box-shadow: 0 ${rem('10px')} ${rem(
+  '15px'
+)} 0 rgba(0,0,0,0.2);`
+
+export {
+  fontSizes,
+  space,
+  paddings,
+  heights,
+  radii,
+  transition,
+  border,
+  boxShadow
+}

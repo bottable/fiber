@@ -4,8 +4,10 @@ route: /component/dropdown
 menu: Component
 ---
 
-import { Menu, Dropdown, Text } from 'fiber'
+import { useState } from 'react'
+import { Menu, Dropdown, Button, Space } from 'fiber'
 import { Playground } from 'docz'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 # Dropdown
 
@@ -15,20 +17,15 @@ import { Playground } from 'docz'
   {() => {
     const menu = (
       <Menu>
-        <Menu.Item>
-          <Text> Item 1 </Text>
-        </Menu.Item>
-        <Menu.Item>
-          <Text> Item 2 </Text>
-        </Menu.Item>
-        <Menu.Item>
-          <Text> Item 3 </Text>
-        </Menu.Item>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item>3rd menu item</Menu.Item>
+        <Menu.Item danger>a danger item</Menu.Item>
       </Menu>
     )
     return (
-      <Dropdown menu={menu} trigger={'hover'}>
-        <Text> Hover Me </Text>
+      <Dropdown overlay={menu}>
+        Hover me <ExpandMoreIcon />
       </Dropdown>
     )
   }}
@@ -40,40 +37,134 @@ import { Playground } from 'docz'
   {() => {
     const menu = (
       <Menu>
-        <Menu.Item>
-          <Text> Item 1 </Text>
-        </Menu.Item>
-        <Menu.Item>
-          <Text> Item 2 </Text>
-        </Menu.Item>
-        <Menu.Item>
-          <Text> Item 3 </Text>
-        </Menu.Item>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item>3rd menu item</Menu.Item>
       </Menu>
     )
     return (
-      <Dropdown menu={menu} trigger={'click'}>
-        <button> Click Me </button>
+      <Dropdown overlay={menu} trigger={'click'}>
+        <Button> Click Me </Button>
       </Dropdown>
     )
   }}
 </Playground>
 
-### Use Function to render
+## Description
 
 <Playground>
   {() => {
-    const menu = () => (
+    const menu = (
       <Menu>
-        <Menu.Item>
-          <Text> Item 1 </Text>
-        </Menu.Item>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item>3rd menu item</Menu.Item>
       </Menu>
     )
     return (
-      <Dropdown menu={menu} trigger={'hover'}>
-        <Text> Hover Me </Text>
+      <Dropdown overlay={menu} description='Menu of items'>
+        Hover me <ExpandMoreIcon />
       </Dropdown>
+    )
+  }}
+</Playground>
+
+## Placement
+
+<Playground>
+  {() => {
+    const menu = (
+      <Menu>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item>3rd menu item</Menu.Item>
+      </Menu>
+    )
+    return (
+      <Space>
+        <Dropdown overlay={menu} placement='bottomLeft'>
+          <Button>bottomLeft</Button>
+        </Dropdown>
+        <Dropdown overlay={menu} placement='bottomCenter'>
+          <Button>bottomCenter</Button>
+        </Dropdown>
+        <Dropdown overlay={menu} placement='bottomRight'>
+          <Button>bottomRight</Button>
+        </Dropdown>
+        <Dropdown overlay={menu} placement='topLeft'>
+          <Button>topLeft</Button>
+        </Dropdown>
+        <Dropdown overlay={menu} placement='topCenter'>
+          <Button>topCenter</Button>
+        </Dropdown>
+        <Dropdown overlay={menu} placement='topRight'>
+          <Button>topRight</Button>
+        </Dropdown>
+      </Space>
+    )
+  }}
+</Playground>
+
+## Disabled Menu Item
+
+<Playground>
+  {() => {
+    const menu = (
+      <Menu>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item disabled>3rd menu item</Menu.Item>
+      </Menu>
+    )
+    return (
+      <Dropdown overlay={menu}>
+        Hover me <ExpandMoreIcon />
+      </Dropdown>
+    )
+  }}
+</Playground>
+
+### Button Dropdown
+
+<Playground>
+  {() => {
+    const menu = (
+      <Menu>
+        <Menu.Item>1st menu item</Menu.Item>
+        <Menu.Item>2nd menu item</Menu.Item>
+        <Menu.Item>3rd menu item</Menu.Item>
+      </Menu>
+    )
+    return <Dropdown.Button overlay={menu}>Button Dropdown</Dropdown.Button>
+  }}
+</Playground>
+
+### Input Dropdown
+
+<Playground>
+  {() => {
+    const [value, setValue] = useState('')
+    const menuArray = ['1st menu item', '2nd menu item', '3rd menu item']
+    const menu = (
+      <Menu>
+        {menuArray.map((menuItem, idx) => (
+          <Menu.Item
+            onClick={() => {
+              setValue(menuItem)
+            }}
+            key={idx}
+          >
+            {menuItem}
+          </Menu.Item>
+        ))}
+      </Menu>
+    )
+    return (
+      <Dropdown.Input
+        overlay={menu}
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+      />
     )
   }}
 </Playground>

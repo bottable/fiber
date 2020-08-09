@@ -39,7 +39,4 @@ export const StyledBlock = styled.div<SpaceProps>`
 
   margin: 0;
   padding: 0;
-  div:last-child {
-    margin: 0;
-  }
 `
