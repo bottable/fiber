@@ -1,5 +1,6 @@
 export * from './ExampleComponent'
 export * from './UIProvider'
+export * from './Radio'
 export * from './Slider'
 export * from './Card'
 export * from './Tag'
