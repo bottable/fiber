@@ -6,7 +6,7 @@ import {
   StyledRadio
 } from './styles'
 
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 
 export type RadioProps = {
   checked?: boolean
@@ -23,8 +23,12 @@ const Radio: RadioFC<RadioProps> = React.forwardRef<
 >(({ children, checked: checkedProps, onChange, ...props }, ref) => {
   const [checked, setChecked] = useState<boolean>(Boolean(checkedProps))
 
+  useEffect(() => {
+    if (typeof checkedProps === 'boolean') setChecked(checkedProps)
+  }, [checkedProps])
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked)
+    if (typeof checkedProps !== 'boolean') setChecked(e.target.checked)
     if (onChange) {
       onChange(e)
     }
