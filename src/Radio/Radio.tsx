@@ -11,6 +11,7 @@ import React, { FC, useState, useEffect } from 'react'
 export type RadioProps = {
   checked?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  style?: object
 }
 
 type RadioFC<P> = FC<P> & {
@@ -20,7 +21,7 @@ type RadioFC<P> = FC<P> & {
 const Radio: RadioFC<RadioProps> = React.forwardRef<
   HTMLInputElement,
   RadioProps
->(({ children, checked: checkedProps, onChange, ...props }, ref) => {
+>(({ children, checked: checkedProps, onChange, style, ...props }, ref) => {
   const [checked, setChecked] = useState<boolean>(Boolean(checkedProps))
 
   useEffect(() => {
@@ -52,7 +53,7 @@ const Radio: RadioFC<RadioProps> = React.forwardRef<
   ) : null
 
   return (
-    <Wrapper>
+    <Wrapper style={style}>
       {radioNode}
       {labelNode}
     </Wrapper>

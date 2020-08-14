@@ -21,6 +21,7 @@ const Group: FC<GroupProps> = ({
   }, [valueProps])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.type !== 'radio') return
     if (typeof valueProps !== 'string') setValue(e.target.value)
     if (onChange) onChange(e)
   }

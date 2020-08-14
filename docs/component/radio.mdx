@@ -4,7 +4,7 @@ route: /component/radio
 menu: Component
 ---
 
-import { Radio } from 'fiber'
+import { Radio, Input } from 'fiber'
 import { Playground } from 'docz'
 import { useState } from 'react'
 
@@ -29,6 +29,40 @@ import { useState } from 'react'
         <Radio value={2}>B</Radio>
         <Radio value={3}>C</Radio>
         <Radio value={4}>D</Radio>
+      </Radio.Group>
+    )
+  }}
+</Playground>
+
+## Vertical Radio Group
+
+<Playground>
+  {() => {
+    const [value, setValue] = useState(0)
+    const onChange = (e) => {
+      console.log('radio checked', e.target.value)
+      setValue(e.target.value)
+    }
+    const radioStyle = {
+      display: 'block',
+      height: '30px',
+      lineHeight: '30px'
+    }
+    return (
+      <Radio.Group onChange={onChange} value={value}>
+        <Radio style={radioStyle} value={1}>
+          Option A
+        </Radio>
+        <Radio style={radioStyle} value={2}>
+          Option B
+        </Radio>
+        <Radio style={radioStyle} value={3}>
+          Option C
+        </Radio>
+        <Radio style={radioStyle} value={4}>
+          More...
+          {value == 4 ? <Input style={{ width: 100, marginLeft: 10 }} /> : null}
+        </Radio>
       </Radio.Group>
     )
   }}
