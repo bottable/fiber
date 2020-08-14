@@ -1,6 +1,7 @@
 import { RadioProps } from './Radio'
 
 import styled from 'styled-components'
+import { rem } from 'polished'
 
 export const Wrapper = styled.label<RadioProps>`
   display: inline-block;
@@ -40,11 +41,26 @@ export const StyledRadio = styled.span<RadioProps>`
   position: relative;
   top: 0;
   left: 0;
-  width: 16px;
-  height: 16px;
+  width: ${rem('16px')};
+  height: ${rem('16px')};
   border: ${({ theme }) => theme.border.md};
   border-radius: 50%;
-  border-color: ${({ theme }) => theme.colors.gray4};
+  border-color: ${({ checked, theme }) =>
+    checked ? theme.colors.base : theme.colors.gray4};
   background-color: #fff;
   ${({ theme }) => theme.transition}
+
+  &::after {
+    content: ' ';
+    display: table;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: ${rem('10px')};
+    height: ${rem('10px')};
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.colors.base};
+    transform: ${({ checked }) => (checked ? 'scale(1)' : 'scale(0)')};
+    ${({ theme }) => theme.transition}
+  }
 `

@@ -6,17 +6,37 @@ import {
   StyledRadio
 } from './styles'
 
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 
 export type RadioProps = {
-  // custom props here
+  checked?: boolean
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Radio: FC<RadioProps> = ({ children, ...props }) => {
+const Radio: FC<RadioProps> = ({
+  children,
+  checked: checkedProps,
+  onChange,
+  ...props
+}) => {
+  const [checked, setChecked] = useState<boolean>(Boolean(checkedProps))
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked)
+    if (onChange) {
+      onChange(e)
+    }
+  }
+
   const radioNode = (
     <RadioContainer>
-      <RadioInput type='radio' />
-      <StyledRadio />
+      <RadioInput
+        type='radio'
+        checked={checked}
+        onChange={handleChange}
+        {...props}
+      />
+      <StyledRadio checked={checked} />
     </RadioContainer>
   )
 
