@@ -28,7 +28,7 @@ export const LabelContainer = styled.span<RadioProps>`
 
 export const RadioInput = styled.input<RadioProps>`
   position: absolute;
-  z-index: 1;
+  z-index: -1;
   top: 0;
   right: 0;
   bottom: 0;
@@ -63,6 +63,11 @@ export const StyledRadio = styled.span<RadioProps>`
     background-color: ${({ theme }) => theme.colors.base};
     transform: ${({ checked }) => (checked ? 'scale(1)' : 'scale(0)')};
     ${({ theme }) => theme.transition}
+  }
+
+  &:hover {
+    border-color: ${({ checked, theme }) =>
+      !checked ? theme.colors.light : null};
   }
 `
 

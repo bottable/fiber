@@ -9,13 +9,13 @@ exports[`Radio renders correctly 1`] = `
   >
     <input
       checked={false}
-      className="sc-AxhCb bZwJhh"
+      className="sc-AxhCb iSKkyU"
       onChange={[Function]}
       type="radio"
     />
     <span
       checked={false}
-      className="sc-AxhUy bdaXCT"
+      className="sc-AxhUy gFqGol"
     />
   </span>
 </label>
