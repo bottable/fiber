@@ -13,43 +13,41 @@ export type RadioProps = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Radio: FC<RadioProps> = ({
-  children,
-  checked: checkedProps,
-  onChange,
-  ...props
-}) => {
-  const [checked, setChecked] = useState<boolean>(Boolean(checkedProps))
+const Radio: FC<RadioProps> = React.forwardRef<HTMLInputElement, RadioProps>(
+  ({ children, checked: checkedProps, onChange, ...props }, ref) => {
+    const [checked, setChecked] = useState<boolean>(Boolean(checkedProps))
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked)
-    if (onChange) {
-      onChange(e)
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setChecked(e.target.checked)
+      if (onChange) {
+        onChange(e)
+      }
     }
+
+    const radioNode = (
+      <RadioContainer>
+        <RadioInput
+          type='radio'
+          checked={checked}
+          onChange={handleChange}
+          {...props}
+          ref={ref}
+        />
+        <StyledRadio checked={checked} />
+      </RadioContainer>
+    )
+
+    const labelNode = React.Children.count(children) ? (
+      <LabelContainer>{children}</LabelContainer>
+    ) : null
+
+    return (
+      <Wrapper {...props}>
+        {radioNode}
+        {labelNode}
+      </Wrapper>
+    )
   }
-
-  const radioNode = (
-    <RadioContainer>
-      <RadioInput
-        type='radio'
-        checked={checked}
-        onChange={handleChange}
-        {...props}
-      />
-      <StyledRadio checked={checked} />
-    </RadioContainer>
-  )
-
-  const labelNode = React.Children.count(children) ? (
-    <LabelContainer>{children}</LabelContainer>
-  ) : null
-
-  return (
-    <Wrapper {...props}>
-      {radioNode}
-      {labelNode}
-    </Wrapper>
-  )
-}
+)
 
 export { Radio }
