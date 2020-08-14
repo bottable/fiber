@@ -6,15 +6,17 @@ export type GroupProps = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   value?: string
   children?: React.ReactElement | React.ReactElement[]
+  defaultValue?: string
 }
 
 const Group: FC<GroupProps> = ({
   children,
   onChange,
   value: valueProps,
+  defaultValue,
   ...props
 }) => {
-  const [value, setValue] = useState<string>()
+  const [value, setValue] = useState<string>(defaultValue || '')
 
   useEffect(() => {
     if (typeof valueProps === 'string') setValue(valueProps)

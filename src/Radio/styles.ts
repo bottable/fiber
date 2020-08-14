@@ -94,6 +94,8 @@ export const StyledRadioButton = styled.label<ButtonProps>`
   &:hover {
     border-color: ${({ checked, theme }) =>
       !checked ? theme.colors.gray4 : null};
+    border-left-color: ${({ postChecked, theme }) =>
+      postChecked ? theme.colors.base : null};
   }
   &:not(:last-child) {
     border-right: 0;
