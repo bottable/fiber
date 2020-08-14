@@ -1,4 +1,10 @@
-import { StyledRadio } from './styles'
+import {
+  Wrapper,
+  RadioContainer,
+  LabelContainer,
+  RadioInput,
+  StyledRadio
+} from './styles'
 
 import React, { FC } from 'react'
 
@@ -7,7 +13,23 @@ export type RadioProps = {
 }
 
 const Radio: FC<RadioProps> = ({ children, ...props }) => {
-  return <StyledRadio {...props}>{children}</StyledRadio>
+  const radioNode = (
+    <RadioContainer>
+      <RadioInput type='radio' />
+      <StyledRadio />
+    </RadioContainer>
+  )
+
+  const labelNode = React.Children.count(children) ? (
+    <LabelContainer>{children}</LabelContainer>
+  ) : null
+
+  return (
+    <Wrapper {...props}>
+      {radioNode}
+      {labelNode}
+    </Wrapper>
+  )
 }
 
 export { Radio }

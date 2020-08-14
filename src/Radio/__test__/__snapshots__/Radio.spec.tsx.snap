@@ -1,7 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Radio renders correctly 1`] = `
-<span
-  className="sc-AxjAm StDqN"
-/>
+<label
+  className="sc-AxjAm YGZFC"
+>
+  <span
+    className="sc-AxirZ cuAbJJ"
+  >
+    <input
+      className="sc-AxhCb bZwJhh"
+      type="radio"
+    />
+    <span
+      className="sc-AxhUy iDClfJ"
+    />
+  </span>
+</label>
 `;
