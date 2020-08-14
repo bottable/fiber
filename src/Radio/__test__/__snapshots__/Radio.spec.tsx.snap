@@ -2,20 +2,20 @@
 
 exports[`Radio renders correctly 1`] = `
 <label
-  className="sc-AxjAm YGZFC"
+  className="sc-fzoLsD cexpbl"
 >
   <span
-    className="sc-AxirZ cuAbJJ"
+    className="sc-fzpans AopWx"
   >
     <input
       checked={false}
-      className="sc-AxhCb iSKkyU"
+      className="sc-fznyAO mVHKB"
       onChange={[Function]}
       type="radio"
     />
     <span
       checked={false}
-      className="sc-AxhUy gFqGol"
+      className="sc-fznKkj hVGyIE"
     />
   </span>
 </label>

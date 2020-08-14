@@ -1,38 +1,12 @@
-import { ButtonProps, RippleProps } from './'
+import { ButtonProps, RippleProps, StyleProps } from './'
 import styled, { css, keyframes } from 'styled-components'
 import { rem } from 'polished'
 
-const baseStyle = css`
+export const baseStyle = css<StyleProps>`
   display: inline-flex;
   justify-content: center;
-  border-width: ${rem('1px')};
-  outline: none;
-  ${({ theme }) => theme.transition};
-`
-
-const svgStyle = css<ButtonProps>`
-  width: ${({ size }) => {
-    switch (size) {
-      case 'lg':
-        return rem('19px')
-      default:
-        return rem('18px')
-    }
-  }};
-  height: ${({ size }) => {
-    switch (size) {
-      case 'lg':
-        return rem('19px')
-      default:
-        return rem('18px')
-    }
-  }};
-  vertical-align: middle;
-`
-
-export const BaseButton = styled.button<ButtonProps>`
-  ${baseStyle}
   width: ${({ block }) => (block ? '100%' : null)};
+  ${({ theme }) => theme.transition};
   min-width: ${({ shape, size }) => {
     if (shape !== 'circle') return null
     switch (size) {
@@ -66,14 +40,40 @@ export const BaseButton = styled.button<ButtonProps>`
   }};
   padding-right: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
   padding-left: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
+  border-width: ${rem('1px')};
   border-radius: ${({ shape }) =>
     shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')};
   border-top-left-radius: ${({ addon }) => (addon ? 0 : null)};
   border-bottom-right-radius: ${({ dropdown }) => (dropdown ? 0 : null)};
   border-bottom-left-radius: ${({ addon, dropdown }) =>
     addon || dropdown ? 0 : null};
+  outline: none;
   font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+`
+
+const svgStyle = css<ButtonProps>`
+  width: ${({ size }) => {
+    switch (size) {
+      case 'lg':
+        return rem('19px')
+      default:
+        return rem('18px')
+    }
+  }};
+  height: ${({ size }) => {
+    switch (size) {
+      case 'lg':
+        return rem('19px')
+      default:
+        return rem('18px')
+    }
+  }};
+  vertical-align: middle;
+`
+
+export const BaseButton = styled.button<ButtonProps>`
+  ${baseStyle}
 `
 
 export const Icon = styled.span<ButtonProps>`
@@ -91,7 +91,7 @@ export const EndIcon = styled(Icon)`
   margin-left: ${rem('4px')};
 `
 
-export const PrimaryButton = styled(BaseButton)`
+export const primaryStyle = css<StyleProps>`
   border-style: solid;
   border-color: ${({ disabled, theme }) =>
     theme.colors[disabled ? 'gray3' : 'primary']};
@@ -132,7 +132,7 @@ export const PrimaryButton = styled(BaseButton)`
   }
 `
 
-export const DefaultButton = styled(BaseButton)`
+export const defaultStyle = css<StyleProps>`
   border-style: solid;
   border-color: ${({ ghost, theme }) => {
     if (ghost) {
@@ -176,6 +176,14 @@ export const DefaultButton = styled(BaseButton)`
       }
     }};
   }
+`
+
+export const PrimaryButton = styled(BaseButton)`
+  ${primaryStyle}
+`
+
+export const DefaultButton = styled(BaseButton)`
+  ${defaultStyle}
 `
 
 export const DashedButton = styled(BaseButton)`

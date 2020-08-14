@@ -16,6 +16,7 @@ export type RadioProps = {
 
 type RadioFC<P> = FC<P> & {
   Group?: FC<P>
+  Button?: FC<P>
 }
 
 const Radio: RadioFC<RadioProps> = React.forwardRef<

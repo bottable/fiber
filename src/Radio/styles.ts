@@ -1,10 +1,13 @@
+import { baseStyle, defaultStyle } from '../Button/styles'
+
 import { RadioProps } from './Radio'
 import { GroupProps } from './Group'
+import { ButtonProps } from './Button'
 
 import styled from 'styled-components'
 import { rem } from 'polished'
 
-export const Wrapper = styled.label<RadioProps>`
+export const Wrapper = styled.label`
   display: inline-block;
   position: relative;
   padding: 0;
@@ -13,7 +16,7 @@ export const Wrapper = styled.label<RadioProps>`
   cursor: pointer;
 `
 
-export const RadioContainer = styled.span<RadioProps>`
+export const RadioContainer = styled.span`
   display: inline-block;
   top: 0;
   margin: 0;
@@ -21,12 +24,12 @@ export const RadioContainer = styled.span<RadioProps>`
   vertical-align: sub;
 `
 
-export const LabelContainer = styled.span<RadioProps>`
+export const LabelContainer = styled.span`
   padding-right: ${({ theme }) => theme.paddings.xs};
   padding-left: ${({ theme }) => theme.paddings.xs};
 `
 
-export const RadioInput = styled.input<RadioProps>`
+export const RadioInput = styled.input`
   position: absolute;
   z-index: -1;
   top: 0;
@@ -76,4 +79,27 @@ export const StyledGroup = styled.div<GroupProps>`
   label {
     margin-right: ${({ theme }) => theme.margins.xs};
   }
+`
+
+export const StyledRadioButton = styled.label<ButtonProps>`
+  position: relative;
+  ${baseStyle}
+  ${defaultStyle};
+  height: ${rem('16px')};
+  border-color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
+  color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
+  line-height: 1;
+  &:hover {
+    border-color: ${({ checked, theme }) =>
+      !checked ? theme.colors.gray4 : null};
+  }
+  &:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  &:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  ${({ theme }) => theme.transition}
 `
