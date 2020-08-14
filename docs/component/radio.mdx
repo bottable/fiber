@@ -72,16 +72,26 @@ import { useState } from 'react'
 
 <Playground>
   {() => {
-    const onChange = (e) => {
-      console.log(`radio checked:${e.target.value}`)
-    }
     return (
-      <Radio.Group onChange={onChange} defaultValue='a'>
-        <Radio.Button value='a'>Hangzhou</Radio.Button>
-        <Radio.Button value='b'>Shanghai</Radio.Button>
-        <Radio.Button value='c'>Beijing</Radio.Button>
-        <Radio.Button value='d'>Chengdu</Radio.Button>
-      </Radio.Group>
+      <>
+        <Radio.Group defaultValue='a'>
+          <Radio.Button value='a'>Hangzhou</Radio.Button>
+          <Radio.Button value='b'>Shanghai</Radio.Button>
+          <Radio.Button value='c'>Beijing</Radio.Button>
+          <Radio.Button value='d'>Chengdu</Radio.Button>
+        </Radio.Group>
+        <br />
+        <Radio.Group
+          defaultValue='b'
+          buttonStyle='solid'
+          style={{ marginTop: 10 }}
+        >
+          <Radio.Button value='a'>Hangzhou</Radio.Button>
+          <Radio.Button value='b'>Shanghai</Radio.Button>
+          <Radio.Button value='c'>Beijing</Radio.Button>
+          <Radio.Button value='d'>Chengdu</Radio.Button>
+        </Radio.Group>
+      </>
     )
   }}
 </Playground>

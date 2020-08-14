@@ -7,6 +7,7 @@ import React, { FC, useState, useEffect } from 'react'
 
 export interface ButtonProps extends RadioProps, StyleProps {
   postChecked?: boolean
+  buttonStyle?: 'default' | 'solid'
 }
 
 const RadioButton: FC<ButtonProps> = React.forwardRef<
@@ -21,6 +22,7 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
       style,
       size,
       postChecked,
+      buttonStyle,
       ...props
     },
     ref
@@ -53,6 +55,7 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
         checked={checked}
         size={size}
         postChecked={postChecked}
+        buttonStyle={buttonStyle}
         style={{ marginRight: 0, ...style }}
       >
         {radioNode}

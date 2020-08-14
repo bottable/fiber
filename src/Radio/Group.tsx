@@ -7,6 +7,7 @@ export type GroupProps = {
   value?: string
   children?: React.ReactElement | React.ReactElement[]
   defaultValue?: string
+  buttonStyle?: 'default' | 'solid'
 }
 
 const Group: FC<GroupProps> = ({
@@ -14,6 +15,7 @@ const Group: FC<GroupProps> = ({
   onChange,
   value: valueProps,
   defaultValue,
+  buttonStyle,
   ...props
 }) => {
   const [value, setValue] = useState<string>(defaultValue || '')
@@ -42,13 +44,15 @@ const Group: FC<GroupProps> = ({
           React.cloneElement(child, {
             checked: checked,
             key: idx,
-            postChecked: idx === n
+            postChecked: idx === n,
+            buttonStyle: buttonStyle
           })
         )
       }
     } else {
       childrenNode = React.cloneElement(children, {
-        checked: children.props.value === value
+        checked: children.props.value === value,
+        buttonStyle: buttonStyle
       })
     }
   }

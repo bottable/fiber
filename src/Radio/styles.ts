@@ -4,7 +4,7 @@ import { RadioProps } from './Radio'
 import { GroupProps } from './Group'
 import { ButtonProps } from './Button'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
 export const Wrapper = styled.label`
@@ -81,19 +81,35 @@ export const StyledGroup = styled.div<GroupProps>`
   }
 `
 
+const defaultRadioStyle = css<ButtonProps>`
+  color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
+`
+
+const solidRadioStyle = css<ButtonProps>`
+  background-color: ${({ checked, theme }) =>
+    checked ? theme.colors.base : null};
+  color: ${({ checked }) => (checked ? '#fff' : null)};
+  &:hover {
+    background-color: ${({ checked, theme }) =>
+      checked ? theme.colors.base : null};
+    color: ${({ checked }) => (checked ? '#fff' : null)};
+  }
+`
+
 export const StyledRadioButton = styled.label<ButtonProps>`
   position: relative;
   ${baseStyle}
-  ${defaultStyle};
+  ${defaultStyle}
+  ${({ buttonStyle }) =>
+    buttonStyle === 'solid' ? solidRadioStyle : defaultRadioStyle};
   height: ${rem('16px')};
   border-color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
   border-left-color: ${({ postChecked, theme }) =>
     postChecked ? theme.colors.base : null};
-  color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
   line-height: 1;
   &:hover {
     border-color: ${({ checked, theme }) =>
-      !checked ? theme.colors.gray4 : null};
+      !checked ? theme.colors.gray4 : theme.colors.base};
     border-left-color: ${({ postChecked, theme }) =>
       postChecked ? theme.colors.base : null};
   }
