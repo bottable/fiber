@@ -30,13 +30,20 @@ const Group: FC<GroupProps> = ({
   if (children) {
     if (Array.isArray(children)) {
       const childrenArray = children as React.ReactElement[]
-      childrenNode = childrenArray.map(
-        (child: React.ReactElement, idx: number) =>
+      childrenNode = []
+      let n
+      for (let idx = 0; idx < childrenArray.length; idx++) {
+        const child = childrenArray[idx]
+        const checked = child.props.value.toString() === value
+        if (checked) n = idx + 1
+        childrenNode.push(
           React.cloneElement(child, {
-            checked: child.props.value.toString() === value,
-            key: idx
+            checked: checked,
+            key: idx,
+            postChecked: idx === n
           })
-      )
+        )
+      }
     } else {
       childrenNode = React.cloneElement(children, {
         checked: children.props.value === value

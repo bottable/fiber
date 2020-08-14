@@ -4,7 +4,7 @@ exports[`Button renders correctly 1`] = `
 Array [
   <div>
     <button
-      className="sc-AxjAm sc-AxhUy gmeXWl"
+      className="sc-AxjAm sc-AxhUy drpGSl"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
@@ -14,7 +14,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxgMl gjoFIt"
+      className="sc-AxjAm sc-AxgMl guVYZp"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
@@ -24,7 +24,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxheI jUTslU"
+      className="sc-AxjAm sc-AxheI ivefGA"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
@@ -34,7 +34,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-Axmtr hsTWjG"
+      className="sc-AxjAm sc-Axmtr pMEXa"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
@@ -44,7 +44,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxmLO csGANK"
+      className="sc-AxjAm sc-AxmLO dreZbS"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
@@ -63,7 +63,7 @@ Array [
     }
   >
     <button
-      className="sc-AxjAm sc-AxhUy dSTdMO"
+      className="sc-AxjAm sc-AxhUy jvjwDS"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -72,7 +72,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxgMl ituHwQ"
+      className="sc-AxjAm sc-AxgMl kcKTOI"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -81,7 +81,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxheI gKPIQR"
+      className="sc-AxjAm sc-AxheI clqNWd"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -90,7 +90,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-Axmtr kGcMqk"
+      className="sc-AxjAm sc-Axmtr iezEVE"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -99,7 +99,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxmLO dokEHE"
+      className="sc-AxjAm sc-AxmLO caGONM"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -119,7 +119,7 @@ Array [
     }
   >
     <button
-      className="sc-AxjAm sc-AxhUy gwFpfU"
+      className="sc-AxjAm sc-AxhUy fWwSZM"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -128,7 +128,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxgMl eVMvyv"
+      className="sc-AxjAm sc-AxgMl eyrMSv"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -137,7 +137,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxheI cPdwPW"
+      className="sc-AxjAm sc-AxheI dnwSfa"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -146,7 +146,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-Axmtr jmtwin"
+      className="sc-AxjAm sc-Axmtr bJaFwf"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -155,7 +155,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxmLO gGUyvb"
+      className="sc-AxjAm sc-AxmLO cSKXrH"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -166,7 +166,7 @@ Array [
   </div>,
   <div>
     <button
-      className="sc-AxjAm sc-AxgMl kXbnXT"
+      className="sc-AxjAm sc-AxgMl huaBGH"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -186,7 +186,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxgMl hWUeUn"
+      className="sc-AxjAm sc-AxgMl cgBWA-D"
       onClick={[Function]}
       onMouseDown={[Function]}
       shape="circle"
@@ -207,7 +207,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxgMl eHiozT"
+      className="sc-AxjAm sc-AxgMl eJViCX"
       onClick={[Function]}
       onMouseDown={[Function]}
       shape="round"
@@ -230,7 +230,7 @@ Array [
   </div>,
   <div>
     <button
-      className="sc-AxjAm sc-AxgMl cntgKS"
+      className="sc-AxjAm sc-AxgMl lgQMWC"
       onClick={[Function]}
       onMouseDown={[Function]}
       size="lg"
@@ -254,7 +254,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxgMl kXbnXT"
+      className="sc-AxjAm sc-AxgMl huaBGH"
       onClick={[Function]}
       onMouseDown={[Function]}
     >
@@ -277,7 +277,7 @@ Array [
       </span>
     </button>
     <button
-      className="sc-AxjAm sc-AxgMl eHyfMS"
+      className="sc-AxjAm sc-AxgMl drKZzW"
       onClick={[Function]}
       onMouseDown={[Function]}
       size="sm"

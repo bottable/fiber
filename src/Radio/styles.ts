@@ -87,6 +87,8 @@ export const StyledRadioButton = styled.label<ButtonProps>`
   ${defaultStyle};
   height: ${rem('16px')};
   border-color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
+  border-left-color: ${({ postChecked, theme }) =>
+    postChecked ? theme.colors.base : null};
   color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
   line-height: 1;
   &:hover {
@@ -94,6 +96,7 @@ export const StyledRadioButton = styled.label<ButtonProps>`
       !checked ? theme.colors.gray4 : null};
   }
   &:not(:last-child) {
+    border-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }

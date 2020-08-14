@@ -5,14 +5,24 @@ import { StyledRadioButton, RadioInput } from './styles'
 
 import React, { FC, useState, useEffect } from 'react'
 
-export interface ButtonProps extends RadioProps, StyleProps {}
+export interface ButtonProps extends RadioProps, StyleProps {
+  postChecked?: boolean
+}
 
 const RadioButton: FC<ButtonProps> = React.forwardRef<
   HTMLInputElement,
   ButtonProps
 >(
   (
-    { children, checked: checkedProps, onChange, style, size, ...props },
+    {
+      children,
+      checked: checkedProps,
+      onChange,
+      style,
+      size,
+      postChecked,
+      ...props
+    },
     ref
   ) => {
     const [checked, setChecked] = useState<boolean>(false)
@@ -42,6 +52,7 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
       <StyledRadioButton
         checked={checked}
         size={size}
+        postChecked={postChecked}
         style={{ marginRight: 0, ...style }}
       >
         {radioNode}
