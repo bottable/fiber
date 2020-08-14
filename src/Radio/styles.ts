@@ -1,4 +1,5 @@
 import { RadioProps } from './Radio'
+import { GroupProps } from './Group'
 
 import styled from 'styled-components'
 import { rem } from 'polished'
@@ -62,5 +63,12 @@ export const StyledRadio = styled.span<RadioProps>`
     background-color: ${({ theme }) => theme.colors.base};
     transform: ${({ checked }) => (checked ? 'scale(1)' : 'scale(0)')};
     ${({ theme }) => theme.transition}
+  }
+`
+
+export const StyledGroup = styled.div<GroupProps>`
+  display: inline-block;
+  label {
+    margin-right: ${({ theme }) => theme.margins.xs};
   }
 `
