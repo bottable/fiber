@@ -6,6 +6,11 @@ const fontSizes = {
   lg: rem('16px')
 }
 
+const fontWeights = {
+  regular: 400,
+  strong: 700
+}
+
 const space = {
   0: rem('0px'),
   1: rem('4px'),
@@ -58,6 +63,7 @@ const boxShadow = `box-shadow: 0 ${rem('10px')} ${rem(
 
 export {
   fontSizes,
+  fontWeights,
   space,
   paddings,
   margins,
