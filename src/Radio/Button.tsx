@@ -23,6 +23,7 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
       size,
       postChecked,
       buttonStyle,
+      disabled,
       ...props
     },
     ref
@@ -45,6 +46,7 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
         type='radio'
         checked={checked}
         onChange={handleChange}
+        disabled={disabled}
         {...props}
         ref={ref}
       />
@@ -57,6 +59,7 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
         postChecked={postChecked}
         buttonStyle={buttonStyle}
         style={{ marginRight: 0, ...style }}
+        disabled={disabled}
       >
         {radioNode}
         {children}

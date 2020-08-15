@@ -71,27 +71,55 @@ import { useState } from 'react'
 ## Button Radio
 
 <Playground>
-  {() => {
-    return (
-      <>
-        <Radio.Group defaultValue='a'>
-          <Radio.Button value='a'>Hangzhou</Radio.Button>
-          <Radio.Button value='b'>Shanghai</Radio.Button>
-          <Radio.Button value='c'>Beijing</Radio.Button>
-          <Radio.Button value='d'>Chengdu</Radio.Button>
-        </Radio.Group>
-        <br />
-        <Radio.Group
-          defaultValue='b'
-          buttonStyle='solid'
-          style={{ marginTop: 10 }}
-        >
-          <Radio.Button value='a'>Hangzhou</Radio.Button>
-          <Radio.Button value='b'>Shanghai</Radio.Button>
-          <Radio.Button value='c'>Beijing</Radio.Button>
-          <Radio.Button value='d'>Chengdu</Radio.Button>
-        </Radio.Group>
-      </>
-    )
-  }}
+  <Radio.Group defaultValue='a'>
+    <Radio.Button value='a'>Hangzhou</Radio.Button>
+    <Radio.Button value='b'>Shanghai</Radio.Button>
+    <Radio.Button value='c'>Beijing</Radio.Button>
+    <Radio.Button value='d'>Chengdu</Radio.Button>
+  </Radio.Group>
+  <br />
+  <Radio.Group defaultValue='b' buttonStyle='solid' style={{ marginTop: 10 }}>
+    <Radio.Button value='a'>Hangzhou</Radio.Button>
+    <Radio.Button value='b'>Shanghai</Radio.Button>
+    <Radio.Button value='c'>Beijing</Radio.Button>
+    <Radio.Button value='d'>Chengdu</Radio.Button>
+  </Radio.Group>
+</Playground>
+
+## Disabled
+
+<Playground>
+  <Radio.Group defaultValue='c'>
+    <Radio value='a'>A</Radio>
+    <Radio value='b'>B</Radio>
+    <Radio value='c' disabled>
+      C
+    </Radio>
+    <Radio value='d'>D</Radio>
+  </Radio.Group>
+  <br />
+  <Radio.Group defaultValue='c' style={{ marginTop: 10 }}>
+    <Radio.Button value='a'>A</Radio.Button>
+    <Radio.Button value='b'>B</Radio.Button>
+    <Radio.Button value='c' disabled>
+      C
+    </Radio.Button>
+    <Radio.Button value='d'>D</Radio.Button>
+  </Radio.Group>
+  <br />
+  <Radio.Group defaultValue='c' disabled style={{ marginTop: 10 }}>
+    <Radio.Button value='a'>A</Radio.Button>
+    <Radio.Button value='b'>B</Radio.Button>
+    <Radio.Button value='c'>C</Radio.Button>
+    <Radio.Button value='d'>D</Radio.Button>
+  </Radio.Group>
+  <br />
+  <Radio.Group defaultValue='c' buttonStyle='solid' style={{ marginTop: 10 }}>
+    <Radio.Button value='a'>A</Radio.Button>
+    <Radio.Button value='b'>B</Radio.Button>
+    <Radio.Button value='c' disabled>
+      C
+    </Radio.Button>
+    <Radio.Button value='d'>D</Radio.Button>
+  </Radio.Group>
 </Playground>

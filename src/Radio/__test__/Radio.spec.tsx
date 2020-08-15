@@ -5,7 +5,13 @@ import { render } from 'test/utils'
 
 describe('Radio', () => {
   it('renders correctly', () => {
-    const radio = render(<Radio />)
+    const radio = render(
+      <>
+        <div>
+          <Radio> Radio </Radio>
+        </div>
+      </>
+    )
 
     expect(radio).toMatchSnapshot()
   })

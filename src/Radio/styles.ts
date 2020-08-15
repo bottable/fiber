@@ -7,13 +7,13 @@ import { ButtonProps } from './Button'
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
-export const Wrapper = styled.label`
+export const Wrapper = styled.label<RadioProps>`
   display: inline-block;
   position: relative;
   padding: 0;
   color: ${({ theme }) => theme.colors.gray7};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `
 
 export const RadioContainer = styled.span`
@@ -38,6 +38,18 @@ export const RadioInput = styled.input`
   left: 0;
   opacity: 0;
   cursor: pointer;
+`
+
+const disabledStyle = css`
+  border-color: ${({ theme }) => theme.colors.gray5};
+
+  &::after {
+    background-color: ${({ theme }) => theme.colors.gray5};
+  }
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.gray5};
+  }
 `
 
 export const StyledRadio = styled.span<RadioProps>`
@@ -72,6 +84,8 @@ export const StyledRadio = styled.span<RadioProps>`
     border-color: ${({ checked, theme }) =>
       !checked ? theme.colors.light : null};
   }
+
+  ${({ disabled }) => (disabled ? disabledStyle : null)}
 `
 
 export const StyledGroup = styled.div<GroupProps>`
@@ -96,6 +110,15 @@ const solidRadioStyle = css<ButtonProps>`
   }
 `
 
+const checkedDisabledRadioStyle = css`
+  border-color: ${({ theme }) => theme.colors.gray4};
+  background-color: ${({ theme }) => theme.colors.gray4};
+  color: ${({ theme }) => theme.colors.gray6};
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.gray4};
+  }
+`
+
 export const StyledRadioButton = styled.label<ButtonProps>`
   position: relative;
   ${baseStyle}
@@ -113,6 +136,8 @@ export const StyledRadioButton = styled.label<ButtonProps>`
     border-left-color: ${({ postChecked, theme }) =>
       postChecked ? theme.colors.base : null};
   }
+  ${({ disabled, checked }) =>
+    disabled && checked ? checkedDisabledRadioStyle : null}
   &:not(:last-child) {
     border-right: 0;
     border-top-right-radius: 0;

@@ -1,22 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Radio renders correctly 1`] = `
-<label
-  className="sc-fzoLsD cexpbl"
->
-  <span
-    className="sc-fzpans AopWx"
+<div>
+  <label
+    className="sc-fzoLsD iKYHcu"
   >
-    <input
-      checked={false}
-      className="sc-fznyAO mVHKB"
-      onChange={[Function]}
-      type="radio"
-    />
     <span
-      checked={false}
-      className="sc-fznKkj hVGyIE"
-    />
-  </span>
-</label>
+      className="sc-fzpans AopWx"
+    >
+      <input
+        checked={false}
+        className="sc-fznyAO mVHKB"
+        onChange={[Function]}
+        type="radio"
+      />
+      <span
+        checked={false}
+        className="sc-fznKkj ljepcP"
+      />
+    </span>
+    <span
+      className="sc-fzplWN gwZSfG"
+    >
+       Radio 
+    </span>
+  </label>
+</div>
 `;
