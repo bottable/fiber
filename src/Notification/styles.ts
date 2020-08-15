@@ -1,16 +1,19 @@
 import { NotificationProps } from './Notification'
 
 import styled from 'styled-components'
+import { rem } from 'polished'
 
 export const StyledNotification = styled.div<NotificationProps>`
   position: absolute;
   z-index: 1;
   top: ${({ theme }) => theme.margins.md};
   right: ${({ theme }) => theme.margins.md};
-  padding: ${({ theme }) => theme.paddings.md};
+  max-width: ${rem('336px')};
+  padding: ${({ theme }) => `${theme.paddings.md} ${theme.paddings.lg}`};
   border-radius: ${({ theme }) => theme.radii.md};
   background-color: #fff;
   font-size: ${({ theme }) => theme.fontSizes.md};
+  ${({ theme }) => theme.boxShadow}
 `
 
 export const MessageStyle = styled.div`
