@@ -25,3 +25,23 @@ import { Playground } from 'docz'
     )
   }}
 </Playground>
+
+## Duration
+
+<Playground>
+  {() => {
+    const openNotification = () => {
+      notification.open({
+        message: 'Notification Title',
+        description:
+          'If you set duration to zero, the notification will never close automatically. This is a purposely very very long description that has many many characters and words.',
+        duration: 0
+      })
+    }
+    return (
+      <Button type='primary' onClick={openNotification}>
+        Open the notification box
+      </Button>
+    )
+  }}
+</Playground>

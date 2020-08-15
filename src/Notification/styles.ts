@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { rem } from 'polished'
 
 export const StyledNotification = styled.div<NotificationProps>`
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 100;
   top: ${({ theme }) => theme.margins.md};
   right: ${({ theme }) => theme.margins.md};
   max-width: ${rem('336px')};
