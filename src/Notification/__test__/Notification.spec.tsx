@@ -5,7 +5,13 @@ import { render } from 'test/utils'
 
 describe('Notification', () => {
   it('renders correctly', () => {
-    const notification = render(<Notification />)
+    const notification = render(
+      <>
+        <div>
+          <Notification />
+        </div>
+      </>
+    )
 
     expect(notification).toMatchSnapshot()
   })

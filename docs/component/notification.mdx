@@ -4,11 +4,24 @@ route: /component/notification
 menu: Component
 ---
 
-import { Notification } from 'fiber'
+import { notification, Button } from 'fiber'
 import { Playground } from 'docz'
 
 # Notification
 
 <Playground>
-  <Notification> Notification </Notification>
+  {() => {
+    const openNotification = () => {
+      notification.open({
+        message: 'Notification Title',
+        description:
+          'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
+      })
+    }
+    return (
+      <Button type='primary' onClick={openNotification}>
+        Open the notification box
+      </Button>
+    )
+  }}
 </Playground>
