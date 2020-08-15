@@ -8,7 +8,7 @@ export const headingStyle = css`
 export const paragraphStyle = css`
   margin-bottom: ${rem('10px')};
   color: #000;
-  font-weight: 400;
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
 `
 
 export const codeStyle = css`
@@ -20,5 +20,5 @@ export const codeStyle = css`
   color: #eb5757;
   font-family: Courier, monospace;
   font-size: 85%;
-  font-weight: 400;
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
 `

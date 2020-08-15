@@ -3,7 +3,14 @@
 exports[`Notification renders correctly 1`] = `
 <div>
   <div
-    className="sc-AxjAm gYjxQi"
-  />
+    className="sc-AxjAm lnmhog"
+  >
+    <div
+      className="sc-AxirZ jKYVGl"
+    />
+    <div
+      className="sc-AxiKw cyYUrK"
+    />
+  </div>
 </div>
 `;
