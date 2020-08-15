@@ -1,9 +1,9 @@
 import { NotificationProps } from './Notification'
 
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { rem } from 'polished'
 
-const slideInAnimation = keyframes`
+const slideInRightAnimation = keyframes`
   from {
     right: ${rem('-336px')};
   } to {
@@ -11,10 +11,27 @@ const slideInAnimation = keyframes`
   }
 `
 
+const slideInLeftAnimation = keyframes`
+  from {
+    left: ${rem('-336px')};
+  } to {
+    left: ${rem('16px')};
+  }
+`
+
+const rightStyle = css`
+  right: ${rem('16px')};
+  animation: ${slideInRightAnimation} 0.1s linear 1;
+`
+
+const leftStyle = css`
+  left: ${rem('16px')};
+  animation: ${slideInLeftAnimation} 0.1s linear 1;
+`
+
 export const StyledNotification = styled.div<NotificationProps>`
   position: fixed;
   z-index: 100;
-  right: ${rem('16px')};
   max-width: ${rem('336px')};
   padding: ${({ theme }) => `${theme.paddings.md} ${theme.paddings.lg}`};
   border-radius: ${({ theme }) => theme.radii.md};
@@ -22,7 +39,7 @@ export const StyledNotification = styled.div<NotificationProps>`
   font-size: ${({ theme }) => theme.fontSizes.md};
   ${({ theme }) => theme.boxShadow}
   ${({ theme }) => theme.transition}
-  animation: ${slideInAnimation} 0.1s linear 1;
+  ${({ placement }) => (placement!.includes('Right') ? rightStyle : leftStyle)}
 `
 
 export const MessageStyle = styled.div`

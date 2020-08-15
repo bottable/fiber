@@ -16,6 +16,7 @@ export type NotificationProps = {
   description?: string
   duration?: number
   offset?: number
+  placement?: 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft'
   destroy?: () => void
 }
 
@@ -42,18 +43,33 @@ const Notification: FC<NotificationProps> = React.forwardRef<
   )
 })
 
-const notifications: HTMLElement[] = []
+Notification.defaultProps = {
+  placement: 'topRight'
+}
+
+const rightNotifications: HTMLElement[] = []
+const leftNotifications: HTMLElement[] = []
 
 const bottomMargin = 10
 
-const open: (args: NotificationProps) => void = ({ duration, ...args }) => {
+const open: (args: NotificationProps) => void = ({
+  duration,
+  placement,
+  ...args
+}) => {
   const div = document.createElement('div')
   document.body.appendChild(div)
+
+  const xPlacement = placement!.includes('Right') ? 'right' : 'left'
+
+  let notifications: HTMLElement[]
+  if (xPlacement === 'right') notifications = rightNotifications
+  else notifications = leftNotifications
 
   const destroy = () => {
     const destroyedNotification: any = div.children[0]
     if (!destroyedNotification) return
-    destroyedNotification.style.right = '-336px'
+    destroyedNotification.style[xPlacement] = '-336px'
 
     setTimeout(() => {
       const offset = destroyedNotification.offsetHeight + bottomMargin
@@ -83,7 +99,12 @@ const open: (args: NotificationProps) => void = ({ duration, ...args }) => {
 
   ReactDOM.render(
     <UIProvider>
-      <Notification {...args} destroy={destroy} offset={offset} />
+      <Notification
+        {...args}
+        destroy={destroy}
+        offset={offset}
+        placement={placement}
+      />
     </UIProvider>,
     div
   )
