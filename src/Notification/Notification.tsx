@@ -52,6 +52,7 @@ const open: (args: NotificationProps) => void = ({ duration, ...args }) => {
 
   const destroy = () => {
     const destroyedNotification: any = div.children[0]
+    if (!destroyedNotification) return
     destroyedNotification.style.right = '-336px'
 
     setTimeout(() => {
