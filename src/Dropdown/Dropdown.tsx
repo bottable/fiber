@@ -1,6 +1,4 @@
 import { Wrapper, DropdownWrapper, Description } from './styles'
-import Input from './Input'
-import Button from './Button'
 
 import React, { useState, FC, useRef, useEffect } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
@@ -166,8 +164,5 @@ Dropdown.defaultProps = {
   trigger: 'hover',
   placement: 'bottomLeft'
 }
-
-Dropdown.Input = Input
-Dropdown.Button = Button
 
 export { Dropdown }

@@ -1,7 +1,5 @@
 import { MergeElementProps } from '../utils'
 
-import Password from './Password'
-import Search from './Search'
 import {
   SmallInput,
   MediumInput,
@@ -168,8 +166,5 @@ const Input: InputFC<InputProps> = React.forwardRef<
   }
   return input
 })
-
-Input.Password = Password
-Input.Search = Search
 
 export { Input }

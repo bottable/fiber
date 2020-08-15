@@ -23,26 +23,29 @@ import { composeRef } from 'rc-util/lib/ref'
 
 type Shape = 'default' | 'circle' | 'round'
 
+export type StyleProps = {
+  shape?: Shape
+  size?: 'sm' | 'md' | 'lg'
+  disabled?: boolean
+  ghost?: boolean
+  addon?: boolean
+  dropdown?: boolean
+  block?: boolean
+}
+
 export type ButtonProps = MergeElementProps<
   'button',
   {
-    disabled?: boolean
-    ghost?: boolean
     htmlType?: 'submit' | 'button' | 'reset' | undefined
     icon?: React.ReactNode
     startIcon?: React.ReactNode
     endIcon?: React.ReactNode
     loading?: boolean | { delay: number }
-    shape?: Shape
-    size?: 'sm' | 'md' | 'lg'
     target?: string
     type?: 'primary' | 'default' | 'dashed' | 'text' | 'link'
     onClick?: MouseEventHandler<HTMLElement>
-    block?: boolean
     children?: React.ReactNode
-    addon?: boolean
-    dropdown?: boolean
-  }
+  } & StyleProps
 >
 
 export type RippleProps = {

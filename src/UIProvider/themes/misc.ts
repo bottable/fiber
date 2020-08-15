@@ -24,6 +24,13 @@ const paddings = {
   lg: rem('20px')
 }
 
+const margins = {
+  xs: rem('8px'),
+  sm: rem('12px'),
+  md: rem('16px'),
+  lg: rem('20px')
+}
+
 const heights = {
   sm: rem('20px'),
   md: rem('28px'),
@@ -53,6 +60,7 @@ export {
   fontSizes,
   space,
   paddings,
+  margins,
   heights,
   radii,
   transition,
