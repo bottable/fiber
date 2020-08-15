@@ -18,37 +18,68 @@ export type NotificationProps = {
   offset?: number
   placement?: 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft'
   destroy?: () => void
+  style?: object
 }
 
 const Notification: FC<NotificationProps> = React.forwardRef<
   HTMLDivElement,
   NotificationProps
->(({ message, description, destroy, offset, ...props }, ref) => {
-  const messageNode = message ? <MessageStyle>{message}</MessageStyle> : null
-  const descriptionNode = description ? (
-    <DescriptionStyle>{description}</DescriptionStyle>
-  ) : null
-  const closeNode = (
-    <CloseContainer onClick={destroy}>
-      <CloseIcon />
-    </CloseContainer>
-  )
+>(
+  (
+    {
+      message,
+      description,
+      destroy,
+      offset,
+      placement,
+      style: styleProps,
+      ...props
+    },
+    ref
+  ) => {
+    const messageNode = message ? <MessageStyle>{message}</MessageStyle> : null
+    const descriptionNode = description ? (
+      <DescriptionStyle>{description}</DescriptionStyle>
+    ) : null
+    const closeNode = (
+      <CloseContainer onClick={destroy}>
+        <CloseIcon />
+      </CloseContainer>
+    )
 
-  return (
-    <StyledNotification {...props} ref={ref} style={{ top: offset! + 16 }}>
-      {messageNode}
-      {descriptionNode}
-      {closeNode}
-    </StyledNotification>
-  )
-})
+    const style = {}
+    style[placement!.includes('top') ? 'top' : 'bottom'] = offset! + 16
+
+    return (
+      <StyledNotification
+        {...props}
+        ref={ref}
+        placement={placement}
+        style={{ ...style, ...styleProps }}
+      >
+        {messageNode}
+        {descriptionNode}
+        {closeNode}
+      </StyledNotification>
+    )
+  }
+)
 
 Notification.defaultProps = {
   placement: 'topRight'
 }
 
-const rightNotifications: HTMLElement[] = []
-const leftNotifications: HTMLElement[] = []
+const notificationsObject: {
+  topRight: HTMLElement[]
+  topLeft: HTMLElement[]
+  bottomRight: HTMLElement[]
+  bottomLeft: HTMLElement[]
+} = {
+  topRight: [],
+  topLeft: [],
+  bottomRight: [],
+  bottomLeft: []
+}
 
 const bottomMargin = 10
 
@@ -57,19 +88,21 @@ const open: (args: NotificationProps) => void = ({
   placement,
   ...args
 }) => {
+  if (!placement) placement = 'topRight'
+
   const div = document.createElement('div')
   document.body.appendChild(div)
 
   const xPlacement = placement!.includes('Right') ? 'right' : 'left'
+  const yPlacement = placement!.includes('top') ? 'top' : 'bottom'
 
-  let notifications: HTMLElement[]
-  if (xPlacement === 'right') notifications = rightNotifications
-  else notifications = leftNotifications
+  const notifications = notificationsObject[placement!]
 
   const destroy = () => {
     const destroyedNotification: any = div.children[0]
     if (!destroyedNotification) return
     destroyedNotification.style[xPlacement] = '-336px'
+    destroyedNotification.style.opacity = '0'
 
     setTimeout(() => {
       const offset = destroyedNotification.offsetHeight + bottomMargin
@@ -78,10 +111,10 @@ const open: (args: NotificationProps) => void = ({
       for (let i = idx + 1; i < notifications.length; i++) {
         const element = notifications[i]
         const notification: any = element.children[0]
-        notification.style.top = `${
-          +notification.style.top.substring(
+        notification.style[yPlacement] = `${
+          +notification.style[yPlacement].substring(
             0,
-            notification.style.top.length - 2
+            notification.style[yPlacement].length - 2
           ) - offset
         }px`
       }

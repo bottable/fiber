@@ -6,16 +6,20 @@ import { rem } from 'polished'
 const slideInRightAnimation = keyframes`
   from {
     right: ${rem('-336px')};
+    opacity: 0;
   } to {
     right: ${rem('16px')};
+    opacity: 1;
   }
 `
 
 const slideInLeftAnimation = keyframes`
   from {
     left: ${rem('-336px')};
+    opacity: 0;
   } to {
     left: ${rem('16px')};
+    opacity: 1;
   }
 `
 
@@ -33,7 +37,7 @@ export const StyledNotification = styled.div<NotificationProps>`
   position: fixed;
   z-index: 100;
   max-width: ${rem('336px')};
-  padding: ${({ theme }) => `${theme.paddings.md} ${theme.paddings.lg}`};
+  padding: ${({ theme }) => theme.paddings.lg};
   border-radius: ${({ theme }) => theme.radii.md};
   background-color: #fff;
   font-size: ${({ theme }) => theme.fontSizes.md};
