@@ -6,7 +6,7 @@ import { rem } from 'polished'
 export const StyledNotification = styled.div<NotificationProps>`
   position: fixed;
   z-index: 100;
-  top: ${({ theme }) => theme.margins.md};
+  top: ${({ offset, theme }) => `calc(${theme.margins.md} + ${`${offset}px`})`};
   right: ${({ theme }) => theme.margins.md};
   max-width: ${rem('336px')};
   padding: ${({ theme }) => `${theme.paddings.md} ${theme.paddings.lg}`};

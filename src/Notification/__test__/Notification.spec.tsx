@@ -8,7 +8,7 @@ describe('Notification', () => {
     const notification = render(
       <>
         <div>
-          <Notification destroy={() => {}} />
+          <Notification />
         </div>
       </>
     )

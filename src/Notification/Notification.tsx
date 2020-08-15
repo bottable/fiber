@@ -15,15 +15,14 @@ export type NotificationProps = {
   message?: string
   description?: string
   duration?: number
-  destroy: () => void
+  offset?: number
+  destroy?: () => void
 }
 
-const Notification: FC<NotificationProps> = ({
-  message,
-  description,
-  destroy,
-  ...props
-}) => {
+const Notification: FC<NotificationProps> = React.forwardRef<
+  HTMLDivElement,
+  NotificationProps
+>(({ message, description, destroy, ...props }, ref) => {
   const messageNode = message ? <MessageStyle>{message}</MessageStyle> : null
   const descriptionNode = description ? (
     <DescriptionStyle>{description}</DescriptionStyle>
@@ -35,13 +34,15 @@ const Notification: FC<NotificationProps> = ({
   )
 
   return (
-    <StyledNotification {...props} destroy={destroy}>
+    <StyledNotification {...props} ref={ref}>
       {messageNode}
       {descriptionNode}
       {closeNode}
     </StyledNotification>
   )
-}
+})
+
+const notifications: HTMLElement[] = []
 
 const open: (args: NotificationProps) => void = ({ duration, ...args }) => {
   const div = document.createElement('div')
@@ -49,13 +50,24 @@ const open: (args: NotificationProps) => void = ({ duration, ...args }) => {
   const destroy = () => {
     ReactDOM.unmountComponentAtNode(div)
     div.remove()
+    const idx = notifications.findIndex((element) => element === div)
+    notifications.splice(idx, 1)
   }
+
+  const offset = notifications.reduce((totalOffset, element) => {
+    const child: any = element.children[0]
+    return totalOffset + child.offsetHeight + 10
+  }, 0)
+
   ReactDOM.render(
     <UIProvider>
-      <Notification {...args} destroy={destroy} />
+      <Notification {...args} destroy={destroy} offset={offset} />
     </UIProvider>,
     div
   )
+
+  notifications.push(div)
+
   if (duration === 0) return
   if (typeof duration === 'number') {
     setTimeout(destroy, duration * 1000)

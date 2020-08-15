@@ -3,11 +3,10 @@
 exports[`Notification renders correctly 1`] = `
 <div>
   <div
-    className="sc-AxjAm pkqcN"
+    className="sc-AxjAm eJQdto"
   >
     <span
-      className="sc-AxhCb lbUpyP"
-      onClick={[Function]}
+      className="sc-AxhCb dLHiaz"
     >
       <svg
         aria-hidden={true}
