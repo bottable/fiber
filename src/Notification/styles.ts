@@ -23,3 +23,15 @@ export const MessageStyle = styled.div`
 export const DescriptionStyle = styled.div`
   margin-top: ${({ theme }) => theme.margins.sm};
 `
+
+export const CloseContainer = styled.span`
+  position: absolute;
+  top: ${({ theme }) => theme.paddings.xs};
+  right: ${({ theme }) => theme.paddings.xs};
+  cursor: pointer;
+
+  svg {
+    width: ${rem('16px')};
+    height: ${rem('16px')};
+  }
+`
