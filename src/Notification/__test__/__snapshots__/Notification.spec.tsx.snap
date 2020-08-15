@@ -3,7 +3,12 @@
 exports[`Notification renders correctly 1`] = `
 <div>
   <div
-    className="sc-AxjAm eJQdto"
+    className="sc-AxjAm fnwBYl"
+    style={
+      Object {
+        "top": NaN,
+      }
+    }
   >
     <span
       className="sc-AxhCb dLHiaz"

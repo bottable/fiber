@@ -22,7 +22,7 @@ export type NotificationProps = {
 const Notification: FC<NotificationProps> = React.forwardRef<
   HTMLDivElement,
   NotificationProps
->(({ message, description, destroy, ...props }, ref) => {
+>(({ message, description, destroy, offset, ...props }, ref) => {
   const messageNode = message ? <MessageStyle>{message}</MessageStyle> : null
   const descriptionNode = description ? (
     <DescriptionStyle>{description}</DescriptionStyle>
@@ -34,7 +34,7 @@ const Notification: FC<NotificationProps> = React.forwardRef<
   )
 
   return (
-    <StyledNotification {...props} ref={ref}>
+    <StyledNotification {...props} ref={ref} style={{ top: offset! + 16 }}>
       {messageNode}
       {descriptionNode}
       {closeNode}
@@ -44,19 +44,36 @@ const Notification: FC<NotificationProps> = React.forwardRef<
 
 const notifications: HTMLElement[] = []
 
+const bottomMargin = 10
+
 const open: (args: NotificationProps) => void = ({ duration, ...args }) => {
   const div = document.createElement('div')
   document.body.appendChild(div)
+
   const destroy = () => {
+    const destroyedNotification: any = div.children[0]
+    const offset = destroyedNotification.offsetHeight + bottomMargin
+    const idx = notifications.findIndex((element) => element === div)
+
+    for (let i = idx + 1; i < notifications.length; i++) {
+      const element = notifications[i]
+      const notification: any = element.children[0]
+      notification.style.top = `${
+        +notification.style.top.substring(
+          0,
+          notification.style.top.length - 2
+        ) - offset
+      }px`
+    }
+
+    notifications.splice(idx, 1)
     ReactDOM.unmountComponentAtNode(div)
     div.remove()
-    const idx = notifications.findIndex((element) => element === div)
-    notifications.splice(idx, 1)
   }
 
   const offset = notifications.reduce((totalOffset, element) => {
-    const child: any = element.children[0]
-    return totalOffset + child.offsetHeight + 10
+    const notification: any = element.children[0]
+    return totalOffset + notification.offsetHeight + bottomMargin
   }, 0)
 
   ReactDOM.render(
