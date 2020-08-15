@@ -1,18 +1,28 @@
 import { NotificationProps } from './Notification'
 
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { rem } from 'polished'
+
+const slideInAnimation = keyframes`
+  from {
+    right: ${rem('-336px')};
+  } to {
+    right: ${rem('16px')};
+  }
+`
 
 export const StyledNotification = styled.div<NotificationProps>`
   position: fixed;
   z-index: 100;
-  right: ${({ theme }) => theme.margins.md};
+  right: ${rem('16px')};
   max-width: ${rem('336px')};
   padding: ${({ theme }) => `${theme.paddings.md} ${theme.paddings.lg}`};
   border-radius: ${({ theme }) => theme.radii.md};
   background-color: #fff;
   font-size: ${({ theme }) => theme.fontSizes.md};
   ${({ theme }) => theme.boxShadow}
+  ${({ theme }) => theme.transition}
+  animation: ${slideInAnimation} 0.1s linear 1;
 `
 
 export const MessageStyle = styled.div`

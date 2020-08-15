@@ -52,23 +52,27 @@ const open: (args: NotificationProps) => void = ({ duration, ...args }) => {
 
   const destroy = () => {
     const destroyedNotification: any = div.children[0]
-    const offset = destroyedNotification.offsetHeight + bottomMargin
-    const idx = notifications.findIndex((element) => element === div)
+    destroyedNotification.style.right = '-336px'
 
-    for (let i = idx + 1; i < notifications.length; i++) {
-      const element = notifications[i]
-      const notification: any = element.children[0]
-      notification.style.top = `${
-        +notification.style.top.substring(
-          0,
-          notification.style.top.length - 2
-        ) - offset
-      }px`
-    }
+    setTimeout(() => {
+      const offset = destroyedNotification.offsetHeight + bottomMargin
+      const idx = notifications.findIndex((element) => element === div)
 
-    notifications.splice(idx, 1)
-    ReactDOM.unmountComponentAtNode(div)
-    div.remove()
+      for (let i = idx + 1; i < notifications.length; i++) {
+        const element = notifications[i]
+        const notification: any = element.children[0]
+        notification.style.top = `${
+          +notification.style.top.substring(
+            0,
+            notification.style.top.length - 2
+          ) - offset
+        }px`
+      }
+
+      notifications.splice(idx, 1)
+      ReactDOM.unmountComponentAtNode(div)
+      div.remove()
+    }, 100)
   }
 
   const offset = notifications.reduce((totalOffset, element) => {
