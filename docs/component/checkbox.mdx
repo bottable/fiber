@@ -20,3 +20,28 @@ import { Playground } from 'docz'
   <br />
   <Checkbox defaultChecked disabled />
 </Playground>
+
+## Group
+
+<Playground>
+  {() => {
+    function onChange(checkedValues) {
+      console.log('checked = ', checkedValues)
+    }
+    return (
+      <>
+        <Checkbox.Group defaultValue={['Apple']} onChange={onChange}>
+          <Checkbox value='Apple'>Apple</Checkbox>
+          <Checkbox value='Pear'>Pear</Checkbox>
+          <Checkbox value='Orange'>Orange</Checkbox>
+        </Checkbox.Group>
+        <br />
+        <Checkbox.Group defaultValue={['Apple']} onChange={onChange} disabled>
+          <Checkbox value='Apple'>Apple</Checkbox>
+          <Checkbox value='Pear'>Pear</Checkbox>
+          <Checkbox value='Orange'>Orange</Checkbox>
+        </Checkbox.Group>
+      </>
+    )
+  }}
+</Playground>

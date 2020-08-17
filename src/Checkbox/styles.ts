@@ -57,5 +57,6 @@ export {
   Wrapper,
   LabelContainer,
   RadioContainer as CheckboxContainer,
-  RadioInput as CheckboxInput
+  RadioInput as CheckboxInput,
+  StyledGroup
 } from '../Radio/styles'

@@ -5,6 +5,7 @@ import {
   CheckboxInput,
   StyledCheckbox
 } from './styles'
+import { GroupProps } from './Group'
 
 import React, { FC, useState, useEffect } from 'react'
 
@@ -16,7 +17,11 @@ export type CheckboxProps = {
   disabled?: boolean
 }
 
-const Checkbox: FC<CheckboxProps> = React.forwardRef<
+type CheckboxFC<P> = FC<P> & {
+  Group?: FC<GroupProps>
+}
+
+const Checkbox: CheckboxFC<CheckboxProps> = React.forwardRef<
   HTMLInputElement,
   CheckboxProps
 >(
