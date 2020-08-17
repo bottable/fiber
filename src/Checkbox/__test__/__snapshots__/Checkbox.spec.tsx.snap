@@ -15,7 +15,7 @@ exports[`Checkbox renders correctly 1`] = `
     />
     <span
       checked={false}
-      className="sc-AxjAm dtCKQM"
+      className="sc-AxjAm exnHkR"
     />
   </span>
 </label>

@@ -10,6 +10,7 @@ import React, { FC, useState, useEffect } from 'react'
 
 export type CheckboxProps = {
   checked?: boolean
+  defaultChecked?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   style?: object
   disabled?: boolean
@@ -20,10 +21,18 @@ const Checkbox: FC<CheckboxProps> = React.forwardRef<
   CheckboxProps
 >(
   (
-    { children, checked: checkedProps, onChange, style, disabled, ...props },
+    {
+      children,
+      checked: checkedProps,
+      defaultChecked,
+      onChange,
+      style,
+      disabled,
+      ...props
+    },
     ref
   ) => {
-    const [checked, setChecked] = useState<boolean>(Boolean(checkedProps))
+    const [checked, setChecked] = useState<boolean>(Boolean(defaultChecked))
 
     useEffect(() => {
       if (typeof checkedProps === 'boolean') setChecked(checkedProps)

@@ -1,6 +1,19 @@
 import { CheckboxProps } from './Checkbox'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const disabledStyle = css`
+  border-color: ${({ theme }) => theme.colors.gray5};
+  background-color: ${({ theme }) => theme.colors.gray2};
+
+  &::after {
+    border-color: ${({ theme }) => theme.colors.gray5};
+  }
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.gray5};
+  }
+`
 
 export const StyledCheckbox = styled.span<CheckboxProps>`
   display: block;
@@ -15,6 +28,7 @@ export const StyledCheckbox = styled.span<CheckboxProps>`
     checked ? theme.colors.base : theme.colors.gray4};
   background-color: ${({ checked, theme }) =>
     checked ? theme.colors.base : null};
+  ${({ theme }) => theme.transition}
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.base};
@@ -36,7 +50,7 @@ export const StyledCheckbox = styled.span<CheckboxProps>`
     ${({ theme }) => theme.transition}
   }
 
-  ${({ theme }) => theme.transition}
+  ${({ disabled }) => (disabled ? disabledStyle : null)}
 `
 
 export {
