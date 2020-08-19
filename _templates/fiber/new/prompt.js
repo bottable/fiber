@@ -11,7 +11,7 @@ module.exports = [
   {
     type: 'input',
     name: 'category',
-    message: "What's your category does it belong ex. component, layout ...etc?"
+    message: 'What category does it belong to? eg. component, layout ...etc'
   },
   {
     type: 'input',

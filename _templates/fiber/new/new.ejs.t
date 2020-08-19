@@ -2,13 +2,11 @@
 to: src/<%=h.inflection.classify(component)%>/<%=  h.inflection.classify(component)  %>.tsx
 ---
 
-import { StyleProps } from '../utils/styles'
-
 import { Styled<%=h.inflection.classify(component)%> } from './styles'
 
 import React, { FC } from 'react'
 
-export interface <%=h.inflection.classify(component)%>Props extends StyleProps {
+export type <%=h.inflection.classify(component)%>Props = {
   // custom props here
 }
 
