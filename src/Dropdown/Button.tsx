@@ -9,12 +9,12 @@ export interface ButtonDropdownProps extends DropdownProps {}
 
 const ButtonDropdown = React.forwardRef<HTMLButtonElement, ButtonDropdownProps>(
   ({ overlay, children, ...props }, ref) => {
-    const [expand, setExpand] = useState<boolean>(false)
+    const [visible, setVisible] = useState<boolean>(false)
     const [width, setWidth] = useState<number>()
     const buttonRef = useRef<HTMLButtonElement>(null)
 
-    const handleExpandChange = (flag: boolean) => {
-      setExpand(flag)
+    const handleVisibleChange = (flag: boolean) => {
+      setVisible(flag)
     }
 
     if (buttonRef.current && !width) {
@@ -24,15 +24,15 @@ const ButtonDropdown = React.forwardRef<HTMLButtonElement, ButtonDropdownProps>(
     return (
       <Dropdown
         overlay={overlay}
-        expand={expand}
+        visible={visible}
         width={width}
         topped
         trigger='click'
-        onExpandChange={handleExpandChange}
+        onVisibleChange={handleVisibleChange}
       >
         <Button
           ref={composeRef<HTMLButtonElement>(buttonRef, ref)}
-          dropdown={expand}
+          dropdown={visible}
           {...props}
         >
           {children}

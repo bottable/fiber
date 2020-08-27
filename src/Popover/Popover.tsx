@@ -3,11 +3,20 @@ import { StyledPopover } from './styles'
 import React, { FC } from 'react'
 
 export type PopoverProps = {
-  // custom props here
+  content?: string
+  title?: string
 }
 
-const Popover: FC<PopoverProps> = ({ children, ...props }) => {
-  return <StyledPopover {...props}>{children}</StyledPopover>
+const Popover: FC<PopoverProps> = ({ children, content, title, ...props }) => {
+  return (
+    <span {...props}>
+      {children}
+      <StyledPopover>
+        {title}
+        {content}
+      </StyledPopover>
+    </span>
+  )
 }
 
 export { Popover }

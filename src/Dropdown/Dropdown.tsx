@@ -8,7 +8,7 @@ export type MenuFunc = () => React.ReactElement
 export type DropdownProps = {
   overlay?: React.ReactElement | MenuFunc
   trigger?: 'hover' | 'click'
-  expand?: boolean
+  visible?: boolean
   width?: number
   topped?: boolean
   description?: string
@@ -19,7 +19,7 @@ export type DropdownProps = {
     | 'topLeft'
     | 'topCenter'
     | 'topRight'
-  onExpandChange?: (flag: boolean) => void
+  onVisibleChange?: (flag: boolean) => void
   n?: number
 }
 
@@ -37,12 +37,12 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       overlay,
       trigger,
       children,
-      expand: expandProps,
+      visible: visibleProps,
       width,
       topped,
       description,
       placement,
-      onExpandChange,
+      onVisibleChange,
       ...props
     },
     ref
@@ -53,17 +53,17 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
     >(null)
     const childrenRef = useRef<HTMLSpanElement>(null)
     const dropdownRef = useRef<HTMLDivElement>(null)
-    const [expand, setExpand] = useState(false)
+    const [visible, setVisible] = useState(false)
 
-    const handleExpandChange = (flag: boolean) => {
-      if (onExpandChange) {
-        onExpandChange(flag)
-      } else setExpand(flag)
+    const handleVisibleChange = (flag: boolean) => {
+      if (onVisibleChange) {
+        onVisibleChange(flag)
+      } else setVisible(flag)
     }
 
     const handleClick = (e: Event) => {
       if (wrapperRef.current!.contains(e.target!)) return
-      handleExpandChange(false)
+      handleVisibleChange(false)
     }
 
     useEffect(() => {
@@ -76,10 +76,10 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
     }, [])
 
     useEffect(() => {
-      if (typeof expandProps === 'boolean') {
-        setExpand(expandProps)
+      if (typeof visibleProps === 'boolean') {
+        setVisible(visibleProps)
       }
-    }, [expandProps])
+    }, [visibleProps])
 
     let hoverProps = {}
     let clickProps = {}
@@ -87,13 +87,13 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
     switch (trigger) {
       case 'hover':
         hoverProps = {
-          onMouseEnter: () => handleExpandChange(true),
-          onMouseLeave: () => handleExpandChange(false)
+          onMouseEnter: () => handleVisibleChange(true),
+          onMouseLeave: () => handleVisibleChange(false)
         }
         break
       case 'click':
         clickProps = {
-          onClick: () => handleExpandChange(true)
+          onClick: () => handleVisibleChange(true)
         }
         break
     }
@@ -141,7 +141,7 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
           ref: composeRef(childrenRef, childrenNode.ref)
         })}
         <DropdownWrapper
-          expand={expand}
+          visible={visible}
           width={width}
           topped={topped}
           placement={placement}
@@ -151,7 +151,7 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
           {descriptionNode}
           {React.cloneElement(overlayNode, {
             collapse: () => {
-              handleExpandChange(false)
+              handleVisibleChange(false)
             }
           })}
         </DropdownWrapper>

@@ -4,11 +4,23 @@ route: /component/popover
 menu: Component
 ---
 
-import { Popover } from 'fiber'
+import { Popover, Button } from 'fiber'
 import { Playground } from 'docz'
 
 # Popover
 
 <Playground>
-  <Popover> Popover </Popover>
+  {() => {
+    const content = (
+      <div>
+        <p>Content</p>
+        <p>Content</p>
+      </div>
+    )
+    return (
+      <Popover content={content} title='Title'>
+        <Button type='primary'>Hover me</Button>
+      </Popover>
+    )
+  }}
 </Playground>
