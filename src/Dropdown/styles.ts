@@ -1,4 +1,4 @@
-import { DropdownProps } from './Dropdown'
+import { DropdownProps } from '../hooks'
 
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
