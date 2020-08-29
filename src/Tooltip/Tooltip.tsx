@@ -7,11 +7,21 @@ import { composeRef } from 'rc-util/lib/ref'
 
 export interface TooltipProps extends DropdownProps {
   title?: string
+  color?:
+    | 'blue'
+    | 'green'
+    | 'magenta'
+    | 'neutral'
+    | 'orange'
+    | 'purple'
+    | 'red'
+    | 'teal'
+    | 'yellow'
 }
 
 const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
   (props, ref) => {
-    const { children, placement, title, ...rest } = props
+    const { children, placement, title, color, ...rest } = props
 
     const {
       wrapperRef,
@@ -39,11 +49,12 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
         <TooltipWrapper
           visible={visible}
           placement={placement}
+          color={color}
           ref={dropdownRef}
         >
           {title}
         </TooltipWrapper>
-        <Triangle visible={visible} placement={placement} />
+        <Triangle visible={visible} placement={placement} color={color} />
       </Wrapper>
     )
   }

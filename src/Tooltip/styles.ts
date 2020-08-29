@@ -66,7 +66,12 @@ export const TooltipWrapper = styled.div<TooltipProps>`
   min-width: 0;
   padding: ${({ theme }) => `${theme.paddings.xs} ${theme.paddings.sm}`};
   opacity: ${({ visible }) => (visible ? 1 : 0)};
-  background-color: ${({ theme }) => theme.colors.gray8};
+  background: ${({ color, theme }) =>
+    color
+      ? !theme.colors[color]
+        ? color
+        : theme.colors[color].base
+      : theme.colors.gray8};
   color: #fff;
   p {
     margin: 0;
@@ -81,6 +86,11 @@ export const Triangle = styled.div<TooltipProps>`
   ${trianglePosition}
   width: 10px;
   height: 10px;
-  background-color: ${({ theme }) => theme.colors.gray8};
+  background-color: ${({ color, theme }) =>
+    color
+      ? !theme.colors[color]
+        ? color
+        : theme.colors[color].base
+      : theme.colors.gray8};
   transform: translate(-50%, -50%) rotate(45deg);
 `

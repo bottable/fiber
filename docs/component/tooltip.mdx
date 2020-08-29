@@ -4,7 +4,7 @@ route: /component/tooltip
 menu: Component
 ---
 
-import { Tooltip, Button } from 'fiber'
+import { Tooltip, Button, Divider, Space } from 'fiber'
 import { Playground } from 'docz'
 
 # Tooltip
@@ -73,6 +73,45 @@ import { Playground } from 'docz'
             <Button style={{ width: buttonWidth }}>BR</Button>
           </Tooltip>
         </div>
+      </div>
+    )
+  }}
+</Playground>
+
+## Colors
+
+<Playground>
+  {() => {
+    const colors = [
+      'blue',
+      'green',
+      'magenta',
+      'neutral',
+      'orange',
+      'purple',
+      'red',
+      'teal',
+      'yellow'
+    ]
+    const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9']
+    return (
+      <div>
+        <Divider orientation='left'>Presets</Divider>
+        <Space>
+          {colors.map((color) => (
+            <Tooltip title='prompt text' color={color} key={color}>
+              <Button>{color}</Button>
+            </Tooltip>
+          ))}
+        </Space>
+        <Divider orientation='left'>Custom</Divider>
+        <Space>
+          {customColors.map((color) => (
+            <Tooltip title='prompt text' color={color} key={color}>
+              <Button>{color}</Button>
+            </Tooltip>
+          ))}
+        </Space>
       </div>
     )
   }}
