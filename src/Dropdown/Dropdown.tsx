@@ -14,15 +14,7 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
   HTMLDivElement,
   DropdownProps
 >((props, ref) => {
-  const {
-    overlay,
-    children,
-    width,
-    topped,
-    description,
-    placement,
-    ...rest
-  } = props
+  const { overlay, children, topped, description, placement, ...rest } = props
 
   const {
     wrapperRef,
@@ -31,8 +23,7 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
     visible,
     handleVisibleChange,
     hoverProps,
-    clickProps,
-    n
+    clickProps
   } = useDropdown(props)
 
   const descriptionNode = description ? (
@@ -42,6 +33,15 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
   const childrenNode = Array.isArray(children)
     ? ((<span>{children}</span>) as any)
     : (children as any)
+
+  let n
+  if (overlay) {
+    n = Array.isArray(overlay.props.children)
+      ? overlay.props.children.length
+      : 1
+  }
+  n *= 37
+  n += description ? 21 : 0
 
   return (
     <Wrapper
@@ -55,7 +55,6 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
       })}
       <DropdownWrapper
         visible={visible}
-        width={width}
         topped={topped}
         placement={placement}
         ref={dropdownRef}

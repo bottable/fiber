@@ -2,6 +2,7 @@ import { DropdownProps } from '../hooks'
 import { dropdown } from '../styles'
 
 import styled, { css } from 'styled-components'
+import { rem } from 'polished'
 
 const border = css<DropdownProps>`
   padding: ${({ theme }) => `${theme.radii.md}`} 0;
@@ -40,6 +41,12 @@ export const DropdownWrapper = styled.div<DropdownProps>`
     return output
   }}
   ${({ visible }) => (visible ? border : null)}
+  max-height: ${({ visible, n }) => {
+    if (!visible) return '0'
+    if (n) return rem(`${n}px`)
+    return null
+  }};
+  transition: max-height 100ms ease;
 `
 
 export const Description = styled.div`

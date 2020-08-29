@@ -13,7 +13,7 @@ export interface PopoverProps extends DropdownProps {
 
 const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
   (props, ref) => {
-    const { children, width, placement, title, content, ...rest } = props
+    const { children, placement, title, content, ...rest } = props
 
     const {
       wrapperRef,
@@ -40,7 +40,6 @@ const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
         })}
         <PopoverWrapper
           visible={visible}
-          width={width}
           placement={placement}
           ref={dropdownRef}
         >

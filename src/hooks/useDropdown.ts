@@ -5,15 +5,20 @@ export type DropdownProps = {
   overlay?: React.ReactElement
   trigger?: 'hover' | 'click'
   visible?: boolean
-  width?: number
   topped?: boolean
   placement?:
     | 'bottomLeft'
-    | 'bottomCenter'
+    | 'bottom'
     | 'bottomRight'
     | 'topLeft'
-    | 'topCenter'
+    | 'top'
     | 'topRight'
+    | 'rightTop'
+    | 'right'
+    | 'rightBottom'
+    | 'leftTop'
+    | 'left'
+    | 'leftBottom'
   onVisibleChange?: (flag: boolean) => void
   n?: number
   children?: React.ReactNode
@@ -21,10 +26,8 @@ export type DropdownProps = {
 }
 
 export const useDropdown = ({
-  overlay,
   trigger,
   visible: visibleProps,
-  description,
   placement,
   onVisibleChange
 }: DropdownProps) => {
@@ -83,22 +86,25 @@ export const useDropdown = ({
     childrenRef.current &&
     dropdownRef.current &&
     placement &&
-    !placement.includes('Left') &&
-    !placement.includes('Right')
+    !placement.toLowerCase().includes('left') &&
+    !placement.toLowerCase().includes('right')
   ) {
     const offset =
       (childrenRef.current.offsetWidth - dropdownRef.current.offsetWidth) / 2
     dropdownRef.current.style.left = rem(`${offset}px`)
   }
 
-  let n
-  if (overlay) {
-    n = Array.isArray(overlay.props.children)
-      ? overlay.props.children.length
-      : 1
+  if (
+    childrenRef.current &&
+    dropdownRef.current &&
+    placement &&
+    !placement.toLowerCase().includes('top') &&
+    !placement.toLowerCase().includes('bottom')
+  ) {
+    const offset =
+      (childrenRef.current.offsetHeight - dropdownRef.current.offsetHeight) / 2
+    dropdownRef.current.style.top = rem(`${offset}px`)
   }
-  n *= 37
-  n += description ? 21 : 0
 
   return {
     wrapperRef,
@@ -107,7 +113,6 @@ export const useDropdown = ({
     visible,
     handleVisibleChange,
     hoverProps,
-    clickProps,
-    n
+    clickProps
   }
 }

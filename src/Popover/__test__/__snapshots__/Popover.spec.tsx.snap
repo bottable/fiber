@@ -16,7 +16,7 @@ exports[`Popover renders correctly 1`] = `
     </span>
   </button>
   <div
-    className="sc-fzozJi cCxugz"
+    className="sc-fzozJi hBagmu"
   >
     <div
       className="sc-AxirZ gmTkeS"
@@ -29,7 +29,7 @@ exports[`Popover renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-fzoLsD ihnpBD"
+    className="sc-fzoLsD gJNTvg"
   />
 </div>
 `;
