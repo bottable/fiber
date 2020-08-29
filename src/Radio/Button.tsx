@@ -1,11 +1,11 @@
-import { StyleProps } from '../Button'
+import { ButtonStyleProps } from '../Button'
 
 import { RadioProps } from './Radio'
 import { StyledRadioButton, RadioInput } from './styles'
 
 import React, { FC, useState, useEffect } from 'react'
 
-export interface ButtonProps extends RadioProps, StyleProps {
+export interface ButtonProps extends RadioProps, ButtonStyleProps {
   postChecked?: boolean
   buttonStyle?: 'default' | 'solid'
 }

@@ -1,4 +1,4 @@
-import { baseStyle, defaultStyle } from '../Button/styles'
+import { button } from '../styles'
 
 import { RadioProps } from './Radio'
 import { GroupProps } from './Group'
@@ -116,13 +116,14 @@ const checkedDisabledRadioStyle = css`
   color: ${({ theme }) => theme.colors.gray6};
   &:hover {
     border-color: ${({ theme }) => theme.colors.gray4};
+    background-color: ${({ theme }) => theme.colors.gray4};
+    color: ${({ theme }) => theme.colors.gray6};
   }
 `
 
 export const StyledRadioButton = styled.label<ButtonProps>`
   position: relative;
-  ${baseStyle}
-  ${defaultStyle}
+  ${button}
   ${({ buttonStyle }) =>
     buttonStyle === 'solid' ? solidRadioStyle : defaultRadioStyle};
   height: ${rem('16px')};
