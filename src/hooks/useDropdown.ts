@@ -7,7 +7,6 @@ export type DropdownProps = {
   visible?: boolean
   width?: number
   topped?: boolean
-  description?: string
   placement?:
     | 'bottomLeft'
     | 'bottomCenter'
@@ -18,6 +17,7 @@ export type DropdownProps = {
   onVisibleChange?: (flag: boolean) => void
   n?: number
   children?: React.ReactNode
+  description?: string
 }
 
 export const useDropdown = ({

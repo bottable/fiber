@@ -10,7 +10,8 @@ export const dropdown = css<DropdownProps>`
   min-width: ${({ width }) => (width ? null : rem('160px'))};
   max-height: ${({ visible, n }) => {
     if (!visible) return '0'
-    return rem(`${n}px`)
+    if (n) return rem(`${n}px`)
+    return null
   }};
   overflow: hidden;
   ${({ placement }) => {
