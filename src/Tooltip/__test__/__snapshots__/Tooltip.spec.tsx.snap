@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip renders correctly 1`] = `
+<div
+  className="sc-AxjAm byglIv"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <span>
+    Tooltip
+  </span>
+  <div
+    className="sc-AxirZ gHRMjZ"
+  />
+  <div
+    className="sc-AxiKw gkmlKm"
+  />
+</div>
+`;

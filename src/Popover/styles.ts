@@ -75,12 +75,12 @@ export const PopoverWrapper = styled.div<PopoverProps>`
 `
 
 export const Triangle = styled.div<PopoverProps>`
+  display: ${({ visible }) => (visible ? 'block' : 'none')};
   position: absolute;
   z-index: 1000;
   ${trianglePosition}
   width: 10px;
   height: 10px;
-  opacity: ${({ visible }) => (visible ? 1 : 0)};
   background-color: #fff;
   transform: translateX(-50%) rotate(45deg);
 `
