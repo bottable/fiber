@@ -1,7 +1,15 @@
+import { dropdown } from '../styles'
+
 import { DropdownProps } from './Dropdown'
 
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
+
+const border = css<DropdownProps>`
+  padding: ${({ theme }) => `${theme.radii.md}`} 0;
+  border-top: ${({ theme }) => theme.border.md} #fff;
+  border-bottom: ${({ theme }) => theme.border.md} #fff;
+`
 
 export const Wrapper = styled.div<DropdownProps>`
   display: inline-block;
@@ -21,22 +29,8 @@ export const Wrapper = styled.div<DropdownProps>`
   ${({ theme }) => theme.transition}
 `
 
-const Border = css<DropdownProps>`
-  padding: ${({ theme }) => `${theme.radii.md}`} 0;
-  border-top: ${({ theme }) => theme.border.md} #fff;
-  border-bottom: ${({ theme }) => theme.border.md} #fff;
-`
-
 export const DropdownWrapper = styled.div<DropdownProps>`
-  position: absolute;
-  z-index: 999;
-  width: ${({ width }) => (width ? rem(`${width}px`) : null)};
-  min-width: ${({ width }) => (width ? null : rem('160px'))};
-  max-height: ${({ expand, n }) => {
-    if (!expand) return '0'
-    return rem(`${n}px`)
-  }};
-  overflow: hidden;
+  ${dropdown}
   ${({ placement }) => {
     let output = ''
     if (!placement) return null
@@ -47,12 +41,15 @@ export const DropdownWrapper = styled.div<DropdownProps>`
     if (placement.includes('Right')) output += '\nright: 0;'
     return output
   }}
-  ${({ expand }) => (expand ? Border : null)}
-  border-radius: ${({ theme }) => theme.radii.md};
+  ${({ visible }) => (visible ? border : null)}
+  width: ${({ width }) => (width ? rem(`${width}px`) : null)};
+  max-height: ${({ visible, n }) => {
+    if (!visible) return '0'
+    if (n) return rem(`${n}px`)
+    return null
+  }};
   border-top-left-radius: ${({ topped }) => (topped ? 0 : null)};
   border-top-right-radius: ${({ topped }) => (topped ? 0 : null)};
-  background-color: #fff;
-  ${({ theme }) => theme.boxShadow}
   transition: max-height 100ms ease;
 `
 

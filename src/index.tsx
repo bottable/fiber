@@ -1,5 +1,6 @@
 export * from './ExampleComponent'
 export * from './UIProvider'
+export * from './Popover'
 export * from './Checkbox'
 export * from './Notification'
 export * from './Radio'

@@ -23,7 +23,7 @@ import { composeRef } from 'rc-util/lib/ref'
 
 type Shape = 'default' | 'circle' | 'round'
 
-export type StyleProps = {
+export type ButtonStyleProps = {
   shape?: Shape
   size?: 'sm' | 'md' | 'lg'
   disabled?: boolean
@@ -45,7 +45,7 @@ export type ButtonProps = MergeElementProps<
     type?: 'primary' | 'default' | 'dashed' | 'text' | 'link'
     onClick?: MouseEventHandler<HTMLElement>
     children?: React.ReactNode
-  } & StyleProps
+  } & ButtonStyleProps
 >
 
 export type RippleProps = {
