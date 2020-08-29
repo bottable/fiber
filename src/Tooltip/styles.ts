@@ -43,15 +43,17 @@ export const trianglePosition = css<TooltipProps>`
     if (!placement) return null
     let output = ''
     if (placement.includes('top') || placement.includes('bottom')) {
-      if (placement.includes('bottom')) output += '\ntop: calc(100% + 5px);'
-      else output += '\nbottom: calc(100% + 5px);'
+      if (placement.includes('bottom')) output += '\ntop: calc(100% + 10px);'
+      else output += '\nbottom: calc(100%);'
 
       output += '\nleft: 50%;'
     } else {
       if (placement.includes('right')) output += '\nleft: calc(100% + 10px);'
       else output += '\nright: calc(100%);'
 
-      output += '\ntop: 50%;'
+      if (placement.includes('Top')) output += '\ntop: 25%;'
+      else if (placement.includes('Bottom')) output += '\ntop: 75%;'
+      else output += '\ntop: 50%;'
     }
 
     return output
@@ -61,6 +63,7 @@ export const trianglePosition = css<TooltipProps>`
 export const TooltipWrapper = styled.div<TooltipProps>`
   ${dropdown}
   ${tooltipPosition}
+  min-width: 0;
   padding: ${({ theme }) => `${theme.paddings.xs} ${theme.paddings.sm}`};
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   background-color: ${({ theme }) => theme.colors.gray8};
@@ -79,5 +82,5 @@ export const Triangle = styled.div<TooltipProps>`
   width: 10px;
   height: 10px;
   background-color: ${({ theme }) => theme.colors.gray8};
-  transform: translateX(-50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 `

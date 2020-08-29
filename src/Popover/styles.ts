@@ -49,8 +49,8 @@ export const trianglePosition = css<PopoverProps>`
     if (!placement) return null
     let output = ''
     if (placement.includes('top') || placement.includes('bottom')) {
-      if (placement.includes('bottom')) output += '\ntop: calc(100% + 5px);'
-      else output += '\nbottom: calc(100% + 5px);'
+      if (placement.includes('bottom')) output += '\ntop: calc(100% + 10px);'
+      else output += '\nbottom: calc(100%);'
 
       output += '\nleft: 50%;'
     } else {
@@ -82,5 +82,5 @@ export const Triangle = styled.div<PopoverProps>`
   width: 10px;
   height: 10px;
   background-color: #fff;
-  transform: translateX(-50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 `
