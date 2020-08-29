@@ -48,7 +48,7 @@ const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
             {content}
           </Card>
         </PopoverWrapper>
-        <Triangle visible={visible} />
+        <Triangle visible={visible} placement={placement} />
       </Wrapper>
     )
   }

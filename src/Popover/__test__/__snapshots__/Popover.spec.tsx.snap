@@ -1,9 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Popover renders correctly 1`] = `
-<span>
+<div
+  className="sc-AxmLO ggiCzS"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <button
+    className="sc-fznMnq sc-fzqMAW gaAxCp"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  >
+    <span>
+      Hover me
+    </span>
+  </button>
   <div
-    className="sc-AxjAm StDqN"
+    className="sc-fzozJi cCxugz"
+  >
+    <div
+      className="sc-AxirZ gmTkeS"
+      size="sm"
+    >
+      <div
+        className="sc-AxgMl gdWuwk"
+        size="sm"
+      />
+    </div>
+  </div>
+  <div
+    className="sc-fzoLsD ihnpBD"
   />
-</span>
+</div>
 `;

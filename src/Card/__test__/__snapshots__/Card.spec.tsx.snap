@@ -4,7 +4,7 @@ exports[`Card renders correctly 1`] = `
 Array [
   <div>
     <div
-      className="sc-AxjAm cLazpZ"
+      className="sc-AxjAm dTFOrR"
       style={
         Object {
           "width": 300,
@@ -12,7 +12,7 @@ Array [
       }
     >
       <div
-        className="sc-AxhUy gHKwLs"
+        className="sc-AxhUy gNzkBO"
       >
         <p>
           Card content
@@ -28,7 +28,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm cLazpZ"
+      className="sc-AxjAm dTFOrR"
       style={
         Object {
           "width": 300,
@@ -36,15 +36,15 @@ Array [
       }
     >
       <div
-        className="sc-AxirZ hpwXmn"
+        className="sc-AxirZ kpCxKo"
       >
         <div
-          className="sc-AxiKw PyuZw"
+          className="sc-AxiKw dwvriO"
         >
           Default size card
         </div>
         <div
-          className="sc-AxhCb ekOLyM"
+          className="sc-AxhCb eUWdiS"
         >
           <a
             href="#"
@@ -54,7 +54,7 @@ Array [
         </div>
       </div>
       <div
-        className="sc-AxhUy gHKwLs"
+        className="sc-AxhUy gNzkBO"
       >
         <p>
           Card content
@@ -70,7 +70,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm cLazpZ"
+      className="sc-AxjAm dTFOrR"
       style={
         Object {
           "width": 300,
@@ -78,16 +78,16 @@ Array [
       }
     >
       <div
-        className="sc-AxirZ hpwXmn"
+        className="sc-AxirZ kpCxKo"
       >
         <div
-          className="sc-AxiKw PyuZw"
+          className="sc-AxiKw dwvriO"
         >
           Medium card
         </div>
       </div>
       <div
-        className="sc-AxhUy gHKwLs"
+        className="sc-AxhUy gNzkBO"
       >
         <p
           style={
@@ -120,7 +120,7 @@ Array [
     </div>
     <br />
     <div
-      className="sc-AxjAm cLazpZ"
+      className="sc-AxjAm dTFOrR"
       size="sm"
       style={
         Object {
@@ -129,11 +129,11 @@ Array [
       }
     >
       <div
-        className="sc-AxirZ jNtecM"
+        className="sc-AxirZ ktnhNJ"
         size="sm"
       >
         <div
-          className="sc-AxiKw giBzay"
+          className="sc-AxiKw hUXmMk"
           size="sm"
         >
           Small card
@@ -184,7 +184,7 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm dbubJq"
+        className="sc-AxjAm iCriTx"
         style={
           Object {
             "width": 300,
@@ -192,16 +192,16 @@ Array [
         }
       >
         <div
-          className="sc-AxirZ hpwXmn"
+          className="sc-AxirZ kpCxKo"
         >
           <div
-            className="sc-AxiKw PyuZw"
+            className="sc-AxiKw dwvriO"
           >
             No borders
           </div>
         </div>
         <div
-          className="sc-AxhUy gHKwLs"
+          className="sc-AxhUy gNzkBO"
         >
           <p
             style={
@@ -236,7 +236,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm bSDCLu"
+      className="sc-AxjAm QzkVY"
       style={
         Object {
           "width": 300,
@@ -244,16 +244,16 @@ Array [
       }
     >
       <div
-        className="sc-AxirZ hpwXmn"
+        className="sc-AxirZ kpCxKo"
       >
         <div
-          className="sc-AxiKw PyuZw"
+          className="sc-AxiKw dwvriO"
         >
           Hoverable
         </div>
       </div>
       <div
-        className="sc-AxhUy gHKwLs"
+        className="sc-AxhUy gNzkBO"
       >
         <p
           style={
@@ -287,7 +287,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm cLazpZ"
+      className="sc-AxjAm dTFOrR"
       style={
         Object {
           "width": 300,
@@ -295,16 +295,16 @@ Array [
       }
     >
       <div
-        className="sc-AxirZ hpwXmn"
+        className="sc-AxirZ kpCxKo"
       >
         <div
-          className="sc-AxiKw PyuZw"
+          className="sc-AxiKw dwvriO"
         >
           Actions
         </div>
       </div>
       <div
-        className="sc-AxhUy gHKwLs"
+        className="sc-AxhUy gNzkBO"
       >
         <p
           style={

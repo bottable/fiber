@@ -14,16 +14,6 @@ export const dropdown = css<DropdownProps>`
     return null
   }};
   overflow: hidden;
-  ${({ placement }) => {
-    let output = ''
-    if (!placement) return null
-
-    if (placement.includes('bottom')) output += '\ntop: 100%;'
-    else output += '\nbottom: 100%;'
-
-    if (placement.includes('Right')) output += '\nright: 0;'
-    return output
-  }}
   border-radius: ${({ theme }) => theme.radii.md};
   border-top-left-radius: ${({ topped }) => (topped ? 0 : null)};
   border-top-right-radius: ${({ topped }) => (topped ? 0 : null)};

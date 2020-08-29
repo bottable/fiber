@@ -2,7 +2,7 @@ import { dropdown } from '../styles'
 
 import { PopoverProps } from './Popover'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div<PopoverProps>`
   display: inline-block;
@@ -22,9 +22,30 @@ export const Wrapper = styled.div<PopoverProps>`
   ${({ theme }) => theme.transition}
 `
 
+export const popoverPosition = css<PopoverProps>`
+  ${({ placement }) => {
+    let output = ''
+    if (!placement) return null
+
+    if (placement.includes('bottom')) output += '\ntop: calc(100% + 10px);'
+    else output += '\nbottom: calc(100% + 10px);'
+
+    if (placement.includes('Right')) output += '\nright: 0;'
+    return output
+  }}
+`
+
+export const trianglePosition = css<PopoverProps>`
+  ${({ placement }) => {
+    if (!placement) return null
+    const property = placement.includes('bottom') ? 'top' : 'bottom'
+    return `${property}: calc(100% + 5px);`
+  }}
+`
+
 export const PopoverWrapper = styled.div<PopoverProps>`
   ${dropdown}
-  bottom: calc(100% + 10px);
+  ${popoverPosition}
   p {
     margin: 0;
   }
@@ -34,7 +55,7 @@ export const Triangle = styled.div<PopoverProps>`
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   position: absolute;
   z-index: 1000;
-  bottom: calc(100% + 5px);
+  ${trianglePosition}
   left: 50%;
   width: 10px;
   height: 10px;

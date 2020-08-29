@@ -83,7 +83,8 @@ export const useDropdown = ({
     childrenRef.current &&
     dropdownRef.current &&
     placement &&
-    placement.includes('Center')
+    !placement.includes('Left') &&
+    !placement.includes('Right')
   ) {
     const offset =
       (childrenRef.current.offsetWidth - dropdownRef.current.offsetWidth) / 2

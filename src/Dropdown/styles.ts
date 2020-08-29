@@ -29,6 +29,16 @@ export const Wrapper = styled.div<DropdownProps>`
 
 export const DropdownWrapper = styled.div<DropdownProps>`
   ${dropdown}
+  ${({ placement }) => {
+    let output = ''
+    if (!placement) return null
+
+    if (placement.includes('bottom')) output += '\ntop: 100%;'
+    else output += '\nbottom: 100%;'
+
+    if (placement.includes('Right')) output += '\nright: 0;'
+    return output
+  }}
   ${({ visible }) => (visible ? border : null)}
 `
 
