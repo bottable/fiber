@@ -1,7 +1,6 @@
 import { Button } from '../Button'
-import { DropdownProps } from '../hooks'
 
-import { Dropdown } from './Dropdown'
+import { Dropdown, DropdownProps } from './Dropdown'
 
 import React, { useState, useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'

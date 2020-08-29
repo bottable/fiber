@@ -2,10 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { rem } from 'polished'
 
 export type DropdownProps = {
-  overlay?: React.ReactElement
   trigger?: 'hover' | 'click'
   visible?: boolean
-  topped?: boolean
   placement?:
     | 'bottomLeft'
     | 'bottom'
@@ -20,9 +18,7 @@ export type DropdownProps = {
     | 'left'
     | 'leftBottom'
   onVisibleChange?: (flag: boolean) => void
-  n?: number
   children?: React.ReactNode
-  description?: string
 }
 
 export const useDropdown = ({

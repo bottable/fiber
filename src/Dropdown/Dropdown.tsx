@@ -1,9 +1,17 @@
-import { useDropdown, DropdownProps } from '../hooks'
+import { useDropdown, DropdownProps as BaseDropdownProps } from '../hooks'
 
 import { Wrapper, DropdownWrapper, Description } from './styles'
 
 import React, { FC } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
+
+export interface DropdownProps extends BaseDropdownProps {
+  n?: number
+  description?: string
+  overlay?: React.ReactElement
+  topped?: boolean
+  width?: number
+}
 
 type DropdownFC<P> = FC<P> & {
   Input?: FC<P>
@@ -14,7 +22,15 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
   HTMLDivElement,
   DropdownProps
 >((props, ref) => {
-  const { overlay, children, topped, description, placement, ...rest } = props
+  const {
+    overlay,
+    children,
+    topped,
+    description,
+    placement,
+    width,
+    ...rest
+  } = props
 
   const {
     wrapperRef,
@@ -59,6 +75,7 @@ const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
         placement={placement}
         ref={dropdownRef}
         n={n}
+        width={width}
       >
         {descriptionNode}
         {React.cloneElement(overlay!, {

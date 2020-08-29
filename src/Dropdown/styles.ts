@@ -1,5 +1,6 @@
-import { DropdownProps } from '../hooks'
 import { dropdown } from '../styles'
+
+import { DropdownProps } from './Dropdown'
 
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
@@ -41,11 +42,14 @@ export const DropdownWrapper = styled.div<DropdownProps>`
     return output
   }}
   ${({ visible }) => (visible ? border : null)}
+  width: ${({ width }) => (width ? rem(`${width}px`) : null)};
   max-height: ${({ visible, n }) => {
     if (!visible) return '0'
     if (n) return rem(`${n}px`)
     return null
   }};
+  border-top-left-radius: ${({ topped }) => (topped ? 0 : null)};
+  border-top-right-radius: ${({ topped }) => (topped ? 0 : null)};
   transition: max-height 100ms ease;
 `
 
