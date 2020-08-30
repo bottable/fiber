@@ -66,14 +66,18 @@ export const useDropdown = ({
     }
   }, [childrenRef, dropdownRef])
 
+  const updateVisible = (flag: boolean) => {
+    if (dropdownRef.current) {
+      dropdownRef.current.style.transform = `scale(${flag ? 1 : 0})`
+    }
+    setVisible(flag)
+  }
+
   const handleVisibleChange = (flag: boolean) => {
     if (onVisibleChange) {
       onVisibleChange(flag)
     } else {
-      if (dropdownRef.current) {
-        dropdownRef.current.style.transform = `scale(${flag ? 1 : 0})`
-      }
-      setVisible(flag)
+      updateVisible(flag)
     }
   }
 
@@ -93,7 +97,7 @@ export const useDropdown = ({
 
   useEffect(() => {
     if (typeof visibleProps === 'boolean') {
-      handleVisibleChange(visibleProps)
+      updateVisible(visibleProps)
     }
   }, [visibleProps])
 

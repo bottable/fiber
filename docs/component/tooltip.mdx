@@ -10,7 +10,7 @@ import { Playground } from 'docz'
 # Tooltip
 
 <Playground>
-  <Tooltip title='prompt text'>
+  <Tooltip title='prompt text' trigger='click'>
     <span>Tooltip will show on mouse enter.</span>
   </Tooltip>
 </Playground>
@@ -99,7 +99,12 @@ import { Playground } from 'docz'
         <Divider orientation='left'>Presets</Divider>
         <Space>
           {colors.map((color) => (
-            <Tooltip title='prompt text' color={color} key={color}>
+            <Tooltip
+              title='prompt text'
+              color={color}
+              key={color}
+              trigger='click'
+            >
               <Button>{color}</Button>
             </Tooltip>
           ))}
@@ -107,12 +112,17 @@ import { Playground } from 'docz'
         <Divider orientation='left'>Custom</Divider>
         <Space>
           {customColors.map((color) => (
-            <Tooltip title='prompt text' color={color} key={color}>
+            <Tooltip
+              title='prompt text'
+              color={color}
+              key={color}
+            >
               <Button>{color}</Button>
             </Tooltip>
           ))}
         </Space>
       </div>
     )
-  }}
+}}
+
 </Playground>

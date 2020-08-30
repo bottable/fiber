@@ -10,6 +10,7 @@ export const Wrapper = styled.div<TooltipProps>`
 
 export const TooltipWrapper = styled.div<TooltipProps>`
   ${popover}
+  min-width: 0;
   padding: ${({ theme }) => `${theme.paddings.xs} ${theme.paddings.sm}`};
   background: ${({ color, theme }) =>
     color
@@ -29,3 +30,5 @@ export const Triangle = styled.div<TooltipProps>`
         : theme.colors[color].base
       : theme.colors.gray8};
 `
+
+export const Title = styled.div``
