@@ -19,6 +19,7 @@ export const TooltipWrapper = styled.div<TooltipProps>`
         : theme.colors[color].base
       : theme.colors.gray8};
   color: #fff;
+  white-space: nowrap;
 `
 
 export const Triangle = styled.div<TooltipProps>`
@@ -30,5 +31,3 @@ export const Triangle = styled.div<TooltipProps>`
         : theme.colors[color].base
       : theme.colors.gray8};
 `
-
-export const Title = styled.div``
