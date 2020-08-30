@@ -2,7 +2,7 @@
 
 exports[`Menu & Menu Items renders correctly 1`] = `
 <div
-  className="sc-fzowVh cPBXcv"
+  className="sc-fzowVh kCIHmN"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
