@@ -1,4 +1,4 @@
-import { dropdown } from '../styles'
+import { wrapper, dropdown } from '../styles'
 
 import { DropdownProps } from './Dropdown'
 
@@ -12,21 +12,7 @@ const border = css<DropdownProps>`
 `
 
 export const Wrapper = styled.div<DropdownProps>`
-  display: inline-block;
-  position: relative;
-  color: ${({ theme }) => theme.colors.base};
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  &:hover {
-    color: ${({ theme }) => theme.colors.dark};
-  }
-
-  svg {
-    width: ${({ theme }) => theme.fontSizes.md};
-    height: ${({ theme }) => theme.fontSizes.md};
-    vertical-align: middle;
-  }
-
-  ${({ theme }) => theme.transition}
+  ${wrapper}
 `
 
 export const DropdownWrapper = styled.div<DropdownProps>`
@@ -45,8 +31,7 @@ export const DropdownWrapper = styled.div<DropdownProps>`
   width: ${({ width }) => (width ? rem(`${width}px`) : null)};
   max-height: ${({ visible, n }) => {
     if (!visible) return '0'
-    if (n) return rem(`${n}px`)
-    return null
+    return rem(`${n}px`)
   }};
   border-top-left-radius: ${({ topped }) => (topped ? 0 : null)};
   border-top-right-radius: ${({ topped }) => (topped ? 0 : null)};

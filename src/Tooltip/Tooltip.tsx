@@ -1,19 +1,27 @@
 import { useDropdown, DropdownProps } from '../hooks'
-import { Card } from '../Card'
 
-import { Wrapper, PopoverWrapper } from './styles'
+import { Wrapper, TooltipWrapper } from './styles'
 
 import React, { FC } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
-export interface PopoverProps extends DropdownProps {
-  content?: string
+export interface TooltipProps extends DropdownProps {
   title?: string
+  color?:
+    | 'blue'
+    | 'green'
+    | 'magenta'
+    | 'neutral'
+    | 'orange'
+    | 'purple'
+    | 'red'
+    | 'teal'
+    | 'yellow'
 }
 
-const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
+const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
   (props, ref) => {
-    const { children, placement, title, content, ...rest } = props
+    const { children, placement, title, color, ...rest } = props
 
     const {
       wrapperRef,
@@ -38,23 +46,22 @@ const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
           ...clickProps,
           ref: composeRef(childrenRef, childrenNode.ref)
         })}
-        <PopoverWrapper
+        <TooltipWrapper
           visible={visible}
           placement={placement}
+          color={color}
           ref={dropdownRef}
         >
-          <Card title={title} size='sm' bordered={false}>
-            {content}
-          </Card>
-        </PopoverWrapper>
+          {title}
+        </TooltipWrapper>
       </Wrapper>
     )
   }
 )
 
-Popover.defaultProps = {
+Tooltip.defaultProps = {
   trigger: 'hover',
   placement: 'topCenter'
 }
 
-export { Popover }
+export { Tooltip }
