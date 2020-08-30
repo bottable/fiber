@@ -1,7 +1,7 @@
 import { useDropdown, DropdownProps } from '../hooks'
 import { Card } from '../Card'
 
-import { Wrapper, PopoverWrapper, Triangle } from './styles'
+import { Wrapper, PopoverWrapper } from './styles'
 
 import React, { FC } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
@@ -47,7 +47,6 @@ const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
             {content}
           </Card>
         </PopoverWrapper>
-        <Triangle visible={visible} placement={placement} />
       </Wrapper>
     )
   }

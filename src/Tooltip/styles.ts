@@ -1,4 +1,4 @@
-import { wrapper, triangle, popover } from '../styles'
+import { wrapper, popover } from '../styles'
 
 import { TooltipProps } from './Tooltip'
 
@@ -20,14 +20,12 @@ export const TooltipWrapper = styled.div<TooltipProps>`
       : theme.colors.gray8};
   color: #fff;
   white-space: nowrap;
-`
-
-export const Triangle = styled.div<TooltipProps>`
-  ${triangle}
-  background-color: ${({ color, theme }) =>
-    color
-      ? !theme.colors[color]
-        ? color
-        : theme.colors[color].base
-      : theme.colors.gray8};
+  &::after {
+    background-color: ${({ color, theme }) =>
+      color
+        ? !theme.colors[color]
+          ? color
+          : theme.colors[color].base
+        : theme.colors.gray8};
+  }
 `

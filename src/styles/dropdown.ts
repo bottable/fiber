@@ -51,13 +51,15 @@ export const trianglePosition = css<DropdownProps>`
     if (!placement) return null
     let output = ''
     if (placement.includes('top') || placement.includes('bottom')) {
-      if (placement.includes('bottom')) output += '\ntop: calc(100% + 10px);'
-      else output += '\nbottom: calc(100%);'
+      if (placement.includes('bottom')) output += '\nbottom: calc(100% - 10px);'
+      else output += '\ntop: 100%;'
 
-      output += '\nleft: 50%;'
+      if (placement.includes('Left')) output += '\nleft: 25%;'
+      else if (placement.includes('Right')) output += '\nleft: 75%;'
+      else output += '\nleft: 50%;'
     } else {
-      if (placement.includes('right')) output += '\nleft: calc(100% + 10px);'
-      else output += '\nright: calc(100%);'
+      if (placement.includes('right')) output += '\nright: calc(100% - 10px);'
+      else output += '\nleft: 100%;'
 
       if (placement.includes('Top')) output += '\ntop: 25%;'
       else if (placement.includes('Bottom')) output += '\ntop: 75%;'
@@ -71,19 +73,20 @@ export const trianglePosition = css<DropdownProps>`
 export const popover = css<DropdownProps>`
   ${dropdown}
   ${popoverPosition}
+  overflow: visible;
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   p {
     margin: 0;
   }
+  &::after {
+    ${trianglePosition}
+    content: '';
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
   ${({ theme }) => theme.transition}
-`
-
-export const triangle = css<DropdownProps>`
-  ${trianglePosition}
-  display: ${({ visible }) => (visible ? 'block' : 'none')};
-  position: absolute;
-  z-index: 1000;
-  width: 10px;
-  height: 10px;
-  transform: translate(-50%, -50%) rotate(45deg);
 `

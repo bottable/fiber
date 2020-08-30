@@ -1,4 +1,4 @@
-import { wrapper, triangle, popover } from '../styles'
+import { wrapper, popover } from '../styles'
 
 import { PopoverProps } from './Popover'
 
@@ -10,9 +10,4 @@ export const Wrapper = styled.div<PopoverProps>`
 
 export const PopoverWrapper = styled.div<PopoverProps>`
   ${popover}
-`
-
-export const Triangle = styled.div<PopoverProps>`
-  ${triangle}
-  background-color: #fff;
 `

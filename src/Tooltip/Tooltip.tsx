@@ -1,6 +1,6 @@
 import { useDropdown, DropdownProps } from '../hooks'
 
-import { Wrapper, TooltipWrapper, Triangle } from './styles'
+import { Wrapper, TooltipWrapper } from './styles'
 
 import React, { FC } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
@@ -54,7 +54,6 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
         >
           {title}
         </TooltipWrapper>
-        <Triangle visible={visible} placement={placement} color={color} />
       </Wrapper>
     )
   }
