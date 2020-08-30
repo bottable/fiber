@@ -113,7 +113,7 @@ export const useDropdown = ({
       break
     case 'click':
       clickProps = {
-        onClick: () => handleVisibleChange(true)
+        onClick: () => handleVisibleChange(!visible)
       }
       break
   }
