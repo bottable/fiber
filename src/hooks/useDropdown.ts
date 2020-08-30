@@ -67,7 +67,7 @@ export const useDropdown = ({
   }, [childrenRef, dropdownRef])
 
   const updateVisible = (flag: boolean) => {
-    if (dropdownRef.current) {
+    if (dropdownRef.current && expand) {
       dropdownRef.current.style.transform = `scale(${flag ? 1 : 0})`
     }
     setVisible(flag)

@@ -31,8 +31,7 @@ export const DropdownWrapper = styled.div<DropdownProps>`
   width: ${({ width }) => (width ? rem(`${width}px`) : null)};
   max-height: ${({ visible, n }) => {
     if (!visible) return '0'
-    if (n) return rem(`${n}px`)
-    return null
+    return rem(`${n}px`)
   }};
   border-top-left-radius: ${({ topped }) => (topped ? 0 : null)};
   border-top-right-radius: ${({ topped }) => (topped ? 0 : null)};
