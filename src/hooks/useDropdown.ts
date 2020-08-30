@@ -19,13 +19,15 @@ export type DropdownProps = {
     | 'leftBottom'
   onVisibleChange?: (flag: boolean) => void
   children?: React.ReactNode
+  expand?: boolean
 }
 
 export const useDropdown = ({
   trigger,
   visible: visibleProps,
   placement,
-  onVisibleChange
+  onVisibleChange,
+  expand
 }: DropdownProps) => {
   const wrapperRef = useRef<
     HTMLDivElement & { contains: (e: EventTarget) => Boolean }
@@ -35,10 +37,44 @@ export const useDropdown = ({
   const dropdownRef = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
 
+  useEffect(() => {
+    if (childrenRef.current && dropdownRef.current && placement) {
+      if (
+        !placement.toLowerCase().includes('left') &&
+        !placement.toLowerCase().includes('right')
+      ) {
+        const offset =
+          (childrenRef.current.offsetWidth - dropdownRef.current.offsetWidth) /
+          2
+        dropdownRef.current.style.left = rem(`${offset}px`)
+      }
+
+      if (
+        !placement.toLowerCase().includes('top') &&
+        !placement.toLowerCase().includes('bottom')
+      ) {
+        const offset =
+          (childrenRef.current.offsetHeight -
+            dropdownRef.current.offsetHeight) /
+          2
+        dropdownRef.current.style.top = rem(`${offset}px`)
+      }
+
+      if (expand) {
+        dropdownRef.current.style.transform = 'scale(0)'
+      }
+    }
+  }, [childrenRef, dropdownRef])
+
   const handleVisibleChange = (flag: boolean) => {
     if (onVisibleChange) {
       onVisibleChange(flag)
-    } else setVisible(flag)
+    } else {
+      if (dropdownRef.current) {
+        dropdownRef.current.style.transform = `scale(${flag ? 1 : 0})`
+      }
+      setVisible(flag)
+    }
   }
 
   const handleClick = (e: Event) => {
@@ -57,7 +93,7 @@ export const useDropdown = ({
 
   useEffect(() => {
     if (typeof visibleProps === 'boolean') {
-      setVisible(visibleProps)
+      handleVisibleChange(visibleProps)
     }
   }, [visibleProps])
 
@@ -76,30 +112,6 @@ export const useDropdown = ({
         onClick: () => handleVisibleChange(true)
       }
       break
-  }
-
-  if (
-    childrenRef.current &&
-    dropdownRef.current &&
-    placement &&
-    !placement.toLowerCase().includes('left') &&
-    !placement.toLowerCase().includes('right')
-  ) {
-    const offset =
-      (childrenRef.current.offsetWidth - dropdownRef.current.offsetWidth) / 2
-    dropdownRef.current.style.left = rem(`${offset}px`)
-  }
-
-  if (
-    childrenRef.current &&
-    dropdownRef.current &&
-    placement &&
-    !placement.toLowerCase().includes('top') &&
-    !placement.toLowerCase().includes('bottom')
-  ) {
-    const offset =
-      (childrenRef.current.offsetHeight - dropdownRef.current.offsetHeight) / 2
-    dropdownRef.current.style.top = rem(`${offset}px`)
   }
 
   return {

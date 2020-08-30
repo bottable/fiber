@@ -30,7 +30,7 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
       visible,
       hoverProps,
       clickProps
-    } = useDropdown(props)
+    } = useDropdown({ ...props, expand: true })
 
     const childrenNode = Array.isArray(children)
       ? ((<span>{children}</span>) as any)
