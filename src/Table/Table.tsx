@@ -4,7 +4,9 @@ import {
   StyledTable,
   TableHead,
   TableBody,
-  TableCell
+  TableRow,
+  TableCellHead,
+  TableCellBody
 } from './styles'
 
 import React, { FC } from 'react'
@@ -30,7 +32,7 @@ const Table: FC<TableProps> = ({ columns, dataSource, ...props }) => {
       <TableHead>
         <tr>
           {columns.map(({ title }, idx) => {
-            return <TableCell key={idx}>{title}</TableCell>
+            return <TableCellHead key={idx}>{title}</TableCellHead>
           })}
         </tr>
       </TableHead>
@@ -42,11 +44,11 @@ const Table: FC<TableProps> = ({ columns, dataSource, ...props }) => {
       <TableBody>
         {dataSource.map((dataItem, idx) => {
           return (
-            <tr key={idx}>
+            <TableRow key={idx}>
               {columns.map(({ key }, i) => {
-                return <TableCell key={i}>{dataItem[key]}</TableCell>
+                return <TableCellBody key={i}>{dataItem[key]}</TableCellBody>
               })}
-            </tr>
+            </TableRow>
           )
         })}
       </TableBody>

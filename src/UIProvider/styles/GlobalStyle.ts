@@ -5,6 +5,7 @@ const globalStyle = css`
   ${normalize}
 
   * {
+    box-sizing: border-box;
     font-family: 'Work Sans', sans-serif;
   }
 `
