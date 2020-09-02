@@ -1,5 +1,6 @@
 import { Radio } from '../Radio'
 import { Checkbox } from '../Checkbox'
+import { useGroup } from '../hooks'
 
 import {
   Wrapper,
@@ -24,19 +25,32 @@ type columnItem = {
 
 export type TableProps = {
   columns: columnItem[]
-  dataSource: object[]
+  dataSource: {
+    key: string
+  }[]
   rowSelection?: {
     type?: 'checkbox' | 'radio'
   }
 }
 
-const Table: FC<TableProps> = ({
-  columns,
-  dataSource,
-  rowSelection,
-  ...props
-}) => {
+const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
   let SelectorElement: any
+
+  const {
+    value: selection,
+    setValue: setSelection,
+    handleChange: handleSelectionChange
+  } = useGroup({
+    type: (rowSelection && rowSelection.type) || 'checkbox'
+  })
+
+  const handleSelectionHeaderChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (e.target.checked) {
+      setSelection(dataSource.map(({ key }) => key))
+    } else setSelection([])
+  }
 
   if (rowSelection) {
     const type = rowSelection.type || 'checkbox'
@@ -48,7 +62,12 @@ const Table: FC<TableProps> = ({
       <tr>
         {SelectorElement ? (
           <TableCellHeadSelector>
-            {SelectorElement === Checkbox ? <SelectorElement /> : null}
+            {SelectorElement === Checkbox ? (
+              <SelectorElement
+                onChange={handleSelectionHeaderChange}
+                value='head'
+              />
+            ) : null}
           </TableCellHeadSelector>
         ) : null}
         {columns.map(({ title }, idx) => {
@@ -63,9 +82,16 @@ const Table: FC<TableProps> = ({
       {dataSource.map((dataItem, idx) => {
         return (
           <TableRow key={idx}>
-            {SelectorElement ? (
+            {SelectorElement && rowSelection ? (
               <TableCellBodySelector>
-                <SelectorElement />
+                <SelectorElement
+                  checked={
+                    rowSelection.type === 'radio'
+                      ? selection === dataItem.key
+                      : selection.includes(dataItem.key)
+                  }
+                  value={dataItem.key}
+                />
               </TableCellBodySelector>
             ) : null}
             {columns.map(({ dataIndex, render }, i) => {
@@ -83,7 +109,7 @@ const Table: FC<TableProps> = ({
   )
 
   return (
-    <Wrapper {...props}>
+    <Wrapper onChange={handleSelectionChange}>
       <ContentContainer>
         <StyledTable>
           {tableHeadNode}

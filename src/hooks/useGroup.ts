@@ -24,7 +24,12 @@ export const useGroup = ({
   }, [valueProps])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.type !== 'checkbox' && e.target.type !== 'radio') return
+    if (
+      (e.target.type !== 'checkbox' && e.target.type !== 'radio') ||
+      e.target.value === 'head'
+    ) {
+      return
+    }
 
     if (type === 'checkbox' && typeof value !== 'string') {
       let newValue: string[]
@@ -45,5 +50,5 @@ export const useGroup = ({
     }
   }
 
-  return { value, handleChange }
+  return { value, setValue, handleChange }
 }
