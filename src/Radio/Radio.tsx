@@ -5,6 +5,7 @@ import {
   RadioInput,
   StyledRadio
 } from './styles'
+import { GroupProps } from './Group'
 
 import React, { FC, useState, useEffect } from 'react'
 
@@ -16,7 +17,7 @@ export type RadioProps = {
 }
 
 type RadioFC<P> = FC<P> & {
-  Group?: FC<P>
+  Group?: FC<GroupProps>
   Button?: FC<P>
 }
 
