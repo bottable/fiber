@@ -1,3 +1,5 @@
+import { link } from '../styles'
+
 import { TableProps } from './Table'
 
 import styled from 'styled-components'
@@ -51,4 +53,6 @@ export const TableCellBody = styled.td<TableProps>`
   border-bottom: ${({ theme }) => theme.border.md};
   border-color: ${({ theme }) => theme.colors.gray4};
   overflow-wrap: break-word;
+
+  ${link}
 `

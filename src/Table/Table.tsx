@@ -15,7 +15,7 @@ type columnItem = {
   title: string
   key: string
   dataIndex?: string
-  render?: () => React.ReactNode
+  render?: (rawData: any, dataItem: object) => React.ReactNode
 }
 
 export type TableProps = {
@@ -45,8 +45,13 @@ const Table: FC<TableProps> = ({ columns, dataSource, ...props }) => {
         {dataSource.map((dataItem, idx) => {
           return (
             <TableRow key={idx}>
-              {columns.map(({ key }, i) => {
-                return <TableCellBody key={i}>{dataItem[key]}</TableCellBody>
+              {columns.map(({ key, render }, i) => {
+                let dataNode
+                if (render) {
+                  dataNode = render(dataItem[key], dataItem)
+                } else dataNode = dataItem[key]
+
+                return <TableCellBody key={i}>{dataNode}</TableCellBody>
               })}
             </TableRow>
           )

@@ -1,3 +1,5 @@
+import { link } from '../styles'
+
 import { CardProps } from './Card'
 
 import styled from 'styled-components'
@@ -53,14 +55,7 @@ export const ExtraContainer = styled.div<CardProps>`
   float: right;
   color: ${({ theme }) => theme.colors.base};
   font-size: ${rem('14px')};
-  a {
-    outline: none;
-    background-color: transparent;
-    color: ${({ theme }) => theme.colors.base};
-    text-decoration: none;
-    cursor: pointer;
-    ${({ theme }) => theme.transition}
-  }
+  ${link}
 
   a:hover {
     color: ${({ theme }) => theme.colors.light};
