@@ -1,25 +1,26 @@
 import { link } from '../styles'
 
-import { TableProps } from './Table'
+// import { TableProps } from './Table'
 
 import styled from 'styled-components'
 
-export const Wrapper = styled.div<TableProps>``
+export const Wrapper = styled.div``
 
-export const ContentContainer = styled.div<TableProps>``
+export const ContentContainer = styled.div``
 
-export const StyledTable = styled.table<TableProps>`
+export const StyledTable = styled.table`
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
+  font-size: ${({ theme }) => theme.fontSizes.md};
   text-align: left;
 `
 
-export const TableHead = styled.thead<TableProps>``
+export const TableHead = styled.thead``
 
-export const TableBody = styled.tbody<TableProps>``
+export const TableBody = styled.tbody``
 
-export const TableCellHead = styled.th<TableProps>`
+export const TableCellHead = styled.th`
   position: relative;
   padding: ${({ theme }) => theme.paddings.md};
   border-bottom: ${({ theme }) => theme.border.md};
@@ -39,7 +40,7 @@ export const TableCellHead = styled.th<TableProps>`
   }
 `
 
-export const TableRow = styled.tr<TableProps>`
+export const TableRow = styled.tr`
   ${({ theme }) => theme.transition}
 
   &:hover {
@@ -47,7 +48,7 @@ export const TableRow = styled.tr<TableProps>`
   }
 `
 
-export const TableCellBody = styled.td<TableProps>`
+export const TableCellBody = styled.td`
   position: relative;
   padding: ${({ theme }) => theme.paddings.md};
   border-bottom: ${({ theme }) => theme.border.md};
@@ -55,4 +56,16 @@ export const TableCellBody = styled.td<TableProps>`
   overflow-wrap: break-word;
 
   ${link}
+`
+
+export const TableCellHeadSelector = styled(TableCellHead)`
+  padding-right: ${({ theme }) => theme.paddings.xs};
+  padding-left: ${({ theme }) => theme.paddings.xs};
+  text-align: center;
+`
+
+export const TableCellBodySelector = styled(TableCellBody)`
+  padding-right: ${({ theme }) => theme.paddings.xs};
+  padding-left: ${({ theme }) => theme.paddings.xs};
+  text-align: center;
 `

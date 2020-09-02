@@ -2,36 +2,36 @@
 
 exports[`Block Menu & Menu Items renders correctly 1`] = `
 <ul
-  className="sc-fznyYp gKnxrx"
+  className="sc-fznXWL eRgJcq"
 >
   <li
-    className="sc-fznLxA rlFWj"
+    className="sc-fzokvW dzXeqN"
     onClick={[Function]}
   >
     <span
-      className="sc-fzoydu fwwaFn"
+      className="sc-fzoYHE MHxDr"
       size={4}
     >
        Item 1 
     </span>
   </li>
   <li
-    className="sc-fznLxA rlFWj"
+    className="sc-fzokvW dzXeqN"
     onClick={[Function]}
   >
     <span
-      className="sc-fzoydu fwwaFn"
+      className="sc-fzoYHE MHxDr"
       size={4}
     >
        Item 2 
     </span>
   </li>
   <li
-    className="sc-fznLxA rlFWj"
+    className="sc-fzokvW dzXeqN"
     onClick={[Function]}
   >
     <span
-      className="sc-fzoydu fwwaFn"
+      className="sc-fzoYHE MHxDr"
       size={4}
     >
        Item 3 
@@ -42,36 +42,36 @@ exports[`Block Menu & Menu Items renders correctly 1`] = `
 
 exports[`Inline Menu & Menu Items renders correctly 1`] = `
 <ul
-  className="sc-fznyYp gKnxrx"
+  className="sc-fznXWL eRgJcq"
 >
   <li
-    className="sc-fznLxA bXsMZb"
+    className="sc-fzokvW jVnqkB"
     onClick={[Function]}
   >
     <span
-      className="sc-fzoydu fwwaFn"
+      className="sc-fzoYHE MHxDr"
       size={4}
     >
        Item 1 
     </span>
   </li>
   <li
-    className="sc-fznLxA bXsMZb"
+    className="sc-fzokvW jVnqkB"
     onClick={[Function]}
   >
     <span
-      className="sc-fzoydu fwwaFn"
+      className="sc-fzoYHE MHxDr"
       size={4}
     >
        Item 2 
     </span>
   </li>
   <li
-    className="sc-fznLxA bXsMZb"
+    className="sc-fzokvW jVnqkB"
     onClick={[Function]}
   >
     <span
-      className="sc-fzoydu fwwaFn"
+      className="sc-fzoYHE MHxDr"
       size={4}
     >
        Item 3 

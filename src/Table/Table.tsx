@@ -1,3 +1,6 @@
+import { Radio } from '../Radio'
+import { Checkbox } from '../Checkbox'
+
 import {
   Wrapper,
   ContentContainer,
@@ -6,59 +9,80 @@ import {
   TableBody,
   TableRow,
   TableCellHead,
-  TableCellBody
+  TableCellBody,
+  TableCellHeadSelector,
+  TableCellBodySelector
 } from './styles'
 
 import React, { FC } from 'react'
 
 type columnItem = {
   title: string
-  key: string
-  dataIndex?: string
+  dataIndex: string
   render?: (rawData: any, dataItem: object) => React.ReactNode
 }
 
-export type TableProps = {
-  columns?: columnItem[]
-  dataSource?: object[]
+type rowSelection = {
+  type?: 'checkbox' | 'radio'
 }
 
-const Table: FC<TableProps> = ({ columns, dataSource, ...props }) => {
-  let tableHeadNode
-  let tableBodyNode
+export type TableProps = {
+  columns: columnItem[]
+  dataSource: object[]
+  rowSelection?: rowSelection
+}
 
-  if (columns) {
-    tableHeadNode = (
-      <TableHead>
-        <tr>
-          {columns.map(({ title }, idx) => {
-            return <TableCellHead key={idx}>{title}</TableCellHead>
-          })}
-        </tr>
-      </TableHead>
-    )
+const Table: FC<TableProps> = ({
+  columns,
+  dataSource,
+  rowSelection,
+  ...props
+}) => {
+  let SelectorElement: any
+
+  if (rowSelection) {
+    const type = rowSelection.type || 'checkbox'
+    SelectorElement = type === 'radio' ? Radio : Checkbox
   }
 
-  if (dataSource && columns) {
-    tableBodyNode = (
-      <TableBody>
-        {dataSource.map((dataItem, idx) => {
-          return (
-            <TableRow key={idx}>
-              {columns.map(({ key, render }, i) => {
-                let dataNode
-                if (render) {
-                  dataNode = render(dataItem[key], dataItem)
-                } else dataNode = dataItem[key]
-
-                return <TableCellBody key={i}>{dataNode}</TableCellBody>
-              })}
-            </TableRow>
-          )
+  const tableHeadNode = (
+    <TableHead>
+      <tr>
+        {SelectorElement ? (
+          <TableCellHeadSelector>
+            <SelectorElement />
+          </TableCellHeadSelector>
+        ) : null}
+        {columns.map(({ title }, idx) => {
+          return <TableCellHead key={idx}>{title}</TableCellHead>
         })}
-      </TableBody>
-    )
-  }
+      </tr>
+    </TableHead>
+  )
+
+  const tableBodyNode = (
+    <TableBody>
+      {dataSource.map((dataItem, idx) => {
+        return (
+          <TableRow key={idx}>
+            {SelectorElement ? (
+              <TableCellBodySelector>
+                <SelectorElement />
+              </TableCellBodySelector>
+            ) : null}
+            {columns.map(({ dataIndex, render }, i) => {
+              let dataNode
+              if (render) {
+                dataNode = render(dataItem[dataIndex], dataItem)
+              } else dataNode = dataItem[dataIndex]
+
+              return <TableCellBody key={i}>{dataNode}</TableCellBody>
+            })}
+          </TableRow>
+        )
+      })}
+    </TableBody>
+  )
 
   return (
     <Wrapper {...props}>
