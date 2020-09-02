@@ -22,14 +22,12 @@ type columnItem = {
   render?: (rawData: any, dataItem: object) => React.ReactNode
 }
 
-type rowSelection = {
-  type?: 'checkbox' | 'radio'
-}
-
 export type TableProps = {
   columns: columnItem[]
   dataSource: object[]
-  rowSelection?: rowSelection
+  rowSelection?: {
+    type?: 'checkbox' | 'radio'
+  }
 }
 
 const Table: FC<TableProps> = ({
@@ -50,7 +48,7 @@ const Table: FC<TableProps> = ({
       <tr>
         {SelectorElement ? (
           <TableCellHeadSelector>
-            <SelectorElement />
+            {SelectorElement === Checkbox ? <SelectorElement /> : null}
           </TableCellHeadSelector>
         ) : null}
         {columns.map(({ title }, idx) => {

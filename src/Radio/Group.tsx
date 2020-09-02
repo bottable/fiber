@@ -1,15 +1,14 @@
+import { useGroup, GroupProps as BaseGroupProps } from '../hooks'
+
 import { StyledGroup } from './styles'
 
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC } from 'react'
 
 export type GroupProps = {
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  value?: string
   children?: React.ReactElement | React.ReactElement[]
-  defaultValue?: string
   buttonStyle?: 'default' | 'solid'
   disabled?: boolean
-}
+} & BaseGroupProps
 
 const Group: FC<GroupProps> = ({
   children,
@@ -20,17 +19,12 @@ const Group: FC<GroupProps> = ({
   disabled,
   ...props
 }) => {
-  const [value, setValue] = useState<string>(defaultValue || '')
-
-  useEffect(() => {
-    if (typeof valueProps === 'string') setValue(valueProps)
-  }, [valueProps])
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.type !== 'radio') return
-    if (typeof valueProps !== 'string') setValue(e.target.value)
-    if (onChange) onChange(e)
-  }
+  const { value, handleChange } = useGroup({
+    onChange,
+    value: valueProps,
+    defaultValue,
+    type: 'radio'
+  })
 
   let childrenNode
   const childProps: { buttonStyle?: string; disabled?: boolean } = {}
