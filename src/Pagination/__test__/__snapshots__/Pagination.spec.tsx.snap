@@ -1,7 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination renders correctly 1`] = `
-<div
-  className="sc-AxjAm StDqN"
-/>
+<ul
+  className="sc-fzoLsD lgfbKC"
+>
+  <li
+    className="sc-fzpans fHusoS"
+  >
+    <button
+      className="sc-AxjAm sc-AxgMl hsbmlE sc-fzplWN jzxlcg"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      selected={false}
+    >
+      <span
+        className="sc-AxirZ hDqbjo"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          />
+        </svg>
+      </span>
+    </button>
+  </li>
+  <li
+    className="sc-fzpans fHusoS"
+  >
+    <button
+      className="sc-AxjAm sc-AxgMl jhFiGa sc-fzplWN jzxlcg"
+      disabled={true}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      selected={false}
+    >
+      <span
+        className="sc-AxirZ hDqbjo"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
+      </span>
+    </button>
+  </li>
+</ul>
 `;
