@@ -1,5 +1,6 @@
 export * from './ExampleComponent'
 export * from './UIProvider'
+export * from './Pagination'
 export * from './Table'
 export * from './Tooltip'
 export * from './Popover'

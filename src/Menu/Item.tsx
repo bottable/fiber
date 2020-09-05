@@ -1,13 +1,13 @@
 import { StyledItem } from './styles'
-import { MenuProps } from './Menu'
 
 import React, { FC } from 'react'
 
-export interface ItemProps extends MenuProps {
+export type ItemProps = {
   danger?: boolean
-  onClick?: React.MouseEventHandler<HTMLElement>
+  onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
   collapse?: () => void
   disabled?: boolean
+  inline?: boolean
 }
 
 const Item: FC<ItemProps> = ({
@@ -17,7 +17,7 @@ const Item: FC<ItemProps> = ({
   disabled,
   ...props
 }) => {
-  const handleClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+  const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     if (disabled) return
     if (onClick) onClick(e)
     if (collapse) collapse()

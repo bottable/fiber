@@ -29,6 +29,7 @@ export const DropdownWrapper = styled.div<DropdownProps>`
   }}
   ${({ visible }) => (visible ? border : null)}
   width: ${({ width }) => (width ? rem(`${width}px`) : null)};
+  min-width: ${({ width }) => (width ? 0 : null)};
   max-height: ${({ visible, n }) => {
     if (!visible) return '0'
     return rem(`${n}px`)
