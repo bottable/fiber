@@ -6,6 +6,7 @@ menu: Component
 
 import { Pagination } from 'fiber'
 import { Playground } from 'docz'
+import { useState } from 'react'
 
 # Pagination
 
@@ -23,4 +24,17 @@ import { Playground } from 'docz'
 
 <Playground>
   <Pagination showQuickJumper defaultCurrent={2} total={500} />
+</Playground>
+
+## Controlled
+
+<Playground>
+  {() => {
+    const [current, setCurrent] = useState(3)
+    const onChange = (page) => {
+      console.log(page)
+      setCurrent(page)
+    }
+    return <Pagination current={current} onChange={onChange} total={50} />
+  }}
 </Playground>

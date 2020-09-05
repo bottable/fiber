@@ -1,7 +1,5 @@
 import { useDropdown, DropdownProps as BaseDropdownProps } from '../hooks'
 
-import Button from './Button'
-import Input from './Input'
 import { Wrapper, DropdownWrapper, Description } from './styles'
 
 import React from 'react'
@@ -86,9 +84,6 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
     )
   }
 )
-
-Dropdown.Button = Button
-Dropdown.Input = Input
 
 Dropdown.defaultProps = {
   trigger: 'hover',
