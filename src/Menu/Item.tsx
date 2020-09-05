@@ -7,6 +7,7 @@ export type ItemProps = {
   onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
   collapse?: () => void
   disabled?: boolean
+  inline?: boolean
 }
 
 const Item: FC<ItemProps> = ({

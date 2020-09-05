@@ -1,6 +1,12 @@
 import { Menu } from '../Menu'
 
-import { StyledPagination, PaginationItem, Button, Dropdown } from './styles'
+import {
+  StyledPagination,
+  PaginationItem,
+  Button,
+  Dropdown,
+  Input
+} from './styles'
 
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
@@ -17,16 +23,19 @@ export type PaginationProps = {
   defaultPageSize?: number
   total?: number
   pageSizeOptions?: number[]
+  showQuickJumper?: boolean
 }
 
 const Pagination: FC<PaginationProps> = ({
   defaultCurrent,
   defaultPageSize,
   total,
-  pageSizeOptions
+  pageSizeOptions,
+  showQuickJumper
 }) => {
   const [pageSize, setPageSize] = useState<number>(defaultPageSize!)
   const [current, setCurrent] = useState<number>(defaultCurrent || 0)
+  const [jumper, setJumper] = useState<string>('')
 
   const n = Math.ceil(total! / pageSize)
   const more = n >= 8
@@ -45,7 +54,7 @@ const Pagination: FC<PaginationProps> = ({
 
   if (range[0] - 1 > 0) {
     pageNumbersNode.push(
-      <PaginationItem>
+      <PaginationItem key='1'>
         <Button
           selected={false}
           onClick={() => {
@@ -59,7 +68,7 @@ const Pagination: FC<PaginationProps> = ({
   }
   if (range[0] - 1 > 1) {
     pageNumbersNode.push(
-      <PaginationItem>
+      <PaginationItem key='ellipsis1'>
         <MoreHorizIcon />
       </PaginationItem>
     )
@@ -71,6 +80,7 @@ const Pagination: FC<PaginationProps> = ({
         onClick={() => {
           setCurrent(i)
         }}
+        key={i.toString()}
       >
         <Button selected={current === i}>{i}</Button>
       </PaginationItem>
@@ -79,14 +89,14 @@ const Pagination: FC<PaginationProps> = ({
 
   if (n - range[1] > 1) {
     pageNumbersNode.push(
-      <PaginationItem>
+      <PaginationItem key='ellipsis2'>
         <MoreHorizIcon />
       </PaginationItem>
     )
   }
   if (n - range[1] > 0) {
     pageNumbersNode.push(
-      <PaginationItem>
+      <PaginationItem key={n.toString()}>
         <Button
           selected={false}
           onClick={() => {
@@ -125,6 +135,26 @@ const Pagination: FC<PaginationProps> = ({
     </PaginationItem>
   )
 
+  const onEnterJumper = () => {
+    if (/^\d+$/.test(jumper) && +jumper >= 1 && +jumper <= n) {
+      setCurrent(+jumper)
+    }
+    setJumper('')
+  }
+
+  const jumperNode = showQuickJumper ? (
+    <PaginationItem>
+      Go to
+      <Input
+        value={jumper}
+        onChange={(e) => {
+          setJumper(e.target.value)
+        }}
+        onPressEnter={onEnterJumper}
+      />
+    </PaginationItem>
+  ) : null
+
   return (
     <StyledPagination>
       <PaginationItem>
@@ -148,7 +178,8 @@ const Pagination: FC<PaginationProps> = ({
           disabled={current === n}
         />
       </PaginationItem>
-      {more ? pageSizeDropdownNode : null}
+      {total! > 50 ? pageSizeDropdownNode : null}
+      {jumperNode}
     </StyledPagination>
   )
 }
