@@ -15,6 +15,7 @@ export type CheckboxProps = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   style?: object
   disabled?: boolean
+  value?: string
 }
 
 type CheckboxFC<P> = FC<P> & {

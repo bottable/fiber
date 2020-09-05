@@ -18,7 +18,10 @@ export const useGroup = ({
   )
 
   useEffect(() => {
-    if (Array.isArray(valueProps) || typeof valueProps === 'string') {
+    if (
+      (Array.isArray(valueProps) && type === 'checkbox') ||
+      (typeof valueProps === 'string' && type === 'radio')
+    ) {
       setValue(valueProps)
     }
   }, [valueProps])

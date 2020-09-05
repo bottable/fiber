@@ -14,6 +14,7 @@ export type RadioProps = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   style?: object
   disabled?: boolean
+  value?: string
 }
 
 type RadioFC<P> = FC<P> & {
