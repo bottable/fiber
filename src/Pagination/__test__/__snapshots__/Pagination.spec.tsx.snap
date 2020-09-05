@@ -5,7 +5,7 @@ exports[`Pagination renders correctly 1`] = `
   className="sc-fzoLsD lgfbKC"
 >
   <li
-    className="sc-fzpans fHusoS"
+    className="sc-fzpans bjrFlY"
   >
     <button
       className="sc-AxjAm sc-AxgMl hsbmlE sc-fzplWN jzxlcg"
@@ -31,7 +31,7 @@ exports[`Pagination renders correctly 1`] = `
     </button>
   </li>
   <li
-    className="sc-fzpans fHusoS"
+    className="sc-fzpans bjrFlY"
   >
     <button
       className="sc-AxjAm sc-AxgMl jhFiGa sc-fzplWN jzxlcg"

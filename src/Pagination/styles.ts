@@ -16,6 +16,10 @@ export const PaginationItem = styled.li`
   &:not(:last-child) {
     margin-right: ${({ theme }) => theme.margins.xs};
   }
+
+  svg {
+    vertical-align: middle;
+  }
 `
 
 export const Button = styled(BaseButton)<ButtonProps>`

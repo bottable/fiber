@@ -2,6 +2,7 @@ import { StyledPagination, PaginationItem, Button } from './styles'
 
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import React, { FC, useState } from 'react'
 
 export type ButtonProps = {
@@ -19,13 +20,46 @@ const Pagination: FC<PaginationProps> = ({
   defaultPageSize,
   total
 }) => {
+  const n = Math.ceil(total! / defaultPageSize!)
+  const more = n >= 8
+
   const [current, setCurrent] = useState<number>(defaultCurrent || 0)
 
-  const n = Math.ceil(total! / defaultPageSize!)
+  const getRange: () => [number, number] = () => {
+    if (!more) return [1, n]
+
+    if (current <= 3) return [1, 5]
+    else if (current >= n - 2) return [n - 4, n]
+    return [current - 2, current + 2]
+  }
+
+  const range = getRange()
 
   const pageNumbersNode: React.ReactElement[] = []
 
-  for (let i = 1; i <= n; i++) {
+  if (range[0] - 1 > 0) {
+    pageNumbersNode.push(
+      <PaginationItem>
+        <Button
+          selected={false}
+          onClick={() => {
+            setCurrent(1)
+          }}
+        >
+          1
+        </Button>
+      </PaginationItem>
+    )
+  }
+  if (range[0] - 1 > 1) {
+    pageNumbersNode.push(
+      <PaginationItem>
+        <MoreHorizIcon />
+      </PaginationItem>
+    )
+  }
+
+  for (let i = range[0]; i <= range[1]; i++) {
     pageNumbersNode.push(
       <PaginationItem
         onClick={() => {
@@ -33,6 +67,28 @@ const Pagination: FC<PaginationProps> = ({
         }}
       >
         <Button selected={current === i}>{i}</Button>
+      </PaginationItem>
+    )
+  }
+
+  if (n - range[1] > 1) {
+    pageNumbersNode.push(
+      <PaginationItem>
+        <MoreHorizIcon />
+      </PaginationItem>
+    )
+  }
+  if (n - range[1] > 0) {
+    pageNumbersNode.push(
+      <PaginationItem>
+        <Button
+          selected={false}
+          onClick={() => {
+            setCurrent(n)
+          }}
+        >
+          {n}
+        </Button>
       </PaginationItem>
     )
   }
