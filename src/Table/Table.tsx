@@ -15,7 +15,7 @@ import {
   TableCellBodySelector
 } from './styles'
 
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 
 type column = {
   title: string
@@ -49,6 +49,19 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
     SelectorElement = type === 'radio' ? Radio : Checkbox
   }
 
+  const getEnabledRows = () =>
+    dataSource.filter((record) => {
+      if (!rowSelection || !rowSelection.getCheckboxProps) {
+        return true
+      }
+      const checkboxProps = rowSelection.getCheckboxProps(record)
+      if (checkboxProps.disabled) {
+        return false
+      } else {
+        return true
+      }
+    })
+
   const handleChange = (e: any) => {
     if (!rowSelection || !rowSelection.onChange) return
     const selectedRowKeys = type === 'radio' ? [e.target.value] : e
@@ -56,6 +69,21 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
       selectedRowKeys.includes(key)
     )
     rowSelection.onChange(selectedRowKeys, selectedRows)
+
+    const enabledRows = getEnabledRows()
+    if (selectedRows.length >= enabledRows.length) setSelectionHeader(true)
+    else setSelectionHeader(false)
+  }
+
+  const handleSelectionHeaderChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setSelectionHeader(e.target.checked)
+
+    if (e.target.checked) {
+      const enabledRows = getEnabledRows()
+      setSelection(enabledRows.map(({ key }) => key))
+    } else setSelection([])
   }
 
   const {
@@ -73,24 +101,7 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
     type: type!
   })
 
-  const handleSelectionHeaderChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    if (e.target.checked) {
-      const enabledRecords = dataSource.filter((record) => {
-        if (!rowSelection || !rowSelection.getCheckboxProps) {
-          return true
-        }
-        const checkboxProps = rowSelection.getCheckboxProps(record)
-        if (checkboxProps.disabled) {
-          return false
-        } else {
-          return true
-        }
-      })
-      setSelection(enabledRecords.map(({ key }) => key))
-    } else setSelection([])
-  }
+  const [selectionHeader, setSelectionHeader] = useState<boolean>(false)
 
   const tableHeadNode = (
     <TableHead>
@@ -98,7 +109,10 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
         {rowSelection ? (
           <TableCellHeadSelector>
             {SelectorElement! === Checkbox ? (
-              <SelectorElement onChange={handleSelectionHeaderChange} />
+              <SelectorElement
+                onChange={handleSelectionHeaderChange}
+                checked={selectionHeader}
+              />
             ) : null}
           </TableCellHeadSelector>
         ) : null}
