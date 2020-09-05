@@ -1,8 +1,11 @@
-import { StyledPagination, PaginationItem, Button } from './styles'
+import { Menu } from '../Menu'
+
+import { StyledPagination, PaginationItem, Button, Dropdown } from './styles'
 
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import React, { FC, useState } from 'react'
 
 export type ButtonProps = {
@@ -13,17 +16,20 @@ export type PaginationProps = {
   defaultCurrent?: number
   defaultPageSize?: number
   total?: number
+  pageSizeOptions?: number[]
 }
 
 const Pagination: FC<PaginationProps> = ({
   defaultCurrent,
   defaultPageSize,
-  total
+  total,
+  pageSizeOptions
 }) => {
-  const n = Math.ceil(total! / defaultPageSize!)
-  const more = n >= 8
-
+  const [pageSize, setPageSize] = useState<number>(defaultPageSize!)
   const [current, setCurrent] = useState<number>(defaultCurrent || 0)
+
+  const n = Math.ceil(total! / pageSize)
+  const more = n >= 8
 
   const getRange: () => [number, number] = () => {
     if (!more) return [1, n]
@@ -93,6 +99,32 @@ const Pagination: FC<PaginationProps> = ({
     )
   }
 
+  const pageSizeDropdownMenu = (
+    <Menu>
+      {pageSizeOptions?.map((pageSizeOption, idx) => (
+        <Menu.Item
+          key={idx}
+          onClick={() => {
+            setPageSize(pageSizeOption)
+          }}
+        >
+          {pageSizeOption} / Page
+        </Menu.Item>
+      ))}
+    </Menu>
+  )
+
+  const pageSizeDropdownNode = (
+    <PaginationItem>
+      <Dropdown.Button
+        endIcon={<ExpandMoreIcon />}
+        overlay={pageSizeDropdownMenu}
+      >
+        {pageSize} / Page
+      </Dropdown.Button>
+    </PaginationItem>
+  )
+
   return (
     <StyledPagination>
       <PaginationItem>
@@ -116,13 +148,15 @@ const Pagination: FC<PaginationProps> = ({
           disabled={current === n}
         />
       </PaginationItem>
+      {more ? pageSizeDropdownNode : null}
     </StyledPagination>
   )
 }
 
 Pagination.defaultProps = {
   defaultPageSize: 10,
-  total: 0
+  total: 0,
+  pageSizeOptions: [10, 20, 50, 100]
 }
 
 export { Pagination }

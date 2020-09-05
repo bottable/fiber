@@ -1,8 +1,10 @@
 import { useDropdown, DropdownProps as BaseDropdownProps } from '../hooks'
 
+import Button from './Button'
+import Input from './Input'
 import { Wrapper, DropdownWrapper, Description } from './styles'
 
-import React, { FC } from 'react'
+import React from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export interface DropdownProps extends BaseDropdownProps {
@@ -13,80 +15,80 @@ export interface DropdownProps extends BaseDropdownProps {
   width?: number
 }
 
-type DropdownFC<P> = FC<P> & {
-  Input?: FC<P>
-  Button?: FC<P>
-}
+// TO DO: Find a proper way to type this
+type DropdownFC = any
 
-const Dropdown: DropdownFC<DropdownProps> = React.forwardRef<
-  HTMLDivElement,
-  DropdownProps
->((props, ref) => {
-  const {
-    overlay,
-    children,
-    topped,
-    description,
-    placement,
-    width,
-    ...rest
-  } = props
+const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
+  (props, ref) => {
+    const {
+      overlay,
+      children,
+      topped,
+      description,
+      placement,
+      width,
+      ...rest
+    } = props
 
-  const {
-    wrapperRef,
-    childrenRef,
-    dropdownRef,
-    visible,
-    handleVisibleChange,
-    hoverProps,
-    clickProps
-  } = useDropdown(props)
+    const {
+      wrapperRef,
+      childrenRef,
+      dropdownRef,
+      visible,
+      handleVisibleChange,
+      hoverProps,
+      clickProps
+    } = useDropdown(props)
 
-  const descriptionNode = description ? (
-    <Description>{description}</Description>
-  ) : null
+    const descriptionNode = description ? (
+      <Description>{description}</Description>
+    ) : null
 
-  const childrenNode = Array.isArray(children)
-    ? ((<span>{children}</span>) as any)
-    : (children as any)
+    const childrenNode = Array.isArray(children)
+      ? ((<span>{children}</span>) as any)
+      : (children as any)
 
-  let n
-  if (overlay) {
-    n = Array.isArray(overlay.props.children)
-      ? overlay.props.children.length
-      : 1
-  }
-  n *= 37
-  n += description ? 21 : 0
+    let n
+    if (overlay) {
+      n = Array.isArray(overlay.props.children)
+        ? overlay.props.children.length
+        : 1
+    }
+    n *= 37
+    n += description ? 21 : 0
 
-  return (
-    <Wrapper
-      ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
-      {...hoverProps}
-      {...rest}
-    >
-      {React.cloneElement(childrenNode, {
-        ...clickProps,
-        ref: composeRef(childrenRef, childrenNode.ref)
-      })}
-      <DropdownWrapper
-        visible={visible}
-        topped={topped}
-        placement={placement}
-        ref={dropdownRef}
-        n={n}
-        width={width}
+    return (
+      <Wrapper
+        ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
+        {...hoverProps}
+        {...rest}
       >
-        {descriptionNode}
-        {React.cloneElement(overlay!, {
-          collapse: () => {
-            handleVisibleChange(false)
-          }
+        {React.cloneElement(childrenNode, {
+          ...clickProps,
+          ref: composeRef(childrenRef, childrenNode.ref)
         })}
-      </DropdownWrapper>
-    </Wrapper>
-  )
-})
+        <DropdownWrapper
+          visible={visible}
+          topped={topped}
+          placement={placement}
+          ref={dropdownRef}
+          n={n}
+          width={width}
+        >
+          {descriptionNode}
+          {React.cloneElement(overlay!, {
+            collapse: () => {
+              handleVisibleChange(false)
+            }
+          })}
+        </DropdownWrapper>
+      </Wrapper>
+    )
+  }
+)
+
+Dropdown.Button = Button
+Dropdown.Input = Input
 
 Dropdown.defaultProps = {
   trigger: 'hover',

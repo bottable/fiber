@@ -1,4 +1,5 @@
 import { Button as BaseButton } from '../Button'
+import { Dropdown as BaseDropdown } from '../Dropdown'
 
 import { ButtonProps } from './Pagination'
 
@@ -27,3 +28,5 @@ export const Button = styled(BaseButton)<ButtonProps>`
     selected ? theme.colors.base : null};
   color: ${({ selected, theme }) => (selected ? theme.colors.base : null)};
 `
+
+export const Dropdown = styled(BaseDropdown)``
