@@ -31,6 +31,7 @@ export const Button = styled(BaseButton)<ButtonProps>`
   border-color: ${({ selected, theme }) =>
     selected ? theme.colors.base : null};
   color: ${({ selected, theme }) => (selected ? theme.colors.base : null)};
+  transition: color 0s, border-color 0s;
 `
 
 export const Dropdown = styled(BaseDropdown)``

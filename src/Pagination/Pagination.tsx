@@ -199,7 +199,7 @@ const Pagination: FC<PaginationProps> = ({
           selected={false}
           icon={<NavigateBeforeIcon />}
           onClick={() => {
-            setCurrent((prevCurrent) => prevCurrent - 1)
+            updateCurrent(current - 1)
           }}
           disabled={current === 1}
         />
@@ -210,7 +210,7 @@ const Pagination: FC<PaginationProps> = ({
           selected={false}
           icon={<NavigateNextIcon />}
           onClick={() => {
-            setCurrent((prevCurrent) => prevCurrent + 1)
+            updateCurrent(current + 1)
           }}
           disabled={current === n}
         />
