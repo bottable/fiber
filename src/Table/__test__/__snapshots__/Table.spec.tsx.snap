@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table renders correctly 1`] = `
+<div
+  className="sc-AxmLO cAKCgh"
+>
+  <div
+    className="sc-fzozJi jxgYyc"
+  >
+    <table
+      className="sc-fzoLsD bWDAym"
+    >
+      <thead
+        className="sc-fzpans kkFAbe"
+      >
+        <tr>
+          <th
+            className="sc-fznyAO fuZJlr"
+          >
+            Name
+          </th>
+          <th
+            className="sc-fznyAO fuZJlr"
+          >
+            Age
+          </th>
+          <th
+            className="sc-fznyAO fuZJlr"
+          >
+            Address
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="sc-fzplWN kfkaqr"
+        onChange={[Function]}
+      >
+        <tr
+          className="sc-fznKkj deXHuK"
+        >
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            <a>
+              John Brown
+            </a>
+          </td>
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            32
+          </td>
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            New York No. 1 Lake Park
+          </td>
+        </tr>
+        <tr
+          className="sc-fznKkj deXHuK"
+        >
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            <a>
+              Jim Green
+            </a>
+          </td>
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            42
+          </td>
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            London No. 1 Lake Park
+          </td>
+        </tr>
+        <tr
+          className="sc-fznKkj deXHuK"
+        >
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            <a>
+              Joe Black
+            </a>
+          </td>
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            32
+          </td>
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            Sidney No. 1 Lake Park
+          </td>
+        </tr>
+        <tr
+          className="sc-fznKkj deXHuK"
+        >
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            <a>
+              Disabled User
+            </a>
+          </td>
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            99
+          </td>
+          <td
+            className="sc-fznZeY hVMeYA"
+          >
+            Sidney No. 1 Lake Park
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

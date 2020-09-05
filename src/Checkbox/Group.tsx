@@ -1,14 +1,13 @@
+import { useGroup, GroupProps as BaseGroupProps } from '../hooks'
+
 import { StyledGroup } from './styles'
 
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC } from 'react'
 
 export type GroupProps = {
-  onChange?: (value: string[]) => void
-  value?: string[]
   children?: React.ReactElement | React.ReactElement[]
-  defaultValue?: string[]
   disabled?: boolean
-}
+} & BaseGroupProps
 
 const Group: FC<GroupProps> = ({
   children,
@@ -18,27 +17,12 @@ const Group: FC<GroupProps> = ({
   disabled,
   ...props
 }) => {
-  const [value, setValue] = useState<string[]>(defaultValue || [])
-
-  useEffect(() => {
-    if (Array.isArray(valueProps)) setValue(valueProps)
-  }, [valueProps])
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.type !== 'checkbox') return
-    let newValue: string[]
-    if (value.includes(e.target.value)) {
-      newValue = value.filter(
-        (checkboxValue) => checkboxValue !== e.target.value
-      )
-    } else {
-      newValue = [...value, e.target.value]
-    }
-    if (!Array.isArray(valueProps)) {
-      setValue(newValue)
-    }
-    if (onChange) onChange(newValue)
-  }
+  const { value, handleChange } = useGroup({
+    onChange,
+    value: valueProps,
+    defaultValue,
+    type: 'checkbox'
+  })
 
   let childrenNode
   const childProps: { disabled?: boolean } = {}

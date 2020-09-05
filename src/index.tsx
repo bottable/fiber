@@ -1,5 +1,6 @@
 export * from './ExampleComponent'
 export * from './UIProvider'
+export * from './Table'
 export * from './Tooltip'
 export * from './Popover'
 export * from './Checkbox'
