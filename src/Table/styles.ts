@@ -1,6 +1,6 @@
 import { link } from '../styles'
 
-// import { TableProps } from './Table'
+import { RowProps } from './Table'
 
 import styled from 'styled-components'
 
@@ -40,11 +40,15 @@ export const TableCellHead = styled.th`
   }
 `
 
-export const TableRow = styled.tr`
+export const TableRow = styled.tr<RowProps>`
   ${({ theme }) => theme.transition}
 
+  background: ${({ selected, theme }) =>
+    selected ? theme.colors.lightest : null};
+
   &:hover {
-    background: ${({ theme }) => theme.colors.gray2};
+    background: ${({ selected, theme }) =>
+      selected ? theme.colors.lightest : theme.colors.gray2};
   }
 `
 

@@ -36,7 +36,7 @@ exports[`Table renders correctly 1`] = `
         onChange={[Function]}
       >
         <tr
-          className="sc-fznKkj wxrre"
+          className="sc-fznKkj deXHuK"
         >
           <td
             className="sc-fznZeY hVMeYA"
@@ -57,7 +57,7 @@ exports[`Table renders correctly 1`] = `
           </td>
         </tr>
         <tr
-          className="sc-fznKkj wxrre"
+          className="sc-fznKkj deXHuK"
         >
           <td
             className="sc-fznZeY hVMeYA"
@@ -78,7 +78,7 @@ exports[`Table renders correctly 1`] = `
           </td>
         </tr>
         <tr
-          className="sc-fznKkj wxrre"
+          className="sc-fznKkj deXHuK"
         >
           <td
             className="sc-fznZeY hVMeYA"
@@ -99,7 +99,7 @@ exports[`Table renders correctly 1`] = `
           </td>
         </tr>
         <tr
-          className="sc-fznKkj wxrre"
+          className="sc-fznKkj deXHuK"
         >
           <td
             className="sc-fznZeY hVMeYA"

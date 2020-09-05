@@ -40,6 +40,10 @@ export type TableProps = {
   }
 }
 
+export type RowProps = {
+  selected?: boolean
+}
+
 const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
   let SelectorElement: typeof Radio | typeof Checkbox
   let type: 'checkbox' | 'radio'
@@ -130,16 +134,17 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
         if (rowSelection && rowSelection.getCheckboxProps) {
           checkboxProps = rowSelection.getCheckboxProps(record)
         }
+        const checked = rowSelection
+          ? type === 'radio'
+            ? selection === record.key
+            : selection.includes(record.key)
+          : undefined
         return (
-          <TableRow key={idx}>
+          <TableRow key={idx} selected={checked}>
             {rowSelection ? (
               <TableCellBodySelector>
                 <SelectorElement
-                  checked={
-                    type === 'radio'
-                      ? selection === record.key
-                      : selection.includes(record.key)
-                  }
+                  checked={checked}
                   {...checkboxProps}
                   value={record.key}
                 />
