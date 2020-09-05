@@ -4,7 +4,7 @@ route: /component/table
 menu: Component
 ---
 
-import { Table, Tag, Space, Radio, Divider } from 'fiber'
+import { Table, Tag, Space, Divider } from 'fiber'
 import { Playground } from 'docz'
 import { useState } from 'react'
 
@@ -145,22 +145,20 @@ import { useState } from 'react'
         name: record.name
       })
     }
-    const [selectionType, setSelectionType] = useState('checkbox')
     return (
       <div>
-        <Radio.Group
-          onChange={({ target: { value } }) => {
-            setSelectionType(value)
+        <Table
+          rowSelection={{
+            type: 'checkbox',
+            ...rowSelection
           }}
-          value={selectionType}
-        >
-          <Radio value='checkbox'>Checkbox</Radio>
-          <Radio value='radio'>radio</Radio>
-        </Radio.Group>
+          columns={columns}
+          dataSource={data}
+        />
         <Divider />
         <Table
           rowSelection={{
-            type: selectionType,
+            type: 'radio',
             ...rowSelection
           }}
           columns={columns}

@@ -23,11 +23,8 @@ export const useGroup = ({
     }
   }, [valueProps])
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (
-      (e.target.type !== 'checkbox' && e.target.type !== 'radio') ||
-      e.target.value === 'head'
-    ) {
+  const handleChange = (e: any) => {
+    if (e.target.type !== 'checkbox' && e.target.type !== 'radio') {
       return
     }
 

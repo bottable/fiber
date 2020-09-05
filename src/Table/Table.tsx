@@ -20,7 +20,7 @@ import React, { FC } from 'react'
 type columnItem = {
   title: string
   dataIndex: string
-  render?: (rawData: any, dataItem: object) => React.ReactNode
+  render?: (text: any, record: object) => React.ReactNode
 }
 
 export type TableProps = {
@@ -30,25 +30,52 @@ export type TableProps = {
   }[]
   rowSelection?: {
     type?: 'checkbox' | 'radio'
+    getCheckboxProps?: (
+      record: object
+    ) => {
+      disabled?: boolean
+    }
+    onChange?: (selectedRowKeys: string[], selectedRows: object[]) => void
   }
 }
 
 const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
   let SelectorElement: any
 
+  const handleChange = (e: any) => {
+    if (!rowSelection || !rowSelection.onChange) return
+    const selectedRowKeys = rowSelection.type === 'radio' ? [e.target.value] : e
+    const selectedRows = dataSource.filter(({ key }) =>
+      selectedRowKeys.includes(key)
+    )
+    rowSelection.onChange(selectedRowKeys, selectedRows)
+  }
+
   const {
     value: selection,
     setValue: setSelection,
     handleChange: handleSelectionChange
   } = useGroup({
-    type: (rowSelection && rowSelection.type) || 'checkbox'
+    type: (rowSelection && rowSelection.type) || 'checkbox',
+    onChange: handleChange
   })
 
   const handleSelectionHeaderChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     if (e.target.checked) {
-      setSelection(dataSource.map(({ key }) => key))
+      const enabledRecords = dataSource.filter((record) => {
+        if (!rowSelection || !rowSelection.getCheckboxProps) {
+          return true
+        }
+        const checkboxProps = rowSelection.getCheckboxProps(record)
+        if (checkboxProps.disabled) {
+          return false
+        } else {
+          return true
+        }
+      })
+      setSelection(enabledRecords.map(({ key }) => key))
     } else setSelection([])
   }
 
@@ -63,10 +90,7 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
         {SelectorElement ? (
           <TableCellHeadSelector>
             {SelectorElement === Checkbox ? (
-              <SelectorElement
-                onChange={handleSelectionHeaderChange}
-                value='head'
-              />
+              <SelectorElement onChange={handleSelectionHeaderChange} />
             ) : null}
           </TableCellHeadSelector>
         ) : null}
@@ -78,8 +102,12 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
   )
 
   const tableBodyNode = (
-    <TableBody>
-      {dataSource.map((dataItem, idx) => {
+    <TableBody onChange={handleSelectionChange}>
+      {dataSource.map((record, idx) => {
+        let checkboxProps
+        if (rowSelection && rowSelection.getCheckboxProps) {
+          checkboxProps = rowSelection.getCheckboxProps(record)
+        }
         return (
           <TableRow key={idx}>
             {SelectorElement && rowSelection ? (
@@ -87,19 +115,19 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
                 <SelectorElement
                   checked={
                     rowSelection.type === 'radio'
-                      ? selection === dataItem.key
-                      : selection.includes(dataItem.key)
+                      ? selection === record.key
+                      : selection.includes(record.key)
                   }
-                  value={dataItem.key}
+                  {...checkboxProps}
+                  value={record.key}
                 />
               </TableCellBodySelector>
             ) : null}
             {columns.map(({ dataIndex, render }, i) => {
               let dataNode
               if (render) {
-                dataNode = render(dataItem[dataIndex], dataItem)
-              } else dataNode = dataItem[dataIndex]
-
+                dataNode = render(record[dataIndex], record)
+              } else dataNode = record[dataIndex]
               return <TableCellBody key={i}>{dataNode}</TableCellBody>
             })}
           </TableRow>
@@ -109,7 +137,7 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
   )
 
   return (
-    <Wrapper onChange={handleSelectionChange}>
+    <Wrapper>
       <ContentContainer>
         <StyledTable>
           {tableHeadNode}

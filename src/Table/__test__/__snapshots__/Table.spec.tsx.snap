@@ -33,6 +33,7 @@ exports[`Table renders correctly 1`] = `
       </thead>
       <tbody
         className="sc-fzplWN kfkaqr"
+        onChange={[Function]}
       >
         <tr
           className="sc-fznKkj wxrre"
