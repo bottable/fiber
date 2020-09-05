@@ -1,10 +1,14 @@
 import { link } from '../styles'
+import { Pagination as BasePagination } from '../Pagination'
 
 import { RowProps } from './Table'
 
 import styled from 'styled-components'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  display: block;
+  max-width: 100%;
+`
 
 export const ContentContainer = styled.div``
 
@@ -72,4 +76,16 @@ export const TableCellBodySelector = styled(TableCellBody)`
   padding-right: ${({ theme }) => theme.paddings.xs};
   padding-left: ${({ theme }) => theme.paddings.xs};
   text-align: center;
+`
+
+export const PaginationWrapper = styled.div`
+  display: block;
+  margin-top: ${({ theme }) => theme.margins.xs};
+  margin-bottom: ${({ theme }) => theme.margins.xs};
+  float: right;
+`
+
+export const Pagination = styled(BasePagination)`
+  margin-top: ${({ theme }) => theme.margins.xs};
+  margin-bottom: ${({ theme }) => theme.margins.xs};
 `

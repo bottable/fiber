@@ -2,119 +2,119 @@
 
 exports[`Table renders correctly 1`] = `
 <div
-  className="sc-AxmLO cAKCgh"
+  className="sc-fzqBkg dvEKob"
 >
   <div
-    className="sc-fzozJi jxgYyc"
+    className="sc-fzqPZZ gXikXH"
   >
     <table
-      className="sc-fzoLsD bWDAym"
+      className="sc-fzoxKX gSbHXy"
     >
       <thead
-        className="sc-fzpans kkFAbe"
+        className="sc-fzoKki fatNHo"
       >
         <tr>
           <th
-            className="sc-fznyAO fuZJlr"
+            className="sc-fzpkJw daLnVM"
           >
             Name
           </th>
           <th
-            className="sc-fznyAO fuZJlr"
+            className="sc-fzpkJw daLnVM"
           >
             Age
           </th>
           <th
-            className="sc-fznyAO fuZJlr"
+            className="sc-fzpkJw daLnVM"
           >
             Address
           </th>
         </tr>
       </thead>
       <tbody
-        className="sc-fzplWN kfkaqr"
+        className="sc-fzoYkl iMSPiv"
         onChange={[Function]}
       >
         <tr
-          className="sc-fznKkj deXHuK"
+          className="sc-fznzOf mVwJb"
         >
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             <a>
               John Brown
             </a>
           </td>
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             32
           </td>
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             New York No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fznKkj deXHuK"
+          className="sc-fznzOf mVwJb"
         >
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             <a>
               Jim Green
             </a>
           </td>
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             42
           </td>
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             London No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fznKkj deXHuK"
+          className="sc-fznzOf mVwJb"
         >
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             <a>
               Joe Black
             </a>
           </td>
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             32
           </td>
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             Sidney No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fznKkj deXHuK"
+          className="sc-fznzOf mVwJb"
         >
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             <a>
               Disabled User
             </a>
           </td>
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             99
           </td>
           <td
-            className="sc-fznZeY hVMeYA"
+            className="sc-fznMnq gGqTjY"
           >
             Sidney No. 1 Lake Park
           </td>
@@ -122,5 +122,76 @@ exports[`Table renders correctly 1`] = `
       </tbody>
     </table>
   </div>
+  <ul
+    className="sc-fzpmMD gnAaEe sc-fzqMAW jIyaNi"
+  >
+    <li
+      className="sc-fznxKY FVtAh"
+    >
+      <button
+        className="sc-fzoLsD sc-fznZeY dJseWR sc-fznMAR isFKup"
+        disabled={true}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        selected={false}
+      >
+        <span
+          className="sc-fzpans kDGqjM"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      className="sc-fznxKY FVtAh"
+      onClick={[Function]}
+    >
+      <button
+        className="sc-fzoLsD sc-fznZeY kWlJbT sc-fznMAR fvOJyV"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        selected={true}
+      >
+        <span>
+          1
+        </span>
+      </button>
+    </li>
+    <li
+      className="sc-fznxKY FVtAh"
+    >
+      <button
+        className="sc-fzoLsD sc-fznZeY dJseWR sc-fznMAR isFKup"
+        disabled={true}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        selected={false}
+      >
+        <span
+          className="sc-fzpans kDGqjM"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+  </ul>
 </div>
 `;

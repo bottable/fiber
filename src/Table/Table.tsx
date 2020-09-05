@@ -1,6 +1,7 @@
 import { Radio } from '../Radio'
 import { Checkbox } from '../Checkbox'
 import { useGroup } from '../hooks'
+import { PaginationProps } from '../Pagination'
 
 import {
   Wrapper,
@@ -12,7 +13,8 @@ import {
   TableCellHead,
   TableCellBody,
   TableCellHeadSelector,
-  TableCellBodySelector
+  TableCellBodySelector,
+  Pagination
 } from './styles'
 
 import React, { FC, useState } from 'react'
@@ -38,13 +40,19 @@ export type TableProps = {
     onChange?: (selectedRowKeys: string[], selectedRows: object[]) => void
     selectedRowKeys?: string[]
   }
+  pagination?: PaginationProps
 }
 
 export type RowProps = {
   selected?: boolean
 }
 
-const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
+const Table: FC<TableProps> = ({
+  columns,
+  dataSource,
+  rowSelection,
+  pagination
+}) => {
   let SelectorElement: typeof Radio | typeof Checkbox
   let type: 'checkbox' | 'radio'
 
@@ -106,6 +114,18 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
   })
 
   const [selectionHeader, setSelectionHeader] = useState<boolean>(false)
+  const [page, setPage] = useState<number>(
+    (pagination && pagination.defaultCurrent) || 1
+  )
+  const [pageSize, setPageSize] = useState<number>(
+    (pagination && pagination.defaultPageSize) || 10
+  )
+
+  const handlePageChange = (page: number, pageSize: number) => {
+    setPage(page)
+    setPageSize(pageSize)
+    if (pagination && pagination.onChange) pagination.onChange(page, pageSize)
+  }
 
   const tableHeadNode = (
     <TableHead>
@@ -127,40 +147,54 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
     </TableHead>
   )
 
+  const pageRecords: React.ReactElement[] = []
+  for (
+    let idx = (page - 1) * pageSize;
+    idx < Math.min(page * pageSize, dataSource.length);
+    idx++
+  ) {
+    const record = dataSource[idx]
+    let checkboxProps
+    if (rowSelection && rowSelection.getCheckboxProps) {
+      checkboxProps = rowSelection.getCheckboxProps(record)
+    }
+    const checked = rowSelection
+      ? type! === 'radio'
+        ? selection === record.key
+        : selection.includes(record.key)
+      : undefined
+    pageRecords.push(
+      <TableRow key={idx} selected={checked}>
+        {SelectorElement! === Checkbox || SelectorElement! === Radio ? (
+          <TableCellBodySelector>
+            <SelectorElement
+              checked={checked}
+              {...checkboxProps}
+              value={record.key}
+            />
+          </TableCellBodySelector>
+        ) : null}
+        {columns.map(({ dataIndex, render }, i) => {
+          let dataNode
+          if (render) {
+            dataNode = render(record[dataIndex], record)
+          } else dataNode = record[dataIndex]
+          return <TableCellBody key={i}>{dataNode}</TableCellBody>
+        })}
+      </TableRow>
+    )
+  }
+
   const tableBodyNode = (
-    <TableBody onChange={handleSelectionChange}>
-      {dataSource.map((record, idx) => {
-        let checkboxProps
-        if (rowSelection && rowSelection.getCheckboxProps) {
-          checkboxProps = rowSelection.getCheckboxProps(record)
-        }
-        const checked = rowSelection
-          ? type === 'radio'
-            ? selection === record.key
-            : selection.includes(record.key)
-          : undefined
-        return (
-          <TableRow key={idx} selected={checked}>
-            {rowSelection ? (
-              <TableCellBodySelector>
-                <SelectorElement
-                  checked={checked}
-                  {...checkboxProps}
-                  value={record.key}
-                />
-              </TableCellBodySelector>
-            ) : null}
-            {columns.map(({ dataIndex, render }, i) => {
-              let dataNode
-              if (render) {
-                dataNode = render(record[dataIndex], record)
-              } else dataNode = record[dataIndex]
-              return <TableCellBody key={i}>{dataNode}</TableCellBody>
-            })}
-          </TableRow>
-        )
-      })}
-    </TableBody>
+    <TableBody onChange={handleSelectionChange}>{pageRecords}</TableBody>
+  )
+
+  const paginationNode = (
+    <Pagination
+      total={dataSource.length}
+      onChange={handlePageChange}
+      {...pagination}
+    />
   )
 
   return (
@@ -171,6 +205,7 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
           {tableBodyNode}
         </StyledTable>
       </ContentContainer>
+      {paginationNode}
     </Wrapper>
   )
 }

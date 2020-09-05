@@ -2,10 +2,12 @@ import { Button as BaseButton } from '../Button'
 import { Dropdown as BaseDropdown } from '../Dropdown'
 import { Input as BaseInput } from '../Input'
 
-import { ButtonProps } from './Pagination'
-
 import styled from 'styled-components'
 import { rem } from 'polished'
+
+type ButtonProps = {
+  selected: boolean
+}
 
 export const StyledPagination = styled.ul`
   margin: 0;

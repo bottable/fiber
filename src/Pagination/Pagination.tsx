@@ -14,12 +14,9 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import React, { FC, useState, useEffect } from 'react'
 
-export type ButtonProps = {
-  selected: boolean
-}
-
 export type PaginationProps = {
   current?: number
+  pageSize?: number
   defaultCurrent?: number
   defaultPageSize?: number
   total?: number
@@ -33,6 +30,7 @@ export type PaginationProps = {
 
 const Pagination: FC<PaginationProps> = ({
   current: currentProps,
+  pageSize: pageSizeProps,
   defaultCurrent,
   defaultPageSize,
   total,
@@ -41,15 +39,20 @@ const Pagination: FC<PaginationProps> = ({
   showSizeChanger,
   onShowSizeChange,
   onChange,
-  showTotal
+  showTotal,
+  ...props
 }) => {
   const [pageSize, setPageSize] = useState<number>(defaultPageSize!)
-  const [current, setCurrent] = useState<number>(defaultCurrent || 0)
+  const [current, setCurrent] = useState<number>(defaultCurrent || 1)
   const [jumper, setJumper] = useState<string>('')
 
   useEffect(() => {
     if (typeof currentProps === 'number') setCurrent(currentProps)
   }, [currentProps])
+
+  useEffect(() => {
+    if (typeof pageSizeProps === 'number') setPageSize(pageSizeProps)
+  }, [pageSizeProps])
 
   const n = Math.ceil(total! / pageSize)
   const more = n >= 8
@@ -66,9 +69,12 @@ const Pagination: FC<PaginationProps> = ({
 
   const pageNumbersNode: React.ReactElement[] = []
 
-  const updateCurrent = (newCurrent: number) => {
+  const updateCurrent = (newCurrent: number, newPageSize?: number) => {
     if (typeof currentProps !== 'number') setCurrent(newCurrent)
-    if (onChange) onChange(newCurrent, pageSize)
+    if (typeof pageSizeProps !== 'number' && newPageSize) {
+      setPageSize(newPageSize)
+    }
+    if (onChange) onChange(newCurrent, newPageSize || pageSize)
   }
 
   if (range[0] - 1 > 0) {
@@ -137,11 +143,8 @@ const Pagination: FC<PaginationProps> = ({
             setPageSize(pageSizeOption)
             const newN = Math.ceil(total! / pageSizeOption)
             let newCurrent = current
-            if (current > newN) {
-              newCurrent = newN
-              setCurrent(newN)
-            }
-            if (onChange) onChange(newCurrent, pageSizeOption)
+            if (current > newN) newCurrent = newN
+            updateCurrent(newCurrent, pageSizeOption)
             if (onShowSizeChange) onShowSizeChange(newCurrent, pageSizeOption)
           }}
         >
@@ -164,7 +167,7 @@ const Pagination: FC<PaginationProps> = ({
 
   const onEnterJumper = () => {
     if (/^\d+$/.test(jumper) && +jumper >= 1 && +jumper <= n) {
-      setCurrent(+jumper)
+      updateCurrent(+jumper)
     }
     setJumper('')
   }
@@ -192,7 +195,7 @@ const Pagination: FC<PaginationProps> = ({
   ) : null
 
   return (
-    <StyledPagination>
+    <StyledPagination {...props}>
       {totalNode}
       <PaginationItem>
         <Button
