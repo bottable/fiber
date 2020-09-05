@@ -28,6 +28,7 @@ export type PaginationProps = {
   showSizeChanger?: boolean
   onShowSizeChange?: (current: number, size: number) => void
   onChange?: (page: number, pageSize: number) => void
+  showTotal?: (total: number, range: [number, number]) => string
 }
 
 const Pagination: FC<PaginationProps> = ({
@@ -39,7 +40,8 @@ const Pagination: FC<PaginationProps> = ({
   showQuickJumper,
   showSizeChanger,
   onShowSizeChange,
-  onChange
+  onChange,
+  showTotal
 }) => {
   const [pageSize, setPageSize] = useState<number>(defaultPageSize!)
   const [current, setCurrent] = useState<number>(defaultCurrent || 0)
@@ -180,8 +182,18 @@ const Pagination: FC<PaginationProps> = ({
     </PaginationItem>
   ) : null
 
+  const totalNode = showTotal ? (
+    <PaginationItem>
+      {showTotal(total!, [
+        (current - 1) * pageSize + 1,
+        Math.min(total!, current * pageSize)
+      ])}
+    </PaginationItem>
+  ) : null
+
   return (
     <StyledPagination>
+      {totalNode}
       <PaginationItem>
         <Button
           selected={false}

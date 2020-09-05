@@ -5,6 +5,7 @@ import { Input as BaseInput } from '../Input'
 import { ButtonProps } from './Pagination'
 
 import styled from 'styled-components'
+import { rem } from 'polished'
 
 export const StyledPagination = styled.ul`
   margin: 0;
@@ -26,6 +27,7 @@ export const PaginationItem = styled.li`
 `
 
 export const Button = styled(BaseButton)<ButtonProps>`
+  width: ${rem('40px')};
   border-color: ${({ selected, theme }) =>
     selected ? theme.colors.base : null};
   color: ${({ selected, theme }) => (selected ? theme.colors.base : null)};
