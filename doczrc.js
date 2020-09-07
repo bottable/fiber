@@ -5,5 +5,14 @@ module.exports = {
   description: 'A React UI Component library 🧸',
   typescript: true,
   dest: '/build',
-  menu: ['Getting Started', 'Example', 'Component', 'Layout']
+  menu: [
+    'Getting Started',
+    'Example',
+    'General',
+    'Layout',
+    'Navigation',
+    'Data Entry',
+    'Data Display',
+    'Feedback'
+  ]
 }
