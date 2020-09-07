@@ -2,50 +2,50 @@
 
 exports[`Menu & Menu Items renders correctly 1`] = `
 <div
-  className="sc-fznyAO ffpwtC"
+  className="sc-fzoyAV GaQyG"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <span
-    className="sc-fzppAM kUZuxg"
+    className="sc-fzqKVi iEZZYd"
     size={4}
   >
      Hover Me 
   </span>
   <div
-    className="sc-fznKkj dehHJn"
+    className="sc-fzoLag dnGvOi"
   >
     <ul
-      className="sc-AxirZ jXdUeX"
+      className="sc-Axmtr icvSBp"
     >
       <li
-        className="sc-AxiKw khDWfo"
+        className="sc-AxmLO KPRyz"
         onClick={[Function]}
       >
         <span
-          className="sc-fzppAM kUZuxg"
+          className="sc-fzqKVi iEZZYd"
           size={4}
         >
            Item 1 
         </span>
       </li>
       <li
-        className="sc-AxiKw khDWfo"
+        className="sc-AxmLO KPRyz"
         onClick={[Function]}
       >
         <span
-          className="sc-fzppAM kUZuxg"
+          className="sc-fzqKVi iEZZYd"
           size={4}
         >
            Item 2 
         </span>
       </li>
       <li
-        className="sc-AxiKw khDWfo"
+        className="sc-AxmLO KPRyz"
         onClick={[Function]}
       >
         <span
-          className="sc-fzppAM kUZuxg"
+          className="sc-fzqKVi iEZZYd"
           size={4}
         >
            Item 3 

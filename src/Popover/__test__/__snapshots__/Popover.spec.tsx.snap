@@ -2,12 +2,12 @@
 
 exports[`Popover renders correctly 1`] = `
 <div
-  className="sc-fzowVh kCIHmN"
+  className="sc-fznXWL cdDfLy"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <button
-    className="sc-AxhCb sc-Axmtr jGtNyB"
+    className="sc-fzozJi sc-fznyAO kTGjim"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -16,14 +16,14 @@ exports[`Popover renders correctly 1`] = `
     </span>
   </button>
   <div
-    className="sc-fzoJus jvnxLl"
+    className="sc-fzokvW jihGuj"
   >
     <div
-      className="sc-fzpkqZ iukILK"
+      className="sc-fzqMdD iNfLbG"
       size="sm"
     >
       <div
-        className="sc-fzomuh fXlHbA"
+        className="sc-fzpisO jkwwRO"
         size="sm"
       />
     </div>
