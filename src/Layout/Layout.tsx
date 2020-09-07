@@ -7,7 +7,11 @@ import { StyledLayout } from './styles'
 import React, { FC } from 'react'
 
 export type LayoutProps = {
-  // custom props here
+  children?: React.ReactNode | React.ReactNode[]
+}
+
+export type StyledLayoutProps = {
+  hasSider?: boolean
 }
 
 type LayoutFC<P> = FC<P> & {
@@ -18,7 +22,23 @@ type LayoutFC<P> = FC<P> & {
 }
 
 const Layout: LayoutFC<LayoutProps> = ({ children, ...props }) => {
-  return <StyledLayout {...props}>{children}</StyledLayout>
+  let hasSider = false
+
+  if (Array.isArray(children)) {
+    const arrayChildren = children as React.ReactElement[]
+    for (let i = 0; i < arrayChildren.length; i++) {
+      const child = arrayChildren[i]
+      if (typeof child !== 'string' && child!.type === Sider) {
+        hasSider = true
+        break
+      }
+    }
+  }
+  return (
+    <StyledLayout hasSider={hasSider} {...props}>
+      {children}
+    </StyledLayout>
+  )
 }
 
 Layout.Header = Header
