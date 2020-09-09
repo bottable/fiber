@@ -57,9 +57,7 @@ const border = {
   dashed: '1px dashed'
 }
 
-const boxShadow = `box-shadow: 0 ${rem('10px')} ${rem(
-  '15px'
-)} 0 rgba(0,0,0,0.2);`
+const boxShadow = 'box-shadow: 0 10px 15px 0 rgba(0,0,0,0.2);'
 
 export {
   fontSizes,

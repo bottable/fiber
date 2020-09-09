@@ -13,7 +13,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
      Hover Me 
   </span>
   <div
-    className="sc-fzoLag dnGvOi"
+    className="sc-fzoLag bOOwFy"
   >
     <ul
       className="sc-Axmtr icvSBp"
