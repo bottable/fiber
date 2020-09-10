@@ -50,6 +50,7 @@ export type RippleProps = {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { children, type, onClick, icon, startIcon, endIcon, ...rest } = props
+  const { shape } = props
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   let StyledButton
@@ -85,8 +86,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
     const clientRect = buttonRef.current.getBoundingClientRect()
 
-    const x = e.clientX - clientRect.left
-    const y = e.clientY - clientRect.top
+    console.log(shape)
+
+    const x =
+      shape === 'circle'
+        ? buttonRef.current.offsetWidth / 2
+        : e.clientX - clientRect.left
+    const y =
+      shape === 'circle'
+        ? buttonRef.current.offsetHeight / 2
+        : e.clientY - clientRect.top
 
     setRipples((prevRipples) => [
       ...prevRipples!,
