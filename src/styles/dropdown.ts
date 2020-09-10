@@ -49,21 +49,24 @@ export const popoverPosition = css<DropdownProps>`
 export const trianglePosition = css<DropdownProps>`
   ${({ placement }) => {
     if (!placement) return null
+    const offset = Math.sqrt(200) / 2 + 2
     let output = ''
     if (placement.includes('top') || placement.includes('bottom')) {
       if (placement.includes('bottom')) output += '\nbottom: calc(100% - 10px);'
       else output += '\ntop: 100%;'
 
-      if (placement.includes('Left')) output += '\nleft: 25%;'
-      else if (placement.includes('Right')) output += '\nleft: 75%;'
-      else output += '\nleft: 50%;'
+      if (placement.includes('Left')) output += `\nleft: ${offset}px;`
+      else if (placement.includes('Right')) {
+        output += `\nleft: calc(100% - ${offset}px);`
+      } else output += '\nleft: 50%;'
     } else {
       if (placement.includes('right')) output += '\nright: calc(100% - 10px);'
       else output += '\nleft: 100%;'
 
-      if (placement.includes('Top')) output += '\ntop: 25%;'
-      else if (placement.includes('Bottom')) output += '\ntop: 75%;'
-      else output += '\ntop: 50%;'
+      if (placement.includes('Top')) output += `\ntop: ${offset}px;`
+      else if (placement.includes('Bottom')) {
+        output += `\ntop: calc(100% - ${offset}px);`
+      } else output += '\ntop: 50%;'
     }
 
     return output
