@@ -20,6 +20,7 @@ export type DropdownProps = {
   onVisibleChange?: (flag: boolean) => void
   children?: React.ReactNode
   expand?: boolean
+  style?: object
 }
 
 export const useDropdown = ({

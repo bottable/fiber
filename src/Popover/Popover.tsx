@@ -13,7 +13,7 @@ export interface PopoverProps extends DropdownProps {
 
 const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
   (props, ref) => {
-    const { children, placement, title, content, ...rest } = props
+    const { children, placement, title, content, style } = props
 
     const {
       wrapperRef,
@@ -32,7 +32,6 @@ const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
         {...hoverProps}
-        {...rest}
       >
         {React.cloneElement(childrenNode, {
           ...clickProps,
@@ -43,7 +42,7 @@ const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
           placement={placement}
           ref={dropdownRef}
         >
-          <Card title={title} size='sm' bordered={false}>
+          <Card title={title} size='sm' bordered={false} style={style}>
             {content}
           </Card>
         </PopoverWrapper>

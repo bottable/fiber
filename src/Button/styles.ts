@@ -206,40 +206,17 @@ export const LinkButton = styled(BaseButton)`
   }
 `
 
-const rippleAnimation = ({
-  width,
-  top,
-  right,
-  bottom,
-  left,
-  shape
-}: RippleProps) => {
-  const fromInset = `inset(${rem(`${-top}px`)} ${rem(`${-right}px`)} ${rem(
-    `${-bottom}px`
-  )} ${rem(`${-left}px`)} round ${
-    shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')
-  })`
-
-  const toInset = `inset(${rem(`${-top + width / 2}px`)} ${rem(
-    `${-right + width / 2}px`
-  )} ${rem(`${-bottom + width / 2}px`)} ${rem(
-    `${-left + width / 2}px`
-  )} round ${
-    shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')
-  })`
-
+const rippleAnimation = ({ width }: RippleProps) => {
   return keyframes`
     from {
       width: 0;
       height: 0;
       opacity: 0.5;
-      clip-path: ${fromInset}
     }
     to {
       width: ${rem(`${width}px`)};
       height: ${rem(`${width}px`)};
       opacity: 0;
-      clip-path: ${toInset}
     }
 `
 }

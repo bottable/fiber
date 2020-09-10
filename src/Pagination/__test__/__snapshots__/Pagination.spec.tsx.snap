@@ -8,7 +8,7 @@ exports[`Pagination renders correctly 1`] = `
     className="sc-fznWqX evsJst"
   >
     <button
-      className="sc-AxiKw sc-Axmtr itiZOD sc-fzoiQi HHNRf"
+      className="sc-AxiKw sc-Axmtr jezzwU sc-fzoiQi HHNRf"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
@@ -34,7 +34,7 @@ exports[`Pagination renders correctly 1`] = `
     className="sc-fznWqX evsJst"
   >
     <button
-      className="sc-AxiKw sc-Axmtr UoXCx sc-fzoiQi HHNRf"
+      className="sc-AxiKw sc-Axmtr dpvyni sc-fzoiQi HHNRf"
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}

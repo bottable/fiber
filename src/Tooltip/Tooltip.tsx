@@ -21,7 +21,7 @@ export interface TooltipProps extends DropdownProps {
 
 const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
   (props, ref) => {
-    const { children, placement, title, color, ...rest } = props
+    const { children, placement, title, color, style } = props
 
     const {
       wrapperRef,
@@ -40,7 +40,6 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
         {...hoverProps}
-        {...rest}
       >
         {React.cloneElement(childrenNode, {
           ...clickProps,
@@ -51,6 +50,7 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
           placement={placement}
           color={color}
           ref={dropdownRef}
+          style={style}
         >
           {title}
         </TooltipWrapper>

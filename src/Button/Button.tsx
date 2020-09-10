@@ -12,13 +12,7 @@ import {
   EndIcon
 } from './styles'
 
-import React, {
-  MouseEventHandler,
-  forwardRef,
-  useRef,
-  useState,
-  useEffect
-} from 'react'
+import React, { MouseEventHandler, forwardRef, useRef, useState } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 type Shape = 'default' | 'circle' | 'round'
@@ -52,11 +46,6 @@ export type RippleProps = {
   x: number
   y: number
   width: number
-  top: number
-  right: number
-  bottom: number
-  left: number
-  shape?: Shape
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
@@ -85,11 +74,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
   const [ripples, setRipples] = useState<React.ReactNode[]>([])
 
-  const prevRipplesRef = useRef<React.ReactNode[]>()
-  useEffect(() => {
-    prevRipplesRef.current = ripples
-  })
-
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (onClick) (onClick as React.MouseEventHandler<HTMLButtonElement>)(e)
   }
@@ -98,40 +82,24 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     if (!buttonRef.current) return
+
     const clientRect = buttonRef.current.getBoundingClientRect()
 
-    let top, right, bottom, left
+    const x = e.clientX - clientRect.left
+    const y = e.clientY - clientRect.top
 
-    if (rest.shape === 'circle') {
-      top = right = bottom = left = buttonRef.current.offsetHeight / 2
-    } else {
-      top = e.clientY - clientRect.top
-      right = clientRect.right - e.clientX
-      bottom = clientRect.bottom - e.clientY
-      left = e.clientX - clientRect.left
-    }
-    const x = buttonRef.current.offsetLeft + left
-    const y = buttonRef.current.offsetTop + top
-
-    const newRipples = [
-      ...prevRipplesRef.current!,
+    setRipples((prevRipples) => [
+      ...prevRipples!,
       <RippleSpan
         x={x}
         y={y}
-        top={top}
-        right={right}
-        bottom={bottom}
-        left={left}
-        shape={rest.shape}
-        width={buttonRef.current.offsetWidth * 2}
+        width={buttonRef!.current!.offsetWidth * 2}
         onAnimationEnd={() => {
-          setRipples(prevRipplesRef.current?.slice(1)!)
+          setRipples((prevRipples) => prevRipples?.slice(1)!)
         }}
         key={`${new Date().getTime()}`}
       />
-    ]
-
-    setRipples(newRipples)
+    ])
   }
 
   const iconNode = icon ? <Icon>{icon}</Icon> : null
