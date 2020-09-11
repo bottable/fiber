@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
+import { useControl } from './useControl'
+
+import { useEffect, useRef } from 'react'
 import { rem } from 'polished'
 
 export type OverlayProps = {
@@ -36,7 +38,18 @@ export const useOverlay = ({
   >(null)
   const childrenRef = useRef<HTMLSpanElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
+
+  const updateVisible = (newValue: boolean) => {
+    if (dropdownRef.current && expand) {
+      dropdownRef.current.style.transform = `scale(${newValue ? 1 : 0})`
+    }
+  }
+
+  const { value: visible, setValue: setVisible } = useControl({
+    value: visibleProps,
+    defaultValue: false,
+    updateValue: updateVisible as (newValue: unknown) => void
+  }) as { value: boolean; setValue: (newValue: boolean) => void }
 
   useEffect(() => {
     if (childrenRef.current && dropdownRef.current && placement) {
@@ -67,19 +80,11 @@ export const useOverlay = ({
     }
   }, [childrenRef, dropdownRef])
 
-  const updateVisible = (flag: boolean) => {
-    if (dropdownRef.current && expand) {
-      dropdownRef.current.style.transform = `scale(${flag ? 1 : 0})`
-    }
-    setVisible(flag)
-  }
-
   const handleVisibleChange = (flag: boolean) => {
     if (onVisibleChange) {
       onVisibleChange(flag)
-    } else {
-      updateVisible(flag)
     }
+    setVisible(flag)
   }
 
   const handleClick = (e: Event) => {
@@ -95,12 +100,6 @@ export const useOverlay = ({
       }
     } else return () => {}
   }, [])
-
-  useEffect(() => {
-    if (typeof visibleProps === 'boolean') {
-      updateVisible(visibleProps)
-    }
-  }, [visibleProps])
 
   let hoverProps = {}
   let clickProps = {}

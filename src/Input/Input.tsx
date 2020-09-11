@@ -1,4 +1,5 @@
 import { MergeElementProps } from '../utils'
+import { useControl } from '../hooks'
 
 import {
   SmallInput,
@@ -11,7 +12,7 @@ import {
   BlockSpan
 } from './styles'
 
-import React, { FC, useState, useRef, useEffect } from 'react'
+import React, { FC, useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export type InputProps = MergeElementProps<
@@ -29,6 +30,7 @@ export type InputProps = MergeElementProps<
     button?: boolean
     dropdown?: boolean
     value?: string
+    defaultValue?: string
   }
 >
 
@@ -54,17 +56,15 @@ const Input: InputFC<InputProps> = React.forwardRef<
     onFocus,
     onBlur,
     value: valueProps,
+    defaultValue,
     ...rest
   } = props
   const { addonBefore, addonAfter } = props
 
-  const [value, setValue] = useState<string>('')
-
-  useEffect(() => {
-    if (typeof valueProps === 'string') {
-      setValue(valueProps)
-    }
-  }, [valueProps])
+  const { value, setValue } = useControl({
+    value: valueProps,
+    defaultValue
+  }) as { value: string; setValue: (newValue: string) => void }
 
   let StyledInput
 
@@ -81,9 +81,7 @@ const Input: InputFC<InputProps> = React.forwardRef<
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (typeof valueProps !== 'string') {
-      setValue(e.target.value)
-    }
+    setValue(e.target.value)
     if (onChange) {
       onChange(e)
     }
@@ -166,5 +164,9 @@ const Input: InputFC<InputProps> = React.forwardRef<
   }
   return input
 })
+
+Input.defaultProps = {
+  defaultValue: ''
+}
 
 export { Input }

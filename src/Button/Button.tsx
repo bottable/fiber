@@ -86,8 +86,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
     const clientRect = buttonRef.current.getBoundingClientRect()
 
-    console.log(shape)
-
     const x =
       shape === 'circle'
         ? buttonRef.current.offsetWidth / 2

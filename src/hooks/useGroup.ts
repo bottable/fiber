@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useControl } from './useControl'
 
 export type GroupProps = {
   onChange?: (event: any) => void
@@ -13,18 +13,13 @@ export const useGroup = ({
   defaultValue,
   type
 }: GroupProps) => {
-  const [value, setValue] = useState<string | string[]>(
-    defaultValue || (type === 'radio' ? '' : [])
-  )
-
-  useEffect(() => {
-    if (
-      (Array.isArray(valueProps) && type === 'checkbox') ||
-      (typeof valueProps === 'string' && type === 'radio')
-    ) {
-      setValue(valueProps)
-    }
-  }, [valueProps])
+  const { value, setValue } = useControl({
+    value: valueProps,
+    defaultValue
+  }) as {
+    value: string | string[]
+    setValue: (newValue: string | string[]) => void
+  }
 
   const handleChange = (e: any) => {
     if (e.target.type !== 'checkbox' && e.target.type !== 'radio') {
@@ -40,12 +35,10 @@ export const useGroup = ({
       } else {
         newValue = [...value, e.target.value]
       }
-      if (!Array.isArray(valueProps)) {
-        setValue(newValue)
-      }
+      setValue(newValue)
       if (onChange) onChange(newValue)
     } else {
-      if (typeof valueProps !== 'string') setValue(e.target.value)
+      setValue(e.target.value)
       if (onChange) onChange(e)
     }
   }
