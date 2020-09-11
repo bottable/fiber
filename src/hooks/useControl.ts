@@ -23,7 +23,8 @@ export const useControl = ({
 
   const updateValue = (newValue: unknown) => {
     if (onChange) {
-      newValue = onChange(newValue) || newValue
+      const tempValue = onChange(newValue)
+      newValue = tempValue === undefined ? newValue : tempValue
     }
     if (valueProps === undefined) {
       setValue(newValue)

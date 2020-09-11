@@ -33,23 +33,26 @@ const Checkbox: CheckboxFC<CheckboxProps> = React.forwardRef<
       children,
       checked: checkedProps,
       defaultChecked,
-      onChange,
+      onChange: onChangeProps,
       style,
       disabled,
       ...props
     },
     ref
   ) => {
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onChangeProps) onChangeProps(e)
+      console.log(e.target.checked)
+      return e.target.checked
+    }
+
     const { value: checked, setValue: setChecked } = useControl({
       value: checkedProps,
-      defaultValue: defaultChecked
-    }) as { value: boolean; setValue: (newValue: boolean) => void }
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setChecked(e.target.checked)
-      if (onChange) {
-        onChange(e)
-      }
+      defaultValue: defaultChecked,
+      onChange: onChange as (newValue: unknown) => unknown
+    }) as {
+      value: boolean
+      setValue: (event: React.ChangeEvent<HTMLInputElement>) => void
     }
 
     const CheckboxNode = (
@@ -57,7 +60,7 @@ const Checkbox: CheckboxFC<CheckboxProps> = React.forwardRef<
         <CheckboxInput
           type='Checkbox'
           checked={checked}
-          onChange={handleChange}
+          onChange={setChecked}
           disabled={disabled}
           {...props}
           ref={ref}

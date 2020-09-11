@@ -177,7 +177,7 @@ const Pagination: FC<PaginationProps> = ({
       Go to
       <Input
         value={jumper}
-        onChange={(e) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setJumper(e.target.value)
         }}
         onPressEnter={onEnterJumper}
