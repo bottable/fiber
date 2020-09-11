@@ -13,7 +13,7 @@ const Password = React.forwardRef(
   (props: PasswordProps, ref: React.Ref<HTMLInputElement>) => {
     const [visible, setVisible] = useState(false)
 
-    const { visibilityToggle, iconRender = () => null, disabled } = props
+    const { visibilityToggle, iconRender, disabled } = props
 
     const onVisibleChange = () => {
       if (disabled) {
@@ -23,6 +23,7 @@ const Password = React.forwardRef(
     }
 
     const getIcon = () => {
+      if (!iconRender) return
       const icon = iconRender(visible)
       const iconProps = {
         onClick: onVisibleChange,

@@ -34,9 +34,7 @@ const InputDropdown = React.forwardRef<HTMLInputElement, InputDropdownProps>(
         topped
         trigger='click'
         visible={visible}
-        onVisibleChange={(flag: boolean) => {
-          setVisible(flag)
-        }}
+        onVisibleChange={setVisible}
         {...props}
       >
         <Input

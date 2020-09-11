@@ -34,9 +34,7 @@ const ButtonDropdown = React.forwardRef<HTMLButtonElement, ButtonDropdownProps>(
         topped
         trigger='click'
         visible={visible}
-        onVisibleChange={(flag: boolean) => {
-          setVisible(flag)
-        }}
+        onVisibleChange={setVisible}
         {...props}
       >
         <Button

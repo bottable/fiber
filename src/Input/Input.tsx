@@ -48,7 +48,7 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       prefix,
       suffix,
       button,
-      onChange,
+      onChange: onChangeProps,
       onPressEnter,
       onKeyDown,
       onFocus,
@@ -59,10 +59,19 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
     } = props
     const { addonBefore, addonAfter } = props
 
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onChangeProps) onChangeProps(e)
+      return e.target.value
+    }
+
     const { value, setValue } = useControl({
       value: valueProps,
-      defaultValue
-    }) as { value: string; setValue: (newValue: string) => void }
+      defaultValue,
+      onChange: onChange as (newValue: unknown) => unknown
+    }) as {
+      value: string
+      setValue: (newValue: React.ChangeEvent<HTMLInputElement>) => void
+    }
 
     let StyledInput
 
@@ -76,13 +85,6 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       default:
         StyledInput = MediumInput
         break
-    }
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value)
-      if (onChange) {
-        onChange(e)
-      }
     }
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -112,7 +114,7 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       <StyledInput
         {...rest}
         ref={composeRef<HTMLInputElement>(inputRef, ref)}
-        onChange={handleChange}
+        onChange={setValue}
         onKeyDown={handleKeyDown}
         onFocus={handleFocus}
         onBlur={handleBlur}
