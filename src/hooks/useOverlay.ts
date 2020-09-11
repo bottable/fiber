@@ -40,10 +40,6 @@ export const useOverlay = ({
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   const updateVisible = (newValue: boolean) => {
-    if (onVisibleChange) {
-      onVisibleChange(newValue)
-    }
-
     if (dropdownRef.current && expand) {
       dropdownRef.current.style.transform = `scale(${newValue ? 1 : 0})`
     }
@@ -52,7 +48,8 @@ export const useOverlay = ({
   const { value: visible, setValue: setVisible } = useControl({
     value: visibleProps,
     defaultValue: false,
-    updateValue: updateVisible as (newValue: unknown) => void
+    onChange: onVisibleChange as (newValue: unknown) => unknown,
+    sideEffect: updateVisible as (newValue: unknown) => void
   }) as { value: boolean; setValue: (newValue: boolean) => void }
 
   useEffect(() => {

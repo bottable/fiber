@@ -3,31 +3,36 @@ import { useState, useEffect } from 'react'
 export type ControlProps = {
   value: unknown
   defaultValue?: unknown
-  updateValue?: (newValue: unknown) => void
+  onChange?: (newValue: unknown) => unknown
+  sideEffect?: (newValue: unknown) => void
 }
 
 export const useControl = ({
   value: valueProps,
   defaultValue,
-  updateValue: updateValueProps
+  onChange,
+  sideEffect
 }: ControlProps) => {
-  const [value, setValue] = useState<unknown>(defaultValue)
+  const [value, setStateValue] = useState<unknown>(defaultValue)
 
   useEffect(() => {
     if (valueProps !== undefined) {
-      changeValue(valueProps)
+      setValue(valueProps)
     }
   }, [valueProps])
 
   const updateValue = (newValue: unknown) => {
-    if (valueProps === undefined) {
-      changeValue(newValue)
+    if (onChange) {
+      newValue = onChange(newValue) || newValue
     }
-    if (updateValueProps) updateValueProps(newValue)
+    if (valueProps === undefined) {
+      setValue(newValue)
+    }
   }
 
-  const changeValue = (newValue: unknown) => {
-    setValue(newValue)
+  const setValue = (newValue: unknown) => {
+    setStateValue(newValue)
+    if (sideEffect) sideEffect(newValue)
   }
 
   return { value, setValue: updateValue }

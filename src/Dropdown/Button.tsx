@@ -18,7 +18,7 @@ const ButtonDropdown = React.forwardRef<HTMLButtonElement, ButtonDropdownProps>(
     const { value: visible, setValue: setVisible } = useControl({
       value: visibleProps,
       defaultValue: false,
-      updateValue: onVisibleChange as (newValue: unknown) => void
+      onChange: onVisibleChange as (newValue: unknown) => unknown
     }) as { value: boolean; setValue: (newValue: boolean) => void }
 
     const [width, setWidth] = useState<number>()
