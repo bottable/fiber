@@ -110,6 +110,7 @@ const Table: FC<TableProps> = ({
           ? rowSelection.selectedRowKeys[0]
           : rowSelection.selectedRowKeys
         : undefined,
+    defaultValue: type! === 'radio' ? '' : [],
     type: type!
   })
 
@@ -117,13 +118,13 @@ const Table: FC<TableProps> = ({
 
   const { value: page, setValue: setPage } = useControl({
     value: pagination?.current,
-    defaultValue: pagination?.defaultCurrent,
+    defaultValue: pagination?.defaultCurrent || 1,
     onChange: pagination?.onChange as (newValue: unknown) => unknown
   }) as { value: number; setValue: (newValue: number) => void }
 
   const { value: pageSize, setValue: setPageSize } = useControl({
     value: pagination?.pageSize,
-    defaultValue: pagination?.defaultPageSize,
+    defaultValue: pagination?.defaultPageSize || 10,
     onChange: pagination?.onChange as (newValue: unknown) => unknown
   }) as { value: number; setValue: (newValue: number) => void }
 

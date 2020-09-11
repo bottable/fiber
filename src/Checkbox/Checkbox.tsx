@@ -42,7 +42,6 @@ const Checkbox: CheckboxFC<CheckboxProps> = React.forwardRef<
   ) => {
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (onChangeProps) onChangeProps(e)
-      console.log(e.target.checked)
       return e.target.checked
     }
 
