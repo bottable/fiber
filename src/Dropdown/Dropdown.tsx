@@ -1,11 +1,11 @@
-import { useDropdown, DropdownProps as BaseDropdownProps } from '../hooks'
+import { useOverlay, OverlayProps } from '../hooks'
 
 import { Wrapper, DropdownWrapper, Description } from './styles'
 
 import React from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
-export interface DropdownProps extends BaseDropdownProps {
+export interface DropdownProps extends OverlayProps {
   n?: number
   description?: string
   overlay?: React.ReactElement
@@ -36,7 +36,7 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       handleVisibleChange,
       hoverProps,
       clickProps
-    } = useDropdown(props)
+    } = useOverlay(props)
 
     const descriptionNode = description ? (
       <Description>{description}</Description>

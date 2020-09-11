@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { rem } from 'polished'
 
-export type DropdownProps = {
+export type OverlayProps = {
   trigger?: 'hover' | 'click'
   visible?: boolean
   placement?:
@@ -23,13 +23,13 @@ export type DropdownProps = {
   style?: object
 }
 
-export const useDropdown = ({
+export const useOverlay = ({
   trigger,
   visible: visibleProps,
   placement,
   onVisibleChange,
   expand
-}: DropdownProps) => {
+}: OverlayProps) => {
   const wrapperRef = useRef<
     HTMLDivElement & { contains: (e: EventTarget) => Boolean }
     // eslint-disable-next-line indent

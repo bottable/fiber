@@ -1,9 +1,9 @@
-import { DropdownProps } from '../hooks'
+import { OverlayProps } from '../hooks'
 
 import { css } from 'styled-components'
 import { rem } from 'polished'
 
-export const wrapper = css<DropdownProps>`
+export const wrapper = css<OverlayProps>`
   display: inline-block;
   position: relative;
   font-size: ${({ theme }) => theme.fontSizes.md};
@@ -15,7 +15,7 @@ export const wrapper = css<DropdownProps>`
   }
 `
 
-export const dropdown = css<DropdownProps>`
+export const dropdown = css<OverlayProps>`
   position: absolute;
   z-index: 999;
   min-width: ${rem('160px')};
@@ -25,7 +25,7 @@ export const dropdown = css<DropdownProps>`
   ${({ theme }) => theme.boxShadow}
 `
 
-export const popoverPosition = css<DropdownProps>`
+export const popoverPosition = css<OverlayProps>`
   ${({ placement }) => {
     let output = ''
     if (!placement) return null
@@ -46,7 +46,7 @@ export const popoverPosition = css<DropdownProps>`
     return output
   }}
 `
-export const trianglePosition = css<DropdownProps>`
+export const trianglePosition = css<OverlayProps>`
   ${({ placement }) => {
     if (!placement) return null
     const offset = Math.sqrt(200) / 2 + 2
@@ -73,7 +73,7 @@ export const trianglePosition = css<DropdownProps>`
   }}
 `
 
-export const popover = css<DropdownProps>`
+export const popover = css<OverlayProps>`
   ${dropdown}
   ${popoverPosition}
   overflow: visible;

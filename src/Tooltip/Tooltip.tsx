@@ -1,11 +1,11 @@
-import { useDropdown, DropdownProps } from '../hooks'
+import { useOverlay, OverlayProps } from '../hooks'
 
 import { Wrapper, TooltipWrapper } from './styles'
 
 import React, { FC } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
-export interface TooltipProps extends DropdownProps {
+export interface TooltipProps extends OverlayProps {
   title?: string
   color?:
     | 'blue'
@@ -30,7 +30,7 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
       visible,
       hoverProps,
       clickProps
-    } = useDropdown({ ...props, expand: true })
+    } = useOverlay({ ...props, expand: true })
 
     const childrenNode = Array.isArray(children)
       ? ((<span>{children}</span>) as any)
