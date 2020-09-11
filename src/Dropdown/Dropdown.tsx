@@ -33,7 +33,7 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       childrenRef,
       dropdownRef,
       visible,
-      handleVisibleChange,
+      setVisible,
       hoverProps,
       clickProps
     } = useOverlay(props)
@@ -76,7 +76,7 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
           {descriptionNode}
           {React.cloneElement(overlay!, {
             collapse: () => {
-              handleVisibleChange(false)
+              setVisible(false)
             }
           })}
         </DropdownWrapper>

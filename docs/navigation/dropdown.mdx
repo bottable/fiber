@@ -136,7 +136,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
       </Menu>
     )
     return (
-      <Dropdown.Button overlay={menu} endIcon={<ExpandMoreIcon />}>
+      <Dropdown.Button overlay={menu} button={{ endIcon: <ExpandMoreIcon /> }}>
         Button Dropdown
       </Dropdown.Button>
     )
@@ -166,8 +166,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
     return (
       <Dropdown.Input
         overlay={menu}
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
+        input={{
+          value: value,
+          onChange: (event) => setValue(event.target.value)
+        }}
       />
     )
   }}

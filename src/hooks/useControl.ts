@@ -23,10 +23,10 @@ export const useControl = ({
     if (valueProps === undefined) {
       changeValue(newValue)
     }
+    if (updateValueProps) updateValueProps(newValue)
   }
 
   const changeValue = (newValue: unknown) => {
-    if (updateValueProps) updateValueProps(newValue)
     setValue(newValue)
   }
 

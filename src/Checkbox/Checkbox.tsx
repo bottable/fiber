@@ -40,7 +40,6 @@ const Checkbox: CheckboxFC<CheckboxProps> = React.forwardRef<
     },
     ref
   ) => {
-    // const [checked, setChecked] = useState<boolean>(Boolean(defaultChecked))
     const { value: checked, setValue: setChecked } = useControl({
       value: checkedProps,
       defaultValue: defaultChecked

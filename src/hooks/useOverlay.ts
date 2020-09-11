@@ -40,6 +40,10 @@ export const useOverlay = ({
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   const updateVisible = (newValue: boolean) => {
+    if (onVisibleChange) {
+      onVisibleChange(newValue)
+    }
+
     if (dropdownRef.current && expand) {
       dropdownRef.current.style.transform = `scale(${newValue ? 1 : 0})`
     }
@@ -80,16 +84,9 @@ export const useOverlay = ({
     }
   }, [childrenRef, dropdownRef])
 
-  const handleVisibleChange = (flag: boolean) => {
-    if (onVisibleChange) {
-      onVisibleChange(flag)
-    }
-    setVisible(flag)
-  }
-
   const handleClick = (e: Event) => {
     if (wrapperRef.current!.contains(e.target!)) return
-    handleVisibleChange(false)
+    setVisible(false)
   }
 
   useEffect(() => {
@@ -107,13 +104,13 @@ export const useOverlay = ({
   switch (trigger) {
     case 'hover':
       hoverProps = {
-        onMouseEnter: () => handleVisibleChange(true),
-        onMouseLeave: () => handleVisibleChange(false)
+        onMouseEnter: () => setVisible(true),
+        onMouseLeave: () => setVisible(false)
       }
       break
     case 'click':
       clickProps = {
-        onClick: () => handleVisibleChange(!visible)
+        onClick: () => setVisible(!visible)
       }
       break
   }
@@ -123,7 +120,7 @@ export const useOverlay = ({
     childrenRef,
     dropdownRef,
     visible,
-    handleVisibleChange,
+    setVisible,
     hoverProps,
     clickProps
   }

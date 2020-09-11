@@ -84,6 +84,4 @@ const Search = React.forwardRef(
   }
 )
 
-Search.displayName = 'Search'
-
-export default Search
+export { Search }

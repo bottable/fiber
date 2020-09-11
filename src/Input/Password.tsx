@@ -51,6 +51,4 @@ Password.defaultProps = {
     visible ? <VisibilityIcon /> : <VisibilityOffIcon />
 }
 
-Password.displayName = 'Password'
-
-export default Password
+export { Password }

@@ -3,7 +3,7 @@
 exports[`Input renders correctly 1`] = `
 Array [
   <input
-    className="sc-AxjAm sc-AxiKw ifPLQe"
+    className="sc-fzoLsD sc-fzplWN lfgSoX"
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
@@ -12,7 +12,7 @@ Array [
   />,
   <div>
     <input
-      className="sc-AxjAm sc-AxhCb hJtavO"
+      className="sc-fzoLsD sc-fznyAO bWYDDf"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -23,7 +23,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-AxjAm sc-AxiKw ifPLQe"
+      className="sc-fzoLsD sc-fzplWN lfgSoX"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -34,7 +34,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-AxjAm sc-AxirZ eYncZV"
+      className="sc-fzoLsD sc-fzpans dLjjIR"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -45,18 +45,18 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-Axmtr dxDwIG"
+      className="sc-fzqBZW jMstDe"
     >
       <span
-        className="sc-AxheI eElXNJ"
+        className="sc-fzokOt jMwvQj"
       >
         <span
-          className="sc-AxhUy eiDGca"
+          className="sc-fznKkj iDvRtH"
         >
           http://
         </span>
         <input
-          className="sc-AxjAm sc-AxiKw gmpjGV"
+          className="sc-fzoLsD sc-fzplWN fauhXg"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -64,7 +64,7 @@ Array [
           value=""
         />
         <span
-          className="sc-AxhUy eiDGca"
+          className="sc-fznKkj iDvRtH"
         >
           .com
         </span>
@@ -73,13 +73,13 @@ Array [
     <br />
     <br />
     <span
-      className="sc-Axmtr dxDwIG"
+      className="sc-fzqBZW jMstDe"
     >
       <span
-        className="sc-AxheI eElXNJ"
+        className="sc-fzokOt jMwvQj"
       >
         <input
-          className="sc-AxjAm sc-AxiKw eMWIlJ"
+          className="sc-fzoLsD sc-fzplWN curfhU"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -87,7 +87,7 @@ Array [
           value=""
         />
         <span
-          className="sc-AxhUy eiDGca"
+          className="sc-fznKkj iDvRtH"
         >
           <svg
             aria-hidden={true}
@@ -106,16 +106,16 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-AxmLO jhWCsa"
+      className="sc-fzqNJr iElQEm"
       onClick={[Function]}
     >
       <span
-        className="sc-AxgMl VpSRZ"
+        className="sc-fznZeY cYlhly"
       >
         ￥
       </span>
       <input
-        className="sc-AxjAm sc-AxiKw fbGmAr"
+        className="sc-fzoLsD sc-fzplWN bRQZku"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -123,7 +123,7 @@ Array [
         value=""
       />
       <span
-        className="sc-AxgMl VpSRZ"
+        className="sc-fznZeY cYlhly"
       >
         RMB
       </span>
@@ -131,17 +131,17 @@ Array [
     <br />
     <br />
     <span
-      className="sc-AxmLO hmsWUj"
+      className="sc-fzqNJr ipeUAL"
       disabled={true}
       onClick={[Function]}
     >
       <span
-        className="sc-AxgMl VpSRZ"
+        className="sc-fznZeY cYlhly"
       >
         ￥
       </span>
       <input
-        className="sc-AxjAm sc-AxiKw gfaZMz"
+        className="sc-fzoLsD sc-fzplWN gjpODW"
         disabled={true}
         onBlur={[Function]}
         onChange={[Function]}
@@ -150,7 +150,7 @@ Array [
         value=""
       />
       <span
-        className="sc-AxgMl VpSRZ"
+        className="sc-fznZeY cYlhly"
       >
         RMB
       </span>
@@ -158,22 +158,22 @@ Array [
     <br />
     <br />
     <span
-      className="sc-Axmtr dxDwIG"
+      className="sc-fzqBZW jMstDe"
     >
       <span
-        className="sc-AxheI eElXNJ"
+        className="sc-fzokOt jMwvQj"
       >
         <span
-          className="sc-AxhUy eiDGca"
+          className="sc-fznKkj iDvRtH"
         >
           http://
         </span>
         <span
-          className="sc-AxmLO dLuQKB"
+          className="sc-fzqNJr jtNLSN"
           onClick={[Function]}
         >
           <input
-            className="sc-AxjAm sc-AxiKw fbGmAr"
+            className="sc-fzoLsD sc-fzplWN bRQZku"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -181,7 +181,7 @@ Array [
             value=""
           />
           <span
-            className="sc-AxgMl VpSRZ"
+            className="sc-fznZeY cYlhly"
           >
             .com
           </span>
@@ -191,7 +191,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-AxjAm sc-AxiKw bxOWFx"
+      className="sc-fzoLsD sc-fzplWN cHNMeg"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -202,7 +202,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-AxjAm sc-AxiKw jhEiyv"
+      className="sc-fzoLsD sc-fzplWN dTEHiq"
       disabled={true}
       onBlur={[Function]}
       onChange={[Function]}
