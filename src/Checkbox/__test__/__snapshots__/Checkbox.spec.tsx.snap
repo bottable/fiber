@@ -8,13 +8,11 @@ exports[`Checkbox renders correctly 1`] = `
     className="sc-AxiKw KIqnx"
   >
     <input
-      checked={false}
       className="sc-AxhUy eifkvF"
       onChange={[Function]}
       type="Checkbox"
     />
     <span
-      checked={false}
       className="sc-AxjAm exnHkR"
     />
   </span>
