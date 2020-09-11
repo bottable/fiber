@@ -45,15 +45,15 @@ const Pagination: FC<PaginationProps> = ({
 }) => {
   const [jumper, setJumper] = useState<string>('')
 
-  const { value: pageSize, setValue: setPageSize } = useControl({
-    value: pageSizeProps,
-    defaultValue: defaultPageSize,
-    onChange: onChange as (newValue: unknown) => unknown
-  }) as { value: number; setValue: (newValue: number) => void }
-
   const { value: current, setValue: setCurrent } = useControl({
     value: currentProps,
     defaultValue: defaultCurrent,
+    onChange: onChange as (newValue: unknown) => unknown
+  }) as { value: number; setValue: (newValue: number) => void }
+
+  const { value: pageSize, setValue: setPageSize } = useControl({
+    value: pageSizeProps,
+    defaultValue: defaultPageSize,
     onChange: onShowSizeChange as (newValue: unknown) => unknown
   }) as { value: number; setValue: (newValue: number) => void }
 
