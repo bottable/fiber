@@ -33,6 +33,7 @@ export type InputProps = MergeElementProps<
     dropdown?: boolean
     value?: string
     defaultValue?: string
+    style?: React.CSSProperties & object
   }
 >
 
@@ -55,6 +56,7 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       onBlur,
       value: valueProps,
       defaultValue,
+      style,
       ...rest
     } = props
     const { addonBefore, addonAfter } = props
@@ -112,7 +114,6 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
 
     let input = (
       <StyledInput
-        {...rest}
         ref={composeRef<HTMLInputElement>(inputRef, ref)}
         onChange={setValue}
         onKeyDown={handleKeyDown}
@@ -120,6 +121,8 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
         onBlur={handleBlur}
         fix={fix}
         value={value}
+        style={!fix ? style : undefined}
+        {...rest}
       />
     )
 
@@ -140,7 +143,7 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
     if (fix) {
       input = (
         <InputSpan
-          {...rest}
+          style={style}
           size={size}
           onClick={() => inputRef.current?.focus()}
         >
