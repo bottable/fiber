@@ -8,38 +8,50 @@ export type GroupProps = {
 }
 
 export const useGroup = ({
-  onChange,
+  onChange: onChangeProps,
   value: valueProps,
   defaultValue,
   type
 }: GroupProps) => {
-  const { value, setValue } = useControl({
-    value: valueProps,
-    defaultValue
-  }) as {
-    value: string | string[]
-    setValue: (newValue: string | string[]) => void
+  const onChange = (e: React.FormEvent<HTMLInputElement> | string[]) => {
+    if (type === 'checkbox') {
+      if (onChangeProps) onChangeProps(e)
+      return e
+    } else {
+      e = e as React.FormEvent<HTMLInputElement>
+      if (onChangeProps) onChangeProps(e)
+      return (e.target as HTMLInputElement).value
+    }
   }
 
-  const handleChange = (e: any) => {
-    if (e.target.type !== 'checkbox' && e.target.type !== 'radio') {
+  const { value, setValue } = useControl({
+    value: valueProps,
+    defaultValue,
+    onChange: onChange as (newValue: unknown) => unknown
+  }) as {
+    value: string | string[]
+    setValue: (newValue: React.FormEvent<HTMLInputElement> | string[]) => void
+  }
+
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement
+
+    if (target.type !== 'checkbox' && target.type !== 'radio') {
       return
     }
 
     if (type === 'checkbox' && typeof value !== 'string') {
       let newValue: string[]
-      if (value.includes(e.target.value)) {
+      if (value.includes(target.value)) {
         newValue = value.filter(
-          (checkboxValue) => checkboxValue !== e.target.value
+          (checkboxValue) => checkboxValue !== target.value
         )
       } else {
-        newValue = [...value, e.target.value]
+        newValue = [...value, target.value]
       }
       setValue(newValue)
-      if (onChange) onChange(newValue)
     } else {
-      setValue(e.target.value)
-      if (onChange) onChange(e)
+      setValue(e)
     }
   }
 
