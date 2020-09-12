@@ -1,4 +1,5 @@
 import { MergeElementProps } from '../utils'
+import { useRipple } from '../hooks'
 
 import {
   PrimaryButton,
@@ -6,13 +7,12 @@ import {
   DashedButton,
   TextButton,
   LinkButton,
-  RippleSpan,
   Icon,
   StartIcon,
   EndIcon
 } from './styles'
 
-import React, { MouseEventHandler, forwardRef, useRef, useState } from 'react'
+import React, { MouseEventHandler, forwardRef, useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 type Shape = 'default' | 'circle' | 'round'
@@ -42,16 +42,12 @@ export type ButtonProps = MergeElementProps<
   } & ButtonStyleProps
 >
 
-export type RippleProps = {
-  x: number
-  y: number
-  width: number
-}
-
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { children, type, onClick, icon, startIcon, endIcon, ...rest } = props
   const { shape } = props
   const buttonRef = useRef<HTMLButtonElement>(null)
+
+  const { ripples, addRipple } = useRipple()
 
   let StyledButton
 
@@ -73,40 +69,20 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       break
   }
 
-  const [ripples, setRipples] = useState<React.ReactNode[]>([])
-
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (onClick) (onClick as React.MouseEventHandler<HTMLButtonElement>)(e)
   }
 
   const handleMouseDown = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     if (!buttonRef.current) return
 
-    const clientRect = buttonRef.current.getBoundingClientRect()
-
-    const x =
-      shape === 'circle'
-        ? buttonRef.current.offsetWidth / 2
-        : e.clientX - clientRect.left
-    const y =
-      shape === 'circle'
-        ? buttonRef.current.offsetHeight / 2
-        : e.clientY - clientRect.top
-
-    setRipples((prevRipples) => [
-      ...prevRipples!,
-      <RippleSpan
-        x={x}
-        y={y}
-        width={buttonRef!.current!.offsetWidth * 2}
-        onAnimationEnd={() => {
-          setRipples((prevRipples) => prevRipples?.slice(1)!)
-        }}
-        key={`${new Date().getTime()}`}
-      />
-    ])
+    addRipple({
+      event,
+      width: buttonRef.current.offsetWidth * 2,
+      centered: shape === 'circle'
+    })
   }
 
   const iconNode = icon ? <Icon>{icon}</Icon> : null

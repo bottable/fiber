@@ -1,7 +1,7 @@
 import { button } from '../styles'
 
-import { ButtonProps, RippleProps } from './'
-import styled, { css, keyframes } from 'styled-components'
+import { ButtonProps } from './'
+import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
 const svgStyle = css<ButtonProps>`
@@ -204,30 +204,4 @@ export const LinkButton = styled(BaseButton)`
       return theme.colors[ghost ? 'dark' : 'light']
     }};
   }
-`
-
-const rippleAnimation = ({ width }: RippleProps) => {
-  return keyframes`
-    from {
-      width: 0;
-      height: 0;
-      opacity: 0.5;
-    }
-    to {
-      width: ${rem(`${width}px`)};
-      height: ${rem(`${width}px`)};
-      opacity: 0;
-    }
-`
-}
-
-export const RippleSpan = styled.span<RippleProps>`
-  position: absolute;
-  top: ${({ y }) => rem(`${y}px`)};
-  left: ${({ x }) => rem(`${x}px`)};
-  border-radius: 50%;
-  background: ${({ theme }) => theme.colors.gray7};
-  transform: translate(-50%, -50%);
-  animation: ${rippleAnimation} 0.5s linear 1;
-  pointer-events: none;
 `

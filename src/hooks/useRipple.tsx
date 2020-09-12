@@ -2,8 +2,9 @@ import { RippleSpan } from '../styles'
 
 import React, { useState } from 'react'
 
-export type RippleProps = {
-  component: HTMLElement
+export type AddRipleprops = {
+  event: React.MouseEvent
+  width: number
   centered?: boolean
 }
 
@@ -13,12 +14,20 @@ export type RippleStyleProps = {
   width: number
 }
 
-export const useRipple = ({ component, centered }: RippleProps) => {
+export const useRipple = () => {
   const [ripples, setRipples] = useState<React.ReactNode[]>([])
 
-  const addRipple = ({ x, y, width }: RippleStyleProps) => {
-    x = centered ? component.offsetWidth / 2 : x
-    y = centered ? component.offsetHeight / 2 : y
+  const addRipple = ({ event, width, centered }: AddRipleprops) => {
+    const element = event.currentTarget as HTMLElement
+
+    const clientRect = element.getBoundingClientRect()
+
+    const x = centered
+      ? element.offsetWidth / 2
+      : event.clientX - clientRect.left
+    const y = centered
+      ? element.offsetHeight / 2
+      : event.clientY - clientRect.top
 
     setRipples((prevRipples) => [
       ...prevRipples!,
