@@ -7,9 +7,9 @@ import React, { FC } from 'react'
 
 export type CollapseProps = {
   children: React.ReactElement | React.ReactElement[]
-  activeKey: string[]
-  defaultActiveKey: string[]
-  onChange: (key: string[]) => void
+  activeKey?: string[]
+  defaultActiveKey?: string[]
+  onChange?: (key: string[]) => void
 }
 
 type CollapseFC<P> = FC<P> & {
