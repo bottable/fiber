@@ -1,8 +1,6 @@
 import { MergeElementProps } from '../utils'
 import { useControl } from '../hooks'
 
-import { Password } from './Password'
-import { Search } from './Search'
 import {
   SmallInput,
   MediumInput,
@@ -168,9 +166,6 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
     return input
   }
 )
-
-Input.Password = Password
-Input.Search = Search
 
 Input.defaultProps = {
   defaultValue: ''

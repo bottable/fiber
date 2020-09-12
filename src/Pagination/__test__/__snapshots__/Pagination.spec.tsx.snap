@@ -2,20 +2,20 @@
 
 exports[`Pagination renders correctly 1`] = `
 <ul
-  className="sc-fznJRM rmHEl"
+  className="sc-fznWqX hlfImi"
 >
   <li
-    className="sc-fznWqX evsJst"
+    className="sc-fzoiQi ijzhiv"
   >
     <button
-      className="sc-AxiKw sc-Axmtr jezzwU sc-fzoiQi HHNRf"
+      className="sc-AxhCb sc-AxmLO chzfCt sc-fzqARJ ibraqh"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
       selected={false}
     >
       <span
-        className="sc-AxhCb iTZsUI"
+        className="sc-AxhUy crhaAp"
       >
         <svg
           aria-hidden={true}
@@ -31,17 +31,17 @@ exports[`Pagination renders correctly 1`] = `
     </button>
   </li>
   <li
-    className="sc-fznWqX evsJst"
+    className="sc-fzoiQi ijzhiv"
   >
     <button
-      className="sc-AxiKw sc-Axmtr dpvyni sc-fzoiQi HHNRf"
+      className="sc-AxhCb sc-AxmLO dBgaij sc-fzqARJ ibraqh"
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
       selected={false}
     >
       <span
-        className="sc-AxhCb iTZsUI"
+        className="sc-AxhUy crhaAp"
       >
         <svg
           aria-hidden={true}

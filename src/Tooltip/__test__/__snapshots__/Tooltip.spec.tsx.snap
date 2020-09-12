@@ -2,7 +2,7 @@
 
 exports[`Tooltip renders correctly 1`] = `
 <div
-  className="sc-AxjAm hISltw"
+  className="sc-AxirZ iJvRdz"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
@@ -10,7 +10,7 @@ exports[`Tooltip renders correctly 1`] = `
     Tooltip
   </span>
   <div
-    className="sc-AxirZ kQcrpZ"
+    className="sc-AxiKw Ffvdp"
   />
 </div>
 `;
