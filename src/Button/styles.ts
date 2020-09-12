@@ -1,10 +1,9 @@
-import { button } from '../styles'
+import { button, ButtonStyleProps } from '../styles'
 
-import { ButtonProps } from './'
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
-const svgStyle = css<ButtonProps>`
+const svgStyle = css<ButtonStyleProps>`
   width: ${({ size }) => {
     switch (size) {
       case 'lg':
@@ -24,11 +23,11 @@ const svgStyle = css<ButtonProps>`
   vertical-align: middle;
 `
 
-export const BaseButton = styled.button<ButtonProps>`
+export const BaseButton = styled.button<ButtonStyleProps>`
   ${button}
 `
 
-export const Icon = styled.span<ButtonProps>`
+export const Icon = styled.span<ButtonStyleProps>`
   line-height: 1;
   svg {
     ${svgStyle}

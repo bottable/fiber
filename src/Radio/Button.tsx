@@ -1,9 +1,10 @@
-import { ButtonStyleProps } from '../Button'
+import { ButtonStyleProps } from '../styles'
+import { useRipple, useControl } from '../hooks'
 
 import { RadioProps } from './Radio'
 import { StyledRadioButton, RadioInput } from './styles'
 
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useRef } from 'react'
 
 export interface ButtonProps extends RadioProps, ButtonStyleProps {
   postChecked?: boolean
@@ -18,7 +19,7 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
     {
       children,
       checked: checkedProps,
-      onChange,
+      onChange: onChangeProps,
       style,
       size,
       postChecked,
@@ -28,27 +29,43 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
     },
     ref
   ) => {
-    const [checked, setChecked] = useState<boolean>(false)
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onChangeProps) onChangeProps(e)
+      return e.target.checked
+    }
 
-    useEffect(() => {
-      if (typeof checkedProps === 'boolean') setChecked(checkedProps)
-    }, [checkedProps])
+    const { value: checked, setValue: setChecked } = useControl({
+      value: checkedProps,
+      defaultValue: false,
+      onChange: onChange as (newValue: unknown) => unknown
+    }) as {
+      value: boolean
+      setValue: (newValue: React.ChangeEvent<HTMLInputElement>) => void
+    }
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (typeof checkedProps !== 'boolean') setChecked(e.target.checked)
-      if (onChange) {
-        onChange(e)
-      }
+    const buttonRef = useRef<HTMLLabelElement>(null)
+
+    const { ripples, addRipple } = useRipple()
+
+    const handleMouseDown = (
+      event: React.MouseEvent<HTMLLabelElement, MouseEvent>
+    ) => {
+      if (!buttonRef.current || disabled) return
+
+      addRipple({
+        event,
+        width: buttonRef.current.offsetWidth * 2
+      })
     }
 
     const radioNode = (
       <RadioInput
         type='radio'
         checked={checked}
-        onChange={handleChange}
+        onChange={setChecked}
         disabled={disabled}
-        {...props}
         ref={ref}
+        {...props}
       />
     )
 
@@ -60,7 +77,10 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
         buttonStyle={buttonStyle}
         style={{ marginRight: 0, ...style }}
         disabled={disabled}
+        onMouseDown={handleMouseDown}
+        ref={buttonRef}
       >
+        {ripples}
         {radioNode}
         {children}
       </StyledRadioButton>

@@ -1,7 +1,15 @@
-import { ButtonStyleProps } from '../Button'
-
 import { css } from 'styled-components'
 import { rem } from 'polished'
+
+export type ButtonStyleProps = {
+  shape?: 'default' | 'circle' | 'round'
+  size?: 'sm' | 'md' | 'lg'
+  disabled?: boolean
+  ghost?: boolean
+  addon?: boolean
+  dropdown?: boolean
+  block?: boolean
+}
 
 export const button = css<ButtonStyleProps>`
   display: inline-flex;

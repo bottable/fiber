@@ -1,5 +1,6 @@
 import { MergeElementProps } from '../utils'
 import { useRipple } from '../hooks'
+import { ButtonStyleProps } from '../styles'
 
 import {
   PrimaryButton,
@@ -14,18 +15,6 @@ import {
 
 import React, { MouseEventHandler, forwardRef, useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
-
-type Shape = 'default' | 'circle' | 'round'
-
-export type ButtonStyleProps = {
-  shape?: Shape
-  size?: 'sm' | 'md' | 'lg'
-  disabled?: boolean
-  ghost?: boolean
-  addon?: boolean
-  dropdown?: boolean
-  block?: boolean
-}
 
 export type ButtonProps = MergeElementProps<
   'button',
