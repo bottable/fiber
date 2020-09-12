@@ -1,4 +1,6 @@
 import { MergeElementProps } from '../utils'
+import { useControl } from '../hooks'
+import { Size } from '../types'
 
 import {
   SmallInput,
@@ -11,13 +13,13 @@ import {
   BlockSpan
 } from './styles'
 
-import React, { FC, useState, useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export type InputProps = MergeElementProps<
   'input',
   {
-    size?: 'sm' | 'md' | 'lg'
+    size?: Size
     onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>
     addonBefore?: React.ReactNode
     addonAfter?: React.ReactNode
@@ -29,142 +31,145 @@ export type InputProps = MergeElementProps<
     button?: boolean
     dropdown?: boolean
     value?: string
+    defaultValue?: string
+    style?: React.CSSProperties & object
   }
 >
 
-type InputFC<P> = FC<P> & {
-  Password?: FC<P>
-  Search?: FC<P>
-}
+// TO DO: Find a proper way to type this
+type InputFC = any
 
-const Input: InputFC<InputProps> = React.forwardRef<
-  HTMLInputElement,
-  InputProps
->((props, ref) => {
-  const inputRef = useRef<HTMLInputElement>(null)
+const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
+  (props, ref) => {
+    const inputRef = useRef<HTMLInputElement>(null)
 
-  const {
-    size,
-    prefix,
-    suffix,
-    button,
-    onChange,
-    onPressEnter,
-    onKeyDown,
-    onFocus,
-    onBlur,
-    value: valueProps,
-    ...rest
-  } = props
-  const { addonBefore, addonAfter } = props
+    const {
+      size,
+      prefix,
+      suffix,
+      button,
+      onChange: onChangeProps,
+      onPressEnter,
+      onKeyDown,
+      onFocus,
+      onBlur,
+      value: valueProps,
+      defaultValue,
+      style,
+      ...rest
+    } = props
+    const { addonBefore, addonAfter } = props
 
-  const [value, setValue] = useState<string>('')
-
-  useEffect(() => {
-    if (typeof valueProps === 'string') {
-      setValue(valueProps)
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onChangeProps) onChangeProps(e)
+      return e.target.value
     }
-  }, [valueProps])
 
-  let StyledInput
-
-  switch (size) {
-    case 'sm':
-      StyledInput = SmallInput
-      break
-    case 'lg':
-      StyledInput = LargeInput
-      break
-    default:
-      StyledInput = MediumInput
-      break
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (typeof valueProps !== 'string') {
-      setValue(e.target.value)
+    const { value, setValue } = useControl({
+      value: valueProps,
+      defaultValue,
+      onChange: onChange as (newValue: unknown) => unknown
+    }) as {
+      value: string
+      setValue: (newValue: React.ChangeEvent<HTMLInputElement>) => void
     }
-    if (onChange) {
-      onChange(e)
+
+    let StyledInput
+
+    switch (size) {
+      case 'sm':
+        StyledInput = SmallInput
+        break
+      case 'lg':
+        StyledInput = LargeInput
+        break
+      default:
+        StyledInput = MediumInput
+        break
     }
-  }
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.keyCode === 13 && onPressEnter) {
-      onPressEnter(e)
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.keyCode === 13 && onPressEnter) {
+        onPressEnter(e)
+      }
+      if (onKeyDown) {
+        onKeyDown(e)
+      }
     }
-    if (onKeyDown) {
-      onKeyDown(e)
+
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+      if (onFocus) {
+        onFocus(e)
+      }
     }
-  }
 
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (onFocus) {
-      onFocus(e)
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      if (onBlur) {
+        onBlur(e)
+      }
     }
-  }
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (onBlur) {
-      onBlur(e)
-    }
-  }
+    const fix = Boolean(prefix || suffix)
 
-  const fix = Boolean(prefix || suffix)
-
-  let input = (
-    <StyledInput
-      {...rest}
-      ref={composeRef<HTMLInputElement>(inputRef, ref)}
-      onChange={handleChange}
-      onKeyDown={handleKeyDown}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      fix={fix}
-      value={value}
-    />
-  )
-
-  const addonBeforeNode = addonBefore && (
-    <Addon size={size} button={button}>
-      {addonBefore}
-    </Addon>
-  )
-  const addonAfterNode = addonAfter && (
-    <Addon size={size} button={button}>
-      {addonAfter}
-    </Addon>
-  )
-
-  const prefixNode = prefix && <Fix size={size}>{prefix}</Fix>
-  const suffixNode = suffix && <Fix size={size}>{suffix}</Fix>
-
-  if (fix) {
-    input = (
-      <InputSpan
+    let input = (
+      <StyledInput
+        ref={composeRef<HTMLInputElement>(inputRef, ref)}
+        onChange={setValue}
+        onKeyDown={handleKeyDown}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        fix={fix}
+        value={value}
+        style={!fix ? style : undefined}
         {...rest}
-        size={size}
-        onClick={() => inputRef.current?.focus()}
-      >
-        {prefixNode}
-        {input}
-        {suffixNode}
-      </InputSpan>
+      />
     )
-  }
 
-  if (addonBefore || addonAfter) {
-    return (
-      <BlockSpan>
-        <TableSpan>
-          {addonBeforeNode}
-          {input}
-          {addonAfterNode}
-        </TableSpan>
-      </BlockSpan>
+    const addonBeforeNode = addonBefore && (
+      <Addon size={size} button={button}>
+        {addonBefore}
+      </Addon>
     )
+    const addonAfterNode = addonAfter && (
+      <Addon size={size} button={button}>
+        {addonAfter}
+      </Addon>
+    )
+
+    const prefixNode = prefix && <Fix size={size}>{prefix}</Fix>
+    const suffixNode = suffix && <Fix size={size}>{suffix}</Fix>
+
+    if (fix) {
+      input = (
+        <InputSpan
+          style={style}
+          size={size}
+          onClick={() => inputRef.current?.focus()}
+        >
+          {prefixNode}
+          {input}
+          {suffixNode}
+        </InputSpan>
+      )
+    }
+
+    if (addonBefore || addonAfter) {
+      return (
+        <BlockSpan>
+          <TableSpan>
+            {addonBeforeNode}
+            {input}
+            {addonAfterNode}
+          </TableSpan>
+        </BlockSpan>
+      )
+    }
+    return input
   }
-  return input
-})
+)
+
+Input.defaultProps = {
+  defaultValue: ''
+}
 
 export { Input }

@@ -1,7 +1,6 @@
 import { button } from '../styles'
 
 import { RadioProps } from './Radio'
-import { GroupProps } from './Group'
 import { ButtonProps } from './Button'
 
 import styled, { css } from 'styled-components'
@@ -88,7 +87,7 @@ export const StyledRadio = styled.span<RadioProps>`
   ${({ disabled }) => (disabled ? disabledStyle : null)}
 `
 
-export const StyledGroup = styled.div<GroupProps>`
+export const StyledGroup = styled.div`
   display: inline-block;
   label {
     margin-right: ${({ theme }) => theme.margins.xs};
@@ -127,6 +126,7 @@ export const StyledRadioButton = styled.label<ButtonProps>`
   ${({ buttonStyle }) =>
     buttonStyle === 'solid' ? solidRadioStyle : defaultRadioStyle};
   height: ${rem('16px')};
+  overflow: hidden;
   border-color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
   border-left-color: ${({ postChecked, theme }) =>
     postChecked ? theme.colors.base : null};

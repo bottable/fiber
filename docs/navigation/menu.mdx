@@ -1,0 +1,54 @@
+---
+name: Menu
+route: /navigation/menu
+menu: Navigation
+---
+
+import { Menu, Text } from 'fiber'
+import { Playground } from 'docz'
+
+# Menu
+
+## Block
+
+<Playground>
+  {() => {
+    return (
+      <div>
+        <Menu style={{ width: 300 }}>
+          <Menu.Item>
+            <Text> Item 1 </Text>
+          </Menu.Item>
+          <Menu.Item>
+            <Text> Item 2 </Text>
+          </Menu.Item>
+          <Menu.Item>
+            <Text> Item 3 </Text>
+          </Menu.Item>
+        </Menu>
+      </div>
+    )
+  }}
+</Playground>
+
+## Inline
+
+<Playground>
+  {() => {
+    return (
+      <div>
+        <Menu inline style={{ width: 300 }}>
+          <Menu.Item>
+            <Text> Item 1 </Text>
+          </Menu.Item>
+          <Menu.Item>
+            <Text> Item 2 </Text>
+          </Menu.Item>
+          <Menu.Item>
+            <Text> Item 3 </Text>
+          </Menu.Item>
+        </Menu>
+      </div>
+    )
+  }}
+</Playground>

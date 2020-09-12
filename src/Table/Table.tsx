@@ -1,6 +1,6 @@
 import { Radio } from '../Radio'
 import { Checkbox } from '../Checkbox'
-import { useGroup } from '../hooks'
+import { useGroup, useControl } from '../hooks'
 import { PaginationProps } from '../Pagination'
 
 import {
@@ -110,22 +110,23 @@ const Table: FC<TableProps> = ({
           ? rowSelection.selectedRowKeys[0]
           : rowSelection.selectedRowKeys
         : undefined,
+    defaultValue: type! === 'radio' ? '' : [],
     type: type!
   })
 
   const [selectionHeader, setSelectionHeader] = useState<boolean>(false)
-  const [page, setPage] = useState<number>(
-    (pagination && pagination.defaultCurrent) || 1
-  )
-  const [pageSize, setPageSize] = useState<number>(
-    (pagination && pagination.defaultPageSize) || 10
-  )
 
-  const handlePageChange = (page: number, pageSize: number) => {
-    setPage(page)
-    setPageSize(pageSize)
-    if (pagination && pagination.onChange) pagination.onChange(page, pageSize)
-  }
+  const { value: page, setValue: setPage } = useControl({
+    value: pagination?.current,
+    defaultValue: pagination?.defaultCurrent || 1,
+    onChange: pagination?.onChange as (newValue: unknown) => unknown
+  }) as { value: number; setValue: (newValue: number) => void }
+
+  const { value: pageSize, setValue: setPageSize } = useControl({
+    value: pagination?.pageSize,
+    defaultValue: pagination?.defaultPageSize || 10,
+    onChange: pagination?.onChange as (newValue: unknown) => unknown
+  }) as { value: number; setValue: (newValue: number) => void }
 
   const tableHeadNode = (
     <TableHead>
@@ -186,13 +187,24 @@ const Table: FC<TableProps> = ({
   }
 
   const tableBodyNode = (
-    <TableBody onChange={handleSelectionChange}>{pageRecords}</TableBody>
+    <TableBody
+      onChange={
+        (handleSelectionChange as unknown) as (
+          event: React.FormEvent<HTMLTableSectionElement>
+        ) => void
+      }
+    >
+      {pageRecords}
+    </TableBody>
   )
 
   const paginationNode = (
     <Pagination
+      current={page}
+      pageSize={pageSize}
       total={dataSource.length}
-      onChange={handlePageChange}
+      onChange={setPage}
+      onShowSizeChange={setPageSize}
       {...pagination}
     />
   )

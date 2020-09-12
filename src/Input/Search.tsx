@@ -21,39 +21,19 @@ const Search = React.forwardRef(
   (props: SearchProps, ref: React.Ref<HTMLInputElement>) => {
     const inputRef = React.useRef<HTMLInputElement>(null)
 
-    const {
-      onChange: customOnChange,
-      onSearch: customOnSearch,
-      addonAfter,
-      enterButton,
-      ...rest
-    } = props
+    const { onSearch: onSearchProps, addonAfter, enterButton, ...rest } = props
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e && e.target && e.type === 'click' && customOnSearch) {
-        customOnSearch(
-          (e as React.ChangeEvent<HTMLInputElement>).target.value,
-          e
-        )
-      }
-      if (customOnChange) {
-        customOnChange(e)
-      }
-    }
+    const { disabled, size } = props
 
     const onSearch = (
       e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>
     ) => {
-      const { disabled } = props
-
       if (disabled) return
 
-      if (customOnSearch) return customOnSearch(inputRef.current?.value!, e)
+      if (onSearchProps) return onSearchProps(inputRef.current?.value!, e)
     }
 
     const renderAddonAfter = () => {
-      const { disabled, size } = props
-
       if (!enterButton) return addonAfter
 
       const button = (
@@ -64,7 +44,7 @@ const Search = React.forwardRef(
           onClick={onSearch}
           addon
         >
-          {enterButton === true ? <SearchIcon /> : enterButton}
+          <SearchIcon />
         </Button>
       )
 
@@ -76,7 +56,6 @@ const Search = React.forwardRef(
         ref={composeRef<HTMLInputElement>(inputRef, ref)}
         onPressEnter={onSearch}
         addonAfter={renderAddonAfter()}
-        onChange={onChange}
         button
         {...rest}
       />
@@ -84,6 +63,4 @@ const Search = React.forwardRef(
   }
 )
 
-Search.displayName = 'Search'
-
-export default Search
+export { Search }

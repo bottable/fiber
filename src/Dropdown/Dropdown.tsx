@@ -1,11 +1,11 @@
-import { useDropdown, DropdownProps as BaseDropdownProps } from '../hooks'
+import { useOverlay, OverlayProps } from '../hooks'
 
 import { Wrapper, DropdownWrapper, Description } from './styles'
 
 import React from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
-export interface DropdownProps extends BaseDropdownProps {
+export interface DropdownProps extends OverlayProps {
   n?: number
   description?: string
   overlay?: React.ReactElement
@@ -25,7 +25,7 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       description,
       placement,
       width,
-      ...rest
+      style
     } = props
 
     const {
@@ -33,10 +33,10 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       childrenRef,
       dropdownRef,
       visible,
-      handleVisibleChange,
+      setVisible,
       hoverProps,
       clickProps
-    } = useDropdown(props)
+    } = useOverlay(props)
 
     const descriptionNode = description ? (
       <Description>{description}</Description>
@@ -59,7 +59,6 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
         {...hoverProps}
-        {...rest}
       >
         {React.cloneElement(childrenNode, {
           ...clickProps,
@@ -72,11 +71,12 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
           ref={dropdownRef}
           n={n}
           width={width}
+          style={style}
         >
           {descriptionNode}
           {React.cloneElement(overlay!, {
             collapse: () => {
-              handleVisibleChange(false)
+              setVisible(false)
             }
           })}
         </DropdownWrapper>

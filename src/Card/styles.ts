@@ -17,8 +17,7 @@ export const StyledCard = styled.div<CardProps>`
   font-size: ${rem('14px')};
   line-height: 1.5715;
   &:hover {
-    box-shadow: ${({ hoverable, theme }) =>
-      hoverable ? theme.boxShadow : null};
+    ${({ hoverable, theme }) => (hoverable ? theme.boxShadow : null)}
   }
   ${({ theme }) => theme.transition}
 `

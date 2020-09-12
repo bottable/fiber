@@ -1,27 +1,19 @@
-import { useDropdown, DropdownProps } from '../hooks'
+import { Color } from '../types'
+import { useOverlay, OverlayProps } from '../hooks'
 
 import { Wrapper, TooltipWrapper } from './styles'
 
 import React, { FC } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
-export interface TooltipProps extends DropdownProps {
+export interface TooltipProps extends OverlayProps {
   title?: string
-  color?:
-    | 'blue'
-    | 'green'
-    | 'magenta'
-    | 'neutral'
-    | 'orange'
-    | 'purple'
-    | 'red'
-    | 'teal'
-    | 'yellow'
+  color?: Color | string
 }
 
 const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
   (props, ref) => {
-    const { children, placement, title, color, ...rest } = props
+    const { children, placement, title, color, style } = props
 
     const {
       wrapperRef,
@@ -30,7 +22,7 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
       visible,
       hoverProps,
       clickProps
-    } = useDropdown({ ...props, expand: true })
+    } = useOverlay({ ...props, expand: true })
 
     const childrenNode = Array.isArray(children)
       ? ((<span>{children}</span>) as any)
@@ -40,7 +32,6 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
         {...hoverProps}
-        {...rest}
       >
         {React.cloneElement(childrenNode, {
           ...clickProps,
@@ -51,6 +42,7 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
           placement={placement}
           color={color}
           ref={dropdownRef}
+          style={style}
         >
           {title}
         </TooltipWrapper>

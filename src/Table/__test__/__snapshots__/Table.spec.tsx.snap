@@ -129,14 +129,14 @@ exports[`Table renders correctly 1`] = `
       className="sc-fznxKY FVtAh"
     >
       <button
-        className="sc-fzoLsD sc-fznZeY dJseWR sc-fznMAR isFKup"
+        className="sc-fzpans sc-fzokOt gxhIxB sc-fznMAR isFKup"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}
         selected={false}
       >
         <span
-          className="sc-fzpans kDGqjM"
+          className="sc-fzplWN dsgbOd"
         >
           <svg
             aria-hidden={true}
@@ -156,7 +156,7 @@ exports[`Table renders correctly 1`] = `
       onClick={[Function]}
     >
       <button
-        className="sc-fzoLsD sc-fznZeY kWlJbT sc-fznMAR fvOJyV"
+        className="sc-fzpans sc-fzokOt iXJYKT sc-fznMAR fvOJyV"
         onClick={[Function]}
         onMouseDown={[Function]}
         selected={true}
@@ -170,14 +170,14 @@ exports[`Table renders correctly 1`] = `
       className="sc-fznxKY FVtAh"
     >
       <button
-        className="sc-fzoLsD sc-fznZeY dJseWR sc-fznMAR isFKup"
+        className="sc-fzpans sc-fzokOt gxhIxB sc-fznMAR isFKup"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}
         selected={false}
       >
         <span
-          className="sc-fzpans kDGqjM"
+          className="sc-fzplWN dsgbOd"
         >
           <svg
             aria-hidden={true}

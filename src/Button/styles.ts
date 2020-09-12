@@ -1,10 +1,9 @@
-import { button } from '../styles'
+import { button, ButtonStyleProps } from '../styles'
 
-import { ButtonProps, RippleProps } from './'
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
-const svgStyle = css<ButtonProps>`
+const svgStyle = css<ButtonStyleProps>`
   width: ${({ size }) => {
     switch (size) {
       case 'lg':
@@ -24,11 +23,11 @@ const svgStyle = css<ButtonProps>`
   vertical-align: middle;
 `
 
-export const BaseButton = styled.button<ButtonProps>`
+export const BaseButton = styled.button<ButtonStyleProps>`
   ${button}
 `
 
-export const Icon = styled.span<ButtonProps>`
+export const Icon = styled.span<ButtonStyleProps>`
   line-height: 1;
   svg {
     ${svgStyle}
@@ -204,53 +203,4 @@ export const LinkButton = styled(BaseButton)`
       return theme.colors[ghost ? 'dark' : 'light']
     }};
   }
-`
-
-const rippleAnimation = ({
-  width,
-  top,
-  right,
-  bottom,
-  left,
-  shape
-}: RippleProps) => {
-  const fromInset = `inset(${rem(`${-top}px`)} ${rem(`${-right}px`)} ${rem(
-    `${-bottom}px`
-  )} ${rem(`${-left}px`)} round ${
-    shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')
-  })`
-
-  const toInset = `inset(${rem(`${-top + width / 2}px`)} ${rem(
-    `${-right + width / 2}px`
-  )} ${rem(`${-bottom + width / 2}px`)} ${rem(
-    `${-left + width / 2}px`
-  )} round ${
-    shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')
-  })`
-
-  return keyframes`
-    from {
-      width: 0;
-      height: 0;
-      opacity: 0.5;
-      clip-path: ${fromInset}
-    }
-    to {
-      width: ${rem(`${width}px`)};
-      height: ${rem(`${width}px`)};
-      opacity: 0;
-      clip-path: ${toInset}
-    }
-`
-}
-
-export const RippleSpan = styled.span<RippleProps>`
-  position: absolute;
-  top: ${({ y }) => rem(`${y}px`)};
-  left: ${({ x }) => rem(`${x}px`)};
-  border-radius: 50%;
-  background: ${({ theme }) => theme.colors.gray7};
-  transform: translate(-50%, -50%);
-  animation: ${rippleAnimation} 0.5s linear 1;
-  pointer-events: none;
 `

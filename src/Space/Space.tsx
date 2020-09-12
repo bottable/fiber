@@ -1,3 +1,5 @@
+import { Size } from '../types'
+
 import { StyledBlock } from './styles'
 
 import styled, { css } from 'styled-components'
@@ -6,7 +8,7 @@ import React, { FC } from 'react'
 import { rem } from 'polished'
 
 export interface SpaceProps {
-  size?: 'sm' | 'md' | 'lg' | number
+  size?: Size | number
   direction?: 'horizontal' | 'vertical'
   align?: 'start' | 'end' | 'center' | 'baseline'
 }

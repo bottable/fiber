@@ -5,9 +5,61 @@ menu: Layout
 ---
 
 import { Playground } from 'docz'
-import { Space } from 'fiber'
+import { Space, Button, Card, Radio, Slider } from 'fiber'
+import { useState } from 'react'
 
 # Space
+
+<Playground>
+  <Space>
+    <Button type='primary'>Primary</Button>
+    <Button>Default</Button>
+    <Button type='dashed'>Dashed</Button>
+    <Button type='link'>Link</Button>
+  </Space>
+</Playground>
+
+## Vertical
+
+<Playground>
+  <Space direction='vertical'>
+    <Card title='Card' style={{ width: 300 }}>
+      <p>Card content</p>
+      <p>Card content</p>
+    </Card>
+    <Card title='Card' style={{ width: 300 }}>
+      <p>Card content</p>
+      <p>Card content</p>
+    </Card>
+  </Space>
+</Playground>
+
+## Size
+
+<Playground>
+  {() => {
+    const [size, setSize] = useState('sm')
+    return (
+      <React.Fragment>
+        <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
+          <Radio value='sm'>Small</Radio>
+          <Radio value='md'>Middle</Radio>
+          <Radio value='lg'>Large</Radio>
+        </Radio.Group>
+        <br />
+        <br />
+        <Space size={size}>
+          <Button type='primary'>Primary</Button>
+          <Button>Default</Button>
+          <Button type='dashed'>Dashed</Button>
+          <Button type='link'>Link</Button>
+        </Space>
+      </React.Fragment>
+    )
+  }}
+</Playground>
+
+## Align
 
 <Playground>
   {() => {
@@ -21,86 +73,66 @@ import { Space } from 'fiber'
       margin: '8px 4px',
       padding: 4,
       flex: 'none',
-      border: '1px solid blue'
+      border: '1px solid #40a9ff',
+      fontSize: 14
     }
     const grayStyle = {
       display: 'inline-block',
       padding: '32px 8px 16px',
-      background: 'gray'
+      background: 'rgba(150, 150, 150, 0.2)'
     }
     return (
-      <>
-        <div>
-          <Space size='sm'>
-            <h1>Small</h1>
-            <h1>Size</h1>
-            <h1>!</h1>
+      <div style={{ flexWrap: 'wrap', display: 'flex' }}>
+        <div style={alignBlockStyle}>
+          <Space align='center'>
+            center
+            <Button type='primary'>Primary</Button>
+            <span style={grayStyle}>Block</span>
           </Space>
         </div>
-        <div>
-          <Space size='md'>
-            <h1>Middle</h1>
-            <h1>Size</h1>
-            <h1>!</h1>
+        <div style={alignBlockStyle}>
+          <Space align='start'>
+            start
+            <Button type='primary'>Primary</Button>
+            <span style={grayStyle}>Block</span>
           </Space>
         </div>
-        <div>
-          <Space size='lg'>
-            <h1>Large</h1>
-            <h1>Size</h1>
-            <h1>!</h1>
+        <div style={alignBlockStyle}>
+          <Space align='end'>
+            end
+            <Button type='primary'>Primary</Button>
+            <span style={grayStyle}>Block</span>
           </Space>
         </div>
-        <div>
-          <Space size={100}>
-            <h1>Number 100</h1>
-            <h1>Size</h1>
-            <h1>!</h1>
+        <div style={alignBlockStyle}>
+          <Space align='baseline'>
+            baseline
+            <Button type='primary'>Primary</Button>
+            <span style={grayStyle}>Block</span>
           </Space>
         </div>
-        <div style={{ marginBottom: 10 }}>
-          <Space direction='horizontal'>
-            <div style={directionBlockStyle}>HELLO</div>
-            <div style={directionBlockStyle}>HORIZONTAL</div>
-          </Space>
-        </div>
-        <div>
-          <Space direction='vertical'>
-            <div style={directionBlockStyle}>HELLO</div>
-            <div style={directionBlockStyle}>VERTICAL</div>
-          </Space>
-        </div>
-        <div style={{ flexWrap: 'wrap', display: 'flex' }}>
-          <div style={alignBlockStyle}>
-            <Space align='center'>
-              center
-              <button>Primary</button>
-              <span style={grayStyle}>Block</span>
-            </Space>
-          </div>
-          <div style={alignBlockStyle}>
-            <Space align='start'>
-              start
-              <button>Primary</button>
-              <span style={grayStyle}>Block</span>
-            </Space>
-          </div>
-          <div style={alignBlockStyle}>
-            <Space align='end'>
-              end
-              <button>Primary</button>
-              <span style={grayStyle}>Block</span>
-            </Space>
-          </div>
-          <div style={alignBlockStyle}>
-            <Space align='baseline'>
-              baseline
-              <button>Primary</button>
-              <span style={grayStyle}>Block</span>
-            </Space>
-          </div>
-        </div>
-      </>
+      </div>
+    )
+  }}
+</Playground>
+
+## Custom Size
+
+<Playground>
+  {() => {
+    const [size, setSize] = useState(8)
+    return (
+      <React.Fragment>
+        <Slider value={size} onChange={(value) => setSize(value)} />
+        <br />
+        <br />
+        <Space size={size}>
+          <Button type='primary'>Primary</Button>
+          <Button>Default</Button>
+          <Button type='dashed'>Dashed</Button>
+          <Button type='link'>Link</Button>
+        </Space>
+      </React.Fragment>
     )
   }}
 </Playground>

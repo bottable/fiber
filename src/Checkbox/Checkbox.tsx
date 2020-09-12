@@ -1,3 +1,5 @@
+import { useControl } from '../hooks'
+
 import {
   Wrapper,
   CheckboxContainer,
@@ -7,7 +9,7 @@ import {
 } from './styles'
 import { GroupProps } from './Group'
 
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC } from 'react'
 
 export type CheckboxProps = {
   checked?: boolean
@@ -31,24 +33,25 @@ const Checkbox: CheckboxFC<CheckboxProps> = React.forwardRef<
       children,
       checked: checkedProps,
       defaultChecked,
-      onChange,
+      onChange: onChangeProps,
       style,
       disabled,
       ...props
     },
     ref
   ) => {
-    const [checked, setChecked] = useState<boolean>(Boolean(defaultChecked))
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onChangeProps) onChangeProps(e)
+      return e.target.checked
+    }
 
-    useEffect(() => {
-      if (typeof checkedProps === 'boolean') setChecked(checkedProps)
-    }, [checkedProps])
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (typeof checkedProps !== 'boolean') setChecked(e.target.checked)
-      if (onChange) {
-        onChange(e)
-      }
+    const { value: checked, setValue: setChecked } = useControl({
+      value: checkedProps,
+      defaultValue: defaultChecked,
+      onChange: onChange as (newValue: unknown) => unknown
+    }) as {
+      value: boolean
+      setValue: (event: React.ChangeEvent<HTMLInputElement>) => void
     }
 
     const CheckboxNode = (
@@ -56,7 +59,7 @@ const Checkbox: CheckboxFC<CheckboxProps> = React.forwardRef<
         <CheckboxInput
           type='Checkbox'
           checked={checked}
-          onChange={handleChange}
+          onChange={setChecked}
           disabled={disabled}
           {...props}
           ref={ref}

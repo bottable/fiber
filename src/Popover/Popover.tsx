@@ -1,4 +1,4 @@
-import { useDropdown, DropdownProps } from '../hooks'
+import { useOverlay, OverlayProps } from '../hooks'
 import { Card } from '../Card'
 
 import { Wrapper, PopoverWrapper } from './styles'
@@ -6,14 +6,14 @@ import { Wrapper, PopoverWrapper } from './styles'
 import React, { FC } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
-export interface PopoverProps extends DropdownProps {
+export interface PopoverProps extends OverlayProps {
   content?: string
   title?: string
 }
 
 const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
   (props, ref) => {
-    const { children, placement, title, content, ...rest } = props
+    const { children, placement, title, content, style } = props
 
     const {
       wrapperRef,
@@ -22,7 +22,7 @@ const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
       visible,
       hoverProps,
       clickProps
-    } = useDropdown({ ...props, expand: true })
+    } = useOverlay({ ...props, expand: true })
 
     const childrenNode = Array.isArray(children)
       ? ((<span>{children}</span>) as any)
@@ -32,7 +32,6 @@ const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
         {...hoverProps}
-        {...rest}
       >
         {React.cloneElement(childrenNode, {
           ...clickProps,
@@ -43,7 +42,7 @@ const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
           placement={placement}
           ref={dropdownRef}
         >
-          <Card title={title} size='sm' bordered={false}>
+          <Card title={title} size='sm' bordered={false} style={style}>
             {content}
           </Card>
         </PopoverWrapper>

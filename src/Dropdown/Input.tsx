@@ -1,21 +1,28 @@
 import { Input } from '../Input'
+import { useControl } from '../hooks'
 
 import { Dropdown, DropdownProps } from './Dropdown'
 
 import React, { useState, useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
-export interface InputDropdownProps extends DropdownProps {}
+export interface InputDropdownProps extends DropdownProps {
+  input?: typeof Input
+}
 
 const InputDropdown = React.forwardRef<HTMLInputElement, InputDropdownProps>(
-  ({ overlay, ...props }, ref) => {
-    const [visible, setVisible] = useState<boolean>(false)
+  (
+    { children, visible: visibleProps, onVisibleChange, input, ...props },
+    ref
+  ) => {
+    const { value: visible, setValue: setVisible } = useControl({
+      value: visibleProps,
+      defaultValue: false,
+      onChange: onVisibleChange as (newValue: unknown) => unknown
+    }) as { value: boolean; setValue: (newValue: boolean) => void }
+
     const [width, setWidth] = useState<number>()
     const inputRef = useRef<HTMLInputElement>(null)
-
-    const handleVisibleChange = (flag: boolean) => {
-      setVisible(flag)
-    }
 
     if (inputRef.current && !width) {
       setWidth(inputRef.current.offsetWidth)
@@ -23,18 +30,20 @@ const InputDropdown = React.forwardRef<HTMLInputElement, InputDropdownProps>(
 
     return (
       <Dropdown
-        overlay={overlay}
-        visible={visible}
         width={width}
         topped
         trigger='click'
-        onVisibleChange={handleVisibleChange}
+        visible={visible}
+        onVisibleChange={setVisible}
+        {...props}
       >
         <Input
           ref={composeRef<HTMLInputElement>(inputRef, ref)}
           dropdown={visible}
-          {...props}
-        />
+          {...input}
+        >
+          {children}
+        </Input>
       </Dropdown>
     )
   }

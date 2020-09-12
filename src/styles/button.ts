@@ -1,10 +1,21 @@
-import { ButtonStyleProps } from '../Button'
+import { Size } from '../types'
 
 import { css } from 'styled-components'
 import { rem } from 'polished'
 
+export type ButtonStyleProps = {
+  shape?: 'default' | 'circle' | 'round'
+  size?: Size
+  disabled?: boolean
+  ghost?: boolean
+  addon?: boolean
+  dropdown?: boolean
+  block?: boolean
+}
+
 export const button = css<ButtonStyleProps>`
   display: inline-flex;
+  position: relative;
   justify-content: center;
   width: ${({ block }) => (block ? '100%' : null)};
   ${({ theme }) => theme.transition};
@@ -41,6 +52,7 @@ export const button = css<ButtonStyleProps>`
   }};
   padding-right: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
   padding-left: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
+  overflow: hidden;
   border-width: ${rem('1px')};
   border-style: solid;
   border-radius: ${({ shape }) =>

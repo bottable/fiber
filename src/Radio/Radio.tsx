@@ -1,3 +1,5 @@
+import { useControl } from '../hooks'
+
 import {
   Wrapper,
   RadioContainer,
@@ -7,7 +9,7 @@ import {
 } from './styles'
 import { GroupProps } from './Group'
 
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC } from 'react'
 
 export type RadioProps = {
   checked?: boolean
@@ -27,20 +29,28 @@ const Radio: RadioFC<RadioProps> = React.forwardRef<
   RadioProps
 >(
   (
-    { children, checked: checkedProps, onChange, style, disabled, ...props },
+    {
+      children,
+      checked: checkedProps,
+      onChange: onChangeProps,
+      style,
+      disabled,
+      ...props
+    },
     ref
   ) => {
-    const [checked, setChecked] = useState<boolean>(Boolean(checkedProps))
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onChangeProps) onChangeProps(e)
+      return e.target.checked
+    }
 
-    useEffect(() => {
-      if (typeof checkedProps === 'boolean') setChecked(checkedProps)
-    }, [checkedProps])
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (typeof checkedProps !== 'boolean') setChecked(e.target.checked)
-      if (onChange) {
-        onChange(e)
-      }
+    const { value: checked, setValue: setChecked } = useControl({
+      value: checkedProps,
+      defaultValue: false,
+      onChange: onChange as (newValue: unknown) => unknown
+    }) as {
+      value: boolean
+      setValue: (event: React.ChangeEvent<HTMLInputElement>) => void
     }
 
     const radioNode = (
@@ -48,7 +58,7 @@ const Radio: RadioFC<RadioProps> = React.forwardRef<
         <RadioInput
           type='radio'
           checked={checked}
-          onChange={handleChange}
+          onChange={setChecked}
           disabled={disabled}
           {...props}
           ref={ref}
