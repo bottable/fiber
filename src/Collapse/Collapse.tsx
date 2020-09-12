@@ -55,7 +55,7 @@ const Collapse: CollapseFC<CollapseProps> = ({
     } else {
       const key = (children.key || '1') as string
 
-      return React.cloneElement(children, {
+      childrenNode = React.cloneElement(children, {
         collapsed: !activeKey.includes(key),
         panelKey: key,
         onChange: handlePanelChange

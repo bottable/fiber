@@ -4,7 +4,9 @@ import {
   StyledPanel,
   PanelHeaderContainer,
   PanelCollapseContainer,
-  PanelContentContainer
+  PanelContentContainer,
+  ExpandIconSpan,
+  ExtraIconSpan
 } from './styles'
 
 import React, { FC, useState, useRef, useEffect } from 'react'
@@ -16,6 +18,7 @@ export type PanelProps = {
   height?: number
   panelKey?: string
   onChange?: (key: string) => void
+  extra?: React.ReactNode
 }
 
 const Panel: FC<PanelProps> = ({
@@ -23,7 +26,8 @@ const Panel: FC<PanelProps> = ({
   collapsed: collapsedProps,
   header,
   panelKey,
-  onChange
+  onChange,
+  extra
 }) => {
   const { value: collapsed, setValue: setCollapsed } = useControl({
     value: collapsedProps,
@@ -43,12 +47,12 @@ const Panel: FC<PanelProps> = ({
 
   return (
     <StyledPanel>
-      <PanelHeaderContainer
-        onClick={() => setCollapsed(panelKey!)}
-        collapsed={collapsed}
-      >
+      <PanelHeaderContainer onClick={() => setCollapsed(panelKey!)}>
         {header}
-        <ExpandMoreIcon />
+        <ExtraIconSpan>{extra}</ExtraIconSpan>
+        <ExpandIconSpan collapsed={collapsed}>
+          <ExpandMoreIcon />
+        </ExpandIconSpan>
       </PanelHeaderContainer>
       <PanelCollapseContainer
         collapsed={collapsed}

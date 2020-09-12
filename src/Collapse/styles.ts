@@ -25,7 +25,7 @@ export const StyledPanel = styled.div`
   }
 `
 
-export const PanelHeaderContainer = styled.div<PanelProps>`
+export const PanelHeaderContainer = styled.div`
   position: relative;
   padding: ${({ theme }) => theme.paddings.md};
   transition: all 0.3s;
@@ -33,6 +33,17 @@ export const PanelHeaderContainer = styled.div<PanelProps>`
 
   svg {
     float: right;
+  }
+`
+
+export const ExtraIconSpan = styled.span`
+  svg {
+    margin-left: ${({ theme }) => theme.margins.xs};
+  }
+`
+
+export const ExpandIconSpan = styled.span<PanelProps>`
+  svg {
     transform: ${({ collapsed }) => (collapsed ? 'rotate(-90deg)' : 0)};
     ${({ theme }) => theme.transition}
   }
