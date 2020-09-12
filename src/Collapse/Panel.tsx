@@ -5,7 +5,7 @@ import {
   PanelContentContainer
 } from './styles'
 
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useRef, useEffect } from 'react'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 export type PanelProps = {
@@ -14,6 +14,15 @@ export type PanelProps = {
 
 const Panel: FC<PanelProps> = ({ children, header }) => {
   const [collapsed, setCollapsed] = useState<boolean>(true)
+  const [height, setHeight] = useState<number | undefined>(undefined)
+
+  const collapseRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (collapseRef.current && height === undefined) {
+      setHeight(collapseRef.current.offsetHeight)
+    }
+  }, [collapseRef])
 
   return (
     <StyledPanel>
@@ -24,7 +33,11 @@ const Panel: FC<PanelProps> = ({ children, header }) => {
         {header}
         <ExpandMoreIcon />
       </PanelHeaderContainer>
-      <PanelCollapseContainer collapsed={collapsed}>
+      <PanelCollapseContainer
+        collapsed={collapsed}
+        height={height}
+        ref={collapseRef}
+      >
         <PanelContentContainer>{children}</PanelContentContainer>
       </PanelCollapseContainer>
     </StyledPanel>
