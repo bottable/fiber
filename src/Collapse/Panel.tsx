@@ -1,3 +1,5 @@
+import { useControl } from '../hooks'
+
 import {
   StyledPanel,
   PanelHeaderContainer,
@@ -10,10 +12,25 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 export type PanelProps = {
   header?: string
+  collapsed?: boolean
+  height?: number
+  panelKey?: string
+  onChange?: (key: string) => void
 }
 
-const Panel: FC<PanelProps> = ({ children, header }) => {
-  const [collapsed, setCollapsed] = useState<boolean>(true)
+const Panel: FC<PanelProps> = ({
+  children,
+  collapsed: collapsedProps,
+  header,
+  panelKey,
+  onChange
+}) => {
+  const { value: collapsed, setValue: setCollapsed } = useControl({
+    value: collapsedProps,
+    defaultValue: false,
+    onChange: onChange as (newValue: unknown) => unknown
+  }) as { value: boolean; setValue: (newValue: string) => void }
+
   const [height, setHeight] = useState<number | undefined>(undefined)
 
   const collapseRef = useRef<HTMLDivElement>(null)
@@ -27,7 +44,7 @@ const Panel: FC<PanelProps> = ({ children, header }) => {
   return (
     <StyledPanel>
       <PanelHeaderContainer
-        onClick={() => setCollapsed((prevCollapsed) => !prevCollapsed)}
+        onClick={() => setCollapsed(panelKey!)}
         collapsed={collapsed}
       >
         {header}

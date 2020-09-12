@@ -16,10 +16,10 @@ exports[`Menu & Menu Items renders correctly 1`] = `
     className="sc-fznWqX bWqsnn"
   >
     <ul
-      className="sc-fzplWN hZMmsy"
+      className="sc-fznyAO bBYgMe"
     >
       <li
-        className="sc-fznyAO hoaMml"
+        className="sc-fznKkj kkRayg"
         onClick={[Function]}
       >
         <span
@@ -30,7 +30,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         </span>
       </li>
       <li
-        className="sc-fznyAO hoaMml"
+        className="sc-fznKkj kkRayg"
         onClick={[Function]}
       >
         <span
@@ -41,7 +41,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         </span>
       </li>
       <li
-        className="sc-fznyAO hoaMml"
+        className="sc-fznKkj kkRayg"
         onClick={[Function]}
       >
         <span

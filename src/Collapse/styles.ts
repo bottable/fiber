@@ -1,15 +1,6 @@
-// import { CollapseProps } from './Collapse'
+import { PanelProps } from './Panel'
 
 import styled from 'styled-components'
-
-export type PanelHeaderProps = {
-  collapsed?: boolean
-}
-
-export type PanelCollapseProps = {
-  collapsed?: boolean
-  height?: number
-}
 
 export const StyledCollapse = styled.div`
   border-radius: ${({ theme }) => theme.radii.md};
@@ -34,7 +25,7 @@ export const StyledPanel = styled.div`
   }
 `
 
-export const PanelHeaderContainer = styled.div<PanelHeaderProps>`
+export const PanelHeaderContainer = styled.div<PanelProps>`
   position: relative;
   padding: ${({ theme }) => theme.paddings.md};
   transition: all 0.3s;
@@ -47,7 +38,7 @@ export const PanelHeaderContainer = styled.div<PanelHeaderProps>`
   }
 `
 
-export const PanelCollapseContainer = styled.div<PanelCollapseProps>`
+export const PanelCollapseContainer = styled.div<PanelProps>`
   max-height: ${({ collapsed, height }) => {
     if (height === undefined) return null
     if (collapsed) return 0
