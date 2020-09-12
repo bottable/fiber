@@ -1,5 +1,6 @@
 export * from './ExampleComponent'
 export * from './UIProvider'
+export * from './Collapse'
 export * from './Layout'
 export * from './Pagination'
 export * from './Table'
