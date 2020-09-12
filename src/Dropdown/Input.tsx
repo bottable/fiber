@@ -1,4 +1,4 @@
-import { Input, InputProps } from '../Input'
+import { Input } from '../Input'
 import { useControl } from '../hooks'
 
 import { Dropdown, DropdownProps } from './Dropdown'
@@ -7,7 +7,7 @@ import React, { useState, useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export interface InputDropdownProps extends DropdownProps {
-  input?: InputProps
+  input?: typeof Input
 }
 
 const InputDropdown = React.forwardRef<HTMLInputElement, InputDropdownProps>(

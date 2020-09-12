@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from '../Button'
+import { Button } from '../Button'
 import { useControl } from '../hooks'
 
 import { Dropdown, DropdownProps } from './Dropdown'
@@ -7,7 +7,7 @@ import React, { useState, useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export interface ButtonDropdownProps extends DropdownProps {
-  button?: ButtonProps
+  button?: typeof Button
 }
 
 const ButtonDropdown = React.forwardRef<HTMLButtonElement, ButtonDropdownProps>(
