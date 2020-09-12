@@ -1,7 +1,11 @@
-import { RippleStyleProps } from '../hooks'
-
 import styled, { keyframes } from 'styled-components'
 import { rem } from 'polished'
+
+export type RippleStyleProps = {
+  x: number
+  y: number
+  width: number
+}
 
 const rippleAnimation = ({ width }: RippleStyleProps) => {
   return keyframes`

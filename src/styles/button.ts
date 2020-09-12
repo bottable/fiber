@@ -1,9 +1,11 @@
+import { Size } from '../types'
+
 import { css } from 'styled-components'
 import { rem } from 'polished'
 
 export type ButtonStyleProps = {
   shape?: 'default' | 'circle' | 'round'
-  size?: 'sm' | 'md' | 'lg'
+  size?: Size
   disabled?: boolean
   ghost?: boolean
   addon?: boolean

@@ -1,3 +1,5 @@
+import { Color } from '../types'
+
 import { StyledTag, CloseContainer, IconContainer } from './styles'
 
 import React, { FC, useState, useEffect } from 'react'
@@ -7,16 +9,7 @@ export type TagProps = {
   closable?: boolean
   visible?: boolean
   onClose?: Function
-  color?:
-    | 'blue'
-    | 'green'
-    | 'magenta'
-    | 'neutral'
-    | 'orange'
-    | 'purple'
-    | 'red'
-    | 'teal'
-    | 'yellow'
+  color?: Color | string
   icon?: React.ReactNode
 }
 

@@ -8,12 +8,6 @@ export type AddRipleprops = {
   centered?: boolean
 }
 
-export type RippleStyleProps = {
-  x: number
-  y: number
-  width: number
-}
-
 export const useRipple = () => {
   const [ripples, setRipples] = useState<React.ReactNode[]>([])
 

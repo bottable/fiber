@@ -1,3 +1,4 @@
+import { Color } from '../types'
 import { useOverlay, OverlayProps } from '../hooks'
 
 import { Wrapper, TooltipWrapper } from './styles'
@@ -7,16 +8,7 @@ import { composeRef } from 'rc-util/lib/ref'
 
 export interface TooltipProps extends OverlayProps {
   title?: string
-  color?:
-    | 'blue'
-    | 'green'
-    | 'magenta'
-    | 'neutral'
-    | 'orange'
-    | 'purple'
-    | 'red'
-    | 'teal'
-    | 'yellow'
+  color?: Color | string
 }
 
 const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(

@@ -1,5 +1,6 @@
 import { MergeElementProps } from '../utils'
 import { useControl } from '../hooks'
+import { Size } from '../types'
 
 import {
   SmallInput,
@@ -18,7 +19,7 @@ import { composeRef } from 'rc-util/lib/ref'
 export type InputProps = MergeElementProps<
   'input',
   {
-    size?: 'sm' | 'md' | 'lg'
+    size?: Size
     onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>
     addonBefore?: React.ReactNode
     addonAfter?: React.ReactNode
