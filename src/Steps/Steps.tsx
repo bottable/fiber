@@ -1,15 +1,15 @@
-import { StyledStepper } from './styles'
+import { StyledSteps } from './styles'
 
 import React, { FC, useState, useEffect } from 'react'
 
-export type StepperProps = {
+export type StepsProps = {
   current?: number
   vertical?: boolean
   onChange?: (current: number) => void
   children?: React.ReactElement[]
 }
 
-const Stepper: FC<StepperProps> = ({ children, ...props }) => {
+const Steps: FC<StepsProps> = ({ children, ...props }) => {
   const { current: currentProps, vertical, onChange } = props
   const [current, setCurrent] = useState<number>(currentProps!)
 
@@ -30,7 +30,7 @@ const Stepper: FC<StepperProps> = ({ children, ...props }) => {
   }
 
   return (
-    <StyledStepper vertical={vertical}>
+    <StyledSteps vertical={vertical}>
       {children?.map((step: React.ReactElement, idx: number) =>
         React.cloneElement(step, {
           status: step.props.status || status(idx),
@@ -42,8 +42,8 @@ const Stepper: FC<StepperProps> = ({ children, ...props }) => {
           key: idx
         })
       )}
-    </StyledStepper>
+    </StyledSteps>
   )
 }
 
-export { Stepper }
+export { Steps }

@@ -1,4 +1,4 @@
-import { Stepper, Step } from '..'
+import { Steps, Step } from '..'
 
 import React from 'react'
 import { render } from 'test/utils'
@@ -7,16 +7,16 @@ import VerifiedUserIcon from '@material-ui/icons/VerifiedUser'
 import PaymentIcon from '@material-ui/icons/Payment'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 
-describe('Stepper', () => {
+describe('Steps', () => {
   it('renders correctly', () => {
-    const stepper = render(
+    const steps = render(
       <>
-        <Stepper current={1}>
+        <Steps current={1}>
           <Step title='first' subtitle='subtitle' />
           <Step title='second' subtitle='subtitle' />
           <Step title='third' subtitle='subtitle' />
-        </Stepper>
-        <Stepper current={1} vertical>
+        </Steps>
+        <Steps current={1} vertical>
           <Step title='first' subtitle='subtitle'>
             <div
               style={{
@@ -50,16 +50,16 @@ describe('Stepper', () => {
               Third Content
             </div>
           </Step>
-        </Stepper>
-        <Stepper current={1}>
+        </Steps>
+        <Steps current={1}>
           <Step title='Login' icon={<PersonIcon />} />
           <Step title='Verification' icon={<VerifiedUserIcon />} />
           <Step title='Pay' icon={<PaymentIcon />} />
           <Step title='Done' icon={<InsertEmoticonIcon />} />
-        </Stepper>
+        </Steps>
       </>
     )
 
-    expect(stepper).toMatchSnapshot()
+    expect(steps).toMatchSnapshot()
   })
 })

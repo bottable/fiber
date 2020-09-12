@@ -1,29 +1,29 @@
 ---
-name: Stepper
-route: /navigation/stepper
+name: Steps
+route: /navigation/steps
 menu: Navigation
 ---
 
 import { useState } from 'react'
-import { Stepper, Step, Button, Space } from 'fiber'
+import { Steps, Step, Button, Space } from 'fiber'
 import { Playground } from 'docz'
 import PersonIcon from '@material-ui/icons/Person'
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser'
 import PaymentIcon from '@material-ui/icons/Payment'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 
-# Stepper
+# Steps
 
 <Playground>
   {() => {
     const [current, setCurrent] = useState(0)
     return (
       <>
-        <Stepper current={current}>
+        <Steps current={current}>
           <Step title='first' subtitle='subtitle'></Step>
           <Step title='second' subtitle='subtitle'></Step>
           <Step title='third' subtitle='subtitle'></Step>
-        </Stepper>
+        </Steps>
         <br />
         <Space>
           <Button
@@ -46,14 +46,14 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
   }}
 </Playground>
 
-## Vertical Stepper
+## Vertical Steps
 
 <Playground>
   {() => {
     const [current, setCurrent] = useState(0)
     return (
       <>
-        <Stepper current={current} vertical>
+        <Steps current={current} vertical>
           <Step title='first' subtitle='subtitle'>
             <div
               style={{
@@ -135,7 +135,7 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
               </Space>
             </div>
           </Step>
-        </Stepper>
+        </Steps>
         <br />
       </>
     )
@@ -149,12 +149,12 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
     const [current, setCurrent] = useState(0)
     return (
       <>
-        <Stepper current={current}>
+        <Steps current={current}>
           <Step title='Login' icon={<PersonIcon />}></Step>
           <Step title='Verification' icon={<VerifiedUserIcon />}></Step>
           <Step title='Pay' icon={<PaymentIcon />}></Step>
           <Step title='Done' icon={<InsertEmoticonIcon />}></Step>
-        </Stepper>
+        </Steps>
         <br />
         <Space>
           <Button
@@ -188,11 +188,11 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
     }
     return (
       <>
-        <Stepper current={current} onChange={onChange}>
+        <Steps current={current} onChange={onChange}>
           <Step title='first' subtitle='subtitle'></Step>
           <Step title='second' subtitle='subtitle'></Step>
           <Step title='third' subtitle='subtitle'></Step>
-        </Stepper>
+        </Steps>
         <br />
         <Space>
           <Button

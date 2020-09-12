@@ -1,10 +1,10 @@
-import { StepperProps } from './Stepper'
+import { StepsProps } from './Steps'
 import { StepProps } from './Step'
 
 import styled from 'styled-components'
 import { rem } from 'polished'
 
-export const StyledStepper = styled.div<StepperProps>`
+export const StyledSteps = styled.div<StepsProps>`
   display: flex;
   flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
   width: 100%;
