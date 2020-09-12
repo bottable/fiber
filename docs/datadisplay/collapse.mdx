@@ -1,0 +1,77 @@
+---
+name: Collapse
+route: /datadisplay/collapse
+menu: Data Display
+---
+
+import { Collapse } from 'fiber'
+import { Playground } from 'docz'
+import SettingsIcon from '@material-ui/icons/Settings'
+
+# Collapse
+
+<Playground>
+  {() => {
+    const callback = (key) => {
+      console.log(key)
+    }
+    const text = `
+      A dog is a type of domesticated animal.
+      Known for its loyalty and faithfulness,
+      it can be found as a welcome guest in many households across the world.
+    `
+    return (
+      <Collapse defaultActiveKey={['1']} onChange={callback}>
+        <Collapse.Panel header='This is panel header 1' key='1'>
+          <p>{text}</p>
+        </Collapse.Panel>
+        <Collapse.Panel header='This is panel header 2' key='2'>
+          <p>{text}</p>
+        </Collapse.Panel>
+        <Collapse.Panel header='This is panel header 3' key='3'>
+          <p>{text}</p>
+        </Collapse.Panel>
+      </Collapse>
+    )
+  }}
+</Playground>
+
+## Extra Node
+
+<Playground>
+  {() => {
+    const callback = (key) => {
+      console.log(key)
+    }
+    const text = `
+      A dog is a type of domesticated animal.
+      Known for its loyalty and faithfulness,
+      it can be found as a welcome guest in many households across the world.
+    `
+    return (
+      <Collapse defaultActiveKey={['1']} onChange={callback}>
+        <Collapse.Panel
+          header='This is panel header 1'
+          key='1'
+          extra={<SettingsIcon />}
+        >
+          <p>{text}</p>
+        </Collapse.Panel>
+        <Collapse.Panel
+          header='This is panel header 2'
+          key='2'
+          extra={<SettingsIcon />}
+        >
+          <p>{text}</p>
+        </Collapse.Panel>
+        <Collapse.Panel
+          header='This is panel header 3'
+          key='3'
+          extra={<SettingsIcon />}
+        >
+          <p>{text}</p>
+        </Collapse.Panel>
+      </Collapse>
+    )
+  }}
+</Playground>
