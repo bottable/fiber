@@ -1,32 +1,30 @@
+import { useControl } from '../hooks'
+
 import { StyledSteps } from './styles'
 
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC } from 'react'
 
 export type StepsProps = {
   current?: number
+  initial?: number
   vertical?: boolean
   onChange?: (current: number) => void
   children?: React.ReactElement[]
 }
 
 const Steps: FC<StepsProps> = ({ children, ...props }) => {
-  const { current: currentProps, vertical, onChange } = props
-  const [current, setCurrent] = useState<number>(currentProps!)
+  const { current: currentProps, initial, vertical, onChange } = props
 
-  useEffect(() => {
-    setCurrent(currentProps!)
-  }, [currentProps])
+  const { value: current, setValue: setCurrent } = useControl({
+    value: currentProps,
+    defaultValue: initial,
+    onChange: onChange as (newValue: unknown) => unknown
+  }) as { value: number; setValue: (newValue: number) => void }
 
   const status = (idx: number) => {
     if (idx < current) return 'finish'
     else if (idx > current) return 'wait'
     return 'process'
-  }
-
-  const handleChange = (idx: number) => {
-    if (!onChange || idx === current) return
-    setCurrent(idx)
-    onChange(idx)
   }
 
   return (
@@ -38,12 +36,16 @@ const Steps: FC<StepsProps> = ({ children, ...props }) => {
           last: idx === children.length - 1,
           vertical: vertical,
           clickable: Boolean(onChange && current !== idx),
-          handleChange: handleChange,
+          handleChange: setCurrent,
           key: idx
         })
       )}
     </StyledSteps>
   )
+}
+
+Steps.defaultProps = {
+  initial: 0
 }
 
 export { Steps }
