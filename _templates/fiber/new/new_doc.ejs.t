@@ -1,10 +1,10 @@
 ---
-to: docs/<%=h.changeCase.lower(category)%>/<%=h.changeCase.camel(h.inflection.classify(component))%>.mdx
+to: docs/<%=h.changeCase.lower(category.replace(' ', ''))%>/<%=h.changeCase.camel(h.inflection.classify(component))%>.mdx
 ---
 ---
 name: <%=h.inflection.classify(component)%>
-route: /<%=h.changeCase.lower(category)%>/<%=h.changeCase.lower(component)%>
-menu:  <%=h.capitalize(category)%>
+route: /<%=h.changeCase.lower(category.replace(' ', ''))%>/<%=h.changeCase.lower(component)%>
+menu:  <%=category.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})%>
 ---
 
 import { <%=h.inflection.classify(component)%> } from 'fiber'
