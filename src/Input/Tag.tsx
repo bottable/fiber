@@ -12,9 +12,15 @@ const Tag = React.forwardRef(
     const [value, setValue] = useState<string>('')
 
     const addTag = () => {
-      if (tags.indexOf(value) !== -1 && value.length !== 0) return
+      if (tags.indexOf(value) !== -1 || value.length === 0) return
       setTags((prevTags) => [...prevTags, value])
       setValue('')
+    }
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.keyCode === 8 && value.length === 0) {
+        setTags((prevTags) => prevTags.slice(0, prevTags.length - 1))
+      }
     }
 
     const prefixNode = tags.map((value, idx) => (
@@ -41,6 +47,7 @@ const Tag = React.forwardRef(
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setValue(e.target.value)
         }
+        onKeyDown={handleKeyDown}
         {...props}
       />
     )
