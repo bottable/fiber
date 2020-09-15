@@ -2,13 +2,13 @@
 
 exports[`Pagination renders correctly 1`] = `
 <ul
-  className="sc-fznJRM rmHEl"
+  className="sc-fzqARJ cGGzCG"
 >
   <li
-    className="sc-fznWqX evsJst"
+    className="sc-fzqNqU dcDcpu"
   >
     <button
-      className="sc-AxhCb sc-AxmLO chzfCt sc-fzoiQi HHNRf"
+      className="sc-AxhCb sc-AxmLO chzfCt sc-fzoyTs fpMOgg"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
@@ -31,10 +31,10 @@ exports[`Pagination renders correctly 1`] = `
     </button>
   </li>
   <li
-    className="sc-fznWqX evsJst"
+    className="sc-fzqNqU dcDcpu"
   >
     <button
-      className="sc-AxhCb sc-AxmLO dBgaij sc-fzoiQi HHNRf"
+      className="sc-AxhCb sc-AxmLO dBgaij sc-fzoyTs fpMOgg"
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}

@@ -23,8 +23,8 @@ export type InputProps = MergeElementProps<
     onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>
     addonBefore?: React.ReactNode
     addonAfter?: React.ReactNode
-    prefix?: React.ReactNode
-    suffix?: React.ReactNode
+    prefix?: React.ReactNode | React.ReactNode[]
+    suffix?: React.ReactNode | React.ReactNode[]
     fix?: boolean
     bordered?: boolean
     disabled?: boolean

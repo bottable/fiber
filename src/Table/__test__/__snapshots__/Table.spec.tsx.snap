@@ -2,119 +2,119 @@
 
 exports[`Table renders correctly 1`] = `
 <div
-  className="sc-fzqBkg dvEKob"
+  className="sc-fzoKki jJSwTC"
 >
   <div
-    className="sc-fzqPZZ gXikXH"
+    className="sc-fzoYkl iMSPiv"
   >
     <table
-      className="sc-fzoxKX gSbHXy"
+      className="sc-fzpkJw jirQSU"
     >
       <thead
-        className="sc-fzoKki fatNHo"
+        className="sc-fznzOf hfODEb"
       >
         <tr>
           <th
-            className="sc-fzpkJw daLnVM"
+            className="sc-fzoant jmeSvm"
           >
             Name
           </th>
           <th
-            className="sc-fzpkJw daLnVM"
+            className="sc-fzoant jmeSvm"
           >
             Age
           </th>
           <th
-            className="sc-fzpkJw daLnVM"
+            className="sc-fzoant jmeSvm"
           >
             Address
           </th>
         </tr>
       </thead>
       <tbody
-        className="sc-fzoYkl iMSPiv"
+        className="sc-fznMnq eOdCaO"
         onChange={[Function]}
       >
         <tr
-          className="sc-fznzOf mVwJb"
+          className="sc-fzomME fpGQBU"
         >
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             <a>
               John Brown
             </a>
           </td>
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             32
           </td>
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             New York No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fznzOf mVwJb"
+          className="sc-fzomME fpGQBU"
         >
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             <a>
               Jim Green
             </a>
           </td>
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             42
           </td>
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             London No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fznzOf mVwJb"
+          className="sc-fzomME fpGQBU"
         >
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             <a>
               Joe Black
             </a>
           </td>
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             32
           </td>
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             Sidney No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fznzOf mVwJb"
+          className="sc-fzomME fpGQBU"
         >
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             <a>
               Disabled User
             </a>
           </td>
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             99
           </td>
           <td
-            className="sc-fznMnq gGqTjY"
+            className="sc-fzqAbL RaCBy"
           >
             Sidney No. 1 Lake Park
           </td>
@@ -123,13 +123,13 @@ exports[`Table renders correctly 1`] = `
     </table>
   </div>
   <ul
-    className="sc-fzpmMD gnAaEe sc-fzqMAW jIyaNi"
+    className="sc-fznWOq fuJxXl sc-fzoYHE ekBxtz"
   >
     <li
-      className="sc-fznxKY FVtAh"
+      className="sc-fzolEj ipIKkV"
     >
       <button
-        className="sc-fzpans sc-fzokOt gxhIxB sc-fznMAR isFKup"
+        className="sc-fzpans sc-fzokOt gxhIxB sc-fzqBkg gEaNQy"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -152,11 +152,11 @@ exports[`Table renders correctly 1`] = `
       </button>
     </li>
     <li
-      className="sc-fznxKY FVtAh"
+      className="sc-fzolEj ipIKkV"
       onClick={[Function]}
     >
       <button
-        className="sc-fzpans sc-fzokOt iXJYKT sc-fznMAR fvOJyV"
+        className="sc-fzpans sc-fzokOt iXJYKT sc-fzqBkg hudwmG"
         onClick={[Function]}
         onMouseDown={[Function]}
         selected={true}
@@ -167,10 +167,10 @@ exports[`Table renders correctly 1`] = `
       </button>
     </li>
     <li
-      className="sc-fznxKY FVtAh"
+      className="sc-fzolEj ipIKkV"
     >
       <button
-        className="sc-fzpans sc-fzokOt gxhIxB sc-fznMAR isFKup"
+        className="sc-fzpans sc-fzokOt gxhIxB sc-fzqBkg gEaNQy"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}
