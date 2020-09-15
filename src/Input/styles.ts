@@ -5,7 +5,7 @@ import { rem } from 'polished'
 
 const baseStyle = css<InputProps>`
   background-color: ${({ disabled, theme }) =>
-    disabled ? theme.colors.gray2 : null};
+    disabled ? theme.colors.gray2 : '#fff'};
   color: ${({ disabled, theme }) =>
     disabled ? theme.colors.gray5 : theme.colors.gray7};
   line-height: 1.5715;
@@ -41,6 +41,7 @@ const inputStyle = css<InputProps>`
 
 const fixInputStyle = css<InputProps>`
   ${baseStyle}
+  flex-grow: 1;
   padding: 0;
   border: none;
   outline: none;
@@ -120,18 +121,6 @@ export const Addon = styled.span<InputProps>`
   }
 `
 
-export const Fix = styled.span<InputProps>`
-  &:first-child {
-    margin-right: ${rem('4px')};
-  }
-  &:last-child {
-    margin-left: ${rem('4px')};
-  }
-  svg {
-    ${svgStyle}
-  }
-`
-
 export const TableSpan = styled.span`
   display: table;
   margin: 0;
@@ -146,6 +135,8 @@ export const BlockSpan = styled.span`
 
 export const InputSpan = styled.span`
   ${inputStyle}
+  display: inline-flex;
+  flex-wrap: wrap;
   padding: ${({ size }) => {
     switch (size) {
       case 'lg':
@@ -157,4 +148,13 @@ export const InputSpan = styled.span`
     }
   }};
   font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
+
+  input {
+    margin-right: ${rem('4px')};
+    margin-left: ${rem('4px')};
+  }
+
+  svg {
+    ${svgStyle}
+  }
 `

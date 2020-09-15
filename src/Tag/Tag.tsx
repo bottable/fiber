@@ -12,6 +12,7 @@ export type TagProps = {
   onClose?: Function
   color?: Color | string
   icon?: React.ReactNode
+  style?: React.CSSProperties & object
 }
 
 const Tag: FC<TagProps> = ({ children, ...props }) => {

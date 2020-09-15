@@ -22,7 +22,7 @@ export type OverlayProps = {
   onVisibleChange?: (flag: boolean) => void
   children?: React.ReactNode
   expand?: boolean
-  style?: object
+  style?: React.CSSProperties & object
 }
 
 export const useOverlay = ({

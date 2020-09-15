@@ -14,7 +14,7 @@ import React, { FC } from 'react'
 export type RadioProps = {
   checked?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  style?: object
+  style?: React.CSSProperties & object
   disabled?: boolean
   value?: string
 }

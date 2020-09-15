@@ -15,7 +15,7 @@ export type CheckboxProps = {
   checked?: boolean
   defaultChecked?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  style?: object
+  style?: React.CSSProperties & object
   disabled?: boolean
   value?: string
 }

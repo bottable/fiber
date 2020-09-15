@@ -8,7 +8,6 @@ import {
   LargeInput,
   TableSpan,
   Addon,
-  Fix,
   InputSpan,
   BlockSpan
 } from './styles'
@@ -125,9 +124,6 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       </Addon>
     )
 
-    const prefixNode = prefix && <Fix size={size}>{prefix}</Fix>
-    const suffixNode = suffix && <Fix size={size}>{suffix}</Fix>
-
     if (fix) {
       input = (
         <InputSpan
@@ -138,9 +134,9 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
           addonBefore={Boolean(addonBefore)}
           addonAfter={Boolean(addonAfter)}
         >
-          {prefixNode}
+          {prefix}
           {input}
-          {suffixNode}
+          {suffix}
         </InputSpan>
       )
     }

@@ -17,7 +17,7 @@ export type CardProps = {
   bordered?: boolean
   hoverable?: boolean
   actions?: React.ReactNode[]
-  style?: Object
+  style?: React.CSSProperties & object
 }
 
 const Card: FC<CardProps> = ({ children, ...props }) => {
