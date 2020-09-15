@@ -18,75 +18,69 @@ import SettingsIcon from '@material-ui/icons/Settings'
 ## Size
 
 <Playground>
-  <div>
-    <Input size='lg' placeholder='Large Input' />
-    <br />
-    <br />
-    <Input placeholder='Medium Input' />
-    <br />
-    <br />
-    <Input size='sm' placeholder='Small Input' />
-  </div>
+  <Input size='lg' placeholder='Large Input' />
+  <br />
+  <br />
+  <Input placeholder='Medium Input' />
+  <br />
+  <br />
+  <Input size='sm' placeholder='Small Input' />
 </Playground>
 
 ## Addon
 
 <Playground>
-  <div>
-    <Input addonBefore='http://' addonAfter='.com' />
-    <br />
-    <br />
-    <Input addonAfter={<SettingsIcon />} />
-  </div>
+  <Input addonBefore='http://' addonAfter='.com' />
+  <br />
+  <br />
+  <Input addonAfter={<SettingsIcon />} />
 </Playground>
 
 ## Prefix and Suffix
 
 <Playground>
-  <div>
-    <Input prefix='￥' suffix='RMB' />
-    <br />
-    <br />
-    <Input prefix='￥' suffix='RMB' disabled />
-    <br />
-    <br />
-    <Input addonBefore='http://' suffix='.com' />
-  </div>
+  <Input prefix='￥' suffix='RMB' />
+  <br />
+  <br />
+  <Input prefix='￥' suffix='RMB' disabled />
+  <br />
+  <br />
+  <Input addonBefore='http://' suffix='.com' />
 </Playground>
 
 ## Borderless
 
 <Playground>
-  <div>
-    <Input placeholder='Borderless' bordered={false} />
-  </div>
+  <Input placeholder='Borderless' bordered={false} />
 </Playground>
 
 ## Disabled
 
 <Playground>
-  <div>
-    <Input placeholder='Disabled' disabled />
-  </div>
+  <Input placeholder='Disabled' disabled />
 </Playground>
 
 ## Password
 
 <Playground>
-  <div>
-    <Input.Password placeholder='Password' />
-  </div>
+  <Input.Password placeholder='Password' />
 </Playground>
 
 ## Search
 
 <Playground>
+  <Input.Search
+    placeholder='Search'
+    onSearch={(value) => console.log(value)}
+    enterButton
+  />
+</Playground>
+
+## Tag
+
+<Playground>
   <div>
-    <Input.Search
-      placeholder='Search'
-      onSearch={(value) => console.log(value)}
-      enterButton
-    />
+    <Input.Tag />
     <br />
   </div>
 </Playground>
