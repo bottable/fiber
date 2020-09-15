@@ -23,7 +23,7 @@ const inputStyle = css<InputProps>`
   float: ${({ addonBefore, addonAfter }) =>
     addonBefore || addonAfter ? 'left' : null};
   border: ${({ bordered, theme }) =>
-    bordered === false ? 'none' : `${rem('1px')} solid ${theme.colors.gray5};`};
+    bordered === false ? 'none' : `${theme.border.md} ${theme.colors.gray5};`};
   border-radius: ${({ theme }) => theme.radii.md};
   border-top-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
   border-top-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
@@ -91,7 +91,7 @@ export const Addon = styled.span<InputProps>`
   padding: ${({ button }) => (button ? 'none' : `0 ${rem('11px')}`)};
   border: ${({ button, theme }) =>
     button ? 'none' : `${rem('1px')} solid ${theme.colors.gray5}`};
-  border-radius: ${rem('2px')};
+  border-radius: ${({ theme }) => theme.radii.md};
   background-color: ${({ theme }) => theme.colors.gray2};
   color: ${({ theme }) => theme.colors.gray7};
   font-size: ${({ size }) => {

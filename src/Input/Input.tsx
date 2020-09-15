@@ -51,14 +51,14 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       onChange: onChangeProps,
       onPressEnter,
       onKeyDown,
-      onFocus,
-      onBlur,
       value: valueProps,
       defaultValue,
       style,
+      disabled,
+      addonBefore,
+      addonAfter,
       ...rest
     } = props
-    const { addonBefore, addonAfter } = props
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (onChangeProps) onChangeProps(e)
@@ -97,18 +97,6 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       }
     }
 
-    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-      if (onFocus) {
-        onFocus(e)
-      }
-    }
-
-    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-      if (onBlur) {
-        onBlur(e)
-      }
-    }
-
     const fix = Boolean(prefix || suffix)
 
     let input = (
@@ -116,11 +104,12 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
         ref={composeRef<HTMLInputElement>(inputRef, ref)}
         onChange={setValue}
         onKeyDown={handleKeyDown}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
         fix={fix}
         value={value}
         style={!fix ? style : undefined}
+        disabled={disabled}
+        addonBefore={Boolean(addonBefore)}
+        addonAfter={Boolean(addonAfter)}
         {...rest}
       />
     )
@@ -145,6 +134,9 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
           style={style}
           size={size}
           onClick={() => inputRef.current?.focus()}
+          disabled={disabled}
+          addonBefore={Boolean(addonBefore)}
+          addonAfter={Boolean(addonAfter)}
         >
           {prefixNode}
           {input}
