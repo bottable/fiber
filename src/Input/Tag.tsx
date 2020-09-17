@@ -8,12 +8,26 @@ export type TagProps = {}
 
 const Tag = React.forwardRef(
   (props: TagProps, ref: React.Ref<HTMLInputElement>) => {
-    const [tags, setTags] = useState<string[]>([])
+    const [tags, setTags] = useState<{ value: string; repeat: boolean }[]>([])
     const [value, setValue] = useState<string>('')
 
     const addTag = () => {
-      if (tags.indexOf(value) !== -1 || value.length === 0) return
-      setTags((prevTags) => [...prevTags, value])
+      if (value.length === 0) return
+      let repeat = false
+      if (
+        tags.find(({ value: tagValue }) => tagValue === value) !== undefined
+      ) {
+        repeat = true
+        setTimeout(() => {
+          setTags((prevTags) =>
+            prevTags.filter(
+              ({ value: tagValue, repeat: tagRepeat }) =>
+                value !== tagValue || !tagRepeat
+            )
+          )
+        }, 1000)
+      }
+      setTags((prevTags) => [...prevTags, { value, repeat }])
       setValue('')
     }
 
@@ -26,17 +40,18 @@ const Tag = React.forwardRef(
       }
     }
 
-    const prefixNode = tags.map((value, idx) => (
+    const prefixNode = tags.map(({ value, repeat }, idx) => (
       <BaseTag
         closable
         onClose={(e: React.MouseEvent) => {
           e.preventDefault()
           setTags((prevTags) =>
-            prevTags.filter((tagValue) => value !== tagValue)
+            prevTags.filter(({ value: tagValue }) => value !== tagValue)
           )
         }}
         key={idx}
         style={{ marginTop: 7, marginBottom: 7 }}
+        color={repeat ? 'red' : undefined}
       >
         {value}
       </BaseTag>
