@@ -1,10 +1,10 @@
 import { Tag as BaseTag } from '../Tag'
 
-import { Input, InputProps } from './Input'
+import { TagInputSpan, TagInput } from './styles'
 
 import React, { useState } from 'react'
 
-export interface TagProps extends InputProps {}
+export type TagProps = {}
 
 const Tag = React.forwardRef(
   (props: TagProps, ref: React.Ref<HTMLInputElement>) => {
@@ -18,6 +18,9 @@ const Tag = React.forwardRef(
     }
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.keyCode === 13 && value.length !== 0) {
+        addTag()
+      }
       if (e.keyCode === 8 && value.length === 0) {
         setTags((prevTags) => prevTags.slice(0, prevTags.length - 1))
       }
@@ -33,23 +36,25 @@ const Tag = React.forwardRef(
           )
         }}
         key={idx}
+        style={{ marginTop: 7, marginBottom: 7 }}
       >
         {value}
       </BaseTag>
     ))
 
     return (
-      <Input
-        prefix={prefixNode}
-        ref={ref}
-        onPressEnter={addTag}
-        value={value}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setValue(e.target.value)
-        }
-        onKeyDown={handleKeyDown}
-        {...props}
-      />
+      <TagInputSpan>
+        {prefixNode}
+        <TagInput
+          onKeyDown={handleKeyDown}
+          value={value}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setValue(e.target.value)
+          }
+          ref={ref}
+          {...props}
+        />
+      </TagInputSpan>
     )
   }
 )

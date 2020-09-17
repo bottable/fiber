@@ -6,7 +6,7 @@ import { rem } from 'polished'
 export const StyledTag = styled.span<TagProps>`
   display: ${({ visible }) => (visible ? 'inline-block' : 'none')};
   box-sizing: border-box;
-  height: auto;
+  height: ${rem('22px')};
   margin-right: ${rem('8px')};
   padding: ${`0 ${rem('7px')}`};
   border-width: ${rem('1px')};

@@ -45,6 +45,14 @@ const fixInputStyle = css<InputProps>`
   padding: 0;
   border: none;
   outline: none;
+
+  &:not(:first-child) {
+    margin-left: ${rem('4px')};
+  }
+
+  &:not(:last-child) {
+    margin-right: ${rem('4px')};
+  }
 `
 
 export const BaseInput = styled.input<InputProps>`
@@ -137,6 +145,7 @@ export const InputSpan = styled.span`
   ${inputStyle}
   display: inline-flex;
   flex-wrap: wrap;
+  align-content: space-between;
   padding: ${({ size }) => {
     switch (size) {
       case 'lg':
@@ -149,12 +158,18 @@ export const InputSpan = styled.span`
   }};
   font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
 
-  input {
-    margin-right: ${rem('4px')};
-    margin-left: ${rem('4px')};
-  }
-
   svg {
     ${svgStyle}
   }
+`
+
+export const TagInputSpan = styled(InputSpan)`
+  padding-top: 0;
+  padding-bottom: 0;
+`
+
+export const TagInput = styled.input<InputProps>`
+  ${fixInputStyle}
+  margin: ${rem('7px')} 0;
+  font-size: ${rem('14px')};
 `

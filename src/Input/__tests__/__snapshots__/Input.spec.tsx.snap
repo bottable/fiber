@@ -3,14 +3,14 @@
 exports[`Input renders correctly 1`] = `
 Array [
   <input
-    className="sc-AxirZ sc-AxhCb fnQTtW"
+    className="sc-AxirZ sc-AxhCb blVfAb"
     onChange={[Function]}
     onKeyDown={[Function]}
     value=""
   />,
   <div>
     <input
-      className="sc-AxirZ sc-AxhUy gPIeen"
+      className="sc-AxirZ sc-AxhUy kMpcSi"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Large Input"
@@ -19,7 +19,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-AxirZ sc-AxhCb fnQTtW"
+      className="sc-AxirZ sc-AxhCb blVfAb"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Medium Input"
@@ -28,7 +28,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-AxirZ sc-AxiKw iUbbYl"
+      className="sc-AxirZ sc-AxiKw fjNudk"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Small Input"
@@ -37,10 +37,10 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-AxmLO fKJvVr"
+      className="sc-Axmtr dxDwIG"
     >
       <span
-        className="sc-Axmtr DSokO"
+        className="sc-AxheI eElXNJ"
       >
         <span
           className="sc-AxgMl kjSpuB"
@@ -48,7 +48,7 @@ Array [
           http://
         </span>
         <input
-          className="sc-AxirZ sc-AxhCb gBPQqF"
+          className="sc-AxirZ sc-AxhCb jQilkc"
           onChange={[Function]}
           onKeyDown={[Function]}
           value=""
@@ -63,13 +63,13 @@ Array [
     <br />
     <br />
     <span
-      className="sc-AxmLO fKJvVr"
+      className="sc-Axmtr dxDwIG"
     >
       <span
-        className="sc-Axmtr DSokO"
+        className="sc-AxheI eElXNJ"
       >
         <input
-          className="sc-AxirZ sc-AxhCb KHOUN"
+          className="sc-AxirZ sc-AxhCb dztiSk"
           onChange={[Function]}
           onKeyDown={[Function]}
           value=""
@@ -94,58 +94,42 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-fzozJi jZUCdT"
+      className="sc-AxmLO ljvmGI"
       onClick={[Function]}
     >
-      <span
-        className="sc-AxheI jTHmQL"
-      >
-        ￥
-      </span>
+      ￥
       <input
-        className="sc-AxirZ sc-AxhCb fsAqDH"
+        className="sc-AxirZ sc-AxhCb brbPJA"
         onChange={[Function]}
         onKeyDown={[Function]}
         value=""
       />
-      <span
-        className="sc-AxheI jTHmQL"
-      >
-        RMB
-      </span>
+      RMB
     </span>
     <br />
     <br />
     <span
-      className="sc-fzozJi fzBGVu"
+      className="sc-AxmLO gUVxHk"
       disabled={true}
       onClick={[Function]}
     >
-      <span
-        className="sc-AxheI jTHmQL"
-      >
-        ￥
-      </span>
+      ￥
       <input
-        className="sc-AxirZ sc-AxhCb kXnBLP"
+        className="sc-AxirZ sc-AxhCb coWndV"
         disabled={true}
         onChange={[Function]}
         onKeyDown={[Function]}
         value=""
       />
-      <span
-        className="sc-AxheI jTHmQL"
-      >
-        RMB
-      </span>
+      RMB
     </span>
     <br />
     <br />
     <span
-      className="sc-AxmLO fKJvVr"
+      className="sc-Axmtr dxDwIG"
     >
       <span
-        className="sc-Axmtr DSokO"
+        className="sc-AxheI eElXNJ"
       >
         <span
           className="sc-AxgMl kjSpuB"
@@ -153,27 +137,23 @@ Array [
           http://
         </span>
         <span
-          className="sc-fzozJi kXfMDM"
+          className="sc-AxmLO jUTKb"
           onClick={[Function]}
         >
           <input
-            className="sc-AxirZ sc-AxhCb fsAqDH"
+            className="sc-AxirZ sc-AxhCb brbPJA"
             onChange={[Function]}
             onKeyDown={[Function]}
             value=""
           />
-          <span
-            className="sc-AxheI jTHmQL"
-          >
-            .com
-          </span>
+          .com
         </span>
       </span>
     </span>
   </div>,
   <div>
     <input
-      className="sc-AxirZ sc-AxhCb hNhsXR"
+      className="sc-AxirZ sc-AxhCb hfhPdo"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Borderless"
