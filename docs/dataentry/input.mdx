@@ -79,5 +79,15 @@ import SettingsIcon from '@material-ui/icons/Settings'
 ## Tag
 
 <Playground>
-  <Input.Tag placeholder='Enter tags' />
+  <Input.Tag
+    placeholder='Enter tags'
+    onChange={(values) => {
+      console.log(values)
+    }}
+    defaultValue={['Amazon', 'Apple']}
+    tagProps={(value) => {
+      if (value === 'Amazon') return { color: '#ff9900' }
+      else if (value === 'Apple') return { color: '#999999' }
+    }}
+  />
 </Playground>

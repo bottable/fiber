@@ -1,30 +1,54 @@
 import { Tag as BaseTag } from '../Tag'
+import { useControl } from '../hooks'
 
 import { TagInputSpan, TagInput } from './styles'
 
 import React, { useState } from 'react'
 
-export type TagProps = {}
+export type TagProps = {
+  placeholder?: string
+  defaultValue?: string[]
+  onChange?: (newValue: string[]) => void
+  tagProps?: object | ((value: string) => void)
+  style?: React.CSSProperties & object
+}
 
 type Tag = { value: string; repeat: boolean; close?: boolean }
 
 const Tag = React.forwardRef(
-  (props: TagProps, ref: React.Ref<HTMLInputElement>) => {
-    const [tags, setTags] = useState<Tag[]>([])
+  (
+    { placeholder, defaultValue, onChange, tagProps, style }: TagProps,
+    ref: React.Ref<HTMLInputElement>
+  ) => {
+    const [tags, setTags] = useState<Tag[]>(
+      defaultValue
+        ? defaultValue.map((value) => ({ value, repeat: false }))
+        : []
+    )
     const [value, setValue] = useState<string>('')
+
+    const { setValue: setValues } = useControl({
+      value: undefined,
+      defaultValue: defaultValue,
+      onChange: onChange as (newValue: unknown) => unknown
+    }) as { setValue: (newValue: string[]) => void }
 
     const addTag = () => {
       if (value.length === 0) return
-      const newTag: Tag = { value, repeat: false }
-      if (
+      const repeat =
         tags.find(({ value: tagValue }) => tagValue === value) !== undefined
-      ) {
+      const newTag: Tag = { value, repeat }
+      if (repeat) {
         newTag.repeat = true
         setTimeout(() => {
           shrinkTag(newTag)
         }, 1000)
       }
-      setTags((prevTags) => [...prevTags, newTag])
+      setTags((prevTags) => {
+        const newTags = [...prevTags, newTag]
+        if (!repeat) setValues(newTags.map(({ value }) => value))
+        return newTags
+      })
       setValue('')
     }
 
@@ -44,7 +68,11 @@ const Tag = React.forwardRef(
     }
 
     const closeTag = (closeTag: Tag) => {
-      setTags((prevTags) => prevTags.filter((tag) => tag !== closeTag))
+      setTags((prevTags) => {
+        const newTags = prevTags.filter((tag) => tag !== closeTag)
+        if (!closeTag.repeat) setValues(newTags.map(({ value }) => value))
+        return newTags
+      })
     }
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -61,6 +89,12 @@ const Tag = React.forwardRef(
 
     const prefixNode = tags.map((tag, idx) => {
       const { value, repeat, close } = tag
+      let props = {}
+      if (typeof tagProps === 'function') {
+        props = tagProps(value)
+      } else if (typeof tagProps === 'object') {
+        props = tagProps
+      }
 
       return (
         <BaseTag
@@ -74,6 +108,7 @@ const Tag = React.forwardRef(
           style={{ marginTop: 7, marginBottom: 7 }}
           color={repeat ? 'red' : undefined}
           shrink={close}
+          {...props}
         >
           {value}
         </BaseTag>
@@ -81,7 +116,7 @@ const Tag = React.forwardRef(
     })
 
     return (
-      <TagInputSpan>
+      <TagInputSpan style={style}>
         {prefixNode}
         <TagInput
           onKeyDown={handleKeyDown}
@@ -89,8 +124,8 @@ const Tag = React.forwardRef(
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setValue(e.target.value)
           }
+          placeholder={placeholder}
           ref={ref}
-          {...props}
         />
       </TagInputSpan>
     )
