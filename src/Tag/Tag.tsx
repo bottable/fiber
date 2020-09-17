@@ -12,6 +12,7 @@ export type TagProps = {
   onClose?: Function
   color?: Color | string
   icon?: React.ReactNode
+  shrink?: boolean
   style?: React.CSSProperties & object
 }
 
