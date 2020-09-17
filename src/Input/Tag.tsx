@@ -1,4 +1,4 @@
-import { Tag as BaseTag } from '../Tag'
+import { Tag as BaseTag, TagProps as BaseTagProps } from '../Tag'
 import { useControl } from '../hooks'
 
 import { TagInputSpan, TagInput } from './styles'
@@ -9,7 +9,7 @@ export type TagProps = {
   placeholder?: string
   defaultValue?: string[]
   onChange?: (newValue: string[]) => void
-  tagProps?: object | ((value: string) => void)
+  tagProps?: BaseTagProps | ((value: string) => BaseTagProps)
   style?: React.CSSProperties & object
 }
 
@@ -89,7 +89,7 @@ const Tag = React.forwardRef(
 
     const prefixNode = tags.map((tag, idx) => {
       const { value, repeat, close } = tag
-      let props = {}
+      let props: BaseTagProps = {}
       if (typeof tagProps === 'function') {
         props = tagProps(value)
       } else if (typeof tagProps === 'object') {
@@ -106,9 +106,9 @@ const Tag = React.forwardRef(
           }}
           key={idx}
           style={{ marginTop: 7, marginBottom: 7 }}
-          color={repeat ? 'red' : undefined}
           shrink={close}
           {...props}
+          color={repeat ? 'red' : props.color!}
         >
           {value}
         </BaseTag>
