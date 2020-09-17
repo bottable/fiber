@@ -18,7 +18,7 @@ export type NotificationProps = {
   offset?: number
   placement?: 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft'
   destroy?: () => void
-  style?: object
+  style?: React.CSSProperties & object
 }
 
 const Notification: FC<NotificationProps> = React.forwardRef<

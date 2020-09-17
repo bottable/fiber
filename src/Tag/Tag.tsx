@@ -1,8 +1,9 @@
 import { Color } from '../types'
+import { useControl } from '../hooks'
 
 import { StyledTag, CloseContainer, IconContainer } from './styles'
 
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC } from 'react'
 import CloseIcon from '@material-ui/icons/Close'
 
 export type TagProps = {
@@ -11,22 +12,33 @@ export type TagProps = {
   onClose?: Function
   color?: Color | string
   icon?: React.ReactNode
+  shrink?: boolean
+  style?: React.CSSProperties & object
 }
 
 const Tag: FC<TagProps> = ({ children, ...props }) => {
-  const { closable, visible: visibleProps, onClose, color, icon } = props
-  const [visible, setVisible] = useState<boolean>(true)
-  useEffect(() => {
-    if (typeof visibleProps === 'boolean') {
-      setVisible(visibleProps!)
-    }
-  }, [visibleProps])
+  const {
+    closable,
+    visible: visibleProps,
+    onClose: onCloseProps,
+    color,
+    icon
+  } = props
 
-  const handleClose = (e: React.MouseEvent<HTMLElement | SVGSVGElement>) => {
+  const onClose = (e: React.MouseEvent<HTMLElement | SVGSVGElement>) => {
     e.stopPropagation()
-    if (onClose) onClose(e)
+    if (onCloseProps) onCloseProps(e)
     if (e.defaultPrevented) return
-    if (typeof visibleProps !== 'boolean') setVisible(false)
+    return false
+  }
+
+  const { value: visible, setValue: setVisible } = useControl({
+    value: visibleProps,
+    defaultValue: true,
+    onChange: onClose as (newValue: unknown) => unknown
+  }) as {
+    value: boolean
+    setValue: (newValue: React.MouseEvent<HTMLElement | SVGSVGElement>) => void
   }
 
   const iconNode = icon ? (
@@ -34,7 +46,7 @@ const Tag: FC<TagProps> = ({ children, ...props }) => {
   ) : null
   const closeNode = closable ? (
     <CloseContainer color={color}>
-      <CloseIcon onClick={handleClose} />
+      <CloseIcon onClick={setVisible} />
     </CloseContainer>
   ) : null
 

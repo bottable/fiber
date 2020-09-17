@@ -6,7 +6,7 @@ import { rem } from 'polished'
 export const StyledTag = styled.span<TagProps>`
   display: ${({ visible }) => (visible ? 'inline-block' : 'none')};
   box-sizing: border-box;
-  height: auto;
+  height: ${rem('22px')};
   margin-right: ${rem('8px')};
   padding: ${`0 ${rem('7px')}`};
   border-width: ${rem('1px')};
@@ -32,7 +32,12 @@ export const StyledTag = styled.span<TagProps>`
       : theme.colors.gray7};
   font-size: ${rem('12px')};
   line-height: ${rem('20px')};
+  transform: ${({ shrink }) => (shrink ? 'scale(0)' : 'scale(1)')};
+  transform-origin: center;
+  transition: transform 100ms ease;
+
   cursor: default;
+
   a {
     outline: none;
     background-color: transparent;

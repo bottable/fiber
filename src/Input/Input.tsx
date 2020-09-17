@@ -8,7 +8,6 @@ import {
   LargeInput,
   TableSpan,
   Addon,
-  Fix,
   InputSpan,
   BlockSpan
 } from './styles'
@@ -23,8 +22,8 @@ export type InputProps = MergeElementProps<
     onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>
     addonBefore?: React.ReactNode
     addonAfter?: React.ReactNode
-    prefix?: React.ReactNode
-    suffix?: React.ReactNode
+    prefix?: React.ReactNode | React.ReactNode[]
+    suffix?: React.ReactNode | React.ReactNode[]
     fix?: boolean
     bordered?: boolean
     disabled?: boolean
@@ -51,14 +50,14 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       onChange: onChangeProps,
       onPressEnter,
       onKeyDown,
-      onFocus,
-      onBlur,
       value: valueProps,
       defaultValue,
       style,
+      disabled,
+      addonBefore,
+      addonAfter,
       ...rest
     } = props
-    const { addonBefore, addonAfter } = props
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (onChangeProps) onChangeProps(e)
@@ -97,18 +96,6 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       }
     }
 
-    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-      if (onFocus) {
-        onFocus(e)
-      }
-    }
-
-    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-      if (onBlur) {
-        onBlur(e)
-      }
-    }
-
     const fix = Boolean(prefix || suffix)
 
     let input = (
@@ -116,11 +103,12 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
         ref={composeRef<HTMLInputElement>(inputRef, ref)}
         onChange={setValue}
         onKeyDown={handleKeyDown}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
         fix={fix}
         value={value}
         style={!fix ? style : undefined}
+        disabled={disabled}
+        addonBefore={Boolean(addonBefore)}
+        addonAfter={Boolean(addonAfter)}
         {...rest}
       />
     )
@@ -136,19 +124,19 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       </Addon>
     )
 
-    const prefixNode = prefix && <Fix size={size}>{prefix}</Fix>
-    const suffixNode = suffix && <Fix size={size}>{suffix}</Fix>
-
     if (fix) {
       input = (
         <InputSpan
           style={style}
           size={size}
           onClick={() => inputRef.current?.focus()}
+          disabled={disabled}
+          addonBefore={Boolean(addonBefore)}
+          addonAfter={Boolean(addonAfter)}
         >
-          {prefixNode}
+          {prefix}
           {input}
-          {suffixNode}
+          {suffix}
         </InputSpan>
       )
     }

@@ -5,7 +5,7 @@ import { rem } from 'polished'
 
 const baseStyle = css<InputProps>`
   background-color: ${({ disabled, theme }) =>
-    disabled ? theme.colors.gray2 : null};
+    disabled ? theme.colors.gray2 : '#fff'};
   color: ${({ disabled, theme }) =>
     disabled ? theme.colors.gray5 : theme.colors.gray7};
   line-height: 1.5715;
@@ -23,7 +23,7 @@ const inputStyle = css<InputProps>`
   float: ${({ addonBefore, addonAfter }) =>
     addonBefore || addonAfter ? 'left' : null};
   border: ${({ bordered, theme }) =>
-    bordered === false ? 'none' : `${rem('1px')} solid ${theme.colors.gray5};`};
+    bordered === false ? 'none' : `${theme.border.md} ${theme.colors.gray5};`};
   border-radius: ${({ theme }) => theme.radii.md};
   border-top-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
   border-top-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
@@ -41,9 +41,18 @@ const inputStyle = css<InputProps>`
 
 const fixInputStyle = css<InputProps>`
   ${baseStyle}
+  flex-grow: 1;
   padding: 0;
   border: none;
   outline: none;
+
+  &:not(:first-child) {
+    margin-left: ${rem('4px')};
+  }
+
+  &:not(:last-child) {
+    margin-right: ${rem('4px')};
+  }
 `
 
 export const BaseInput = styled.input<InputProps>`
@@ -91,7 +100,7 @@ export const Addon = styled.span<InputProps>`
   padding: ${({ button }) => (button ? 'none' : `0 ${rem('11px')}`)};
   border: ${({ button, theme }) =>
     button ? 'none' : `${rem('1px')} solid ${theme.colors.gray5}`};
-  border-radius: ${rem('2px')};
+  border-radius: ${({ theme }) => theme.radii.md};
   background-color: ${({ theme }) => theme.colors.gray2};
   color: ${({ theme }) => theme.colors.gray7};
   font-size: ${({ size }) => {
@@ -120,18 +129,6 @@ export const Addon = styled.span<InputProps>`
   }
 `
 
-export const Fix = styled.span<InputProps>`
-  &:first-child {
-    margin-right: ${rem('4px')};
-  }
-  &:last-child {
-    margin-left: ${rem('4px')};
-  }
-  svg {
-    ${svgStyle}
-  }
-`
-
 export const TableSpan = styled.span`
   display: table;
   margin: 0;
@@ -146,6 +143,9 @@ export const BlockSpan = styled.span`
 
 export const InputSpan = styled.span`
   ${inputStyle}
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-content: space-between;
   padding: ${({ size }) => {
     switch (size) {
       case 'lg':
@@ -157,4 +157,19 @@ export const InputSpan = styled.span`
     }
   }};
   font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
+
+  svg {
+    ${svgStyle}
+  }
+`
+
+export const TagInputSpan = styled(InputSpan)`
+  padding-top: 0;
+  padding-bottom: 0;
+`
+
+export const TagInput = styled.input<InputProps>`
+  ${fixInputStyle}
+  margin: ${rem('7px')} 0;
+  font-size: ${rem('14px')};
 `
