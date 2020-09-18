@@ -58,7 +58,7 @@ const StyledChildDiv = styled.div<SpaceProps>`
   ${spaceVariant};
 `
 
-export const Space: FC<SpaceProps> = ({ children, ...props }) => {
+export const Space: FC<SpaceProps> = ({ children, style, ...props }) => {
   const items = toArray(children)
   const len = items.length
 
@@ -67,14 +67,14 @@ export const Space: FC<SpaceProps> = ({ children, ...props }) => {
   }
 
   return (
-    <StyledBlock {...props}>
+    <StyledBlock style={style} {...props}>
       {items.map((child, idx) => {
-        const style: any = {}
+        const itemStyle: any = {}
         if (idx === items.length - 1) {
-          style.margin = 0
+          itemStyle.margin = 0
         }
         return (
-          <StyledChildDiv key={idx} style={style}>
+          <StyledChildDiv key={idx} style={itemStyle} {...props}>
             {child}
           </StyledChildDiv>
         )
