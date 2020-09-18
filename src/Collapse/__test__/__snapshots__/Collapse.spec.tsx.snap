@@ -2,21 +2,21 @@
 
 exports[`Collapse renders correctly 1`] = `
 <div
-  className="sc-AxirZ kWJFXQ"
+  className="sc-AxiKw fmWvBU"
 >
   <div
-    className="sc-AxiKw gFsAhk"
+    className="sc-AxhCb echsdo"
   >
     <div
-      className="sc-AxhCb faVQjE"
+      className="sc-AxhUy dcgExt"
       onClick={[Function]}
     >
       This is panel header 1
       <span
-        className="sc-AxhUy gqJSAI"
+        className="sc-AxgMl kwkLze"
       />
       <span
-        className="sc-AxgMl cKoRzU"
+        className="sc-AxheI fSziIi"
       >
         <svg
           aria-hidden={true}
@@ -31,7 +31,7 @@ exports[`Collapse renders correctly 1`] = `
       </span>
     </div>
     <div
-      className="sc-AxheI bzsAPF"
+      className="sc-AxirZ kiMEmg"
     >
       <div
         className="sc-Axmtr VMlCD"
@@ -43,18 +43,18 @@ exports[`Collapse renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-AxiKw gFsAhk"
+    className="sc-AxhCb echsdo"
   >
     <div
-      className="sc-AxhCb faVQjE"
+      className="sc-AxhUy dcgExt"
       onClick={[Function]}
     >
       This is panel header 2
       <span
-        className="sc-AxhUy gqJSAI"
+        className="sc-AxgMl kwkLze"
       />
       <span
-        className="sc-AxgMl cKoRzU"
+        className="sc-AxheI fSziIi"
       >
         <svg
           aria-hidden={true}
@@ -69,7 +69,7 @@ exports[`Collapse renders correctly 1`] = `
       </span>
     </div>
     <div
-      className="sc-AxheI bzsAPF"
+      className="sc-AxirZ kiMEmg"
     >
       <div
         className="sc-Axmtr VMlCD"
@@ -81,18 +81,18 @@ exports[`Collapse renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-AxiKw gFsAhk"
+    className="sc-AxhCb echsdo"
   >
     <div
-      className="sc-AxhCb faVQjE"
+      className="sc-AxhUy dcgExt"
       onClick={[Function]}
     >
       This is panel header 3
       <span
-        className="sc-AxhUy gqJSAI"
+        className="sc-AxgMl kwkLze"
       />
       <span
-        className="sc-AxgMl cKoRzU"
+        className="sc-AxheI fSziIi"
       >
         <svg
           aria-hidden={true}
@@ -107,7 +107,7 @@ exports[`Collapse renders correctly 1`] = `
       </span>
     </div>
     <div
-      className="sc-AxheI bzsAPF"
+      className="sc-AxirZ kiMEmg"
     >
       <div
         className="sc-Axmtr VMlCD"

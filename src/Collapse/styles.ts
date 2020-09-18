@@ -49,16 +49,6 @@ export const ExpandIconSpan = styled.span<PanelProps>`
   }
 `
 
-export const PanelCollapseContainer = styled.div<PanelProps>`
-  max-height: ${({ collapsed, height }) => {
-    if (height === undefined) return null
-    if (collapsed) return 0
-    else return `${height}px`
-  }};
-  overflow: hidden;
-  ${({ theme }) => theme.transition}
-`
-
 export const PanelContentContainer = styled.div`
   padding: ${({ theme }) => theme.paddings.md};
   padding-top: 0;

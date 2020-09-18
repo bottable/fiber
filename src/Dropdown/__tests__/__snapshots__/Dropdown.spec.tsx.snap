@@ -7,7 +7,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
   onMouseLeave={[Function]}
 >
   <span
-    className="sc-fzonZV ckbpRN"
+    className="sc-fzocqA cbkYiI"
     size={4}
   >
      Hover Me 
@@ -23,7 +23,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         onClick={[Function]}
       >
         <span
-          className="sc-fzonZV ckbpRN"
+          className="sc-fzocqA cbkYiI"
           size={4}
         >
            Item 1 
@@ -34,7 +34,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         onClick={[Function]}
       >
         <span
-          className="sc-fzonZV ckbpRN"
+          className="sc-fzocqA cbkYiI"
           size={4}
         >
            Item 2 
@@ -45,7 +45,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         onClick={[Function]}
       >
         <span
-          className="sc-fzonZV ckbpRN"
+          className="sc-fzocqA cbkYiI"
           size={4}
         >
            Item 3 

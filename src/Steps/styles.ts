@@ -4,11 +4,6 @@ import { StepProps } from './Step'
 import styled from 'styled-components'
 import { rem } from 'polished'
 
-type VerticalChildrenProps = {
-  height?: number
-  collapsed?: boolean
-}
-
 export const StyledSteps = styled.div<StepsProps>`
   display: flex;
   flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
@@ -112,15 +107,4 @@ export const SubtitleContainer = styled.div<StepProps>`
     hover ? theme.colors.light : theme.colors.gray6};
   font-size: ${({ theme }) => theme.fontSizes.md};
   transition: color 0.3s;
-`
-
-export const VerticalChildrenContainer = styled.div<VerticalChildrenProps>`
-  max-height: ${({ collapsed, height }) => {
-    if (height === undefined) return null
-    if (collapsed) return 0
-    else return `${height}px`
-  }};
-
-  overflow: hidden;
-  ${({ theme }) => theme.transition}
 `

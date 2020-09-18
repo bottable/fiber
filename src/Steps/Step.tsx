@@ -1,13 +1,14 @@
+import { useCollapse } from '../hooks'
+
 import {
   StyledStep,
   IconContainer,
   ContentContainer,
   TitleContainer,
-  SubtitleContainer,
-  VerticalChildrenContainer
+  SubtitleContainer
 } from './styles'
 
-import React, { FC, useState, useEffect, useRef } from 'react'
+import React, { FC, useState } from 'react'
 import Filter1Icon from '@material-ui/icons/Filter1'
 import Filter2Icon from '@material-ui/icons/Filter2'
 import Filter3Icon from '@material-ui/icons/Filter3'
@@ -59,15 +60,10 @@ const Step: FC<StepProps> = ({ children, ...props }) => {
 
   const [hover, setHover] = useState<boolean>(false)
 
-  const [height, setHeight] = useState<number | undefined>(undefined)
-
-  const collapseRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (collapseRef.current && height === undefined) {
-      setHeight(collapseRef.current.offsetHeight)
-    }
-  }, [collapseRef])
+  const childrenNode = useCollapse({
+    children: children,
+    collapsed: status !== 'process'
+  })
 
   const titleNode = (
     <TitleContainer {...rest} hover={hover}>
@@ -102,15 +98,7 @@ const Step: FC<StepProps> = ({ children, ...props }) => {
       <ContentContainer {...rest}>
         {title && titleNode}
         {subtitle && subtitleNode}
-        {vertical && (
-          <VerticalChildrenContainer
-            height={height}
-            collapsed={status !== 'process'}
-            ref={collapseRef}
-          >
-            {children}
-          </VerticalChildrenContainer>
-        )}
+        {vertical && childrenNode}
       </ContentContainer>
     </StyledStep>
   )
