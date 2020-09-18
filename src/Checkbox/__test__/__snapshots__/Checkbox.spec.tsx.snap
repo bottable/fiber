@@ -2,10 +2,10 @@
 
 exports[`Checkbox renders correctly 1`] = `
 <label
-  className="sc-AxhCb kLLBoS"
+  className="sc-AxiKw iEISuy"
 >
   <span
-    className="sc-AxhUy jenGXw"
+    className="sc-AxhCb kYBEtR"
   >
     <input
       className="sc-AxheI beyFxN"
@@ -13,7 +13,7 @@ exports[`Checkbox renders correctly 1`] = `
       type="Checkbox"
     />
     <span
-      className="sc-AxiKw ilQvMi"
+      className="sc-Axmtr jzYUEc"
     />
   </span>
 </label>

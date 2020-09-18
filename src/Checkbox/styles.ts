@@ -22,10 +22,10 @@ export const StyledCheckbox = styled.span<CheckboxProps>`
   left: 0;
   width: ${({ theme }) => theme.space[3]};
   height: ${({ theme }) => theme.space[3]};
-  border: ${({ theme }) => theme.border.md};
+  border: ${({ theme }) => theme.border.lg};
   border-radius: ${({ theme }) => theme.radii.md};
   border-color: ${({ checked, theme }) =>
-    checked ? theme.colors.base : theme.colors.gray4};
+    checked ? theme.colors.base : theme.colors.gray8};
   background-color: ${({ checked, theme }) =>
     checked ? theme.colors.base : null};
   ${({ theme }) => theme.transition}
@@ -54,9 +54,9 @@ export const StyledCheckbox = styled.span<CheckboxProps>`
 `
 
 export {
-  Wrapper,
-  LabelContainer,
-  RadioContainer as CheckboxContainer,
-  RadioInput as CheckboxInput,
-  StyledGroup
-} from '../Radio/styles'
+  RadioCheckboxWrapper as Wrapper,
+  RadioCheckboxLabelContainer as LabelContainer,
+  RadioCheckboxContainer as CheckboxContainer,
+  RadioCheckboxInput as CheckboxInput,
+  RadioCheckboxStyledGroup as StyledGroup
+} from '../styles'

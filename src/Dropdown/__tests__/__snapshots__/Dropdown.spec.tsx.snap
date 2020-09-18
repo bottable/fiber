@@ -2,7 +2,7 @@
 
 exports[`Menu & Menu Items renders correctly 1`] = `
 <div
-  className="sc-fzoiQi cGtddt"
+  className="sc-fzoXWK hKbFVo"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
@@ -13,13 +13,13 @@ exports[`Menu & Menu Items renders correctly 1`] = `
      Hover Me 
   </span>
   <div
-    className="sc-AxiKw sc-fzqARJ gpksEX"
+    className="sc-AxiKw sc-fzpmMD ewMOwD"
   >
     <ul
-      className="sc-fznZeY hBvHBb"
+      className="sc-fzoLag eSFTFK"
     >
       <li
-        className="sc-fzokOt kZMlVH"
+        className="sc-fzoXzr egSwkv"
         onClick={[Function]}
       >
         <span
@@ -30,7 +30,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         </span>
       </li>
       <li
-        className="sc-fzokOt kZMlVH"
+        className="sc-fzoXzr egSwkv"
         onClick={[Function]}
       >
         <span
@@ -41,7 +41,7 @@ exports[`Menu & Menu Items renders correctly 1`] = `
         </span>
       </li>
       <li
-        className="sc-fzokOt kZMlVH"
+        className="sc-fzoXzr egSwkv"
         onClick={[Function]}
       >
         <span

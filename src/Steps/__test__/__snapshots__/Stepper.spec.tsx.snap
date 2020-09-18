@@ -3,16 +3,16 @@
 exports[`Steps renders correctly 1`] = `
 Array [
   <div
-    className="sc-AxiKw iVZTBv"
+    className="sc-Axmtr cxlOVZ"
   >
     <div
-      className="sc-AxhCb jxrXPr"
+      className="sc-AxmLO iEGzKY"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhUy hLyCPb"
+        className="sc-fzozJi gjzjAk"
       >
         <svg
           aria-hidden={true}
@@ -26,28 +26,28 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-AxgMl ctSGnM"
+        className="sc-fzoLsD cNfvvj"
       >
         <div
-          className="sc-AxheI bqoywY"
+          className="sc-fzpans hYyVcV"
         >
           first
         </div>
         <div
-          className="sc-Axmtr eaFFCX"
+          className="sc-fzplWN hyXKdE"
         >
           subtitle
         </div>
       </div>
     </div>
     <div
-      className="sc-AxhCb jxrXPr"
+      className="sc-AxmLO iEGzKY"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhUy crOSLQ"
+        className="sc-fzozJi lmqSuj"
       >
         <svg
           aria-hidden={true}
@@ -61,28 +61,28 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-AxgMl ctSGnM"
+        className="sc-fzoLsD cNfvvj"
       >
         <div
-          className="sc-AxheI bqoywY"
+          className="sc-fzpans hYyVcV"
         >
           second
         </div>
         <div
-          className="sc-Axmtr eaFFCX"
+          className="sc-fzplWN hyXKdE"
         >
           subtitle
         </div>
       </div>
     </div>
     <div
-      className="sc-AxhCb jxrXPr"
+      className="sc-AxmLO iEGzKY"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhUy crOSLQ"
+        className="sc-fzozJi lmqSuj"
       >
         <svg
           aria-hidden={true}
@@ -96,15 +96,15 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-AxgMl ctSGnM"
+        className="sc-fzoLsD cNfvvj"
       >
         <div
-          className="sc-AxheI dQbFFX"
+          className="sc-fzpans kCaCte"
         >
           third
         </div>
         <div
-          className="sc-Axmtr eaFFCX"
+          className="sc-fzplWN hyXKdE"
         >
           subtitle
         </div>
@@ -112,16 +112,16 @@ Array [
     </div>
   </div>,
   <div
-    className="sc-AxiKw BkSBb"
+    className="sc-Axmtr jBbwjV"
   >
     <div
-      className="sc-AxhCb eCvjWQ"
+      className="sc-AxmLO hQSiJH"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhUy hauDQr"
+        className="sc-fzozJi cGdfnQ"
       >
         <svg
           aria-hidden={true}
@@ -135,15 +135,15 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-AxgMl ctSGnM"
+        className="sc-fzoLsD cNfvvj"
       >
         <div
-          className="sc-AxheI dQbFFX"
+          className="sc-fzpans kCaCte"
         >
           first
         </div>
         <div
-          className="sc-Axmtr gNnseu"
+          className="sc-fzplWN kZsnfB"
         >
           subtitle
         </div>
@@ -165,13 +165,13 @@ Array [
       </div>
     </div>
     <div
-      className="sc-AxhCb eCvjWQ"
+      className="sc-AxmLO hQSiJH"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhUy crOSLQ"
+        className="sc-fzozJi lmqSuj"
       >
         <svg
           aria-hidden={true}
@@ -185,15 +185,15 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-AxgMl ctSGnM"
+        className="sc-fzoLsD cNfvvj"
       >
         <div
-          className="sc-AxheI dQbFFX"
+          className="sc-fzpans kCaCte"
         >
           second
         </div>
         <div
-          className="sc-Axmtr gNnseu"
+          className="sc-fzplWN kZsnfB"
         >
           subtitle
         </div>
@@ -215,13 +215,13 @@ Array [
       </div>
     </div>
     <div
-      className="sc-AxhCb eCvjWQ"
+      className="sc-AxmLO hQSiJH"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhUy crOSLQ"
+        className="sc-fzozJi lmqSuj"
       >
         <svg
           aria-hidden={true}
@@ -235,15 +235,15 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-AxgMl ctSGnM"
+        className="sc-fzoLsD cNfvvj"
       >
         <div
-          className="sc-AxheI dQbFFX"
+          className="sc-fzpans kCaCte"
         >
           third
         </div>
         <div
-          className="sc-Axmtr gNnseu"
+          className="sc-fzplWN kZsnfB"
         >
           subtitle
         </div>
@@ -266,16 +266,16 @@ Array [
     </div>
   </div>,
   <div
-    className="sc-AxiKw iVZTBv"
+    className="sc-Axmtr cxlOVZ"
   >
     <div
-      className="sc-AxhCb jxrXPr"
+      className="sc-AxmLO iEGzKY"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhUy hLyCPb"
+        className="sc-fzozJi gjzjAk"
       >
         <svg
           aria-hidden={true}
@@ -289,23 +289,23 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-AxgMl ctSGnM"
+        className="sc-fzoLsD cNfvvj"
       >
         <div
-          className="sc-AxheI bqoywY"
+          className="sc-fzpans hYyVcV"
         >
           Login
         </div>
       </div>
     </div>
     <div
-      className="sc-AxhCb jxrXPr"
+      className="sc-AxmLO iEGzKY"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhUy crOSLQ"
+        className="sc-fzozJi lmqSuj"
       >
         <svg
           aria-hidden={true}
@@ -319,23 +319,23 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-AxgMl ctSGnM"
+        className="sc-fzoLsD cNfvvj"
       >
         <div
-          className="sc-AxheI bqoywY"
+          className="sc-fzpans hYyVcV"
         >
           Verification
         </div>
       </div>
     </div>
     <div
-      className="sc-AxhCb jxrXPr"
+      className="sc-AxmLO iEGzKY"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhUy crOSLQ"
+        className="sc-fzozJi lmqSuj"
       >
         <svg
           aria-hidden={true}
@@ -349,23 +349,23 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-AxgMl ctSGnM"
+        className="sc-fzoLsD cNfvvj"
       >
         <div
-          className="sc-AxheI bqoywY"
+          className="sc-fzpans hYyVcV"
         >
           Pay
         </div>
       </div>
     </div>
     <div
-      className="sc-AxhCb jxrXPr"
+      className="sc-AxmLO iEGzKY"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhUy crOSLQ"
+        className="sc-fzozJi lmqSuj"
       >
         <svg
           aria-hidden={true}
@@ -379,10 +379,10 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-AxgMl ctSGnM"
+        className="sc-fzoLsD cNfvvj"
       >
         <div
-          className="sc-AxheI dQbFFX"
+          className="sc-fzpans kCaCte"
         >
           Done
         </div>

@@ -6,39 +6,6 @@ import { ButtonProps } from './Button'
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
-export const Wrapper = styled.label<RadioProps>`
-  display: inline-block;
-  position: relative;
-  padding: 0;
-  color: ${({ theme }) => theme.colors.gray7};
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-`
-
-export const RadioContainer = styled.span`
-  display: inline-block;
-  top: 0;
-  margin: 0;
-  outline: none;
-  vertical-align: sub;
-`
-
-export const LabelContainer = styled.span`
-  padding-right: ${({ theme }) => theme.paddings.xs};
-  padding-left: ${({ theme }) => theme.paddings.xs};
-`
-
-export const RadioInput = styled.input`
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  cursor: pointer;
-`
-
 const disabledStyle = css`
   border-color: ${({ theme }) => theme.colors.gray5};
 
@@ -56,12 +23,12 @@ export const StyledRadio = styled.span<RadioProps>`
   position: relative;
   top: 0;
   left: 0;
-  width: ${rem('16px')};
-  height: ${rem('16px')};
-  border: ${({ theme }) => theme.border.md};
+  width: ${({ theme }) => theme.space[3]};
+  height: ${({ theme }) => theme.space[3]};
+  border: ${({ theme }) => theme.border.lg};
   border-radius: 50%;
   border-color: ${({ checked, theme }) =>
-    checked ? theme.colors.base : theme.colors.gray4};
+    checked ? theme.colors.base : theme.colors.gray8};
   background-color: #fff;
   ${({ theme }) => theme.transition}
 
@@ -85,13 +52,6 @@ export const StyledRadio = styled.span<RadioProps>`
   }
 
   ${({ disabled }) => (disabled ? disabledStyle : null)}
-`
-
-export const StyledGroup = styled.div`
-  display: inline-block;
-  label {
-    margin-right: ${({ theme }) => theme.margins.xs};
-  }
 `
 
 const defaultRadioStyle = css<ButtonProps>`
@@ -125,7 +85,7 @@ export const StyledRadioButton = styled.label<ButtonProps>`
   ${button}
   ${({ buttonStyle }) =>
     buttonStyle === 'solid' ? solidRadioStyle : defaultRadioStyle};
-  height: ${rem('16px')};
+  height: ${({ theme }) => theme.space[3]};
   overflow: hidden;
   border-color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
   border-left-color: ${({ postChecked, theme }) =>
@@ -150,3 +110,11 @@ export const StyledRadioButton = styled.label<ButtonProps>`
   }
   ${({ theme }) => theme.transition}
 `
+
+export {
+  RadioCheckboxWrapper as Wrapper,
+  RadioCheckboxLabelContainer as LabelContainer,
+  RadioCheckboxContainer as RadioContainer,
+  RadioCheckboxInput as RadioInput,
+  RadioCheckboxStyledGroup as StyledGroup
+} from '../styles'
