@@ -33,7 +33,7 @@ export type ButtonProps = MergeElementProps<
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { children, type, onClick, icon, startIcon, endIcon, ...rest } = props
-  const { shape } = props
+  const { shape, ghost } = props
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   const { ripples, addRipple } = useRipple()
@@ -70,7 +70,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     addRipple({
       event,
       width: buttonRef.current.offsetWidth * 2,
-      centered: shape === 'circle'
+      centered: shape === 'circle',
+      color: type === 'primary' && !ghost ? 'light' : 'dark'
     })
   }
 

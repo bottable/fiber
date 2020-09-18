@@ -8,6 +8,7 @@ const fontSizes = {
 
 const fontWeights = {
   regular: 400,
+  medium: 500,
   strong: 700
 }
 

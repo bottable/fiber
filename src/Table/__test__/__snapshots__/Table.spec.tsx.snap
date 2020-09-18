@@ -129,7 +129,7 @@ exports[`Table renders correctly 1`] = `
       className="sc-fzqBkg eDmeRO"
     >
       <button
-        className="sc-fzpans sc-fzokOt gxhIxB sc-fzqPZZ hruXgM"
+        className="sc-fzpans sc-fzokOt eBuWRk sc-fzqPZZ hruXgM"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -156,7 +156,7 @@ exports[`Table renders correctly 1`] = `
       onClick={[Function]}
     >
       <button
-        className="sc-fzpans sc-fzokOt iXJYKT sc-fzqPZZ eVTpHQ"
+        className="sc-fzpans sc-fzokOt czwoiC sc-fzqPZZ eVTpHQ"
         onClick={[Function]}
         onMouseDown={[Function]}
         selected={true}
@@ -170,7 +170,7 @@ exports[`Table renders correctly 1`] = `
       className="sc-fzqBkg eDmeRO"
     >
       <button
-        className="sc-fzpans sc-fzokOt gxhIxB sc-fzqPZZ hruXgM"
+        className="sc-fzpans sc-fzokOt eBuWRk sc-fzqPZZ hruXgM"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}

@@ -43,21 +43,22 @@ export const EndIcon = styled(Icon)`
 `
 
 export const PrimaryButton = styled(BaseButton)`
-  border-style: solid;
-  border-color: ${({ disabled, theme }) =>
-    theme.colors[disabled ? 'gray3' : 'primary']};
+  border: ${({ ghost }) => (ghost ? null : 'none')};
+  border-style: ${({ ghost }) => (ghost ? 'solid' : null)};
+  border-color: ${({ disabled, ghost, theme }) =>
+    ghost ? theme.colors[disabled ? 'gray3' : 'base'] : null};
   background-color: ${({ ghost, disabled, theme }) => {
     if (ghost) return 'transparent'
     if (disabled) {
       return theme.colors.gray3
     } else {
-      return theme.colors.primary
+      return theme.colors.base
     }
   }};
   color: ${({ ghost, disabled, theme }) => {
     if (disabled) return theme.colors.gray5
     if (ghost) {
-      return theme.colors.primary
+      return theme.colors.base
     } else {
       return 'white'
     }
@@ -114,7 +115,7 @@ export const DashedButton = styled(BaseButton)`
   &:hover {
     border-color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
-      return `${theme.colors[ghost ? 'dark' : 'primary']}`
+      return `${theme.colors[ghost ? 'dark' : 'base']}`
     }};
     background-color: ${({ ghost, disabled }) => {
       if (disabled || ghost) return null
@@ -122,7 +123,7 @@ export const DashedButton = styled(BaseButton)`
     }};
     color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
-      return `${theme.colors[ghost ? 'dark' : 'primary']}`
+      return `${theme.colors[ghost ? 'dark' : 'base']}`
     }};
   }
 `
@@ -181,7 +182,7 @@ export const LinkButton = styled(BaseButton)`
     if (ghost) {
       return 'white'
     } else {
-      return theme.colors.primary
+      return theme.colors.base
     }
   }};
 

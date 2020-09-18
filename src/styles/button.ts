@@ -50,13 +50,17 @@ export const button = css<ButtonStyleProps>`
         return `${rem('10px')} ${rem('16px')}`
     }
   }};
-  padding-right: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
-  padding-left: ${({ shape }) => (shape === 'circle' ? rem('0px') : null)};
+  padding-right: ${({ shape }) => (shape === 'circle' ? '0' : null)};
+  padding-left: ${({ shape }) => (shape === 'circle' ? '0' : null)};
   overflow: hidden;
   border-width: ${rem('1px')};
   border-style: solid;
-  border-radius: ${({ shape }) =>
-    shape === 'circle' ? '50%' : shape === 'round' ? rem('40px') : rem('4px')};
+  border-radius: ${({ shape, theme }) =>
+    shape === 'circle'
+      ? '50%'
+      : shape === 'round'
+      ? rem('40px')
+      : theme.radii.md};
   border-top-left-radius: ${({ addon }) => (addon ? 0 : null)};
   border-bottom-right-radius: ${({ dropdown }) => (dropdown ? 0 : null)};
   border-bottom-left-radius: ${({ addon, dropdown }) =>
@@ -85,13 +89,15 @@ export const button = css<ButtonStyleProps>`
       return theme.colors.gray7
     }
   }};
-  font-size: ${({ size }) => (size === 'lg' ? rem('16px') : rem('14px'))};
+  font-size: ${({ size, theme }) =>
+    size === 'lg' ? theme.fontSizes.lg : theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
     border-color: ${({ ghost, disabled, theme }) => {
       if (disabled) return null
-      return `${theme.colors[ghost ? 'dark' : 'primary']}`
+      return `${theme.colors[ghost ? 'dark' : 'base']}`
     }};
     background-color: ${({ ghost, disabled }) => {
       if (disabled || ghost) return null
@@ -102,7 +108,7 @@ export const button = css<ButtonStyleProps>`
       if (ghost) {
         return theme.colors.dark
       } else {
-        return theme.colors.primary
+        return theme.colors.base
       }
     }};
   }
