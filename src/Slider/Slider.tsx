@@ -13,7 +13,8 @@ export type SliderProps = {
   focus?: boolean
   disabled?: boolean
   vertical?: boolean
-  marks?: Object
+  marks?: object
+  style?: React.CSSProperties & object
 }
 
 const Slider: FC<SliderProps> = (props) => {

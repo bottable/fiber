@@ -3,14 +3,14 @@
 exports[`Input renders correctly 1`] = `
 Array [
   <input
-    className="sc-Axmtr sc-fzozJi kFhlVn"
+    className="sc-Axmtr sc-fzozJi iKOOdn"
     onChange={[Function]}
     onKeyDown={[Function]}
     value=""
   />,
   <div>
     <input
-      className="sc-Axmtr sc-fzoLsD cFNhoF"
+      className="sc-Axmtr sc-fzoLsD fvRuWh"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Large Input"
@@ -19,7 +19,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-Axmtr sc-fzozJi kFhlVn"
+      className="sc-Axmtr sc-fzozJi iKOOdn"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Medium Input"
@@ -28,7 +28,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-Axmtr sc-AxmLO iMKDGh"
+      className="sc-Axmtr sc-AxmLO euWHTd"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Small Input"
@@ -48,7 +48,7 @@ Array [
           http://
         </span>
         <input
-          className="sc-Axmtr sc-fzozJi kcDtEI"
+          className="sc-Axmtr sc-fzozJi cDufjM"
           onChange={[Function]}
           onKeyDown={[Function]}
           value=""
@@ -69,7 +69,7 @@ Array [
         className="sc-fzplWN guvLaR"
       >
         <input
-          className="sc-Axmtr sc-fzozJi ctBDYY"
+          className="sc-Axmtr sc-fzozJi ehocFE"
           onChange={[Function]}
           onKeyDown={[Function]}
           value=""
@@ -94,7 +94,7 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-fznKkj cwfKqi"
+      className="sc-fznKkj lBaPu"
       onClick={[Function]}
     >
       ￥
@@ -109,7 +109,7 @@ Array [
     <br />
     <br />
     <span
-      className="sc-fznKkj guqHiO"
+      className="sc-fznKkj jRZlRm"
       disabled={true}
       onClick={[Function]}
     >
@@ -137,7 +137,7 @@ Array [
           http://
         </span>
         <span
-          className="sc-fznKkj kOLGcJ"
+          className="sc-fznKkj YBvPh"
           onClick={[Function]}
         >
           <input
@@ -153,7 +153,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-Axmtr sc-fzozJi dtpizw"
+      className="sc-Axmtr sc-fzozJi bPbdXM"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Borderless"
@@ -162,7 +162,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-Axmtr sc-fzozJi kVLxRn"
+      className="sc-Axmtr sc-fzozJi bMPPSz"
       disabled={true}
       onChange={[Function]}
       onKeyDown={[Function]}
