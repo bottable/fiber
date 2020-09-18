@@ -15,7 +15,7 @@ export const ContentContainer = styled.div``
 export const StyledTable = styled.table`
   width: 100%;
   border-spacing: 0;
-  border-collapse: separate;
+  border-collapse: collapse;
   font-size: ${({ theme }) => theme.fontSizes.md};
   text-align: left;
 `
@@ -26,12 +26,12 @@ export const TableBody = styled.tbody``
 
 export const TableCellHead = styled.th`
   position: relative;
-  padding: ${({ theme }) => theme.paddings.md};
-  border-bottom: ${({ theme }) => theme.border.md};
+  padding: ${({ theme }) => `${theme.paddings.sm} ${theme.paddings.md}`};
+  border: ${({ theme }) => theme.border.md};
   border-color: ${({ theme }) => theme.colors.gray4};
-  background: ${({ theme }) => theme.colors.gray2};
-  color: ${({ theme }) => theme.colors.gray8};
-  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  color: ${({ theme }) => theme.colors.gray6};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   text-align: left;
   overflow-wrap: break-word;
 
@@ -58,8 +58,8 @@ export const TableRow = styled.tr<RowProps>`
 
 export const TableCellBody = styled.td`
   position: relative;
-  padding: ${({ theme }) => theme.paddings.md};
-  border-bottom: ${({ theme }) => theme.border.md};
+  padding: ${({ theme }) => `${theme.paddings.sm} ${theme.paddings.md}`};
+  border: ${({ theme }) => theme.border.md};
   border-color: ${({ theme }) => theme.colors.gray4};
   overflow-wrap: break-word;
 

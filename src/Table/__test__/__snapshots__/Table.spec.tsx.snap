@@ -8,24 +8,24 @@ exports[`Table renders correctly 1`] = `
     className="sc-fznzOf hfODEb"
   >
     <table
-      className="sc-fznMnq dhOjLq"
+      className="sc-fznMnq pbzks"
     >
       <thead
         className="sc-fzoant cATlvS"
       >
         <tr>
           <th
-            className="sc-fzqAbL iEUdUs"
+            className="sc-fzqAbL dZCuAn"
           >
             Name
           </th>
           <th
-            className="sc-fzqAbL iEUdUs"
+            className="sc-fzqAbL dZCuAn"
           >
             Age
           </th>
           <th
-            className="sc-fzqAbL iEUdUs"
+            className="sc-fzqAbL dZCuAn"
           >
             Address
           </th>
@@ -39,19 +39,19 @@ exports[`Table renders correctly 1`] = `
           className="sc-fzqMAW gjeBNo"
         >
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             <a>
               John Brown
             </a>
           </td>
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             32
           </td>
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             New York No. 1 Lake Park
           </td>
@@ -60,19 +60,19 @@ exports[`Table renders correctly 1`] = `
           className="sc-fzqMAW gjeBNo"
         >
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             <a>
               Jim Green
             </a>
           </td>
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             42
           </td>
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             London No. 1 Lake Park
           </td>
@@ -81,19 +81,19 @@ exports[`Table renders correctly 1`] = `
           className="sc-fzqMAW gjeBNo"
         >
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             <a>
               Joe Black
             </a>
           </td>
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             32
           </td>
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             Sidney No. 1 Lake Park
           </td>
@@ -102,19 +102,19 @@ exports[`Table renders correctly 1`] = `
           className="sc-fzqMAW gjeBNo"
         >
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             <a>
               Disabled User
             </a>
           </td>
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             99
           </td>
           <td
-            className="sc-fzoydu iCQgQL"
+            className="sc-fzoydu bhSUIb"
           >
             Sidney No. 1 Lake Park
           </td>
