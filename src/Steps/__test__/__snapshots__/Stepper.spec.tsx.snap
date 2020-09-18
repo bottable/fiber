@@ -12,19 +12,24 @@ Array [
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhCb hhigu"
+        className="sc-AxhCb fgymMG"
       >
-        <span
-          className="sc-Axmtr femjLv"
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          1
-        </span>
+          <path
+            d="M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm11 10h2V5h-4v2h2v8zm7-14H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14z"
+          />
+        </svg>
       </div>
       <div
         className="sc-AxhUy zJnwa"
       >
         <div
-          className="sc-AxgMl eFRcbO"
+          className="sc-AxgMl jqlkdS"
         >
           first
         </div>
@@ -44,17 +49,22 @@ Array [
       <div
         className="sc-AxhCb jNArfp"
       >
-        <span
-          className="sc-Axmtr bleHUD"
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          2
-        </span>
+          <path
+            d="M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm18-4H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zm-4-4h-4v-2h2c1.1 0 2-.89 2-2V7c0-1.11-.9-2-2-2h-4v2h4v2h-2c-1.1 0-2 .89-2 2v4h6v-2z"
+          />
+        </svg>
       </div>
       <div
         className="sc-AxhUy zJnwa"
       >
         <div
-          className="sc-AxgMl eFRcbO"
+          className="sc-AxgMl jqlkdS"
         >
           second
         </div>
@@ -74,17 +84,22 @@ Array [
       <div
         className="sc-AxhCb jNArfp"
       >
-        <span
-          className="sc-Axmtr bleHUD"
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          3
-        </span>
+          <path
+            d="M21 1H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zM3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm14 8v-1.5c0-.83-.67-1.5-1.5-1.5.83 0 1.5-.67 1.5-1.5V7c0-1.11-.9-2-2-2h-4v2h4v2h-2v2h2v2h-4v2h4c1.1 0 2-.89 2-2z"
+          />
+        </svg>
       </div>
       <div
         className="sc-AxhUy zJnwa"
       >
         <div
-          className="sc-AxgMl ceAPkJ"
+          className="sc-AxgMl hiCtCp"
         >
           third
         </div>
@@ -106,19 +121,24 @@ Array [
       onMouseLeave={[Function]}
     >
       <div
-        className="sc-AxhCb cGJkKa"
+        className="sc-AxhCb kzsRyu"
       >
-        <span
-          className="sc-Axmtr femjLv"
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          1
-        </span>
+          <path
+            d="M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm11 10h2V5h-4v2h2v8zm7-14H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14z"
+          />
+        </svg>
       </div>
       <div
         className="sc-AxhUy zJnwa"
       >
         <div
-          className="sc-AxgMl ceAPkJ"
+          className="sc-AxgMl hiCtCp"
         >
           first
         </div>
@@ -128,45 +148,19 @@ Array [
           subtitle
         </div>
         <div
-          style={
-            Object {
-              "border": "1px solid black",
-              "padding": 25,
-              "width": 200,
+          className="sc-Axmtr VlBhA"
+        >
+          <div
+            style={
+              Object {
+                "border": "1px solid black",
+                "padding": 25,
+                "width": 200,
+              }
             }
-          }
-        >
-          First Content
-        </div>
-      </div>
-    </div>
-    <div
-      className="sc-AxiKw gUXwZQ"
-      onClick={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      <div
-        className="sc-AxhCb cMKLMx"
-      >
-        <span
-          className="sc-Axmtr bleHUD"
-        >
-          2
-        </span>
-      </div>
-      <div
-        className="sc-AxhUy zJnwa"
-      >
-        <div
-          className="sc-AxgMl ceAPkJ"
-        >
-          second
-        </div>
-        <div
-          className="sc-AxheI kLeGtV"
-        >
-          subtitle
+          >
+            First Content
+          </div>
         </div>
       </div>
     </div>
@@ -179,17 +173,72 @@ Array [
       <div
         className="sc-AxhCb jNArfp"
       >
-        <span
-          className="sc-Axmtr bleHUD"
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          3
-        </span>
+          <path
+            d="M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm18-4H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zm-4-4h-4v-2h2c1.1 0 2-.89 2-2V7c0-1.11-.9-2-2-2h-4v2h4v2h-2c-1.1 0-2 .89-2 2v4h6v-2z"
+          />
+        </svg>
       </div>
       <div
         className="sc-AxhUy zJnwa"
       >
         <div
-          className="sc-AxgMl ceAPkJ"
+          className="sc-AxgMl hiCtCp"
+        >
+          second
+        </div>
+        <div
+          className="sc-AxheI kLeGtV"
+        >
+          subtitle
+        </div>
+        <div
+          className="sc-Axmtr VlBhA"
+        >
+          <div
+            style={
+              Object {
+                "border": "1px solid black",
+                "padding": 25,
+                "width": 200,
+              }
+            }
+          >
+            Second Content
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-AxiKw gUXwZQ"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="sc-AxhCb jNArfp"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M21 1H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zM3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm14 8v-1.5c0-.83-.67-1.5-1.5-1.5.83 0 1.5-.67 1.5-1.5V7c0-1.11-.9-2-2-2h-4v2h4v2h-2v2h2v2h-4v2h4c1.1 0 2-.89 2-2z"
+          />
+        </svg>
+      </div>
+      <div
+        className="sc-AxhUy zJnwa"
+      >
+        <div
+          className="sc-AxgMl hiCtCp"
         >
           third
         </div>
@@ -197,6 +246,21 @@ Array [
           className="sc-AxheI kLeGtV"
         >
           subtitle
+        </div>
+        <div
+          className="sc-Axmtr VlBhA"
+        >
+          <div
+            style={
+              Object {
+                "border": "1px solid black",
+                "padding": 25,
+                "width": 200,
+              }
+            }
+          >
+            Third Content
+          </div>
         </div>
       </div>
     </div>
@@ -228,7 +292,7 @@ Array [
         className="sc-AxhUy zJnwa"
       >
         <div
-          className="sc-AxgMl eFRcbO"
+          className="sc-AxgMl jqlkdS"
         >
           Login
         </div>
@@ -258,7 +322,7 @@ Array [
         className="sc-AxhUy zJnwa"
       >
         <div
-          className="sc-AxgMl eFRcbO"
+          className="sc-AxgMl jqlkdS"
         >
           Verification
         </div>
@@ -288,7 +352,7 @@ Array [
         className="sc-AxhUy zJnwa"
       >
         <div
-          className="sc-AxgMl eFRcbO"
+          className="sc-AxgMl jqlkdS"
         >
           Pay
         </div>
@@ -318,7 +382,7 @@ Array [
         className="sc-AxhUy zJnwa"
       >
         <div
-          className="sc-AxgMl ceAPkJ"
+          className="sc-AxgMl hiCtCp"
         >
           Done
         </div>

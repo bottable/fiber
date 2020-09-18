@@ -47,7 +47,7 @@ export const StyledNotification = styled.div<NotificationProps>`
 `
 
 export const MessageStyle = styled.div`
-  font-weight: ${({ theme }) => theme.fontWeights.strong};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
 `
 
 export const DescriptionStyle = styled.div`
