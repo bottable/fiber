@@ -30,6 +30,7 @@ export const PanelHeaderContainer = styled.div`
   position: relative;
   align-items: center;
   padding: ${({ theme }) => `${theme.paddings.xs} ${theme.paddings.md}`};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   cursor: pointer;
   ${({ theme }) => theme.transition}

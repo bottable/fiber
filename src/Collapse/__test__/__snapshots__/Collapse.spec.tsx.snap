@@ -8,7 +8,7 @@ exports[`Collapse renders correctly 1`] = `
     className="sc-AxmLO iYKSxH"
   >
     <div
-      className="sc-fzozJi cXkEwX"
+      className="sc-fzozJi dZqPFH"
       onClick={[Function]}
     >
       <div
@@ -50,7 +50,7 @@ exports[`Collapse renders correctly 1`] = `
     className="sc-AxmLO iYKSxH"
   >
     <div
-      className="sc-fzozJi cXkEwX"
+      className="sc-fzozJi dZqPFH"
       onClick={[Function]}
     >
       <div
@@ -92,7 +92,7 @@ exports[`Collapse renders correctly 1`] = `
     className="sc-AxmLO iYKSxH"
   >
     <div
-      className="sc-fzozJi cXkEwX"
+      className="sc-fzozJi dZqPFH"
       onClick={[Function]}
     >
       <div
