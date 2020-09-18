@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
 const baseStyle = css<InputProps>`
+  box-sizing: border-box;
   background-color: ${({ disabled, theme }) =>
     disabled ? theme.colors.gray2 : '#fff'};
   color: ${({ disabled, theme }) =>

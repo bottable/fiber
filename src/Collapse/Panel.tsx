@@ -4,6 +4,7 @@ import {
   StyledPanel,
   PanelHeaderContainer,
   PanelContentContainer,
+  HeaderContainer,
   ExpandIconSpan,
   ExtraIconSpan
 } from './styles'
@@ -12,7 +13,7 @@ import React, { FC } from 'react'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 export type PanelProps = {
-  header?: string
+  header?: string | React.ReactNode
   collapsed?: boolean
   height?: number
   panelKey?: string
@@ -42,11 +43,11 @@ const Panel: FC<PanelProps> = ({
   return (
     <StyledPanel>
       <PanelHeaderContainer onClick={() => setCollapsed(panelKey!)}>
-        {header}
-        <ExtraIconSpan>{extra}</ExtraIconSpan>
+        <HeaderContainer>{header}</HeaderContainer>
         <ExpandIconSpan collapsed={collapsed}>
           <ExpandMoreIcon />
         </ExpandIconSpan>
+        <ExtraIconSpan>{extra}</ExtraIconSpan>
       </PanelHeaderContainer>
       {panelContentContainerNode}
     </StyledPanel>

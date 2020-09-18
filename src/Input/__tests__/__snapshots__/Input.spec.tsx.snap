@@ -3,14 +3,14 @@
 exports[`Input renders correctly 1`] = `
 Array [
   <input
-    className="sc-Axmtr sc-fzozJi iKOOdn"
+    className="sc-Axmtr sc-fzozJi ccAHNs"
     onChange={[Function]}
     onKeyDown={[Function]}
     value=""
   />,
   <div>
     <input
-      className="sc-Axmtr sc-fzoLsD fvRuWh"
+      className="sc-Axmtr sc-fzoLsD hRHGia"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Large Input"
@@ -19,7 +19,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-Axmtr sc-fzozJi iKOOdn"
+      className="sc-Axmtr sc-fzozJi ccAHNs"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Medium Input"
@@ -28,7 +28,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-Axmtr sc-AxmLO euWHTd"
+      className="sc-Axmtr sc-AxmLO hPNZoO"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Small Input"
@@ -48,7 +48,7 @@ Array [
           http://
         </span>
         <input
-          className="sc-Axmtr sc-fzozJi cDufjM"
+          className="sc-Axmtr sc-fzozJi lSXVr"
           onChange={[Function]}
           onKeyDown={[Function]}
           value=""
@@ -69,7 +69,7 @@ Array [
         className="sc-fzplWN guvLaR"
       >
         <input
-          className="sc-Axmtr sc-fzozJi ehocFE"
+          className="sc-Axmtr sc-fzozJi fhhIwv"
           onChange={[Function]}
           onKeyDown={[Function]}
           value=""
@@ -94,12 +94,12 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-fznKkj lBaPu"
+      className="sc-fznKkj bHrlTB"
       onClick={[Function]}
     >
       ￥
       <input
-        className="sc-Axmtr sc-fzozJi jlBBqZ"
+        className="sc-Axmtr sc-fzozJi ifxeYC"
         onChange={[Function]}
         onKeyDown={[Function]}
         value=""
@@ -109,13 +109,13 @@ Array [
     <br />
     <br />
     <span
-      className="sc-fznKkj jRZlRm"
+      className="sc-fznKkj duvjyV"
       disabled={true}
       onClick={[Function]}
     >
       ￥
       <input
-        className="sc-Axmtr sc-fzozJi hEmoMQ"
+        className="sc-Axmtr sc-fzozJi ejFFIn"
         disabled={true}
         onChange={[Function]}
         onKeyDown={[Function]}
@@ -137,11 +137,11 @@ Array [
           http://
         </span>
         <span
-          className="sc-fznKkj YBvPh"
+          className="sc-fznKkj jXjQqm"
           onClick={[Function]}
         >
           <input
-            className="sc-Axmtr sc-fzozJi jlBBqZ"
+            className="sc-Axmtr sc-fzozJi ifxeYC"
             onChange={[Function]}
             onKeyDown={[Function]}
             value=""
@@ -153,7 +153,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-Axmtr sc-fzozJi bPbdXM"
+      className="sc-Axmtr sc-fzozJi bqzMnP"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Borderless"
@@ -162,7 +162,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-Axmtr sc-fzozJi bMPPSz"
+      className="sc-Axmtr sc-fzozJi fiIaoM"
       disabled={true}
       onChange={[Function]}
       onKeyDown={[Function]}

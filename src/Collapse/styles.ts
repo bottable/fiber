@@ -26,14 +26,17 @@ export const StyledPanel = styled.div`
 `
 
 export const PanelHeaderContainer = styled.div`
+  display: flex;
   position: relative;
-  padding: ${({ theme }) => theme.paddings.md};
-  transition: all 0.3s;
+  align-items: center;
+  padding: ${({ theme }) => `${theme.paddings.xs} ${theme.paddings.md}`};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   cursor: pointer;
+  ${({ theme }) => theme.transition}
+`
 
-  svg {
-    float: right;
-  }
+export const HeaderContainer = styled.div`
+  flex-grow: 1;
 `
 
 export const ExtraIconSpan = styled.span`
@@ -44,6 +47,7 @@ export const ExtraIconSpan = styled.span`
 
 export const ExpandIconSpan = styled.span<PanelProps>`
   svg {
+    margin-left: ${({ theme }) => theme.margins.xs};
     transform: ${({ collapsed }) => (collapsed ? 'rotate(-90deg)' : 0)};
     ${({ theme }) => theme.transition}
   }

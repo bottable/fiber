@@ -8,15 +8,16 @@ exports[`Collapse renders correctly 1`] = `
     className="sc-AxmLO iYKSxH"
   >
     <div
-      className="sc-fzozJi dkRdtC"
+      className="sc-fzozJi cXkEwX"
       onClick={[Function]}
     >
-      This is panel header 1
+      <div
+        className="sc-fzoLsD gboIll"
+      >
+        This is panel header 1
+      </div>
       <span
-        className="sc-fzoLsD kcSFQN"
-      />
-      <span
-        className="sc-fzpans bOulQf"
+        className="sc-fzplWN ljQFuf"
       >
         <svg
           aria-hidden={true}
@@ -29,12 +30,15 @@ exports[`Collapse renders correctly 1`] = `
           />
         </svg>
       </span>
+      <span
+        className="sc-fzpans rbqWh"
+      />
     </div>
     <div
       className="sc-AxirZ kiMEmg"
     >
       <div
-        className="sc-fzplWN ijwvEo"
+        className="sc-fznyAO ktONXg"
       >
         <p>
           Hello
@@ -46,15 +50,16 @@ exports[`Collapse renders correctly 1`] = `
     className="sc-AxmLO iYKSxH"
   >
     <div
-      className="sc-fzozJi dkRdtC"
+      className="sc-fzozJi cXkEwX"
       onClick={[Function]}
     >
-      This is panel header 2
+      <div
+        className="sc-fzoLsD gboIll"
+      >
+        This is panel header 2
+      </div>
       <span
-        className="sc-fzoLsD kcSFQN"
-      />
-      <span
-        className="sc-fzpans bOulQf"
+        className="sc-fzplWN ljQFuf"
       >
         <svg
           aria-hidden={true}
@@ -67,12 +72,15 @@ exports[`Collapse renders correctly 1`] = `
           />
         </svg>
       </span>
+      <span
+        className="sc-fzpans rbqWh"
+      />
     </div>
     <div
       className="sc-AxirZ kiMEmg"
     >
       <div
-        className="sc-fzplWN ijwvEo"
+        className="sc-fznyAO ktONXg"
       >
         <p>
           Hello
@@ -84,15 +92,16 @@ exports[`Collapse renders correctly 1`] = `
     className="sc-AxmLO iYKSxH"
   >
     <div
-      className="sc-fzozJi dkRdtC"
+      className="sc-fzozJi cXkEwX"
       onClick={[Function]}
     >
-      This is panel header 3
+      <div
+        className="sc-fzoLsD gboIll"
+      >
+        This is panel header 3
+      </div>
       <span
-        className="sc-fzoLsD kcSFQN"
-      />
-      <span
-        className="sc-fzpans bOulQf"
+        className="sc-fzplWN ljQFuf"
       >
         <svg
           aria-hidden={true}
@@ -105,12 +114,15 @@ exports[`Collapse renders correctly 1`] = `
           />
         </svg>
       </span>
+      <span
+        className="sc-fzpans rbqWh"
+      />
     </div>
     <div
       className="sc-AxirZ kiMEmg"
     >
       <div
-        className="sc-fzplWN ijwvEo"
+        className="sc-fznyAO ktONXg"
       >
         <p>
           Hello
