@@ -60,7 +60,7 @@ const Step: FC<StepProps> = ({ children, ...props }) => {
 
   const [hover, setHover] = useState<boolean>(false)
 
-  const childrenNode = useCollapse({
+  const { childrenNode } = useCollapse({
     children: children,
     collapsed: status !== 'process'
   })

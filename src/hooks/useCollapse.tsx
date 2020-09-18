@@ -18,9 +18,17 @@ export const useCollapse = ({ children, collapsed }: CollapseProps) => {
     }
   }, [collapseRef])
 
-  return (
-    <CollapseContainer height={height} collapsed={collapsed} ref={collapseRef}>
-      {children}
-    </CollapseContainer>
-  )
+  return {
+    childrenNode: (
+      <CollapseContainer
+        height={height}
+        collapsed={collapsed}
+        ref={collapseRef}
+      >
+        {children}
+      </CollapseContainer>
+    ),
+    height: height,
+    collapseRef: collapseRef
+  }
 }

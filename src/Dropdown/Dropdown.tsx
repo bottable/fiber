@@ -1,4 +1,4 @@
-import { useOverlay, OverlayProps } from '../hooks'
+import { useOverlay, OverlayProps, useCollapse } from '../hooks'
 
 import { Wrapper, DropdownWrapper, Description } from './styles'
 
@@ -6,7 +6,6 @@ import React from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export interface DropdownProps extends OverlayProps {
-  n?: number
   description?: string
   overlay?: React.ReactElement
   topped?: boolean
@@ -46,14 +45,7 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       ? ((<span>{children}</span>) as any)
       : (children as any)
 
-    let n
-    if (overlay) {
-      n = Array.isArray(overlay.props.children)
-        ? overlay.props.children.length
-        : 1
-    }
-    n *= 37
-    n += description ? 21 : 0
+    const { collapseRef, height } = useCollapse({ children: childrenNode })
 
     return (
       <Wrapper
@@ -68,9 +60,10 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
           visible={visible}
           topped={topped}
           placement={placement}
-          ref={dropdownRef}
-          n={n}
+          ref={composeRef(dropdownRef, collapseRef)}
           width={width}
+          height={height}
+          collapsed={!visible}
           style={style}
         >
           {descriptionNode}

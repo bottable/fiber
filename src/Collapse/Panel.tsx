@@ -34,7 +34,7 @@ const Panel: FC<PanelProps> = ({
     onChange: onChange as (newValue: unknown) => unknown
   }) as { value: boolean; setValue: (newValue: string) => void }
 
-  const panelContentContainerNode = useCollapse({
+  const { childrenNode: panelContentContainerNode } = useCollapse({
     children: <PanelContentContainer>{children}</PanelContentContainer>,
     collapsed: collapsed
   })

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-type CollapseProps = {
+export type CollapseProps = {
   height?: number
   collapsed?: boolean
 }
