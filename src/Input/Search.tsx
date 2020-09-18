@@ -1,5 +1,3 @@
-import { Button } from '../Button'
-
 import { Input, InputProps } from './Input'
 
 import React from 'react'
@@ -14,16 +12,16 @@ export interface SearchProps extends InputProps {
       | React.MouseEvent<HTMLElement>
       | React.KeyboardEvent<HTMLInputElement>
   ) => void
-  enterButton?: React.ReactNode
+  searchIcon?: React.ReactElement
 }
 
 const Search = React.forwardRef(
   (props: SearchProps, ref: React.Ref<HTMLInputElement>) => {
     const inputRef = React.useRef<HTMLInputElement>(null)
 
-    const { onSearch: onSearchProps, addonAfter, enterButton, ...rest } = props
+    const { onSearch: onSearchProps, searchIcon, ...rest } = props
 
-    const { disabled, size } = props
+    const { disabled } = props
 
     const onSearch = (
       e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>
@@ -33,29 +31,27 @@ const Search = React.forwardRef(
       if (onSearchProps) return onSearchProps(inputRef.current?.value!, e)
     }
 
-    const renderAddonAfter = () => {
-      if (!enterButton) return addonAfter
+    const getIcon = () => {
+      let icon: React.ReactElement
 
-      const button = (
-        <Button
-          type='primary'
-          size={size}
-          disabled={disabled}
-          onClick={onSearch}
-          addon
-        >
-          <SearchIcon />
-        </Button>
-      )
+      if (searchIcon) icon = searchIcon
+      else {
+        icon = <SearchIcon style={{ color: '#595959' }} />
+      }
 
-      return button
+      const iconProps = {
+        onClick: onSearch,
+        style: { cursor: 'pointer', ...icon.props.style }
+      }
+
+      return React.cloneElement(icon, iconProps)
     }
 
     return (
       <Input
         ref={composeRef<HTMLInputElement>(inputRef, ref)}
         onPressEnter={onSearch}
-        addonAfter={renderAddonAfter()}
+        prefix={getIcon()}
         button
         {...rest}
       />
