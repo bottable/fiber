@@ -9,7 +9,6 @@ Array [
     >
       <div
         className="sc-AxirZ dEnRRl"
-        size="sm"
         style={Object {}}
       >
         <h1>
@@ -18,7 +17,6 @@ Array [
       </div>
       <div
         className="sc-AxirZ dEnRRl"
-        size="sm"
         style={Object {}}
       >
         <h1>
@@ -27,7 +25,6 @@ Array [
       </div>
       <div
         className="sc-AxirZ dEnRRl"
-        size="sm"
         style={
           Object {
             "margin": 0,
@@ -46,8 +43,7 @@ Array [
       size="md"
     >
       <div
-        className="sc-AxirZ ghIeLP"
-        size="md"
+        className="sc-AxirZ dEnRRl"
         style={Object {}}
       >
         <h1>
@@ -55,8 +51,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ ghIeLP"
-        size="md"
+        className="sc-AxirZ dEnRRl"
         style={Object {}}
       >
         <h1>
@@ -64,8 +59,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ ghIeLP"
-        size="md"
+        className="sc-AxirZ dEnRRl"
         style={
           Object {
             "margin": 0,
@@ -84,8 +78,7 @@ Array [
       size="lg"
     >
       <div
-        className="sc-AxirZ dcHUaw"
-        size="lg"
+        className="sc-AxirZ dEnRRl"
         style={Object {}}
       >
         <h1>
@@ -93,8 +86,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ dcHUaw"
-        size="lg"
+        className="sc-AxirZ dEnRRl"
         style={Object {}}
       >
         <h1>
@@ -102,8 +94,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ dcHUaw"
-        size="lg"
+        className="sc-AxirZ dEnRRl"
         style={
           Object {
             "margin": 0,
@@ -122,8 +113,7 @@ Array [
       size={100}
     >
       <div
-        className="sc-AxirZ irtZIl"
-        size={100}
+        className="sc-AxirZ dEnRRl"
         style={Object {}}
       >
         <h1>
@@ -131,8 +121,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ irtZIl"
-        size={100}
+        className="sc-AxirZ dEnRRl"
         style={Object {}}
       >
         <h1>
@@ -140,8 +129,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ irtZIl"
-        size={100}
+        className="sc-AxirZ dEnRRl"
         style={
           Object {
             "margin": 0,
@@ -167,7 +155,6 @@ Array [
     >
       <div
         className="sc-AxirZ dEnRRl"
-        direction="horizontal"
         style={Object {}}
       >
         <div
@@ -185,7 +172,6 @@ Array [
       </div>
       <div
         className="sc-AxirZ dEnRRl"
-        direction="horizontal"
         style={
           Object {
             "margin": 0,
@@ -213,8 +199,7 @@ Array [
       direction="vertical"
     >
       <div
-        className="sc-AxirZ ewVSuO"
-        direction="vertical"
+        className="sc-AxirZ dEnRRl"
         style={Object {}}
       >
         <div
@@ -231,8 +216,7 @@ Array [
         </div>
       </div>
       <div
-        className="sc-AxirZ ewVSuO"
-        direction="vertical"
+        className="sc-AxirZ dEnRRl"
         style={
           Object {
             "margin": 0,

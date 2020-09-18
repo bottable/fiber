@@ -6,15 +6,12 @@ import styled from 'styled-components'
 import { rem } from 'polished'
 
 export const StyledCard = styled.div<CardProps>`
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   border: ${({ bordered, theme }) => (bordered ? theme.border.md : null)};
   border-radius: ${({ theme }) => theme.radii.md};
   border-color: ${({ theme }) => theme.colors.gray4};
   background: #fff;
   color: ${({ theme }) => theme.colors.gray6};
-  font-size: ${rem('14px')};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   line-height: 1.5715;
   &:hover {
     ${({ hoverable, theme }) => (hoverable ? theme.boxShadow : null)}
@@ -25,35 +22,32 @@ export const StyledCard = styled.div<CardProps>`
 export const HeaderContainer = styled.div<CardProps>`
   display: flex;
   align-items: center;
-  min-height: ${rem('48px')};
   margin-bottom: ${rem('-1px')};
-  padding: 0
-    ${({ size, theme }) =>
-      size === 'sm' ? theme.paddings.sm : theme.paddings.lg};
-  border-bottom: ${rem('1px')} solid ${({ theme }) => theme.colors.gray4};
+  padding: ${({ size, theme }) =>
+    size === 'sm' ? theme.paddings.sm : theme.paddings.md};
+  padding-bottom: 0;
   color: ${({ theme }) => theme.colors.gray8};
   font-size: ${({ size }) => (size === 'sm' ? rem('14px') : rem('16px'))};
-  font-weight: 500;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
 `
 
 export const TitleContainer = styled.div<CardProps>`
   display: inline-block;
   flex: 1;
-  padding: ${({ size, theme }) =>
-      size === 'sm' ? theme.paddings.xs : theme.paddings.md}
-    0;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  svg {
+    width: ${rem('18px')};
+    height: ${rem('18px')};
+  }
 `
 
 export const ExtraContainer = styled.div<CardProps>`
   margin-left: auto;
-  padding: ${({ size, theme }) =>
-      size === 'sm' ? theme.paddings.xs : theme.paddings.md}
-    0;
   float: right;
   color: ${({ theme }) => theme.colors.base};
-  font-size: ${rem('14px')};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   ${link}
 
   a:hover {
@@ -63,7 +57,10 @@ export const ExtraContainer = styled.div<CardProps>`
 
 export const ContentContainer = styled.div<CardProps>`
   padding: ${({ size, theme }) =>
-    size === 'sm' ? theme.paddings.sm : theme.paddings.lg};
+    size === 'sm' ? theme.paddings.sm : theme.paddings.md};
+  &:not(:first-child) {
+    padding-top: ${({ theme }) => theme.paddings.xs};
+  }
 `
 
 export const ActionsContainer = styled.div<CardProps>`

@@ -4,7 +4,7 @@ exports[`Card renders correctly 1`] = `
 Array [
   <div>
     <div
-      className="sc-Axmtr gXVzJb"
+      className="sc-Axmtr ivheOf"
       style={
         Object {
           "width": 300,
@@ -12,7 +12,7 @@ Array [
       }
     >
       <div
-        className="sc-fzpans fDwQwX"
+        className="sc-fzpans kNQdcl"
       >
         <p>
           Card content
@@ -28,7 +28,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-Axmtr gXVzJb"
+      className="sc-Axmtr ivheOf"
       style={
         Object {
           "width": 300,
@@ -36,15 +36,15 @@ Array [
       }
     >
       <div
-        className="sc-AxmLO jRNhNf"
+        className="sc-AxmLO ghWbtb"
       >
         <div
-          className="sc-fzozJi VTvVI"
+          className="sc-fzozJi iJdnrH"
         >
           Default size card
         </div>
         <div
-          className="sc-fzoLsD ciHYZW"
+          className="sc-fzoLsD iIQbCK"
         >
           <a
             href="#"
@@ -54,7 +54,7 @@ Array [
         </div>
       </div>
       <div
-        className="sc-fzpans fDwQwX"
+        className="sc-fzpans kNQdcl"
       >
         <p>
           Card content
@@ -70,7 +70,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-Axmtr gXVzJb"
+      className="sc-Axmtr ivheOf"
       style={
         Object {
           "width": 300,
@@ -78,16 +78,16 @@ Array [
       }
     >
       <div
-        className="sc-AxmLO jRNhNf"
+        className="sc-AxmLO ghWbtb"
       >
         <div
-          className="sc-fzozJi VTvVI"
+          className="sc-fzozJi iJdnrH"
         >
           Medium card
         </div>
       </div>
       <div
-        className="sc-fzpans fDwQwX"
+        className="sc-fzpans kNQdcl"
       >
         <p
           style={
@@ -120,7 +120,7 @@ Array [
     </div>
     <br />
     <div
-      className="sc-Axmtr gXVzJb"
+      className="sc-Axmtr ivheOf"
       size="sm"
       style={
         Object {
@@ -129,18 +129,18 @@ Array [
       }
     >
       <div
-        className="sc-AxmLO cNaKmG"
+        className="sc-AxmLO ctZSLX"
         size="sm"
       >
         <div
-          className="sc-fzozJi lcmBsm"
+          className="sc-fzozJi iJdnrH"
           size="sm"
         >
           Small card
         </div>
       </div>
       <div
-        className="sc-fzpans fosJNX"
+        className="sc-fzpans kzTMqo"
         size="sm"
       >
         <p
@@ -184,7 +184,7 @@ Array [
       }
     >
       <div
-        className="sc-Axmtr gDfTWz"
+        className="sc-Axmtr eXgnbD"
         style={
           Object {
             "width": 300,
@@ -192,16 +192,16 @@ Array [
         }
       >
         <div
-          className="sc-AxmLO jRNhNf"
+          className="sc-AxmLO ghWbtb"
         >
           <div
-            className="sc-fzozJi VTvVI"
+            className="sc-fzozJi iJdnrH"
           >
             No borders
           </div>
         </div>
         <div
-          className="sc-fzpans fDwQwX"
+          className="sc-fzpans kNQdcl"
         >
           <p
             style={
@@ -236,7 +236,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-Axmtr ewZPia"
+      className="sc-Axmtr kqXFQa"
       style={
         Object {
           "width": 300,
@@ -244,16 +244,16 @@ Array [
       }
     >
       <div
-        className="sc-AxmLO jRNhNf"
+        className="sc-AxmLO ghWbtb"
       >
         <div
-          className="sc-fzozJi VTvVI"
+          className="sc-fzozJi iJdnrH"
         >
           Hoverable
         </div>
       </div>
       <div
-        className="sc-fzpans fDwQwX"
+        className="sc-fzpans kNQdcl"
       >
         <p
           style={
@@ -287,7 +287,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-Axmtr gXVzJb"
+      className="sc-Axmtr ivheOf"
       style={
         Object {
           "width": 300,
@@ -295,16 +295,16 @@ Array [
       }
     >
       <div
-        className="sc-AxmLO jRNhNf"
+        className="sc-AxmLO ghWbtb"
       >
         <div
-          className="sc-fzozJi VTvVI"
+          className="sc-fzozJi iJdnrH"
         >
           Actions
         </div>
       </div>
       <div
-        className="sc-fzpans fDwQwX"
+        className="sc-fzpans kNQdcl"
       >
         <p
           style={

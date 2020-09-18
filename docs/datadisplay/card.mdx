@@ -4,7 +4,7 @@ route: /datadisplay/card
 menu: Data Display
 ---
 
-import { Card } from 'fiber'
+import { Card, Text, Space } from 'fiber'
 import { Playground } from 'docz'
 import SettingsIcon from '@material-ui/icons/Settings'
 import CreateIcon from '@material-ui/icons/Create'
@@ -14,9 +14,9 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 
 <Playground>
   <Card style={{ width: 300 }}>
-    <p>Card content</p>
-    <p>Card content</p>
-    <p>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
   </Card>
 </Playground>
 
@@ -28,9 +28,31 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
     extra={<a href='#'>More</a>}
     style={{ width: 300 }}
   >
-    <p>Card content</p>
-    <p>Card content</p>
-    <p>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+  </Card>
+</Playground>
+
+## Title with icon
+
+## Header
+
+<Playground>
+  <Card
+    title={
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Text strong style={{ marginRight: 10 }}>
+          Category 1
+        </Text>
+        <CreateIcon />
+      </div>
+    }
+    style={{ width: 300 }}
+  >
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
   </Card>
 </Playground>
 

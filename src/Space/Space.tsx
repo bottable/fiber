@@ -11,6 +11,7 @@ export interface SpaceProps {
   size?: Size | number
   direction?: 'horizontal' | 'vertical'
   align?: 'start' | 'end' | 'center' | 'baseline'
+  style?: React.CSSProperties & object
 }
 
 const spaceVariant = ({
@@ -73,7 +74,7 @@ export const Space: FC<SpaceProps> = ({ children, ...props }) => {
           style.margin = 0
         }
         return (
-          <StyledChildDiv key={idx} {...props} style={style}>
+          <StyledChildDiv key={idx} style={style}>
             {child}
           </StyledChildDiv>
         )
