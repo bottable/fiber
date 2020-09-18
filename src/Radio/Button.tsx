@@ -9,6 +9,7 @@ import React, { FC, useRef } from 'react'
 export interface ButtonProps extends RadioProps, ButtonStyleProps {
   postChecked?: boolean
   buttonStyle?: 'default' | 'solid'
+  style?: React.CSSProperties & object
 }
 
 const RadioButton: FC<ButtonProps> = React.forwardRef<
@@ -20,11 +21,11 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
       children,
       checked: checkedProps,
       onChange: onChangeProps,
-      style,
       size,
       postChecked,
       buttonStyle,
       disabled,
+      style,
       ...props
     },
     ref
@@ -54,7 +55,8 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
 
       addRipple({
         event,
-        width: buttonRef.current.offsetWidth * 2
+        width: buttonRef.current.offsetWidth * 2,
+        color: buttonStyle === 'solid' ? 'light' : 'dark'
       })
     }
 
