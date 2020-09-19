@@ -28,9 +28,12 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
       ? ((<span>{children}</span>) as any)
       : (children as any)
 
+    const wrapperProps = Array.isArray(children) ? {} : (children as any).props
+
     return (
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
+        {...wrapperProps}
         {...hoverProps}
       >
         {React.cloneElement(childrenNode, {

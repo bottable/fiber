@@ -22,7 +22,6 @@ export const dropdown = css<OverlayProps>`
   overflow: hidden;
   border-radius: ${({ theme }) => theme.radii.md};
   background-color: #fff;
-  ${({ theme }) => theme.boxShadow}
 `
 
 export const popoverPosition = css<OverlayProps>`

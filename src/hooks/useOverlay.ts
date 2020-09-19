@@ -20,7 +20,7 @@ export type OverlayProps = {
     | 'left'
     | 'leftBottom'
   onVisibleChange?: (flag: boolean) => void
-  children?: React.ReactNode
+  children?: React.ReactNode | React.ReactNode[]
   expand?: boolean
   style?: React.CSSProperties & object
 }
@@ -58,9 +58,16 @@ export const useOverlay = ({
         !placement.toLowerCase().includes('left') &&
         !placement.toLowerCase().includes('right')
       ) {
-        const offset =
-          (childrenRef.current.offsetWidth - dropdownRef.current.offsetWidth) /
-          2
+        let childWidth = childrenRef.current.offsetWidth
+        const dropdownWidth = dropdownRef.current.offsetWidth
+
+        if (childrenRef.current.nodeName === 'svg') {
+          const svg = childrenRef.current
+          const rect = svg.getBoundingClientRect()
+          childWidth = rect.width
+        }
+
+        const offset = (childWidth - dropdownWidth) / 2
         dropdownRef.current.style.left = rem(`${offset}px`)
       }
 
@@ -68,10 +75,16 @@ export const useOverlay = ({
         !placement.toLowerCase().includes('top') &&
         !placement.toLowerCase().includes('bottom')
       ) {
-        const offset =
-          (childrenRef.current.offsetHeight -
-            dropdownRef.current.offsetHeight) /
-          2
+        let childHeight = childrenRef.current.offsetHeight
+        const dropdownHeight = dropdownRef.current.offsetHeight
+
+        if (childrenRef.current.nodeName === 'svg') {
+          const svg = childrenRef.current
+          const rect = svg.getBoundingClientRect()
+          childHeight = rect.height
+        }
+
+        const offset = (childHeight - dropdownHeight) / 2
         dropdownRef.current.style.top = rem(`${offset}px`)
       }
 

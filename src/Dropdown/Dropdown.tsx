@@ -10,6 +10,7 @@ export interface DropdownProps extends OverlayProps {
   overlay?: React.ReactElement
   topped?: boolean
   width?: number
+  style?: React.CSSProperties & object
 }
 
 // TO DO: Find a proper way to type this
@@ -50,6 +51,7 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
     return (
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
+        style={style}
         {...hoverProps}
       >
         {React.cloneElement(childrenNode, {
@@ -64,7 +66,6 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
           width={width}
           height={height}
           collapsed={!visible}
-          style={style}
         >
           {descriptionNode}
           {React.cloneElement(overlay!, {

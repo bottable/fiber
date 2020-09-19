@@ -35,7 +35,8 @@ exports[`Collapse renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-AxirZ kiMEmg"
+      className="sc-AxirZ irFUSb"
+      onTransitionEnd={[Function]}
     >
       <div
         className="sc-fznyAO ktONXg"
@@ -77,7 +78,8 @@ exports[`Collapse renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-AxirZ kiMEmg"
+      className="sc-AxirZ irFUSb"
+      onTransitionEnd={[Function]}
     >
       <div
         className="sc-fznyAO ktONXg"
@@ -119,7 +121,8 @@ exports[`Collapse renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-AxirZ kiMEmg"
+      className="sc-AxirZ irFUSb"
+      onTransitionEnd={[Function]}
     >
       <div
         className="sc-fznyAO ktONXg"

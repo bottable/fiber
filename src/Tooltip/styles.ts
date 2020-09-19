@@ -17,8 +17,8 @@ export const TooltipWrapper = styled.div<TooltipProps>`
       ? !theme.colors[color]
         ? color
         : theme.colors[color].base
-      : theme.colors.gray8};
-  color: #fff;
+      : theme.colors.gray3};
+  color: ${({ color, theme }) => (!color ? theme.colors.gray8 : '#fff')};
   white-space: nowrap;
   &::after {
     background-color: ${({ color, theme }) =>
@@ -26,6 +26,6 @@ export const TooltipWrapper = styled.div<TooltipProps>`
         ? !theme.colors[color]
           ? color
           : theme.colors[color].base
-        : theme.colors.gray8};
+        : theme.colors.gray3};
   }
 `

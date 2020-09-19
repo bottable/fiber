@@ -32,6 +32,7 @@ export const DropdownWrapper = styled(CollapseContainer)<DropdownStyleProps>`
   min-width: ${({ width }) => (width ? 0 : null)};
   border-top-left-radius: ${({ topped }) => (topped ? 0 : null)};
   border-top-right-radius: ${({ topped }) => (topped ? 0 : null)};
+  ${({ theme }) => theme.boxShadow}
 `
 
 export const Description = styled.div`

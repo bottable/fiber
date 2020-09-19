@@ -4,8 +4,22 @@ route: /datadisplay/tooltip
 menu: Data Display
 ---
 
-import { Tooltip, Button, Divider, Space } from 'fiber'
+import {
+  Tooltip,
+  Button,
+  Divider,
+  Space,
+  Collapse,
+  Input,
+  Dropdown,
+  Text,
+  Menu
+} from 'fiber'
+import { useState } from 'react'
 import { Playground } from 'docz'
+import DeleteIcon from '@material-ui/icons/Delete'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import InfoIcon from '@material-ui/icons/Info'
 
 # Tooltip
 
@@ -99,11 +113,7 @@ import { Playground } from 'docz'
         <Divider orientation='left'>Presets</Divider>
         <Space>
           {colors.map((color) => (
-            <Tooltip
-              title='prompt text'
-              color={color}
-              key={color}
-            >
+            <Tooltip title='prompt text' color={color} key={color}>
               <Button>{color}</Button>
             </Tooltip>
           ))}
@@ -111,17 +121,81 @@ import { Playground } from 'docz'
         <Divider orientation='left'>Custom</Divider>
         <Space>
           {customColors.map((color) => (
-            <Tooltip
-              title='prompt text'
-              color={color}
-              key={color}
-            >
+            <Tooltip title='prompt text' color={color} key={color}>
               <Button>{color}</Button>
             </Tooltip>
           ))}
         </Space>
       </div>
     )
-}}
+  }}
+</Playground>
 
+## Example
+
+<Playground>
+  {() => {
+    const [dropdownValue, setDropdownValue] = useState('has changed')
+    const menuArray = ['has changed', 'has increased', 'has decreased']
+    const menu = (
+      <Menu>
+        {menuArray.map((menuItem, idx) => (
+          <Menu.Item
+            onClick={() => {
+              setDropdownValue(menuItem)
+            }}
+            key={idx}
+          >
+            {menuItem}
+          </Menu.Item>
+        ))}
+      </Menu>
+    )
+    return (
+      <Collapse style={{ width: 500 }}>
+        <Collapse.Panel
+          header={
+            <Input
+              defaultValue='Category'
+              camouflage
+              style={{ width: '100%', fontWeight: 700 }}
+            />
+          }
+          extra={<DeleteIcon />}
+        >
+          <Space
+            direction='vertical'
+            style={{ width: '100%', color: '#828282' }}
+          >
+            <Text style={{ width: '100%' }}>
+              Notify me when selected value{' '}
+              <Tooltip
+                title='Lorem ipsum dolor sit amet nsectetur adipisc lorem ipsu...'
+                placement='bottom'
+              >
+                <InfoIcon
+                  style={{
+                    color: 'black',
+                    width: 12,
+                    height: 12,
+                    verticalAlign: 'top'
+                  }}
+                />
+              </Tooltip>
+            </Text>
+            <Dropdown.Button
+              overlay={menu}
+              style={{ width: '100%' }}
+              button={{
+                endIcon: <ExpandMoreIcon />,
+                block: true
+              }}
+            >
+              {dropdownValue}
+            </Dropdown.Button>
+          </Space>
+        </Collapse.Panel>
+      </Collapse>
+    )
+  }}
 </Playground>

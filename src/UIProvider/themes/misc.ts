@@ -27,14 +27,16 @@ const paddings = {
   xs: rem('8px'),
   sm: rem('12px'),
   md: rem('16px'),
-  lg: rem('20px')
+  lg: rem('20px'),
+  xl: rem('24px')
 }
 
 const margins = {
   xs: rem('8px'),
   sm: rem('12px'),
   md: rem('16px'),
-  lg: rem('20px')
+  lg: rem('20px'),
+  xl: rem('24px')
 }
 
 const heights = {
