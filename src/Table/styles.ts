@@ -1,9 +1,16 @@
 import { link } from '../styles'
 import { Pagination as BasePagination } from '../Pagination'
 
-import { RowProps } from './Table'
+import { RowProps, CellProps } from './Table'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const ellipsisStyle = css`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  white-space: nowrap;
+`
 
 export const Wrapper = styled.div`
   display: block;
@@ -12,8 +19,13 @@ export const Wrapper = styled.div`
 
 export const ContentContainer = styled.div``
 
-export const StyledTable = styled.table`
+type TableStyleProps = {
+  fixed?: boolean
+}
+
+export const StyledTable = styled.table<TableStyleProps>`
   width: 100%;
+  table-layout: ${({ fixed }) => (fixed ? 'fixed' : 'auto')};
   border-spacing: 0;
   border-collapse: collapse;
   font-size: ${({ theme }) => theme.fontSizes.md};
@@ -49,19 +61,22 @@ export const TableRow = styled.tr<RowProps>`
 
   background: ${({ selected, theme }) =>
     selected ? theme.colors.lightest : null};
+`
+
+export const TableCellBody = styled.td<CellProps>`
+  position: relative;
+  padding: ${({ theme }) => `${theme.paddings.sm} ${theme.paddings.md}`};
+  overflow: break-word;
+  border: ${({ theme }) => theme.border.md};
+  border-color: ${({ theme }) => theme.colors.gray4};
+  cursor: ${({ clickable }) => (clickable ? 'pointer' : 'default')};
+
+  ${({ ellipsis }) => (ellipsis ? ellipsisStyle : null)};
 
   &:hover {
     background: ${({ selected, theme }) =>
       selected ? theme.colors.lightest : theme.colors.gray2};
   }
-`
-
-export const TableCellBody = styled.td`
-  position: relative;
-  padding: ${({ theme }) => `${theme.paddings.sm} ${theme.paddings.md}`};
-  border: ${({ theme }) => theme.border.md};
-  border-color: ${({ theme }) => theme.colors.gray4};
-  overflow-wrap: break-word;
 
   ${link}
 `

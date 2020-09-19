@@ -39,6 +39,6 @@ export const Button = styled(BaseButton)<ButtonProps>`
 export const Dropdown = styled(BaseDropdown)``
 
 export const Input = styled(BaseInput)`
-  width: ${({ theme }) => theme.space[4]};
+  width: ${({ theme }) => theme.space[5]};
   margin-left: ${({ theme }) => theme.margins.xs};
 `

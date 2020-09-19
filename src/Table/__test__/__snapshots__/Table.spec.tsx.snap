@@ -8,7 +8,7 @@ exports[`Table renders correctly 1`] = `
     className="sc-fznzOf hfODEb"
   >
     <table
-      className="sc-fznMnq pbzks"
+      className="sc-fznMnq hNeVfm"
     >
       <thead
         className="sc-fzoant cATlvS"
@@ -36,85 +36,97 @@ exports[`Table renders correctly 1`] = `
         onChange={[Function]}
       >
         <tr
-          className="sc-fzqMAW gjeBNo"
+          className="sc-fzqMAW ggQcfJ"
         >
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             <a>
               John Brown
             </a>
           </td>
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             32
           </td>
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             New York No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fzqMAW gjeBNo"
+          className="sc-fzqMAW ggQcfJ"
         >
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             <a>
               Jim Green
             </a>
           </td>
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             42
           </td>
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             London No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fzqMAW gjeBNo"
+          className="sc-fzqMAW ggQcfJ"
         >
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             <a>
               Joe Black
             </a>
           </td>
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             32
           </td>
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             Sidney No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fzqMAW gjeBNo"
+          className="sc-fzqMAW ggQcfJ"
         >
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             <a>
               Disabled User
             </a>
           </td>
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             99
           </td>
           <td
-            className="sc-fzoydu bhSUIb"
+            className="sc-fzoydu gfzFEb"
+            onClick={[Function]}
           >
             Sidney No. 1 Lake Park
           </td>
