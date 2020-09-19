@@ -2,10 +2,10 @@
 
 exports[`Collapse renders correctly 1`] = `
 <div
-  className="sc-Axmtr hwfaeu"
+  className="sc-Axmtr bXQYTU"
 >
   <div
-    className="sc-AxmLO iYKSxH"
+    className="sc-AxmLO fvAMFb"
   >
     <div
       className="sc-fzozJi dZqPFH"
@@ -48,7 +48,7 @@ exports[`Collapse renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-AxmLO iYKSxH"
+    className="sc-AxmLO fvAMFb"
   >
     <div
       className="sc-fzozJi dZqPFH"
@@ -91,7 +91,7 @@ exports[`Collapse renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-AxmLO iYKSxH"
+    className="sc-AxmLO fvAMFb"
   >
     <div
       className="sc-fzozJi dZqPFH"

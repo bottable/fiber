@@ -49,7 +49,7 @@ const radii = {
   sm: rem('2px'),
   md: rem('4px'),
   lg: rem('8px'),
-  xl: rem('16px')
+  xl: rem('10px')
 }
 
 const transition = 'transition: all 100ms ease;'

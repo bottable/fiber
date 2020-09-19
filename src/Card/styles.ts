@@ -7,7 +7,7 @@ import { rem } from 'polished'
 
 export const StyledCard = styled.div<CardProps>`
   border: ${({ bordered, theme }) => (bordered ? theme.border.md : null)};
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radii.xl};
   border-color: ${({ theme }) => theme.colors.gray4};
   background: #fff;
   color: ${({ theme }) => theme.colors.gray6};

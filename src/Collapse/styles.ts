@@ -3,20 +3,20 @@ import { PanelProps } from './Panel'
 import styled from 'styled-components'
 
 export const StyledCollapse = styled.div`
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radii.xl};
   font-size: ${({ theme }) => theme.fontSizes.md};
   ${({ theme }) => theme.boxShadow};
 `
 
 export const StyledPanel = styled.div`
   &:first-child {
-    border-top-left-radius: ${({ theme }) => theme.radii.md};
-    border-top-right-radius: ${({ theme }) => theme.radii.md};
+    border-top-left-radius: ${({ theme }) => theme.radii.xl};
+    border-top-right-radius: ${({ theme }) => theme.radii.xl};
   }
 
   &:last-child {
-    border-bottom-right-radius: ${({ theme }) => theme.radii.md};
-    border-bottom-left-radius: ${({ theme }) => theme.radii.md};
+    border-bottom-right-radius: ${({ theme }) => theme.radii.xl};
+    border-bottom-left-radius: ${({ theme }) => theme.radii.xl};
   }
 
   &:not(:last-child) {
