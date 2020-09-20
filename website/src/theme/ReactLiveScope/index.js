@@ -6,8 +6,8 @@ import * as MaterialUIIcons from '@material-ui/icons'
 const ReactLiveScope = {
   React,
   ...React,
-  ...FiberUI,
-  ...MaterialUIIcons
+  ...MaterialUIIcons,
+  ...FiberUI
 }
 
 export default ReactLiveScope
