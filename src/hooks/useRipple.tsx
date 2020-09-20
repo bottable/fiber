@@ -6,12 +6,13 @@ export type AddRipleprops = {
   event: React.MouseEvent
   width: number
   centered?: boolean
+  color?: 'dark' | 'light'
 }
 
 export const useRipple = () => {
   const [ripples, setRipples] = useState<React.ReactNode[]>([])
 
-  const addRipple = ({ event, width, centered }: AddRipleprops) => {
+  const addRipple = ({ event, width, centered, color }: AddRipleprops) => {
     const element = event.currentTarget as HTMLElement
 
     const clientRect = element.getBoundingClientRect()
@@ -33,6 +34,7 @@ export const useRipple = () => {
           setRipples((prevRipples) => prevRipples?.slice(1)!)
         }}
         key={`${new Date().getTime()}`}
+        color={color || 'dark'}
       />
     ])
   }

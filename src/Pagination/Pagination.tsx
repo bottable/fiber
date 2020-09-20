@@ -27,6 +27,7 @@ export type PaginationProps = {
   onChange?: (current: number) => void
   onShowSizeChange?: (size: number) => void
   showTotal?: (total: number, range: [number, number]) => string
+  hideOnSinglePage?: boolean
 }
 
 const Pagination: FC<PaginationProps> = ({
@@ -41,6 +42,7 @@ const Pagination: FC<PaginationProps> = ({
   onChange,
   onShowSizeChange,
   showTotal,
+  hideOnSinglePage,
   ...props
 }) => {
   const [jumper, setJumper] = useState<string>('')
@@ -58,6 +60,9 @@ const Pagination: FC<PaginationProps> = ({
   }) as { value: number; setValue: (newValue: number) => void }
 
   const n = Math.ceil(total! / pageSize)
+
+  if (n === 1 && hideOnSinglePage) return null
+
   const more = n >= 8
 
   const getRange: () => [number, number] = () => {

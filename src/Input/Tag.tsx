@@ -10,6 +10,8 @@ export type TagProps = {
   defaultValue?: string[]
   onChange?: (newValue: string[]) => void
   tagProps?: BaseTagProps | ((value: string) => BaseTagProps)
+  bordered?: boolean
+  camouflage?: boolean
   style?: React.CSSProperties & object
 }
 
@@ -17,7 +19,15 @@ type Tag = { value: string; repeat: boolean; close?: boolean }
 
 const Tag = React.forwardRef(
   (
-    { placeholder, defaultValue, onChange, tagProps, style }: TagProps,
+    {
+      placeholder,
+      defaultValue,
+      onChange,
+      tagProps,
+      bordered,
+      camouflage,
+      style
+    }: TagProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
     const [tags, setTags] = useState<Tag[]>(
@@ -116,7 +126,7 @@ const Tag = React.forwardRef(
     })
 
     return (
-      <TagInputSpan style={style}>
+      <TagInputSpan bordered={bordered} camouflage={camouflage} style={style}>
         {prefixNode}
         <TagInput
           onKeyDown={handleKeyDown}

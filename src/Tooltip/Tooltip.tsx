@@ -1,9 +1,9 @@
 import { Color } from '../types'
 import { useOverlay, OverlayProps } from '../hooks'
 
-import { Wrapper, TooltipWrapper } from './styles'
+import { Wrapper, TooltipWrapper, Triangle, RelativeSpan } from './styles'
 
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState, useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export interface TooltipProps extends OverlayProps {
@@ -11,9 +11,16 @@ export interface TooltipProps extends OverlayProps {
   color?: Color | string
 }
 
+export type TriangleProps = {
+  xTriangle: number
+  color?: Color | string
+  visible?: boolean
+}
+
 const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
   (props, ref) => {
-    const { children, placement, title, color, style } = props
+    const { children, placement, title, color, inline, style } = props
+    const [xTriangle, setXTriangle] = useState<number>(0)
 
     const {
       wrapperRef,
@@ -24,29 +31,64 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
       clickProps
     } = useOverlay({ ...props, expand: true })
 
+    const triangleRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+      if (childrenRef.current && triangleRef.current) {
+        const childRect = childrenRef.current.getBoundingClientRect()
+        const triangleRect = triangleRef.current.getBoundingClientRect()
+        const offset =
+          (childRect.right -
+            childRect.left -
+            (triangleRect.right - triangleRect.left)) /
+          2
+        setXTriangle(childRect.x - triangleRect.x + offset)
+      }
+    }, [childrenRef, triangleRef])
+
     const childrenNode = Array.isArray(children)
       ? ((<span>{children}</span>) as any)
       : (children as any)
 
-    return (
-      <Wrapper
-        ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
-        {...hoverProps}
+    const wrapperProps = Array.isArray(children) ? {} : (children as any).props
+
+    const tooltipNode = (
+      <TooltipWrapper
+        visible={visible}
+        placement={placement}
+        color={color}
+        ref={dropdownRef}
+        inline={inline}
+        style={style}
       >
-        {React.cloneElement(childrenNode, {
-          ...clickProps,
-          ref: composeRef(childrenRef, childrenNode.ref)
-        })}
-        <TooltipWrapper
-          visible={visible}
-          placement={placement}
-          color={color}
-          ref={dropdownRef}
-          style={style}
+        {title}
+      </TooltipWrapper>
+    )
+
+    return (
+      <React.Fragment>
+        <Wrapper
+          ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
+          {...wrapperProps}
+          {...hoverProps}
         >
-          {title}
-        </TooltipWrapper>
-      </Wrapper>
+          {React.cloneElement(childrenNode, {
+            ...clickProps,
+            ref: composeRef(childrenRef, childrenNode.ref)
+          })}
+          {inline ? null : tooltipNode}
+        </Wrapper>
+        {inline ? (
+          <RelativeSpan>
+            <Triangle
+              xTriangle={xTriangle}
+              visible={visible}
+              ref={triangleRef}
+            />
+            {tooltipNode}
+          </RelativeSpan>
+        ) : null}
+      </React.Fragment>
     )
   }
 )

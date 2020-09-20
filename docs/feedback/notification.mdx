@@ -64,6 +64,9 @@ import { Playground } from 'docz'
           <Button type='primary' onClick={() => openNotification('topLeft')}>
             topLeft
           </Button>
+          <Button type='primary' onClick={() => openNotification('topCenter')}>
+            topCenter
+          </Button>
           <Button type='primary' onClick={() => openNotification('topRight')}>
             topRight
           </Button>
@@ -75,12 +78,36 @@ import { Playground } from 'docz'
           </Button>
           <Button
             type='primary'
+            onClick={() => openNotification('bottomCenter')}
+          >
+            bottomCenter
+          </Button>
+          <Button
+            type='primary'
             onClick={() => openNotification('bottomRight')}
           >
             bottomRight
           </Button>
         </Space>
       </div>
+    )
+  }}
+</Playground>
+
+## No Close Icon
+
+<Playground>
+  {() => {
+    const openNotification = () => {
+      notification.open({
+        description: 'Selector is on. Click anything on the page to track.',
+        closeIcon: false
+      })
+    }
+    return (
+      <Button type='primary' onClick={openNotification}>
+        No close icon
+      </Button>
     )
   }}
 </Playground>

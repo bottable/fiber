@@ -4,7 +4,7 @@ exports[`Slider renders correctly 1`] = `
 Array [
   <div>
     <div
-      className="sc-AxjAm bGksCP"
+      className="sc-AxjAm cslRRn"
       defaultValue={30}
       max={100}
       min={0}
@@ -35,7 +35,7 @@ Array [
     </div>
     <br />
     <div
-      className="sc-AxjAm bGksCP"
+      className="sc-AxjAm cslRRn"
       defaultValue={0}
       max={100}
       min={0}
@@ -68,7 +68,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm bGksCP"
+      className="sc-AxjAm cslRRn"
       defaultValue={30}
       max={100}
       min={0}
@@ -99,7 +99,7 @@ Array [
     </div>
     <br />
     <div
-      className="sc-AxjAm bGksCP"
+      className="sc-AxjAm cslRRn"
       defaultValue={30}
       max={100}
       min={0}
@@ -131,7 +131,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm gBySVw"
+      className="sc-AxjAm dWnAGI"
       defaultValue={30}
       disabled={true}
       max={100}
@@ -173,7 +173,7 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm gVzrnm"
+        className="sc-AxjAm tTkzS"
         defaultValue={30}
         max={100}
         min={0}
@@ -206,7 +206,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm clVYtQ"
+      className="sc-AxjAm hWsNrI"
       defaultValue={30}
       max={100}
       min={0}
@@ -287,7 +287,7 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm iKOdhd"
+        className="sc-AxjAm iyfrLl"
         defaultValue={30}
         max={100}
         min={0}

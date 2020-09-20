@@ -11,7 +11,7 @@ import {
 import React, { FC } from 'react'
 
 export type CardProps = {
-  title?: string
+  title?: string | React.ReactNode
   extra?: React.ReactNode
   size?: 'md' | 'sm'
   bordered?: boolean

@@ -23,6 +23,8 @@ type column = {
   title: string
   dataIndex: string
   render?: (text: any, record: object) => React.ReactNode
+  onClick?: (value: any) => void
+  ellipsis?: boolean
 }
 
 export type TableProps = {
@@ -41,10 +43,17 @@ export type TableProps = {
     selectedRowKeys?: string[]
   }
   pagination?: PaginationProps
+  fixed?: boolean
 }
 
 export type RowProps = {
   selected?: boolean
+}
+
+export type CellProps = {
+  selected?: boolean
+  clickable?: boolean
+  ellipsis?: boolean
 }
 
 const Table: FC<TableProps> = ({
@@ -149,6 +158,7 @@ const Table: FC<TableProps> = ({
   )
 
   const pageRecords: React.ReactElement[] = []
+  let fixed = false
   for (
     let idx = (page - 1) * pageSize;
     idx < Math.min(page * pageSize, dataSource.length);
@@ -167,7 +177,7 @@ const Table: FC<TableProps> = ({
     pageRecords.push(
       <TableRow key={idx} selected={checked}>
         {SelectorElement! === Checkbox || SelectorElement! === Radio ? (
-          <TableCellBodySelector>
+          <TableCellBodySelector selected={checked}>
             <SelectorElement
               checked={checked}
               {...checkboxProps}
@@ -175,12 +185,25 @@ const Table: FC<TableProps> = ({
             />
           </TableCellBodySelector>
         ) : null}
-        {columns.map(({ dataIndex, render }, i) => {
-          let dataNode
+        {columns.map(({ dataIndex, render, onClick, ellipsis }, i) => {
+          let dataNode: React.ReactNode
           if (render) {
             dataNode = render(record[dataIndex], record)
           } else dataNode = record[dataIndex]
-          return <TableCellBody key={i}>{dataNode}</TableCellBody>
+          fixed = ellipsis || fixed
+          return (
+            <TableCellBody
+              key={i}
+              selected={checked}
+              clickable={Boolean(onClick)}
+              onClick={() => {
+                if (onClick) onClick(record[dataIndex])
+              }}
+              ellipsis={ellipsis}
+            >
+              {dataNode}
+            </TableCellBody>
+          )
         })}
       </TableRow>
     )
@@ -212,7 +235,7 @@ const Table: FC<TableProps> = ({
   return (
     <Wrapper>
       <ContentContainer>
-        <StyledTable>
+        <StyledTable fixed={fixed}>
           {tableHeadNode}
           {tableBodyNode}
         </StyledTable>

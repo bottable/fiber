@@ -32,6 +32,7 @@ export type InputProps = MergeElementProps<
     value?: string
     defaultValue?: string
     style?: React.CSSProperties & object
+    camouflage?: boolean
   }
 >
 
@@ -56,6 +57,7 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
       disabled,
       addonBefore,
       addonAfter,
+      camouflage,
       ...rest
     } = props
 
@@ -109,6 +111,7 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
         disabled={disabled}
         addonBefore={Boolean(addonBefore)}
         addonAfter={Boolean(addonAfter)}
+        camouflage={camouflage}
         {...rest}
       />
     )
@@ -133,6 +136,7 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
           addonBefore={Boolean(addonBefore)}
           addonAfter={Boolean(addonAfter)}
+          camouflage={camouflage}
         >
           {prefix}
           {input}

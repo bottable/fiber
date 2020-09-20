@@ -20,8 +20,9 @@ export type OverlayProps = {
     | 'left'
     | 'leftBottom'
   onVisibleChange?: (flag: boolean) => void
-  children?: React.ReactNode
+  children?: React.ReactNode | React.ReactNode[]
   expand?: boolean
+  inline?: boolean
   style?: React.CSSProperties & object
 }
 
@@ -30,7 +31,8 @@ export const useOverlay = ({
   visible: visibleProps,
   placement,
   onVisibleChange,
-  expand
+  expand,
+  inline
 }: OverlayProps) => {
   const wrapperRef = useRef<
     HTMLDivElement & { contains: (e: EventTarget) => Boolean }
@@ -40,8 +42,12 @@ export const useOverlay = ({
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   const updateVisible = (newValue: boolean) => {
-    if (dropdownRef.current && expand) {
-      dropdownRef.current.style.transform = `scale(${newValue ? 1 : 0})`
+    if (dropdownRef.current) {
+      if (inline) {
+        dropdownRef.current.style.display = newValue ? 'block' : 'none'
+      } else if (expand) {
+        dropdownRef.current.style.transform = `scale(${newValue ? 1 : 0})`
+      }
     }
   }
 
@@ -54,24 +60,40 @@ export const useOverlay = ({
 
   useEffect(() => {
     if (childrenRef.current && dropdownRef.current && placement) {
+      if (inline) {
+        dropdownRef.current.style.display = 'none'
+        return
+      }
+
       if (
         !placement.toLowerCase().includes('left') &&
         !placement.toLowerCase().includes('right')
       ) {
-        const offset =
-          (childrenRef.current.offsetWidth - dropdownRef.current.offsetWidth) /
-          2
-        dropdownRef.current.style.left = rem(`${offset}px`)
-      }
+        let childWidth = childrenRef.current.offsetWidth
+        const dropdownWidth = dropdownRef.current.offsetWidth
 
-      if (
+        if (childrenRef.current.nodeName === 'svg') {
+          const svg = childrenRef.current
+          const rect = svg.getBoundingClientRect()
+          childWidth = rect.width
+        }
+
+        const offset = (childWidth - dropdownWidth) / 2
+        dropdownRef.current.style.left = rem(`${offset}px`)
+      } else if (
         !placement.toLowerCase().includes('top') &&
         !placement.toLowerCase().includes('bottom')
       ) {
-        const offset =
-          (childrenRef.current.offsetHeight -
-            dropdownRef.current.offsetHeight) /
-          2
+        let childHeight = childrenRef.current.offsetHeight
+        const dropdownHeight = dropdownRef.current.offsetHeight
+
+        if (childrenRef.current.nodeName === 'svg') {
+          const svg = childrenRef.current
+          const rect = svg.getBoundingClientRect()
+          childHeight = rect.height
+        }
+
+        const offset = (childHeight - dropdownHeight) / 2
         dropdownRef.current.style.top = rem(`${offset}px`)
       }
 

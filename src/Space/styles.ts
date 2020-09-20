@@ -1,6 +1,7 @@
 import { SpaceProps } from './Space'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { rem } from 'polished'
 
 export const StyledBlock = styled.div<SpaceProps>`
   display: inline-flex;
@@ -36,7 +37,58 @@ export const StyledBlock = styled.div<SpaceProps>`
     }
     return alignitems
   }};
+`
 
-  margin: 0;
-  padding: 0;
+const horizontalMargin = css<SpaceProps>`
+  margin-right: ${({ size, theme }) => {
+    let margin = theme.margins.md
+    if (typeof size === 'number') {
+      margin = rem(`${size}px`)
+    } else {
+      switch (size) {
+        case 'sm':
+          margin = theme.margins.xs
+          break
+        case 'md':
+          margin = theme.margins.md
+          break
+        case 'lg':
+          margin = theme.margins.xl
+          break
+      }
+    }
+    return margin
+  }};
+`
+
+const verticalMargin = css<SpaceProps>`
+  margin-bottom: ${({ size, theme }) => {
+    let margin = theme.margins.md
+    if (typeof size === 'number') {
+      margin = rem(`${size}px`)
+    } else {
+      switch (size) {
+        case 'sm':
+          margin = theme.margins.xs
+          break
+        case 'md':
+          margin = theme.margins.md
+          break
+        case 'lg':
+          margin = theme.margins.xl
+          break
+      }
+    }
+    return margin
+  }};
+`
+
+export const StyledChildDiv = styled.div<SpaceProps>`
+  display: inline-block;
+  ${({ direction }) =>
+    direction === 'vertical' ? verticalMargin : horizontalMargin}
+
+  &:last-child {
+    margin: 0;
+  }
 `

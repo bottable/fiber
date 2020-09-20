@@ -35,20 +35,18 @@ export const IconContainer = styled.div<StepProps>`
   display: inline-flex;
   position: relative;
   margin-right: ${rem('8px')};
-  color: ${({ theme, status, hover, icon }) =>
+  color: ${({ theme, status, hover }) =>
     hover
       ? theme.colors.light
       : status === 'wait'
       ? theme.colors.gray6
-      : icon || status !== 'process'
-      ? theme.colors.base
-      : '#fff'};
+      : theme.colors.base};
   svg {
     width: ${rem('24px')};
     height: ${rem('24px')};
   }
   ${({ last, status, vertical, theme }) =>
-    !last && vertical
+    !last && status === 'process' && vertical
       ? `
   &::after {
     position: absolute;
@@ -57,7 +55,7 @@ export const IconContainer = styled.div<StepProps>`
     display: block;
     width: ${rem('1px')};
     height: 9999px;
-    background: ${status === 'finish' ? theme.colors.base : theme.colors.gray4};
+    background: ${theme.colors.gray4};
     transition: background-color 0.3s, border-color 0.3s;
     content: '';
   }
@@ -80,7 +78,8 @@ export const TitleContainer = styled.div<StepProps>`
     vertical && !subtitle ? rem('6px') : null};
   color: ${({ hover, theme }) =>
     hover ? theme.colors.light : theme.colors.gray7};
-  font-size: ${rem('16px')};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   ${({ last, status, vertical, theme }) =>
     !last && !vertical
       ? `
@@ -106,26 +105,6 @@ export const SubtitleContainer = styled.div<StepProps>`
   padding-bottom: ${({ vertical }) => (vertical ? rem('6px') : null)};
   color: ${({ hover, theme }) =>
     hover ? theme.colors.light : theme.colors.gray6};
-  font-size: ${rem('14px')};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   transition: color 0.3s;
-`
-
-export const Circle = styled.span<StepProps>`
-  display: inline-flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  width: ${rem('24px')};
-  height: ${rem('24px')};
-  border: ${rem('1px')} solid
-    ${({ theme, hover, status }) =>
-      hover
-        ? theme.colors.light
-        : status === 'wait'
-        ? theme.colors.gray6
-        : theme.colors.base};
-  border-radius: 50%;
-  background-color: ${({ status, theme }) =>
-    status === 'process' ? theme.colors.base : 'transparent'};
-  transition: background-color 0.3s, border-color 0.3s;
 `

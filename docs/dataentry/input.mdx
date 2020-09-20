@@ -51,7 +51,22 @@ import SettingsIcon from '@material-ui/icons/Settings'
 ## Borderless
 
 <Playground>
-  <Input placeholder='Borderless' bordered={false} />
+  <div style={{ backgroundColor: '#f2f2f2', padding: 12 }}>
+    <Input placeholder='Borderless' bordered={false} />
+  </div>
+  <div style={{ padding: 12 }}>
+    <Input
+      placeholder='Borderless'
+      bordered={false}
+      style={{ backgroundColor: '#efefef' }}
+    />
+  </div>
+</Playground>
+
+## Camouflage
+
+<Playground>
+  <Input defaultValue='Category' camouflage style={{ fontWeight: 700 }} />
 </Playground>
 
 ## Disabled
@@ -79,16 +94,19 @@ import SettingsIcon from '@material-ui/icons/Settings'
 ## Tag
 
 <Playground>
-  <Input.Tag
-    placeholder='Enter tags'
-    onChange={(values) => {
-      console.log(values)
-    }}
-    defaultValue={['Amazon', 'Apple']}
-    tagProps={(value) => {
-      if (value === 'Amazon') return { color: '#ff9900' }
-      else if (value === 'Apple') return { color: '#999999' }
-      return {}
-    }}
-  />
+  <div style={{ backgroundColor: '#f2f2f2', padding: 12 }}>
+    <Input.Tag
+      placeholder='Enter tags'
+      onChange={(values) => {
+        console.log(values)
+      }}
+      defaultValue={['Amazon', 'Apple']}
+      tagProps={(value) => {
+        if (value === 'Amazon') return { color: '#ff9900' }
+        else if (value === 'Apple') return { color: '#999999' }
+        return {}
+      }}
+      bordered={false}
+    />
+  </div>
 </Playground>

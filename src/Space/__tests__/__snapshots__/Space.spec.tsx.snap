@@ -4,35 +4,32 @@ exports[`Space renders correctly 1`] = `
 Array [
   <div>
     <div
-      className="sc-AxjAm jowjGw"
+      className="sc-AxjAm hUdEqd"
+      direction="horizontal"
       size="sm"
     >
       <div
-        className="sc-AxirZ dEnRRl"
+        className="sc-AxirZ ggRJEm"
+        direction="horizontal"
         size="sm"
-        style={Object {}}
       >
         <h1>
           Small
         </h1>
       </div>
       <div
-        className="sc-AxirZ dEnRRl"
+        className="sc-AxirZ ggRJEm"
+        direction="horizontal"
         size="sm"
-        style={Object {}}
       >
         <h1>
           Size
         </h1>
       </div>
       <div
-        className="sc-AxirZ dEnRRl"
+        className="sc-AxirZ ggRJEm"
+        direction="horizontal"
         size="sm"
-        style={
-          Object {
-            "margin": 0,
-          }
-        }
       >
         <h1>
           !
@@ -42,35 +39,32 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm jowjGw"
+      className="sc-AxjAm hUdEqd"
+      direction="horizontal"
       size="md"
     >
       <div
-        className="sc-AxirZ ghIeLP"
+        className="sc-AxirZ sSXMg"
+        direction="horizontal"
         size="md"
-        style={Object {}}
       >
         <h1>
           Middle
         </h1>
       </div>
       <div
-        className="sc-AxirZ ghIeLP"
+        className="sc-AxirZ sSXMg"
+        direction="horizontal"
         size="md"
-        style={Object {}}
       >
         <h1>
           Size
         </h1>
       </div>
       <div
-        className="sc-AxirZ ghIeLP"
+        className="sc-AxirZ sSXMg"
+        direction="horizontal"
         size="md"
-        style={
-          Object {
-            "margin": 0,
-          }
-        }
       >
         <h1>
           !
@@ -80,35 +74,32 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm jowjGw"
+      className="sc-AxjAm hUdEqd"
+      direction="horizontal"
       size="lg"
     >
       <div
-        className="sc-AxirZ dcHUaw"
+        className="sc-AxirZ jFYlif"
+        direction="horizontal"
         size="lg"
-        style={Object {}}
       >
         <h1>
           Large
         </h1>
       </div>
       <div
-        className="sc-AxirZ dcHUaw"
+        className="sc-AxirZ jFYlif"
+        direction="horizontal"
         size="lg"
-        style={Object {}}
       >
         <h1>
           Size
         </h1>
       </div>
       <div
-        className="sc-AxirZ dcHUaw"
+        className="sc-AxirZ jFYlif"
+        direction="horizontal"
         size="lg"
-        style={
-          Object {
-            "margin": 0,
-          }
-        }
       >
         <h1>
           !
@@ -118,35 +109,32 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm jowjGw"
+      className="sc-AxjAm hUdEqd"
+      direction="horizontal"
       size={100}
     >
       <div
-        className="sc-AxirZ irtZIl"
+        className="sc-AxirZ fXmLtu"
+        direction="horizontal"
         size={100}
-        style={Object {}}
       >
         <h1>
           Number 100
         </h1>
       </div>
       <div
-        className="sc-AxirZ irtZIl"
+        className="sc-AxirZ fXmLtu"
+        direction="horizontal"
         size={100}
-        style={Object {}}
       >
         <h1>
           Size
         </h1>
       </div>
       <div
-        className="sc-AxirZ irtZIl"
+        className="sc-AxirZ fXmLtu"
+        direction="horizontal"
         size={100}
-        style={
-          Object {
-            "margin": 0,
-          }
-        }
       >
         <h1>
           !
@@ -162,13 +150,22 @@ Array [
     }
   >
     <div
-      className="sc-AxjAm jowjGw"
+      className="sc-AxjAm hUdEqd"
       direction="horizontal"
+      size="md"
     >
       <div
-        className="sc-AxirZ dEnRRl"
+        className="sc-AxirZ sSXMg"
         direction="horizontal"
-        style={Object {}}
+        size="md"
+        style={
+          Object {
+            "border": "1px solid blue",
+            "flex": "none",
+            "margin": 0,
+            "padding": 4,
+          }
+        }
       >
         <div
           style={
@@ -184,11 +181,15 @@ Array [
         </div>
       </div>
       <div
-        className="sc-AxirZ dEnRRl"
+        className="sc-AxirZ sSXMg"
         direction="horizontal"
+        size="md"
         style={
           Object {
+            "border": "1px solid blue",
+            "flex": "none",
             "margin": 0,
+            "padding": 4,
           }
         }
       >
@@ -209,13 +210,22 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm hYaSVo"
+      className="sc-AxjAm kMCwBd"
       direction="vertical"
+      size="md"
     >
       <div
-        className="sc-AxirZ ewVSuO"
+        className="sc-AxirZ kzmRLn"
         direction="vertical"
-        style={Object {}}
+        size="md"
+        style={
+          Object {
+            "border": "1px solid blue",
+            "flex": "none",
+            "margin": 0,
+            "padding": 4,
+          }
+        }
       >
         <div
           style={
@@ -231,11 +241,15 @@ Array [
         </div>
       </div>
       <div
-        className="sc-AxirZ ewVSuO"
+        className="sc-AxirZ kzmRLn"
         direction="vertical"
+        size="md"
         style={
           Object {
+            "border": "1px solid blue",
+            "flex": "none",
             "margin": 0,
+            "padding": 4,
           }
         }
       >
@@ -273,27 +287,35 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm jowjGw"
+        className="sc-AxjAm hUdEqd"
+        direction="horizontal"
+        size="md"
       >
         <div
-          className="sc-AxirZ dEnRRl"
-          style={Object {}}
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
         >
           center
         </div>
         <div
-          className="sc-AxirZ dEnRRl"
-          style={Object {}}
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
         >
           <button>
             Primary
           </button>
         </div>
         <div
-          className="sc-AxirZ dEnRRl"
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
           style={
             Object {
-              "margin": 0,
+              "background": "gray",
+              "display": "inline-block",
+              "padding": "32px 8px 16px",
             }
           }
         >
@@ -322,27 +344,35 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm cixmHd"
+        className="sc-AxjAm iGkOaY"
+        direction="horizontal"
+        size="md"
       >
         <div
-          className="sc-AxirZ dEnRRl"
-          style={Object {}}
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
         >
           start
         </div>
         <div
-          className="sc-AxirZ dEnRRl"
-          style={Object {}}
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
         >
           <button>
             Primary
           </button>
         </div>
         <div
-          className="sc-AxirZ dEnRRl"
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
           style={
             Object {
-              "margin": 0,
+              "background": "gray",
+              "display": "inline-block",
+              "padding": "32px 8px 16px",
             }
           }
         >
@@ -371,27 +401,35 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm hkwaHe"
+        className="sc-AxjAm jAmoa-D"
+        direction="horizontal"
+        size="md"
       >
         <div
-          className="sc-AxirZ dEnRRl"
-          style={Object {}}
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
         >
           end
         </div>
         <div
-          className="sc-AxirZ dEnRRl"
-          style={Object {}}
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
         >
           <button>
             Primary
           </button>
         </div>
         <div
-          className="sc-AxirZ dEnRRl"
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
           style={
             Object {
-              "margin": 0,
+              "background": "gray",
+              "display": "inline-block",
+              "padding": "32px 8px 16px",
             }
           }
         >
@@ -420,27 +458,35 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm cfhoDs"
+        className="sc-AxjAm dhNMcl"
+        direction="horizontal"
+        size="md"
       >
         <div
-          className="sc-AxirZ dEnRRl"
-          style={Object {}}
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
         >
           baseline
         </div>
         <div
-          className="sc-AxirZ dEnRRl"
-          style={Object {}}
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
         >
           <button>
             Primary
           </button>
         </div>
         <div
-          className="sc-AxirZ dEnRRl"
+          className="sc-AxirZ sSXMg"
+          direction="horizontal"
+          size="md"
           style={
             Object {
-              "margin": 0,
+              "background": "gray",
+              "display": "inline-block",
+              "padding": "32px 8px 16px",
             }
           }
         >

@@ -6,7 +6,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility'
 
 export interface PasswordProps extends InputProps {
   visibilityToggle?: boolean
-  iconRender?: (visible: boolean) => React.ReactNode
+  iconRender?: (visible: boolean) => React.ReactElement
 }
 
 const Password = React.forwardRef(
@@ -23,16 +23,23 @@ const Password = React.forwardRef(
     }
 
     const getIcon = () => {
-      if (!iconRender) return
-      const icon = iconRender(visible)
+      let icon: React.ReactElement
+
+      if (typeof iconRender === 'function') icon = iconRender(visible)
+      else {
+        icon = visible ? (
+          <VisibilityIcon style={{ color: '#595959' }} />
+        ) : (
+          <VisibilityOffIcon style={{ color: '#595959' }} />
+        )
+      }
+
       const iconProps = {
         onClick: onVisibleChange,
-        style: { cursor: 'pointer' }
+        style: { cursor: 'pointer', ...icon.props.style }
       }
-      return React.cloneElement(
-        React.isValidElement(icon) ? icon : <span>{icon}</span>,
-        iconProps
-      )
+
+      return React.cloneElement(icon, iconProps)
     }
 
     return (
@@ -47,9 +54,7 @@ const Password = React.forwardRef(
 )
 
 Password.defaultProps = {
-  visibilityToggle: true,
-  iconRender: (visible: boolean) =>
-    visible ? <VisibilityIcon /> : <VisibilityOffIcon />
+  visibilityToggle: true
 }
 
 export { Password }

@@ -1,19 +1,19 @@
-import { useControl } from '../hooks'
+import { useControl, useCollapse } from '../hooks'
 
 import {
   StyledPanel,
   PanelHeaderContainer,
-  PanelCollapseContainer,
   PanelContentContainer,
+  HeaderContainer,
   ExpandIconSpan,
   ExtraIconSpan
 } from './styles'
 
-import React, { FC, useState, useRef, useEffect } from 'react'
+import React, { FC } from 'react'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 export type PanelProps = {
-  header?: string
+  header?: string | React.ReactNode
   collapsed?: boolean
   height?: number
   panelKey?: string
@@ -35,32 +35,21 @@ const Panel: FC<PanelProps> = ({
     onChange: onChange as (newValue: unknown) => unknown
   }) as { value: boolean; setValue: (newValue: string) => void }
 
-  const [height, setHeight] = useState<number | undefined>(undefined)
-
-  const collapseRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (collapseRef.current && height === undefined) {
-      setHeight(collapseRef.current.offsetHeight)
-    }
-  }, [collapseRef])
+  const { childrenNode: panelContentContainerNode } = useCollapse({
+    children: <PanelContentContainer>{children}</PanelContentContainer>,
+    collapsed: collapsed
+  })
 
   return (
     <StyledPanel>
       <PanelHeaderContainer onClick={() => setCollapsed(panelKey!)}>
-        {header}
-        <ExtraIconSpan>{extra}</ExtraIconSpan>
+        <HeaderContainer>{header}</HeaderContainer>
         <ExpandIconSpan collapsed={collapsed}>
           <ExpandMoreIcon />
         </ExpandIconSpan>
+        <ExtraIconSpan>{extra}</ExtraIconSpan>
       </PanelHeaderContainer>
-      <PanelCollapseContainer
-        collapsed={collapsed}
-        height={height}
-        ref={collapseRef}
-      >
-        <PanelContentContainer>{children}</PanelContentContainer>
-      </PanelCollapseContainer>
+      {panelContentContainerNode}
     </StyledPanel>
   )
 }
