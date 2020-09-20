@@ -98,21 +98,21 @@ function ExtraNodeCollapse() {
       <Collapse.Panel
         header='This is panel header 1'
         key='1'
-        extra={<SettingsIcon />}
+        extra={<Settings />}
       >
         <p>{text}</p>
       </Collapse.Panel>
       <Collapse.Panel
         header='This is panel header 2'
         key='2'
-        extra={<SettingsIcon />}
+        extra={<Settings />}
       >
         <p>{text}</p>
       </Collapse.Panel>
       <Collapse.Panel
         header='This is panel header 3'
         key='3'
-        extra={<SettingsIcon />}
+        extra={<Settings />}
       >
         <p>{text}</p>
       </Collapse.Panel>

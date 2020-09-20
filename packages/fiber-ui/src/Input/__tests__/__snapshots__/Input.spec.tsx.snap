@@ -3,14 +3,14 @@
 exports[`Input renders correctly 1`] = `
 Array [
   <input
-    className="sc-Axmtr sc-fzozJi ccAHNs"
+    className="sc-iCoHVE sc-pNWxx bymJiA mlwDI"
     onChange={[Function]}
     onKeyDown={[Function]}
     value=""
   />,
   <div>
     <input
-      className="sc-Axmtr sc-fzoLsD hRHGia"
+      className="sc-iCoHVE sc-jrsJCI bymJiA hIxIqi"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Large Input"
@@ -19,7 +19,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-Axmtr sc-fzozJi ccAHNs"
+      className="sc-iCoHVE sc-pNWxx bymJiA mlwDI"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Medium Input"
@@ -28,7 +28,7 @@ Array [
     <br />
     <br />
     <input
-      className="sc-Axmtr sc-AxmLO hPNZoO"
+      className="sc-iCoHVE sc-fujyUd bymJiA jSWuAv"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Small Input"
@@ -37,24 +37,24 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-fznyAO hJSfJZ"
+      className="sc-crzoUp fEFrxq"
     >
       <span
-        className="sc-fzplWN guvLaR"
+        className="sc-iqAbSa cJAqSm"
       >
         <span
-          className="sc-fzpans jIGtQe"
+          className="sc-kEqYlL fqtDdX"
         >
           http://
         </span>
         <input
-          className="sc-Axmtr sc-fzozJi lSXVr"
+          className="sc-iCoHVE sc-pNWxx kCGzNn mlwDI"
           onChange={[Function]}
           onKeyDown={[Function]}
           value=""
         />
         <span
-          className="sc-fzpans jIGtQe"
+          className="sc-kEqYlL fqtDdX"
         >
           .com
         </span>
@@ -63,19 +63,19 @@ Array [
     <br />
     <br />
     <span
-      className="sc-fznyAO hJSfJZ"
+      className="sc-crzoUp fEFrxq"
     >
       <span
-        className="sc-fzplWN guvLaR"
+        className="sc-iqAbSa cJAqSm"
       >
         <input
-          className="sc-Axmtr sc-fzozJi fhhIwv"
+          className="sc-iCoHVE sc-pNWxx gKRLKP mlwDI"
           onChange={[Function]}
           onKeyDown={[Function]}
           value=""
         />
         <span
-          className="sc-fzpans jIGtQe"
+          className="sc-kEqYlL fqtDdX"
         >
           <svg
             aria-hidden={true}
@@ -94,12 +94,12 @@ Array [
   </div>,
   <div>
     <span
-      className="sc-fznKkj bHrlTB"
+      className="sc-dIsAE hToTGk"
       onClick={[Function]}
     >
       ￥
       <input
-        className="sc-Axmtr sc-fzozJi ifxeYC"
+        className="sc-iCoHVE sc-pNWxx bObdmk ardKS"
         onChange={[Function]}
         onKeyDown={[Function]}
         value=""
@@ -109,13 +109,13 @@ Array [
     <br />
     <br />
     <span
-      className="sc-fznKkj duvjyV"
+      className="sc-dIsAE cSXpBE"
       disabled={true}
       onClick={[Function]}
     >
       ￥
       <input
-        className="sc-Axmtr sc-fzozJi ejFFIn"
+        className="sc-iCoHVE sc-pNWxx klOvJF ardKS"
         disabled={true}
         onChange={[Function]}
         onKeyDown={[Function]}
@@ -126,22 +126,22 @@ Array [
     <br />
     <br />
     <span
-      className="sc-fznyAO hJSfJZ"
+      className="sc-crzoUp fEFrxq"
     >
       <span
-        className="sc-fzplWN guvLaR"
+        className="sc-iqAbSa cJAqSm"
       >
         <span
-          className="sc-fzpans jIGtQe"
+          className="sc-kEqYlL fqtDdX"
         >
           http://
         </span>
         <span
-          className="sc-fznKkj jXjQqm"
+          className="sc-dIsAE gDroUH"
           onClick={[Function]}
         >
           <input
-            className="sc-Axmtr sc-fzozJi ifxeYC"
+            className="sc-iCoHVE sc-pNWxx bObdmk ardKS"
             onChange={[Function]}
             onKeyDown={[Function]}
             value=""
@@ -153,7 +153,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-Axmtr sc-fzozJi bqzMnP"
+      className="sc-iCoHVE sc-pNWxx bIFdCP mlwDI"
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder="Borderless"
@@ -162,7 +162,7 @@ Array [
   </div>,
   <div>
     <input
-      className="sc-Axmtr sc-fzozJi fiIaoM"
+      className="sc-iCoHVE sc-pNWxx kWhUIY mlwDI"
       disabled={true}
       onChange={[Function]}
       onKeyDown={[Function]}

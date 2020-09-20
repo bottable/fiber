@@ -3,28 +3,24 @@
 exports[`Radio renders correctly 1`] = `
 <div>
   <label
-    className="sc-AxiKw iEISuy"
+    className="sc-dlnjPT fhFQMd"
   >
     <span
-      className="sc-AxhCb kYBEtR"
+      className="sc-hKFyIo jKTUmQ"
     >
       <input
         checked={false}
-        className="sc-AxheI beyFxN"
+        className="sc-gKAblj klyRGW"
         onChange={[Function]}
         type="radio"
       />
       <span
         checked={false}
-<<<<<<< HEAD:packages/fiber-ui/src/Radio/__tests__/__snapshots__/Radio.spec.tsx.snap
-        className="sc-AxgMl eRAFxR"
-=======
-        className="sc-Axmtr eAZbyV"
->>>>>>> origin/master:src/Radio/__test__/__snapshots__/Radio.spec.tsx.snap
+        className="sc-iCoHVE dpGFYT"
       />
     </span>
     <span
-      className="sc-AxhUy kfupEQ"
+      className="sc-eCApGN lpqiOg"
     >
        Radio 
     </span>
