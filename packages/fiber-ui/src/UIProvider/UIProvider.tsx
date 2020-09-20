@@ -1,4 +1,4 @@
-import themes from './themes'
+import { themes } from './themes'
 import { LocaleProvider } from './locales'
 import defaultLocale from './locales/locales/en_US'
 import { GlobalStyle } from './styles'

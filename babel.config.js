@@ -1,7 +1,7 @@
 module.exports = {
   presets: [
     '@babel/preset-env',
-    ['@babel/preset-react', { useSpread: true }],
+    '@babel/preset-react',
     '@babel/preset-typescript'
   ],
   plugins: [
@@ -10,7 +10,8 @@ module.exports = {
       {
         root: ['./src'],
         alias: {
-          'fiber-ui': './packages/fiber-ui/src'
+          'fiber-ui': './packages/fiber-ui/src',
+          test: './test'
         }
       }
     ]

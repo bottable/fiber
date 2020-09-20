@@ -11,7 +11,7 @@ import {
 } from './colors'
 import * as misc from './misc'
 
-const theme = {
+const themes = {
   blue: { colors: blue },
   green: { colors: green },
   magenta: { colors: magenta },
@@ -23,9 +23,9 @@ const theme = {
   yellow: { colors: yellow }
 }
 
-for (const [key, value] of Object.entries(theme)) {
+for (const [key, value] of Object.entries(themes)) {
   // @ts-ignore
-  theme[key] = {
+  themes[key] = {
     colors: {
       ...value.colors,
       blue: blue,
@@ -42,4 +42,4 @@ for (const [key, value] of Object.entries(theme)) {
   }
 }
 
-export default theme
+export { themes }

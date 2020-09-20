@@ -31,5 +31,7 @@
     "listEmittedFiles": false,
     "listFiles": false,
     "pretty": true
-  }
+  },
+  "include": ["./packages/*", "./test"],
+  "exclude": ["./_templates/**/*", "./website/**/*", "node_modules"]
 }

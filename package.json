@@ -18,19 +18,28 @@
   ],
   "scripts": {
     "start": "concurrently 'yarn:watch' 'yarn:web:start'",
-    "test": "lerna run test --since",
+    "test": "cross-env NODE_ENV=test yarn jest",
+    "test:refresh": "jest --updateSnapshot --env=jsdom",
     "type-check": "tsc --build tsconfig.build.json",
     "watch": "yarn type-check --watch",
-    "fiber:start": "yarn workspace fiber-ui start",
-    "web:start": "yarn workspace fiber-ui-website start"
+    "web:start": "yarn workspace fiber-ui-website start",
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
+    "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js:fix": "yarn run lint:js -- --fix"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
+    "packages/fiber-ui/src/**/*.{js,jsx,ts,tsx}": [
       "eslint . --fix",
       "stylelint --config=.stylelintrc --fix",
       "pretty-quick --staged"
     ],
-    "src/**/*.scss": [
+    "website/**/*.{js,jsx,ts,tsx}": [
+      "eslint . --fix",
+      "stylelint --config=.stylelintrc --fix",
+      "pretty-quick --staged"
+    ],
+    "packages/fiber-ui/src/**/*.scss": [
       "stylelint --config=.stylelintrc --syntax scss --fix"
     ]
   },
@@ -44,9 +53,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/preset-react": "^7.10.1",
-    "@babel/preset-typescript": "^7.10.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^25.2.3",
     "@types/react": "^16.9.27",
@@ -54,8 +64,10 @@
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "^10.0.3",
+    "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
+    "babel-preset-react-app": "^9.1.2",
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
@@ -74,6 +86,8 @@
     "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
     "hygen": "^5.0.3",
+    "jest": "^26.4.2",
+    "jest-environment-jsdom-fourteen": "^1.0.1",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.4",
     "microbundle-crl": "^0.13.10",
@@ -81,6 +95,7 @@
     "prettier": "^2.0.4",
     "pretty-quick": "^2.0.1",
     "react": "^16.13.1",
+    "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
     "react-test-renderer": "^16.13.1",
@@ -94,6 +109,8 @@
     "dist"
   ],
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.5",
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
     "@types/enzyme": "^3.10.5",
