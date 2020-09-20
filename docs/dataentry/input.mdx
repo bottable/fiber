@@ -1,0 +1,112 @@
+---
+name: Input
+route: /dataentry/input
+menu: Data Entry
+---
+
+import { useState } from 'react'
+import { Input } from 'fiber'
+import { Playground } from 'docz'
+import SettingsIcon from '@material-ui/icons/Settings'
+
+# Input
+
+<Playground>
+  <Input />
+</Playground>
+
+## Size
+
+<Playground>
+  <Input size='lg' placeholder='Large Input' />
+  <br />
+  <br />
+  <Input placeholder='Medium Input' />
+  <br />
+  <br />
+  <Input size='sm' placeholder='Small Input' />
+</Playground>
+
+## Addon
+
+<Playground>
+  <Input addonBefore='http://' addonAfter='.com' />
+  <br />
+  <br />
+  <Input addonAfter={<SettingsIcon />} />
+</Playground>
+
+## Prefix and Suffix
+
+<Playground>
+  <Input prefix='￥' suffix='RMB' />
+  <br />
+  <br />
+  <Input prefix='￥' suffix='RMB' disabled />
+  <br />
+  <br />
+  <Input addonBefore='http://' suffix='.com' />
+</Playground>
+
+## Borderless
+
+<Playground>
+  <div style={{ backgroundColor: '#f2f2f2', padding: 12 }}>
+    <Input placeholder='Borderless' bordered={false} />
+  </div>
+  <div style={{ padding: 12 }}>
+    <Input
+      placeholder='Borderless'
+      bordered={false}
+      style={{ backgroundColor: '#efefef' }}
+    />
+  </div>
+</Playground>
+
+## Camouflage
+
+<Playground>
+  <Input defaultValue='Category' camouflage style={{ fontWeight: 700 }} />
+</Playground>
+
+## Disabled
+
+<Playground>
+  <Input placeholder='Disabled' disabled />
+</Playground>
+
+## Password
+
+<Playground>
+  <Input.Password placeholder='Password' />
+</Playground>
+
+## Search
+
+<Playground>
+  <Input.Search
+    placeholder='Search'
+    onSearch={(value) => console.log(value)}
+    enterButton
+  />
+</Playground>
+
+## Tag
+
+<Playground>
+  <div style={{ backgroundColor: '#f2f2f2', padding: 12 }}>
+    <Input.Tag
+      placeholder='Enter tags'
+      onChange={(values) => {
+        console.log(values)
+      }}
+      defaultValue={['Amazon', 'Apple']}
+      tagProps={(value) => {
+        if (value === 'Amazon') return { color: '#ff9900' }
+        else if (value === 'Apple') return { color: '#999999' }
+        return {}
+      }}
+      bordered={false}
+    />
+  </div>
+</Playground>

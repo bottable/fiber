@@ -41,6 +41,40 @@ function RegularCollapse() {
 }
 ```
 
+### Custom Header
+
+```js
+import { Delete } from '@material-ui/icons'
+```
+
+```js live
+function CustomHeaderCollapse() {
+  const text = `
+      A dog is a type of domesticated animal.
+      Known for its loyalty and faithfulness,
+      it can be found as a welcome guest in many households across the world.
+    `
+
+  return (
+    <Collapse style={{ width: 500 }}>
+      <Collapse.Panel
+        header={
+          <Input
+            defaultValue='Category'
+            camouflage
+            style={{ width: '100%', fontWeight: 700 }}
+          />
+        }
+        extra={<Delete />}
+        key='1'
+      >
+        <p>{text}</p>
+      </Collapse.Panel>
+    </Collapse>
+  )
+}
+```
+
 ### Extra Node
 
 ```js
@@ -64,21 +98,21 @@ function ExtraNodeCollapse() {
       <Collapse.Panel
         header='This is panel header 1'
         key='1'
-        extra={<Settings />}
+        extra={<SettingsIcon />}
       >
         <p>{text}</p>
       </Collapse.Panel>
       <Collapse.Panel
         header='This is panel header 2'
         key='2'
-        extra={<Settings />}
+        extra={<SettingsIcon />}
       >
         <p>{text}</p>
       </Collapse.Panel>
       <Collapse.Panel
         header='This is panel header 3'
         key='3'
-        extra={<Settings />}
+        extra={<SettingsIcon />}
       >
         <p>{text}</p>
       </Collapse.Panel>

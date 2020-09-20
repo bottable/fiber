@@ -1,63 +1,18 @@
 import { Size } from '../types'
 
-import { StyledBlock } from './styles'
+import { StyledBlock, StyledChildDiv } from './styles'
 
-import styled, { css } from 'styled-components'
 import toArray from 'rc-util/lib/Children/toArray'
 import React, { FC } from 'react'
-import { rem } from 'polished'
 
 export interface SpaceProps {
   size?: Size | number
   direction?: 'horizontal' | 'vertical'
   align?: 'start' | 'end' | 'center' | 'baseline'
+  style?: React.CSSProperties & object
 }
 
-const spaceVariant = ({
-  size = 'sm',
-  direction = 'horizontal'
-}: SpaceProps) => {
-  let margin = '8px'
-
-  if (typeof size === 'number') {
-    margin = `${size}px`
-  } else {
-    switch (size) {
-      case 'sm':
-        margin = '8px'
-        break
-      case 'md':
-        margin = '16px'
-        break
-      case 'lg':
-        margin = '24px'
-        break
-    }
-  }
-
-  let cssMargin
-
-  if (direction === 'vertical') {
-    cssMargin = css`
-      margin-bottom: ${rem(margin)};
-    `
-  } else {
-    cssMargin = css`
-      margin-right: ${rem(margin)};
-    `
-  }
-
-  return css`
-    display: inline-block;
-    ${cssMargin}
-  `
-}
-
-const StyledChildDiv = styled.div<SpaceProps>`
-  ${spaceVariant};
-`
-
-export const Space: FC<SpaceProps> = ({ children, ...props }) => {
+const Space: FC<SpaceProps> = ({ children, style, ...props }) => {
   const items = toArray(children)
   const len = items.length
 
@@ -66,14 +21,14 @@ export const Space: FC<SpaceProps> = ({ children, ...props }) => {
   }
 
   return (
-    <StyledBlock {...props}>
+    <StyledBlock style={style} {...props}>
       {items.map((child, idx) => {
-        const style: any = {}
-        if (idx === items.length - 1) {
-          style.margin = 0
-        }
         return (
-          <StyledChildDiv key={idx} {...props} style={style}>
+          <StyledChildDiv
+            key={idx}
+            style={child.props && child.props.style}
+            {...props}
+          >
             {child}
           </StyledChildDiv>
         )
@@ -81,3 +36,10 @@ export const Space: FC<SpaceProps> = ({ children, ...props }) => {
     </StyledBlock>
   )
 }
+
+Space.defaultProps = {
+  size: 'md',
+  direction: 'horizontal'
+}
+
+export { Space }

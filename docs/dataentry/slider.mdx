@@ -1,0 +1,125 @@
+---
+name: Slider
+route: /dataentry/slider
+menu: Data Entry
+---
+
+import { useState } from 'react'
+import { Slider, Text } from 'fiber'
+import { Playground } from 'docz'
+
+# Slider
+
+<Playground>
+  {() => {
+    const [value, setValue] = useState(30)
+    return (
+      <>
+        <Slider defaultValue={30} />
+        <br />
+        <Slider
+          value={value}
+          onChange={(value) => {
+            console.log(value)
+            setValue(value)
+          }}
+        />
+      </>
+    )
+  }}
+</Playground>
+
+## Step
+
+<Playground>
+  <Text>Step = 2</Text>
+  <Slider defaultValue={30} step={2} />
+  <br />
+  <Text>Step = 10</Text>
+  <Slider defaultValue={30} step={10} />
+</Playground>
+
+## Disabled
+
+<Playground>
+  <Slider defaultValue={30} disabled />
+</Playground>
+
+## Vertical Slider
+
+<Playground>
+  <div style={{ height: 300 }}>
+    <Slider defaultValue={30} vertical />
+  </div>
+</Playground>
+
+## Marks
+
+<Playground>
+  <Slider
+    defaultValue={30}
+    marks={{
+      0: '0°C',
+      26: '26°C',
+      37: '37°C',
+      100: {
+        style: {
+          color: '#f50'
+        },
+        label: <strong>100°C</strong>
+      }
+    }}
+  />
+  <br />
+  <div style={{ height: 300 }}>
+    <Slider
+      defaultValue={30}
+      vertical
+      marks={{
+        0: '0°C',
+        26: '26°C',
+        37: '37°C',
+        100: {
+          style: {
+            color: '#f50'
+          },
+          label: <strong>100°C</strong>
+        }
+      }}
+    />
+  </div>
+</Playground>
+
+## Display Slider Value
+
+<Playground>
+  {() => {
+    const [value, setValue] = useState(12)
+    return (
+      <div
+        style={{
+          borderRadius: 4,
+          backgroundColor: '#e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          padding: 20,
+          width: 200
+        }}
+      >
+        <Slider
+          value={value}
+          onChange={(value) => {
+            console.log(value)
+            setValue(value)
+          }}
+          style={{ flex: 7, marginRight: 20 }}
+          min={1}
+          max={24}
+        />
+        <Text strong style={{ flex: 3 }}>
+          {value} Hr
+        </Text>
+      </div>
+    )
+  }}
+</Playground>

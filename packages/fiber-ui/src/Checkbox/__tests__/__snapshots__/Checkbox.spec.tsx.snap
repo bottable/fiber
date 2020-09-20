@@ -8,12 +8,20 @@ exports[`Checkbox renders correctly 1`] = `
     className="sc-AxiKw KIqnx"
   >
     <input
+<<<<<<< HEAD:packages/fiber-ui/src/Checkbox/__tests__/__snapshots__/Checkbox.spec.tsx.snap
       className="sc-AxhUy eifkvF"
+=======
+      className="sc-AxheI beyFxN"
+>>>>>>> origin/master:src/Checkbox/__test__/__snapshots__/Checkbox.spec.tsx.snap
       onChange={[Function]}
       type="Checkbox"
     />
     <span
+<<<<<<< HEAD:packages/fiber-ui/src/Checkbox/__tests__/__snapshots__/Checkbox.spec.tsx.snap
       className="sc-AxmLO dMYBRF"
+=======
+      className="sc-Axmtr jzYUEc"
+>>>>>>> origin/master:src/Checkbox/__test__/__snapshots__/Checkbox.spec.tsx.snap
     />
   </span>
 </label>

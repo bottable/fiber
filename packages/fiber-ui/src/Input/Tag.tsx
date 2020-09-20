@@ -10,17 +10,27 @@ export type TagProps = {
   defaultValue?: string[]
   onChange?: (newValue: string[]) => void
   tagProps?: BaseTagProps | ((value: string) => BaseTagProps)
+  bordered?: boolean
+  camouflage?: boolean
   style?: React.CSSProperties & object
 }
 
-type Tag = { value: string; repeat: boolean; close?: boolean }
+type TagType = { value: string; repeat: boolean; close?: boolean }
 
 const Tag = React.forwardRef(
   (
-    { placeholder, defaultValue, onChange, tagProps, style }: TagProps,
+    {
+      placeholder,
+      defaultValue,
+      onChange,
+      tagProps,
+      bordered,
+      camouflage,
+      style
+    }: TagProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
-    const [tags, setTags] = useState<Tag[]>(
+    const [tags, setTags] = useState<TagType[]>(
       defaultValue
         ? defaultValue.map((value) => ({ value, repeat: false }))
         : []
@@ -37,7 +47,7 @@ const Tag = React.forwardRef(
       if (value.length === 0) return
       const repeat =
         tags.find(({ value: tagValue }) => tagValue === value) !== undefined
-      const newTag: Tag = { value, repeat }
+      const newTag: TagType = { value, repeat }
       if (repeat) {
         newTag.repeat = true
         setTimeout(() => {
@@ -52,8 +62,8 @@ const Tag = React.forwardRef(
       setValue('')
     }
 
-    const shrinkTag = (shrinkTag: Tag) => {
-      let newTag: Tag
+    const shrinkTag = (shrinkTag: TagType) => {
+      let newTag: TagType
       setTags((prevTags) =>
         prevTags.map((tag) => {
           if (shrinkTag === tag) {
@@ -67,7 +77,7 @@ const Tag = React.forwardRef(
       }, 100)
     }
 
-    const closeTag = (closeTag: Tag) => {
+    const closeTag = (closeTag: TagType) => {
       setTags((prevTags) => {
         const newTags = prevTags.filter((tag) => tag !== closeTag)
         if (!closeTag.repeat) setValues(newTags.map(({ value }) => value))
@@ -116,7 +126,7 @@ const Tag = React.forwardRef(
     })
 
     return (
-      <TagInputSpan style={style}>
+      <TagInputSpan bordered={bordered} camouflage={camouflage} style={style}>
         {prefixNode}
         <TagInput
           onKeyDown={handleKeyDown}

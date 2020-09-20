@@ -4,16 +4,21 @@ import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
 const baseStyle = css<InputProps>`
+  box-sizing: border-box;
   background-color: ${({ disabled, theme }) =>
     disabled ? theme.colors.gray2 : '#fff'};
   color: ${({ disabled, theme }) =>
     disabled ? theme.colors.gray5 : theme.colors.gray7};
   line-height: 1.5715;
-  &::placeholder {
-    color: ${({ theme }) => theme.colors.gray5};
-  }
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : null)};
   ${({ theme }) => theme.transition};
+  &::placeholder {
+    color: ${({ disabled, theme }) =>
+      disabled ? theme.colors.gray5 : theme.colors.gray6};
+  }
+  &::selection {
+    background-color: #dfc5de;
+  }
 `
 
 const inputStyle = css<InputProps>`
@@ -22,8 +27,10 @@ const inputStyle = css<InputProps>`
     addonBefore || addonAfter ? 'table-cell' : 'inline-block'};
   float: ${({ addonBefore, addonAfter }) =>
     addonBefore || addonAfter ? 'left' : null};
-  border: ${({ bordered, theme }) =>
-    bordered === false ? 'none' : `${theme.border.md} ${theme.colors.gray5};`};
+  border: ${({ bordered, camouflage, theme }) =>
+    bordered === false || camouflage
+      ? 'none'
+      : `${theme.border.md} ${theme.colors.gray5};`};
   border-radius: ${({ theme }) => theme.radii.md};
   border-top-left-radius: ${({ addonBefore }) => (addonBefore ? 0 : null)};
   border-top-right-radius: ${({ addonAfter }) => (addonAfter ? 0 : null)};
@@ -36,6 +43,8 @@ const inputStyle = css<InputProps>`
     border-color: ${({ theme, disabled }) =>
       disabled ? null : theme.colors.base};
     outline: none;
+    background-color: ${({ camouflage, theme }) =>
+      camouflage ? theme.colors.gray2 : null};
   }
 `
 
@@ -75,6 +84,7 @@ export const LargeInput = styled(BaseInput)`
 `
 
 const svgStyle = css<InputProps>`
+  align-self: center;
   width: ${({ size }) => {
     switch (size) {
       case 'lg':
@@ -91,7 +101,6 @@ const svgStyle = css<InputProps>`
         return rem('18px')
     }
   }};
-  vertical-align: middle;
 `
 
 export const Addon = styled.span<InputProps>`

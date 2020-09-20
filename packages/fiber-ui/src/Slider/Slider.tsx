@@ -13,7 +13,8 @@ export type SliderProps = {
   focus?: boolean
   disabled?: boolean
   vertical?: boolean
-  marks?: Object
+  marks?: object
+  style?: React.CSSProperties & object
 }
 
 const Slider: FC<SliderProps> = (props) => {
@@ -131,10 +132,10 @@ const Slider: FC<SliderProps> = (props) => {
     max!
   )
 
-  const trackInitialStyle: {[key: string]: string} = {}
+  const trackInitialStyle: { [key: string]: string } = {}
   trackInitialStyle[vertical ? 'height' : 'width'] = `${initialPercentage}%`
 
-  const thumbInitialStyle: {[key: string]: string} = {}
+  const thumbInitialStyle: { [key: string]: string } = {}
   thumbInitialStyle[vertical ? 'top' : 'left'] = vertical
     ? getTop(initialPercentage)
     : getLeft(initialPercentage)

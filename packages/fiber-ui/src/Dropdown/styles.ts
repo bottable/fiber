@@ -1,21 +1,21 @@
-import { wrapper, dropdown } from '../styles'
+import { wrapper, dropdown, CollapseProps, CollapseContainer } from '../styles'
 
 import { DropdownProps } from './Dropdown'
 
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
-const border = css<DropdownProps>`
+interface DropdownStyleProps extends CollapseProps, DropdownProps {}
+
+const verticalPadding = css`
   padding: ${({ theme }) => `${theme.radii.md}`} 0;
-  border-top: ${({ theme }) => theme.border.md} #fff;
-  border-bottom: ${({ theme }) => theme.border.md} #fff;
 `
 
-export const Wrapper = styled.div<DropdownProps>`
+export const Wrapper = styled.div`
   ${wrapper}
 `
 
-export const DropdownWrapper = styled.div<DropdownProps>`
+export const DropdownWrapper = styled(CollapseContainer)<DropdownStyleProps>`
   ${dropdown}
   ${({ placement }) => {
     let output = ''
@@ -27,16 +27,12 @@ export const DropdownWrapper = styled.div<DropdownProps>`
     if (placement.includes('Right')) output += '\nright: 0;'
     return output
   }}
-  ${({ visible }) => (visible ? border : null)}
+  ${({ visible }) => (visible ? verticalPadding : null)} 
   width: ${({ width }) => (width ? rem(`${width}px`) : null)};
   min-width: ${({ width }) => (width ? 0 : null)};
-  max-height: ${({ visible, n }) => {
-    if (!visible) return '0'
-    return rem(`${n}px`)
-  }};
   border-top-left-radius: ${({ topped }) => (topped ? 0 : null)};
   border-top-right-radius: ${({ topped }) => (topped ? 0 : null)};
-  transition: max-height 100ms ease;
+  ${({ theme }) => theme.boxShadow}
 `
 
 export const Description = styled.div`

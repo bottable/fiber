@@ -45,7 +45,7 @@ const Text = styled.span<TextProps>`
 
   background-color: ${(props) => (props.highlight ? '#FFE69A' : null)};
   font-weight: ${({ strong, theme }) =>
-    strong ? theme.fontWeights.strong : theme.fontWeights.regular};
+    strong ? theme.fontWeights.bold : theme.fontWeights.regular};
 
   ${styleComposition};
 `

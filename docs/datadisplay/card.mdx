@@ -1,0 +1,109 @@
+---
+name: Card
+route: /datadisplay/card
+menu: Data Display
+---
+
+import { Card, Text, Space } from 'fiber'
+import { Playground } from 'docz'
+import SettingsIcon from '@material-ui/icons/Settings'
+import CreateIcon from '@material-ui/icons/Create'
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
+
+# Card
+
+<Playground>
+  <Card style={{ width: 300 }}>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+  </Card>
+</Playground>
+
+## Header
+
+<Playground>
+  <Card
+    title='Default size card'
+    extra={<a href='#'>More</a>}
+    style={{ width: 300 }}
+  >
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+  </Card>
+</Playground>
+
+## Title with icon
+
+## Header
+
+<Playground>
+  <Card
+    title={
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Text strong style={{ marginRight: 10 }}>
+          Category 1
+        </Text>
+        <CreateIcon />
+      </div>
+    }
+    style={{ width: 300 }}
+  >
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+  </Card>
+</Playground>
+
+## Size
+
+<Playground>
+  <Card title='Medium card' style={{ width: 300 }}>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+  </Card>
+  <br />
+  <Card title='Small card' size='sm' style={{ width: 300 }}>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+  </Card>
+</Playground>
+
+## Bordered
+
+<Playground>
+  <div style={{ width: 300, background: 'rgb(236, 236, 236)', padding: 30 }}>
+    <Card title='No borders' style={{ width: 300 }} bordered={false}>
+      <p style={{ margin: 0 }}>Card content</p>
+      <p style={{ margin: 0 }}>Card content</p>
+      <p style={{ margin: 0 }}>Card content</p>
+    </Card>
+  </div>
+</Playground>
+
+## Hoverable
+
+<Playground>
+  <Card title='Hoverable' style={{ width: 300 }} hoverable>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+  </Card>
+</Playground>
+
+## Actions
+
+<Playground>
+  <Card
+    title='Actions'
+    style={{ width: 300 }}
+    actions={[<SettingsIcon />, <CreateIcon />, <MoreHorizIcon />]}
+  >
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+    <p style={{ margin: 0 }}>Card content</p>
+  </Card>
+</Playground>

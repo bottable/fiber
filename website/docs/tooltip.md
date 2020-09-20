@@ -101,9 +101,9 @@ function ColoredTooltips() {
   const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9']
 
   return (
-    <div>
+    <>
       <Divider orientation='left'>Presets</Divider>
-      <Space>
+      <Space size='sm'>
         {colors.map((color) => (
           <Tooltip title='prompt text' color={color} key={color}>
             <Button>{color}</Button>
@@ -111,14 +111,86 @@ function ColoredTooltips() {
         ))}
       </Space>
       <Divider orientation='left'>Custom</Divider>
-      <Space>
+      <Space size='sm'>
         {customColors.map((color) => (
           <Tooltip title='prompt text' color={color} key={color}>
             <Button>{color}</Button>
           </Tooltip>
         ))}
       </Space>
-    </div>
+    </>
+  )
+}
+```
+
+### Inline
+
+```js
+import { Delete, Info, ExpandMore } from '@material-ui/icons'
+```
+
+```js live
+function InlineTooltip() {
+  const [dropdownValue, setDropdownValue] = useState('has changed')
+  const menuArray = ['has changed', 'has increased', 'has decreased']
+  const menu = (
+    <Menu>
+      {menuArray.map((menuItem, idx) => (
+        <Menu.Item
+          onClick={() => {
+            setDropdownValue(menuItem)
+          }}
+          key={idx}
+        >
+          {menuItem}
+        </Menu.Item>
+      ))}
+    </Menu>
+  )
+  return (
+    <Collapse style={{ width: 300 }}>
+      <Collapse.Panel
+        header={
+          <Input
+            defaultValue='Category'
+            camouflage
+            style={{ width: '100%', fontWeight: 700 }}
+          />
+        }
+        extra={<Delete />}
+      >
+        <Space direction='vertical' style={{ width: '100%', color: '#828282' }}>
+          <Text style={{ width: '100%' }}>
+            Notify me when selected value
+            <Tooltip
+              title='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed nisi eget nunc tristique gravida. Cras ullamcorper libero a dapibus ullamcorper. Quisque malesuada molestie lorem non dignissim. Cras luctus sodales libero viverra mollis. Praesent fermentum felis eget augue lacinia rutrum. Nunc sit amet lacus nisi. In in erat fringilla, varius diam sit amet, consectetur tellus. Morbi et purus odio.'
+              inline
+              trigger='click'
+            >
+              <Info
+                style={{
+                  color: 'black',
+                  width: 12,
+                  height: 12,
+                  verticalAlign: 'top',
+                  cursor: 'pointer'
+                }}
+              />
+            </Tooltip>
+          </Text>
+          <Dropdown.Button
+            overlay={menu}
+            style={{ width: '100%' }}
+            button={{
+              endIcon: <ExpandMore />,
+              block: true
+            }}
+          >
+            {dropdownValue}
+          </Dropdown.Button>
+        </Space>
+      </Collapse.Panel>
+    </Collapse>
   )
 }
 ```

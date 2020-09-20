@@ -63,7 +63,24 @@ import { Settings } from '@material-ui/icons'
 ### Borderless
 
 ```js live
-<Input placeholder='Borderless' bordered={false} />
+<>
+  <div style={{ backgroundColor: '#f2f2f2', padding: 12 }}>
+    <Input placeholder='Borderless' bordered={false} />
+  </div>
+  <div style={{ padding: 12 }}>
+    <Input
+      placeholder='Borderless'
+      bordered={false}
+      style={{ backgroundColor: '#efefef' }}
+    />
+  </div>
+</>
+```
+
+### Camouflage
+
+```js live
+<Input defaultValue='Category' camouflage style={{ fontWeight: 700 }} />
 ```
 
 ### Disabled
@@ -91,16 +108,19 @@ import { Settings } from '@material-ui/icons'
 ### Tag
 
 ```js live
-<Input.Tag
-  placeholder='Enter tags'
-  onChange={(values) => {
-    console.log(values)
-  }}
-  defaultValue={['Amazon', 'Apple']}
-  tagProps={(value) => {
-    if (value === 'Amazon') return { color: '#ff9900' }
-    else if (value === 'Apple') return { color: '#999999' }
-    return {}
-  }}
-/>
+<div style={{ backgroundColor: '#f2f2f2', padding: 12 }}>
+  <Input.Tag
+    placeholder='Enter tags'
+    onChange={(values) => {
+      console.log(values)
+    }}
+    defaultValue={['Amazon', 'Apple']}
+    tagProps={(value) => {
+      if (value === 'Amazon') return { color: '#ff9900' }
+      else if (value === 'Apple') return { color: '#999999' }
+      return {}
+    }}
+    bordered={false}
+  />
+</div>
 ```

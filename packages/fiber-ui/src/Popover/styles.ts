@@ -10,4 +10,5 @@ export const Wrapper = styled.div<PopoverProps>`
 
 export const PopoverWrapper = styled.div<PopoverProps>`
   ${popover}
+  ${({ theme }) => theme.boxShadow}
 `

@@ -80,8 +80,8 @@ export const StyledSlider = styled.div<SliderProps>`
   position: relative;
   margin: ${({ marks }) => (marks ? rem('30px') : null)};
   margin-top: 0;
-  opacity: ${({ hover, focus }) => (hover || focus ? 1 : 0.6)};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  touch-action: manipulation;
   ${({ theme }) => theme.transition}
 `
 

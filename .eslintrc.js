@@ -1,5 +1,3 @@
-const path = require('path')
-
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
@@ -10,7 +8,8 @@ module.exports = {
   ],
   plugins: ['prettier', 'react-hooks', '@typescript-eslint'],
   env: {
-    node: true
+    node: true,
+    browser: true
   },
   parserOptions: {
     ecmaVersion: 2020,
@@ -30,6 +29,8 @@ module.exports = {
       2,
       { groups: ['parent', 'sibling'], 'newlines-between': 'always' }
     ],
+    'no-use-before-define': [0],
+    '@typescript-eslint/no-use-before-define': [1],
     'prefer-promise-reject-errors': 'off',
     'react/jsx-filename-extension': 'off',
     'react/forbid-prop-types': 'off',

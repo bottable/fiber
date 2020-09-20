@@ -3,20 +3,20 @@ import { PanelProps } from './Panel'
 import styled from 'styled-components'
 
 export const StyledCollapse = styled.div`
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radii.xl};
   font-size: ${({ theme }) => theme.fontSizes.md};
   ${({ theme }) => theme.boxShadow};
 `
 
 export const StyledPanel = styled.div`
   &:first-child {
-    border-top-left-radius: ${({ theme }) => theme.radii.md};
-    border-top-right-radius: ${({ theme }) => theme.radii.md};
+    border-top-left-radius: ${({ theme }) => theme.radii.xl};
+    border-top-right-radius: ${({ theme }) => theme.radii.xl};
   }
 
   &:last-child {
-    border-bottom-right-radius: ${({ theme }) => theme.radii.md};
-    border-bottom-left-radius: ${({ theme }) => theme.radii.md};
+    border-bottom-right-radius: ${({ theme }) => theme.radii.xl};
+    border-bottom-left-radius: ${({ theme }) => theme.radii.xl};
   }
 
   &:not(:last-child) {
@@ -26,14 +26,18 @@ export const StyledPanel = styled.div`
 `
 
 export const PanelHeaderContainer = styled.div`
+  display: flex;
   position: relative;
-  padding: ${({ theme }) => theme.paddings.md};
-  transition: all 0.3s;
+  align-items: center;
+  padding: ${({ theme }) => `${theme.paddings.xs} ${theme.paddings.md}`};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   cursor: pointer;
+  ${({ theme }) => theme.transition}
+`
 
-  svg {
-    float: right;
-  }
+export const HeaderContainer = styled.div`
+  flex-grow: 1;
 `
 
 export const ExtraIconSpan = styled.span`
@@ -44,19 +48,10 @@ export const ExtraIconSpan = styled.span`
 
 export const ExpandIconSpan = styled.span<PanelProps>`
   svg {
+    margin-left: ${({ theme }) => theme.margins.xs};
     transform: ${({ collapsed }) => (collapsed ? 'rotate(-90deg)' : 0)};
     ${({ theme }) => theme.transition}
   }
-`
-
-export const PanelCollapseContainer = styled.div<PanelProps>`
-  max-height: ${({ collapsed, height }) => {
-    if (height === undefined) return null
-    if (collapsed) return 0
-    else return `${height}px`
-  }};
-  overflow: hidden;
-  ${({ theme }) => theme.transition}
 `
 
 export const PanelContentContainer = styled.div`

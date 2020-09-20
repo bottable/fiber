@@ -97,3 +97,38 @@ function RegularSlider() {
   </div>
 </>
 ```
+
+### Display Slider Value
+
+```js live
+function DisplayValueSlider() {
+  const [value, setValue] = useState(12)
+
+  return (
+    <div
+      style={{
+        borderRadius: 4,
+        backgroundColor: '#e0e0e0',
+        display: 'flex',
+        alignItems: 'center',
+        padding: 20,
+        width: 250
+      }}
+    >
+      <Slider
+        value={value}
+        onChange={(value) => {
+          console.log(value)
+          setValue(value)
+        }}
+        style={{ flex: 7 }}
+        min={1}
+        max={24}
+      />
+      <Text strong style={{ flex: 3 }} textAlign='right'>
+        {value} Hr
+      </Text>
+    </div>
+  )
+}
+```

@@ -16,8 +16,15 @@ export type NotificationProps = {
   description?: string
   duration?: number
   offset?: number
-  placement?: 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft'
+  placement?:
+    | 'topRight'
+    | 'topCenter'
+    | 'topLeft'
+    | 'bottomRight'
+    | 'bottomCenter'
+    | 'bottomLeft'
   destroy?: () => void
+  closeIcon?: React.ReactNode | boolean
   style?: React.CSSProperties & object
 }
 
@@ -32,6 +39,7 @@ const Notification: FC<NotificationProps> = React.forwardRef<
       destroy,
       offset,
       placement,
+      closeIcon,
       style: styleProps,
       ...props
     },
@@ -41,13 +49,16 @@ const Notification: FC<NotificationProps> = React.forwardRef<
     const descriptionNode = description ? (
       <DescriptionStyle>{description}</DescriptionStyle>
     ) : null
-    const closeNode = (
-      <CloseContainer onClick={destroy}>
-        <CloseIcon />
-      </CloseContainer>
-    )
+    const closeNode =
+      closeIcon === false ? null : React.isValidElement(closeIcon) ? (
+        React.cloneElement(closeIcon, { onClick: destroy })
+      ) : (
+        <CloseContainer onClick={destroy}>
+          <CloseIcon />
+        </CloseContainer>
+      )
 
-    const style: {[key: string]: number} = {}
+    const style: { [key: string]: number } = {}
     style[placement!.includes('top') ? 'top' : 'bottom'] = offset! + 16
 
     return (
@@ -71,13 +82,17 @@ Notification.defaultProps = {
 
 const notificationsObject: {
   topRight: HTMLElement[]
+  topCenter: HTMLElement[]
   topLeft: HTMLElement[]
   bottomRight: HTMLElement[]
+  bottomCenter: HTMLElement[]
   bottomLeft: HTMLElement[]
 } = {
   topRight: [],
+  topCenter: [],
   topLeft: [],
   bottomRight: [],
+  bottomCenter: [],
   bottomLeft: []
 }
 
@@ -88,12 +103,21 @@ const open: (args: NotificationProps) => void = ({
   placement,
   ...args
 }) => {
-  if (!placement) placement = 'topRight'
+  if (!placement) placement = 'topCenter'
 
   const div = document.createElement('div')
   document.body.appendChild(div)
 
-  const xPlacement = placement!.includes('Right') ? 'right' : 'left'
+  let xPlacement: 'left' | 'right' | undefined
+
+  if (placement!.includes('Center')) {
+    xPlacement = undefined
+  } else if (placement!.includes('Right')) {
+    xPlacement = 'right'
+  } else {
+    xPlacement = 'left'
+  }
+
   const yPlacement = placement!.includes('top') ? 'top' : 'bottom'
 
   const notifications = notificationsObject[placement!]
@@ -101,7 +125,9 @@ const open: (args: NotificationProps) => void = ({
   const destroy = () => {
     const destroyedNotification: any = div.children[0]
     if (!destroyedNotification) return
-    destroyedNotification.style[xPlacement] = '-336px'
+    if (xPlacement) {
+      destroyedNotification.style[xPlacement] = '-336px'
+    }
     destroyedNotification.style.opacity = '0'
 
     setTimeout(() => {

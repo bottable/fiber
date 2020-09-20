@@ -5,6 +5,7 @@ export type RippleStyleProps = {
   x: number
   y: number
   width: number
+  color: 'dark' | 'light'
 }
 
 const rippleAnimation = ({ width }: RippleStyleProps) => {
@@ -27,7 +28,8 @@ export const RippleSpan = styled.span<RippleStyleProps>`
   top: ${({ y }) => rem(`${y}px`)};
   left: ${({ x }) => rem(`${x}px`)};
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.gray7};
+  background: ${({ color }) =>
+    color === 'light' ? 'rgba(255,255,255, 0.8)' : 'rgba(0, 0, 0, 0.8)'};
   transform: translate(-50%, -50%);
   animation: ${rippleAnimation} 0.5s linear 1;
   pointer-events: none;

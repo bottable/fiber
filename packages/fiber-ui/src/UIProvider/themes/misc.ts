@@ -8,7 +8,8 @@ const fontSizes = {
 
 const fontWeights = {
   regular: 400,
-  strong: 700
+  medium: 500,
+  bold: 700
 }
 
 const space = {
@@ -26,14 +27,16 @@ const paddings = {
   xs: rem('8px'),
   sm: rem('12px'),
   md: rem('16px'),
-  lg: rem('20px')
+  lg: rem('20px'),
+  xl: rem('24px')
 }
 
 const margins = {
   xs: rem('8px'),
   sm: rem('12px'),
   md: rem('16px'),
-  lg: rem('20px')
+  lg: rem('20px'),
+  xl: rem('24px')
 }
 
 const heights = {
@@ -46,7 +49,7 @@ const radii = {
   sm: rem('2px'),
   md: rem('4px'),
   lg: rem('8px'),
-  xl: rem('16px')
+  xl: rem('10px')
 }
 
 const transition = 'transition: all 100ms ease;'

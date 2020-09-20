@@ -15,9 +15,9 @@ import { Card } from 'fiber-ui'
 
 ```js live
 <Card style={{ width: 300 }}>
-  <p>Card content</p>
-  <p>Card content</p>
-  <p>Card content</p>
+  <p style={{ margin: 0 }}>Card content</p>
+  <p style={{ margin: 0 }}>Card content</p>
+  <p style={{ margin: 0 }}>Card content</p>
 </Card>
 ```
 
@@ -29,9 +29,33 @@ import { Card } from 'fiber-ui'
   extra={<a href='#'>More</a>}
   style={{ width: 300 }}
 >
-  <p>Card content</p>
-  <p>Card content</p>
-  <p>Card content</p>
+  <p style={{ margin: 0 }}>Card content</p>
+  <p style={{ margin: 0 }}>Card content</p>
+  <p style={{ margin: 0 }}>Card content</p>
+</Card>
+```
+
+#### Title with Icon
+
+```js
+import { Create } from '@material-ui/icons'
+```
+
+```js live
+<Card
+  title={
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <Text strong style={{ marginRight: 10 }}>
+        Category 1
+      </Text>
+      <Create />
+    </div>
+  }
+  style={{ width: 300 }}
+>
+  <p style={{ margin: 0 }}>Card content</p>
+  <p style={{ margin: 0 }}>Card content</p>
+  <p style={{ margin: 0 }}>Card content</p>
 </Card>
 ```
 

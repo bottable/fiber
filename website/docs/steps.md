@@ -35,7 +35,7 @@ function RegularSteps() {
         </Button>
         <Button
           onClick={() => {
-            setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 3))
+            setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 2))
           }}
         >
           Next
@@ -58,7 +58,7 @@ function VerticalSteps() {
         <Step title='first' subtitle='subtitle'>
           <div
             style={{
-              width: 200,
+              width: 250,
               border: '1px solid black',
               padding: 25
             }}
@@ -74,7 +74,7 @@ function VerticalSteps() {
               </Button>
               <Button
                 onClick={() => {
-                  setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 3))
+                  setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 2))
                 }}
               >
                 Next
@@ -85,7 +85,7 @@ function VerticalSteps() {
         <Step title='second' subtitle='subtitle'>
           <div
             style={{
-              width: 200,
+              width: 250,
               border: '1px solid black',
               padding: 25
             }}
@@ -101,7 +101,7 @@ function VerticalSteps() {
               </Button>
               <Button
                 onClick={() => {
-                  setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 3))
+                  setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 2))
                 }}
               >
                 Next
@@ -112,7 +112,7 @@ function VerticalSteps() {
         <Step title='third' subtitle='subtitle'>
           <div
             style={{
-              width: 200,
+              width: 250,
               border: '1px solid black',
               padding: 25
             }}
@@ -128,7 +128,7 @@ function VerticalSteps() {
               </Button>
               <Button
                 onClick={() => {
-                  setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 3))
+                  setCurrent((prevCurrent) => Math.min(prevCurrent + 1, 2))
                 }}
               >
                 Next
@@ -145,6 +145,15 @@ function VerticalSteps() {
 
 ### Customizable Icons
 
+```js
+import {
+  Person,
+  VerifiedUser,
+  Payment,
+  InsertEmoticon
+} from '@material-ui/icons'
+```
+
 ```js live
 function CustomizableIconsSteps() {
   const [current, setCurrent] = useState(0)
@@ -152,10 +161,10 @@ function CustomizableIconsSteps() {
   return (
     <>
       <Steps current={current}>
-        <Step title='Login' icon={<PersonIcon />}></Step>
-        <Step title='Verification' icon={<VerifiedUserIcon />}></Step>
-        <Step title='Pay' icon={<PaymentIcon />}></Step>
-        <Step title='Done' icon={<InsertEmoticonIcon />}></Step>
+        <Step title='Login' icon={<Person />}></Step>
+        <Step title='Verification' icon={<VerifiedUser />}></Step>
+        <Step title='Pay' icon={<Payment />}></Step>
+        <Step title='Done' icon={<InsertEmoticon />}></Step>
       </Steps>
       <br />
       <Space>
@@ -190,13 +199,13 @@ function ClickableSteps() {
   }
 
   return (
-    <>
+    <React.Fragment>
       <Steps current={current} onChange={onChange}>
         <Step title='first' subtitle='subtitle'></Step>
         <Step title='second' subtitle='subtitle'></Step>
         <Step title='third' subtitle='subtitle'></Step>
       </Steps>
-    </>
+    </React.Fragment>
   )
 }
 ```

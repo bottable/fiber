@@ -3,7 +3,11 @@
 exports[`Notification renders correctly 1`] = `
 <div>
   <div
+<<<<<<< HEAD:packages/fiber-ui/src/Notification/__tests__/__snapshots__/Notification.spec.tsx.snap
     className="sc-AxjAm kvYxFC"
+=======
+    className="sc-AxjAm dCHRXk"
+>>>>>>> origin/master:src/Notification/__test__/__snapshots__/Notification.spec.tsx.snap
     style={
       Object {
         "top": NaN,

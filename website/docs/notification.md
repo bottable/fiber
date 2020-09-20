@@ -71,6 +71,9 @@ function PlacementNotification() {
         <Button type='primary' onClick={() => openNotification('topLeft')}>
           topLeft
         </Button>
+        <Button type='primary' onClick={() => openNotification('topCenter')}>
+          topCenter
+        </Button>
         <Button type='primary' onClick={() => openNotification('topRight')}>
           topRight
         </Button>
@@ -80,11 +83,33 @@ function PlacementNotification() {
         <Button type='primary' onClick={() => openNotification('bottomLeft')}>
           bottomLeft
         </Button>
+        <Button type='primary' onClick={() => openNotification('bottomCenter')}>
+          bottomCenter
+        </Button>
         <Button type='primary' onClick={() => openNotification('bottomRight')}>
           bottomRight
         </Button>
       </Space>
     </div>
+  )
+}
+```
+
+### No Close Icon
+
+```js live
+function NoCloseIconNotification() {
+  const openNotification = () => {
+    notification.open({
+      description: 'Selector is on. Click anything on the page to track.',
+      closeIcon: false
+    })
+  }
+
+  return (
+    <Button type='primary' onClick={openNotification}>
+      No close icon
+    </Button>
   )
 }
 ```
