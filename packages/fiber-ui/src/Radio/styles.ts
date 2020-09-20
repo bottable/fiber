@@ -69,13 +69,14 @@ export const StyledRadio = styled.span<RadioProps>`
     content: ' ';
     display: table;
     position: absolute;
-    top: 3px;
-    left: 3px;
+    top: 50%;
+    left: 50%;
     width: ${rem('10px')};
     height: ${rem('10px')};
     border-radius: 50%;
     background-color: ${({ theme }) => theme.colors.base};
-    transform: ${({ checked }) => (checked ? 'scale(1)' : 'scale(0)')};
+    transform: translate(-50%, -50%)
+      ${({ checked }) => (checked ? 'scale(1)' : 'scale(0)')};
     ${({ theme }) => theme.transition}
   }
 

@@ -4,6 +4,6 @@ module.exports = {
     General: ['button', 'headings', 'paragraph', 'text'],
     Feedback: ['notification'],
     'Data Display': ['card', 'collapse', 'popover', 'table', 'tag', 'tooltip'],
-    'Data Entry': ['checkbox', 'input']
+    'Data Entry': ['checkbox', 'input', 'radio']
   }
 }
