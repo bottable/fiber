@@ -8,27 +8,21 @@
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
+  "private": true,
   "engines": {
     "node": ">=10"
   },
+  "workspaces": [
+    "packages/*",
+    "website"
+  ],
   "scripts": {
-    "start": "concurrently 'yarn:dev' 'yarn:docz:dev'",
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "dev": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepublish": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
-    "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 jest --env=jsdom",
-    "test:watch": "cross-env CI=1 jest",
-    "test:refresh": "jest --updateSnapshot --env=jsdom",
-    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
-    "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
-    "lint:js": "eslint . --ext .js,.jsx",
-    "lint:js:fix": "yarn run lint:js -- --fix",
-    "docz:dev": "docz dev",
-    "docz:build": "docz build",
-    "docz:serve": "docz build && docz serve"
+    "start": "concurrently 'yarn:watch' 'yarn:web:start'",
+    "test": "lerna run test --since",
+    "type-check": "tsc --build tsconfig.build.json",
+    "watch": "yarn type-check --watch",
+    "fiber:start": "yarn workspace fiber-ui start",
+    "web:start": "yarn workspace fiber-ui-website start"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -80,6 +74,7 @@
     "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
     "hygen": "^5.0.3",
+    "lerna": "^3.22.1",
     "lint-staged": "^10.2.4",
     "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
@@ -93,7 +88,7 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-config-yoctol": "^4.0.1",
     "ts-jest": "^26.1.0",
-    "typescript": "^3.9.5"
+    "typescript": "^4.0.3"
   },
   "files": [
     "dist"

@@ -10,8 +10,7 @@ module.exports = {
       {
         root: ['./src'],
         alias: {
-          fiber: './src',
-          test: './test'
+          'fiber-ui': './packages/fiber-ui/src'
         }
       }
     ]

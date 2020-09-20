@@ -1,31 +1,43 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "module": "esnext",
-    "lib": ["dom", "esnext"],
-    "moduleResolution": "node",
+    "skipLibCheck": true, // https://stackoverflow.com/questions/52399839/typescript-duplicate-identifier-librarymanagedattributes/52404148#52404148
+    "target": "es2020",
+    "module": "es2015",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "allowJs": true,
     "jsx": "react",
-    "sourceMap": true,
     "declaration": true,
-    "esModuleInterop": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
+    "composite": true,
+    "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "test/utils": [
+        "./test/utils"
+      ],
+    },
+    "types": [
+      "node",
+      "jest"
+    ],
     "allowSyntheticDefaultImports": true,
-    "target": "es5",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "baseUrl": "."
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "example"]
+    "esModuleInterop": true,
+    "traceResolution": false,
+    "listEmittedFiles": false,
+    "listFiles": false,
+    "pretty": true,
+  }
 }

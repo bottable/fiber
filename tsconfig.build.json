@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "incremental": true
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./packages/fiber-ui"
+    },
+  ]
+}

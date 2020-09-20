@@ -1,0 +1,50 @@
+{
+  "name": "fiber-ui",
+  "version": "1.0.0",
+  "description": "A React UI Component library",
+  "author": "bottable",
+  "license": "MIT",
+  "repository": "bottable/fiber",
+  "main": "lib/index.js",
+  "source": "src/index.tsx",
+  "private": true,
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "test": "run-s test:unit test:lint test:build",
+    "test:build": "run-s build",
+    "test:lint": "eslint .",
+    "test:unit": "cross-env CI=1 jest --env=jsdom",
+    "test:watch": "cross-env CI=1 jest",
+    "test:refresh": "jest --updateSnapshot --env=jsdom",
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
+    "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js:fix": "yarn run lint:js -- --fix",
+    "prepublish": "run-s build"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint . --fix",
+      "stylelint --config=.stylelintrc --fix",
+      "pretty-quick --staged"
+    ],
+    "src/**/*.scss": [
+      "stylelint --config=.stylelintrc --syntax scss --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "files": [
+    "lib"
+  ]
+}

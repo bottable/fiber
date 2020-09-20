@@ -1,5 +1,5 @@
-import { UIProvider } from '../src'
-import themes from '../src/UIProvider/themes'
+import { UIProvider } from '../packages/fiber-ui/src'
+import themes from '../packages/fiber-ui/src/UIProvider/themes'
 
 import renderer from 'react-test-renderer'
 import React, { ReactChild } from 'react'

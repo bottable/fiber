@@ -1,0 +1,29 @@
+.playground {
+  padding: 4px;
+  background-color: #f8f8fc;
+}
+
+.playgroundButton {
+  margin-top: 4px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.playgroundPreview {
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+  white-space: pre-line;
+}
+
+.playgroundCode {
+  font-size: 14px;
+}
+
+.playgroundControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

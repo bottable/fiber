@@ -1,0 +1,14 @@
+{
+  "include": [
+    "./src/**/*",
+    "./pages/**/*"
+  ],
+  "exclude": [
+    "./**/__tests__"
+  ],
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./lib",
+    "rootDir": "./src"
+  }
+}

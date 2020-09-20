@@ -57,10 +57,7 @@ module.exports = {
     },
     'import/resolver': {
       alias: {
-        map: [
-          ['fiber', './src'],
-          ['test', './test']
-        ]
+        map: [['fiber-ui', './packages/fiber-ui/src']]
       },
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx']
