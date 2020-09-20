@@ -126,7 +126,6 @@ export const StyledRadioButton = styled.label<ButtonProps>`
   ${button}
   ${({ buttonStyle }) =>
     buttonStyle === 'solid' ? solidRadioStyle : defaultRadioStyle};
-  height: ${rem('16px')};
   overflow: hidden;
   border-color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
   border-left-color: ${({ postChecked, theme }) =>
