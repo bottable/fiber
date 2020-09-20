@@ -1,15 +1,20 @@
 ---
-name: Paragraph
-route: /general/paragraph
-menu: General
+id: paragraph
+title: Paragraph
 ---
 
-import { Paragraph } from 'fiber'
-import { Playground } from 'docz'
+This is for paragraph.
 
-# Paragraph
+## Examples
 
-<Playground>
+```js
+import { Paragraph } from 'fiber-ui'
+```
+
+### Heading
+
+```jsx live
+<>
   <Paragraph fontSize={12}>
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     Lorem Ipsum has been the industry's standard dummy text ever since the
@@ -40,4 +45,5 @@ import { Playground } from 'docz'
     Lorem Ipsum passages, and more recently with desktop publishing software
     like Aldus PageMaker including versions of Lorem Ipsum.
   </Paragraph>
-</Playground>
+</>
+```

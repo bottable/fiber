@@ -12,6 +12,10 @@ module.exports = {
     'https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet'
   ],
   themeConfig: {
+    prism: {
+      // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
+      theme: require('prism-react-renderer/themes/dracula')
+    },
     navbar: {
       title: 'FiberUI',
       logo: {

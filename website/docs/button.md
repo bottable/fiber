@@ -8,47 +8,47 @@ To trigger an operation.
 ## Examples
 
 ```js
-import { Button } from 'fiber-ui';
+import { Button } from 'fiber-ui'
 ```
 
 ### Type
 
 ```jsx live
-<>
+<Space>
   <Button type='primary'>Primary Button</Button>
   <Button>Default Button</Button>
   <Button type='dashed'>Dashed Button</Button>
   <Button type='text'>Text Button</Button>
   <Button type='link'>Link Button</Button>
-</>
+</Space>
 ```
 
 ### Size
 
 ```jsx live
-<>
+<Space>
   <Button size='lg'>Large Button</Button>
   <Button>Medium Button</Button>
   <Button size='sm'>Small Button</Button>
-</>
+</Space>
 ```
 
 ### Shape
 
 ```jsx live
-<>
+<Space>
   <Button>Default Shape</Button>
   <Button shape='circle'>O</Button>
   <Button shape='round'>Round Shape</Button>
-</>
+</Space>
 ```
 
-### Disabled 
+### Disabled
 
 ```jsx live
-<>
+<Space>
   <Button type='primary' disabled>
-      Primary Button
+    Primary Button
   </Button>
   <Button disabled>Default Button</Button>
   <Button type='dashed' disabled>
@@ -60,13 +60,13 @@ import { Button } from 'fiber-ui';
   <Button type='link' disabled>
     Link Button
   </Button>
-</>
+</Space>
 ```
 
 ### Ghost
 
 ```jsx live
-<>
+<Space>
   <Button type='primary' ghost>
     Primary Button
   </Button>
@@ -80,15 +80,13 @@ import { Button } from 'fiber-ui';
   <Button type='link' ghost>
     Link Button
   </Button>
-</>
+</Space>
 ```
 
 ### Block
 
 ```jsx live
-<div
-  style={{ width: 200, border: '1px solid black', padding: 25, margin: 10 }}
->
+<div style={{ width: 200, border: '1px solid black', padding: 25, margin: 10 }}>
   <Button type='primary' block>
     Primary Button
   </Button>
@@ -115,27 +113,27 @@ import { Button } from 'fiber-ui';
 
 ### Icon
 
-```jsx
-import DeleteIcon from '@material-ui/icons/Delete'
+```js
+import { Delete } from '@material-ui/icons'
 ```
 
 ```jsx live
 <>
   <div>
     <Space>
-      <Button icon={<DeleteIcon />} />
-      <Button icon={<DeleteIcon />} shape='circle' />
-      <Button icon={<DeleteIcon />} shape='round' />
+      <Button icon={<Delete />} />
+      <Button icon={<Delete />} shape='circle' />
+      <Button icon={<Delete />} shape='round' />
     </Space>
   </div>
   <br />
   <div>
     <Space>
-      <Button startIcon={<DeleteIcon />} size='lg'>
+      <Button startIcon={<Delete />} size='lg'>
         Trash
       </Button>
-      <Button startIcon={<DeleteIcon />}>Trash</Button>
-      <Button startIcon={<DeleteIcon />} size='sm'>
+      <Button startIcon={<Delete />}>Trash</Button>
+      <Button startIcon={<Delete />} size='sm'>
         Trash
       </Button>
     </Space>

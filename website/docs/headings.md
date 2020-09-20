@@ -1,15 +1,20 @@
 ---
-name: Headings
-route: /general/headings
-menu: General
+id: headings
+title: Headings
 ---
 
-import { Heading } from 'fiber'
-import { Playground } from 'docz'
+This is for headings.
 
-# Heading
+## Examples
 
-<Playground>
+```js
+import { Heading } from 'fiber-ui'
+```
+
+### Heading
+
+```jsx live
+<>
   <Heading size={1}> Heading 1 </Heading>
   <Heading size={2}> Heading 2 </Heading>
   <Heading size={3}> Heading 3 </Heading>
@@ -18,4 +23,5 @@ import { Playground } from 'docz'
   <Heading size={6}> Heading 6 </Heading>
   <Heading size={7}> Heading 7 </Heading>
   <Heading size={8}> Heading 8 </Heading>
-</Playground>
+</>
+```
