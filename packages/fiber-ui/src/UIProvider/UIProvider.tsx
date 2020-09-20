@@ -1,10 +1,9 @@
 import themes from './themes'
 import { LocaleProvider } from './locales'
 import defaultLocale from './locales/locales/en_US'
-import { GlobalStyle, fontStyle } from './styles'
+import { GlobalStyle } from './styles'
 import { Locale } from './locales/LocaleProvider'
 
-import { Helmet } from 'react-helmet'
 import React, { FC, ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
 
@@ -24,7 +23,6 @@ export const UIProvider: FC<UIProviderProps> = ({
   return (
     <ThemeProvider theme={theme}>
       <LocaleProvider locale={locale}>
-        <Helmet>{fontStyle}</Helmet>
         <GlobalStyle />
         {children}
       </LocaleProvider>

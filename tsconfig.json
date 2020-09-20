@@ -3,10 +3,7 @@
     "skipLibCheck": true, // https://stackoverflow.com/questions/52399839/typescript-duplicate-identifier-librarymanagedattributes/52404148#52404148
     "target": "es2020",
     "module": "es2015",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "allowJs": true,
     "jsx": "react",
     "declaration": true,
@@ -25,19 +22,14 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "test/utils": [
-        "./test/utils"
-      ],
+      "test/utils": ["./test/utils"]
     },
-    "types": [
-      "node",
-      "jest"
-    ],
+    "types": ["node", "jest"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "traceResolution": false,
     "listEmittedFiles": false,
     "listFiles": false,
-    "pretty": true,
+    "pretty": true
   }
 }

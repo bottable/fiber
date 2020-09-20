@@ -8,6 +8,9 @@ module.exports = {
   organizationName: 'bottable',
   projectName: 'fiber-ui', // Usually your repo name.
   themes: ['@docusaurus/theme-live-codeblock'],
+  stylesheets: [
+    'https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet'
+  ],
   themeConfig: {
     navbar: {
       title: 'FiberUI',
