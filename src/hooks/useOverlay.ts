@@ -22,6 +22,7 @@ export type OverlayProps = {
   onVisibleChange?: (flag: boolean) => void
   children?: React.ReactNode | React.ReactNode[]
   expand?: boolean
+  inline?: boolean
   style?: React.CSSProperties & object
 }
 
@@ -30,7 +31,8 @@ export const useOverlay = ({
   visible: visibleProps,
   placement,
   onVisibleChange,
-  expand
+  expand,
+  inline
 }: OverlayProps) => {
   const wrapperRef = useRef<
     HTMLDivElement & { contains: (e: EventTarget) => Boolean }
@@ -40,8 +42,12 @@ export const useOverlay = ({
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   const updateVisible = (newValue: boolean) => {
-    if (dropdownRef.current && expand) {
-      dropdownRef.current.style.transform = `scale(${newValue ? 1 : 0})`
+    if (dropdownRef.current) {
+      if (inline) {
+        dropdownRef.current.style.display = newValue ? 'block' : 'none'
+      } else if (expand) {
+        dropdownRef.current.style.transform = `scale(${newValue ? 1 : 0})`
+      }
     }
   }
 
@@ -54,6 +60,11 @@ export const useOverlay = ({
 
   useEffect(() => {
     if (childrenRef.current && dropdownRef.current && placement) {
+      if (inline) {
+        dropdownRef.current.style.display = 'none'
+        return
+      }
+
       if (
         !placement.toLowerCase().includes('left') &&
         !placement.toLowerCase().includes('right')
@@ -69,9 +80,7 @@ export const useOverlay = ({
 
         const offset = (childWidth - dropdownWidth) / 2
         dropdownRef.current.style.left = rem(`${offset}px`)
-      }
-
-      if (
+      } else if (
         !placement.toLowerCase().includes('top') &&
         !placement.toLowerCase().includes('bottom')
       ) {

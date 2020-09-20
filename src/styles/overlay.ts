@@ -72,6 +72,15 @@ export const trianglePosition = css<OverlayProps>`
   }}
 `
 
+export const triangle = css`
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  transform: translate(-50%, -50%) rotate(45deg);
+`
+
 export const popover = css<OverlayProps>`
   ${dropdown}
   ${popoverPosition}
@@ -81,14 +90,9 @@ export const popover = css<OverlayProps>`
     margin: 0;
   }
   &::after {
-    ${trianglePosition}
     content: '';
-    display: block;
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    transform: translate(-50%, -50%) rotate(45deg);
+    ${trianglePosition}
+    ${triangle}
   }
   ${({ theme }) => theme.transition}
 `
