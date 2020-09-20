@@ -1,42 +1,68 @@
 import styles from './styles.module.css'
 
-import * as React from 'react'
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import clsx from 'clsx'
-import { MdExpandLess, MdExpandMore } from 'react-icons/md'
+import React, { useState } from 'react'
+import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
+import { MdCode, MdRefresh } from 'react-icons/md'
+import { Button } from 'fiber-ui'
 
-function Playground({ children, theme, transformCode, ...props }) {
-  const [showCode, setShowCode] = React.useState(false)
+function LiveCode({ defaultShowCode, refreshPreview, onChangeCode }) {
+  const [showCode, setShowCode] = useState(defaultShowCode)
+
+  return (
+    <div className={styles.playground}>
+      <div className={styles.playgroundPreview}>
+        <LivePreview />
+      </div>
+      {showCode && (
+        <div className={styles.playgroundCode}>
+          <LiveEditor onChange={onChangeCode} />
+          <LiveError />
+        </div>
+      )}
+      <div className={styles.playgroundControls}>
+        <Button
+          startIcon={<MdRefresh />}
+          className={styles.playgroundButton}
+          style={{ width: 'calc(50% - 4px)', gridColumn: 1 }}
+          onClick={refreshPreview}
+        >
+          REFRESH
+        </Button>
+        <Button
+          startIcon={<MdCode />}
+          className={styles.playgroundButton}
+          variant={showCode ? 'regular' : 'normal'}
+          style={{ width: 'calc(50% - 4px)', gridColumn: 2 }}
+          onClick={() => setShowCode((prevShowCode) => !prevShowCode)}
+        >
+          {showCode ? 'HIDE' : 'SHOW'} CODE
+        </Button>
+      </div>
+    </div>
+  )
+}
+
+function Playground({
+  theme,
+  transformCode,
+  children,
+  showCode: defaultShowCode = false,
+  ...props
+}) {
+  const [, setCount] = useState(0)
+  const [code, setCode] = useState(children.replace(/\n$/, ''))
 
   return (
     <LiveProvider
-      code={children.replace(/\n$/, '')}
-      transformCode={transformCode || ((code) => `${code};`)}
+      transformCode={transformCode || ((codeString) => `${codeString};`)}
       theme={theme}
+      code={code}
       {...props}
     >
-      <div
-        className={clsx(
-          styles.playgroundHeader,
-          styles.playgroundPreviewHeader
-        )}
-      >
-        Result
-      </div>
-      <div className={styles.playgroundPreview}>
-        <LivePreview />
-        <LiveError />
-      </div>
-      <div
-        className={clsx(styles.playgroundHeader, styles.playgroundEditorHeader)}
-        onClick={() => setShowCode(!showCode)}
-      >
-        Live Editor
-        {showCode ? <MdExpandLess /> : <MdExpandMore />}
-      </div>
-      <LiveEditor
-        className={styles.playgroundEditor}
-        style={{ display: showCode ? 'block' : 'none' }}
+      <LiveCode
+        defaultShowCode={defaultShowCode}
+        refreshPreview={() => setCount((prev) => prev + 1)}
+        onChangeCode={(newCode) => setCode(newCode.replace(/\n$/, ''))}
       />
     </LiveProvider>
   )

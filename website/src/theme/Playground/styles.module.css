@@ -4,37 +4,33 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+.playground {
+  padding: 4px;
+  background-color: #f8f8fc;
+}
 
-.playgroundHeader {
-  padding: 0.75rem;
-  font-weight: bold;
-  letter-spacing: 0.08rem;
+.playgroundButton {
+  margin-top: 4px;
+  font-size: 14px;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-.playgroundEditorHeader {
+.playgroundPreview {
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+  white-space: pre-line;
+}
+
+.playgroundCode {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.playgroundControls {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--ifm-color-emphasis-600);
-  color: var(--ifm-color-content-inverse);
-  cursor: pointer;
-  user-select: none;
-}
-
-.playgroundPreviewHeader {
-  background: var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-content);
-}
-
-.playgroundEditor {
-  font-family: var(--ifm-font-family-monospace) !important;
-}
-
-.playgroundPreview {
-  position: relative;
-  padding: 1rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-bottom-right-radius: var(--ifm-global-radius);
-  border-bottom-left-radius: var(--ifm-global-radius);
 }
