@@ -1,15 +1,20 @@
 ---
-name: Divider
-route: /layout/divider
-menu: Layout
+id: divider
+title: Divider
 ---
 
-import { Divider, Text, Paragraph } from 'fiber'
-import { Playground } from 'docz'
+This is for divider.
 
-# Divider
+## Example
 
-<Playground>
+```js
+import { Divider } from 'fiber-ui'
+```
+
+### Regular
+
+```js live
+<>
   <Paragraph>
     Generating random paragraphs can be an excellent way for writers to get
     their creative flow going at the beginning of the day. The writer has no
@@ -53,4 +58,5 @@ import { Playground } from 'docz'
     <Divider type='vertical' />
     <Text>RIGHT TEXT</Text>
   </div>
-</Playground>
+</>
+```
