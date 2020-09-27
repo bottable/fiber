@@ -7,6 +7,7 @@
     "jsx": "react",
     "sourceMap": true,
     "declaration": true,
+    "declarationDir": "dist",
     "esModuleInterop": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -26,6 +27,6 @@
     "noEmit": true,
     "baseUrl": "."
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "example"]
 }
