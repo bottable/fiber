@@ -5,7 +5,7 @@ menu: Navigation
 ---
 
 import { useState } from 'react'
-import { Steps, Step, Button, Space } from 'fiber'
+import { Steps, Button, Space } from 'fiber'
 import { Playground } from 'docz'
 import PersonIcon from '@material-ui/icons/Person'
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser'
@@ -20,9 +20,9 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
     return (
       <React.Fragment>
         <Steps current={current}>
-          <Step title='first' subtitle='subtitle'></Step>
-          <Step title='second' subtitle='subtitle'></Step>
-          <Step title='third' subtitle='subtitle'></Step>
+          <Steps.Step title='first' subtitle='subtitle'></Steps.Step>
+          <Steps.Step title='second' subtitle='subtitle'></Steps.Step>
+          <Steps.Step title='third' subtitle='subtitle'></Steps.Step>
         </Steps>
         <br />
         <Space>
@@ -54,7 +54,7 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
     return (
       <React.Fragment>
         <Steps current={current} vertical>
-          <Step title='first' subtitle='subtitle'>
+          <Steps.Step title='first' subtitle='subtitle'>
             <div
               style={{
                 width: 200,
@@ -80,8 +80,8 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
                 </Button>
               </Space>
             </div>
-          </Step>
-          <Step title='second' subtitle='subtitle'>
+          </Steps.Step>
+          <Steps.Step title='second' subtitle='subtitle'>
             <div
               style={{
                 width: 200,
@@ -107,8 +107,8 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
                 </Button>
               </Space>
             </div>
-          </Step>
-          <Step title='third' subtitle='subtitle'>
+          </Steps.Step>
+          <Steps.Step title='third' subtitle='subtitle'>
             <div
               style={{
                 width: 200,
@@ -134,7 +134,7 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
                 </Button>
               </Space>
             </div>
-          </Step>
+          </Steps.Step>
         </Steps>
         <br />
       </React.Fragment>
@@ -150,10 +150,13 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
     return (
       <React.Fragment>
         <Steps current={current}>
-          <Step title='Login' icon={<PersonIcon />}></Step>
-          <Step title='Verification' icon={<VerifiedUserIcon />}></Step>
-          <Step title='Pay' icon={<PaymentIcon />}></Step>
-          <Step title='Done' icon={<InsertEmoticonIcon />}></Step>
+          <Steps.Step title='Login' icon={<PersonIcon />}></Steps.Step>
+          <Steps.Step
+            title='Verification'
+            icon={<VerifiedUserIcon />}
+          ></Steps.Step>
+          <Steps.Step title='Pay' icon={<PaymentIcon />}></Steps.Step>
+          <Steps.Step title='Done' icon={<InsertEmoticonIcon />}></Steps.Step>
         </Steps>
         <br />
         <Space>
@@ -189,9 +192,9 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
     return (
       <React.Fragment>
         <Steps current={current} onChange={onChange}>
-          <Step title='first' subtitle='subtitle'></Step>
-          <Step title='second' subtitle='subtitle'></Step>
-          <Step title='third' subtitle='subtitle'></Step>
+          <Steps.Step title='first' subtitle='subtitle'></Steps.Step>
+          <Steps.Step title='second' subtitle='subtitle'></Steps.Step>
+          <Steps.Step title='third' subtitle='subtitle'></Steps.Step>
         </Steps>
       </React.Fragment>
     )

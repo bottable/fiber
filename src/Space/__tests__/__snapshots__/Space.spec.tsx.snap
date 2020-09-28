@@ -4,12 +4,12 @@ exports[`Space renders correctly 1`] = `
 Array [
   <div>
     <div
-      className="sc-AxjAm hUdEqd"
+      className="sc-bdnylx qvrHk"
       direction="horizontal"
       size="sm"
     >
       <div
-        className="sc-AxirZ ggRJEm"
+        className="sc-gtssRu fevWlt"
         direction="horizontal"
         size="sm"
       >
@@ -18,7 +18,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ ggRJEm"
+        className="sc-gtssRu fevWlt"
         direction="horizontal"
         size="sm"
       >
@@ -27,7 +27,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ ggRJEm"
+        className="sc-gtssRu fevWlt"
         direction="horizontal"
         size="sm"
       >
@@ -39,12 +39,12 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm hUdEqd"
+      className="sc-bdnylx qvrHk"
       direction="horizontal"
       size="md"
     >
       <div
-        className="sc-AxirZ sSXMg"
+        className="sc-gtssRu kuwKpj"
         direction="horizontal"
         size="md"
       >
@@ -53,7 +53,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ sSXMg"
+        className="sc-gtssRu kuwKpj"
         direction="horizontal"
         size="md"
       >
@@ -62,7 +62,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ sSXMg"
+        className="sc-gtssRu kuwKpj"
         direction="horizontal"
         size="md"
       >
@@ -74,12 +74,12 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm hUdEqd"
+      className="sc-bdnylx qvrHk"
       direction="horizontal"
       size="lg"
     >
       <div
-        className="sc-AxirZ jFYlif"
+        className="sc-gtssRu jQQhAw"
         direction="horizontal"
         size="lg"
       >
@@ -88,7 +88,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ jFYlif"
+        className="sc-gtssRu jQQhAw"
         direction="horizontal"
         size="lg"
       >
@@ -97,7 +97,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ jFYlif"
+        className="sc-gtssRu jQQhAw"
         direction="horizontal"
         size="lg"
       >
@@ -109,12 +109,12 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm hUdEqd"
+      className="sc-bdnylx qvrHk"
       direction="horizontal"
       size={100}
     >
       <div
-        className="sc-AxirZ fXmLtu"
+        className="sc-gtssRu ffYbuB"
         direction="horizontal"
         size={100}
       >
@@ -123,7 +123,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ fXmLtu"
+        className="sc-gtssRu ffYbuB"
         direction="horizontal"
         size={100}
       >
@@ -132,7 +132,7 @@ Array [
         </h1>
       </div>
       <div
-        className="sc-AxirZ fXmLtu"
+        className="sc-gtssRu ffYbuB"
         direction="horizontal"
         size={100}
       >
@@ -150,12 +150,12 @@ Array [
     }
   >
     <div
-      className="sc-AxjAm hUdEqd"
+      className="sc-bdnylx qvrHk"
       direction="horizontal"
       size="md"
     >
       <div
-        className="sc-AxirZ sSXMg"
+        className="sc-gtssRu kuwKpj"
         direction="horizontal"
         size="md"
         style={
@@ -181,7 +181,7 @@ Array [
         </div>
       </div>
       <div
-        className="sc-AxirZ sSXMg"
+        className="sc-gtssRu kuwKpj"
         direction="horizontal"
         size="md"
         style={
@@ -210,12 +210,12 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-AxjAm kMCwBd"
+      className="sc-bdnylx jFdcUA"
       direction="vertical"
       size="md"
     >
       <div
-        className="sc-AxirZ kzmRLn"
+        className="sc-gtssRu dkgdSA"
         direction="vertical"
         size="md"
         style={
@@ -241,7 +241,7 @@ Array [
         </div>
       </div>
       <div
-        className="sc-AxirZ kzmRLn"
+        className="sc-gtssRu dkgdSA"
         direction="vertical"
         size="md"
         style={
@@ -287,19 +287,19 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm hUdEqd"
+        className="sc-bdnylx qvrHk"
         direction="horizontal"
         size="md"
       >
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
         >
           center
         </div>
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
         >
@@ -308,7 +308,7 @@ Array [
           </button>
         </div>
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
           style={
@@ -344,19 +344,19 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm iGkOaY"
+        className="sc-bdnylx bRYXxJ"
         direction="horizontal"
         size="md"
       >
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
         >
           start
         </div>
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
         >
@@ -365,7 +365,7 @@ Array [
           </button>
         </div>
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
           style={
@@ -401,19 +401,19 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm jAmoa-D"
+        className="sc-bdnylx hNVtXS"
         direction="horizontal"
         size="md"
       >
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
         >
           end
         </div>
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
         >
@@ -422,7 +422,7 @@ Array [
           </button>
         </div>
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
           style={
@@ -458,19 +458,19 @@ Array [
       }
     >
       <div
-        className="sc-AxjAm dhNMcl"
+        className="sc-bdnylx kNdRmE"
         direction="horizontal"
         size="md"
       >
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
         >
           baseline
         </div>
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
         >
@@ -479,7 +479,7 @@ Array [
           </button>
         </div>
         <div
-          className="sc-AxirZ sSXMg"
+          className="sc-gtssRu kuwKpj"
           direction="horizontal"
           size="md"
           style={

@@ -3,24 +3,24 @@
 exports[`Radio renders correctly 1`] = `
 <div>
   <label
-    className="sc-AxiKw iEISuy"
+    className="sc-dlnjPT fhFQMd"
   >
     <span
-      className="sc-AxhCb kYBEtR"
+      className="sc-hKFyIo jKTUmQ"
     >
       <input
         checked={false}
-        className="sc-AxheI beyFxN"
+        className="sc-gKAblj klyRGW"
         onChange={[Function]}
         type="radio"
       />
       <span
         checked={false}
-        className="sc-Axmtr eAZbyV"
+        className="sc-iCoHVE iJvJQS"
       />
     </span>
     <span
-      className="sc-AxhUy kfupEQ"
+      className="sc-eCApGN lpqiOg"
     >
        Radio 
     </span>

@@ -2,44 +2,44 @@
 
 exports[`Table renders correctly 1`] = `
 <div
-  className="sc-fzpkJw bVOhDm"
+  className="sc-jcwofb hiTPTK"
 >
   <div
-    className="sc-fznzOf hfODEb"
+    className="sc-carGAA"
   >
     <table
-      className="sc-fznMnq eblDLS"
+      className="sc-iTVIwl eZiHog"
     >
       <thead
-        className="sc-fzoant cATlvS"
+        className="sc-iBzFoy"
       >
         <tr>
           <th
-            className="sc-fzqAbL dZCuAn"
+            className="sc-cTJmaU cdyWzq"
           >
             Name
           </th>
           <th
-            className="sc-fzqAbL dZCuAn"
+            className="sc-cTJmaU cdyWzq"
           >
             Age
           </th>
           <th
-            className="sc-fzqAbL dZCuAn"
+            className="sc-cTJmaU cdyWzq"
           >
             Address
           </th>
         </tr>
       </thead>
       <tbody
-        className="sc-fzomME jJsQZI"
+        className="sc-efHXLn"
         onChange={[Function]}
       >
         <tr
-          className="sc-fzqMAW ggQcfJ"
+          className="sc-jNnnWF kPkuTV"
         >
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             <a>
@@ -47,23 +47,23 @@ exports[`Table renders correctly 1`] = `
             </a>
           </td>
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             32
           </td>
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             New York No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fzqMAW ggQcfJ"
+          className="sc-jNnnWF kPkuTV"
         >
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             <a>
@@ -71,23 +71,23 @@ exports[`Table renders correctly 1`] = `
             </a>
           </td>
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             42
           </td>
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             London No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fzqMAW ggQcfJ"
+          className="sc-jNnnWF kPkuTV"
         >
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             <a>
@@ -95,23 +95,23 @@ exports[`Table renders correctly 1`] = `
             </a>
           </td>
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             32
           </td>
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             Sidney No. 1 Lake Park
           </td>
         </tr>
         <tr
-          className="sc-fzqMAW ggQcfJ"
+          className="sc-jNnnWF kPkuTV"
         >
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             <a>
@@ -119,13 +119,13 @@ exports[`Table renders correctly 1`] = `
             </a>
           </td>
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             99
           </td>
           <td
-            className="sc-fzoydu gfzFEb"
+            className="sc-dPaNSN dicezV"
             onClick={[Function]}
           >
             Sidney No. 1 Lake Park
@@ -135,20 +135,20 @@ exports[`Table renders correctly 1`] = `
     </table>
   </div>
   <ul
-    className="sc-fzqBkg cAphmx sc-fznAgC ixcYbb"
+    className="sc-jJMGHv kfzGwF sc-khIgXV hhUhLI"
   >
     <li
-      className="sc-fzqPZZ jYHGWA"
+      className="sc-hiKfjK gddbAf"
     >
       <button
-        className="sc-fzplWN sc-fzqBZW VzMMp sc-fzoxKX bRnqhF"
+        className="sc-iqAbSa sc-hBMVcZ ca-dQQY sc-gXfWUo fusBxu"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}
         selected={false}
       >
         <span
-          className="sc-fznyAO gfdBbl"
+          className="sc-crzoUp iXpqSm"
         >
           <svg
             aria-hidden={true}
@@ -164,11 +164,11 @@ exports[`Table renders correctly 1`] = `
       </button>
     </li>
     <li
-      className="sc-fzqPZZ jYHGWA"
+      className="sc-hiKfjK gddbAf"
       onClick={[Function]}
     >
       <button
-        className="sc-fzplWN sc-fzqBZW bPWMnz sc-fzoxKX fnXnMJ"
+        className="sc-iqAbSa sc-hBMVcZ iTDPiW sc-gXfWUo emgPaa"
         onClick={[Function]}
         onMouseDown={[Function]}
         selected={true}
@@ -179,17 +179,17 @@ exports[`Table renders correctly 1`] = `
       </button>
     </li>
     <li
-      className="sc-fzqPZZ jYHGWA"
+      className="sc-hiKfjK gddbAf"
     >
       <button
-        className="sc-fzplWN sc-fzqBZW VzMMp sc-fzoxKX bRnqhF"
+        className="sc-iqAbSa sc-hBMVcZ ca-dQQY sc-gXfWUo fusBxu"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}
         selected={false}
       >
         <span
-          className="sc-fznyAO gfdBbl"
+          className="sc-crzoUp iXpqSm"
         >
           <svg
             aria-hidden={true}

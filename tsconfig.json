@@ -28,5 +28,12 @@
     "baseUrl": "."
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "example"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "example",
+    "src/**/__tests__/*",
+    "src/**/__test__/*",
+    "src/gatsby-theme-docz"
+  ]
 }

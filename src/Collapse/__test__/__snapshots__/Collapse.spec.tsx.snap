@@ -2,22 +2,22 @@
 
 exports[`Collapse renders correctly 1`] = `
 <div
-  className="sc-Axmtr bXQYTU"
+  className="sc-iCoHVE Yqzkr"
 >
   <div
-    className="sc-AxmLO fvAMFb"
+    className="sc-fujyUd gnCwwK"
   >
     <div
-      className="sc-fzozJi dZqPFH"
+      className="sc-pNWxx cMOlRD"
       onClick={[Function]}
     >
       <div
-        className="sc-fzoLsD gboIll"
+        className="sc-jrsJCI jDKIlx"
       >
         This is panel header 1
       </div>
       <span
-        className="sc-fzplWN ljQFuf"
+        className="sc-iqAbSa ggTPDo"
       >
         <svg
           aria-hidden={true}
@@ -31,15 +31,15 @@ exports[`Collapse renders correctly 1`] = `
         </svg>
       </span>
       <span
-        className="sc-fzpans rbqWh"
+        className="sc-kEqYlL bTOwMo"
       />
     </div>
     <div
-      className="sc-AxirZ irFUSb"
+      className="sc-gtssRu jbXVcs"
       onTransitionEnd={[Function]}
     >
       <div
-        className="sc-fznyAO ktONXg"
+        className="sc-crzoUp kTJOWz"
       >
         <p>
           Hello
@@ -48,19 +48,19 @@ exports[`Collapse renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-AxmLO fvAMFb"
+    className="sc-fujyUd gnCwwK"
   >
     <div
-      className="sc-fzozJi dZqPFH"
+      className="sc-pNWxx cMOlRD"
       onClick={[Function]}
     >
       <div
-        className="sc-fzoLsD gboIll"
+        className="sc-jrsJCI jDKIlx"
       >
         This is panel header 2
       </div>
       <span
-        className="sc-fzplWN ljQFuf"
+        className="sc-iqAbSa ggTPDo"
       >
         <svg
           aria-hidden={true}
@@ -74,15 +74,15 @@ exports[`Collapse renders correctly 1`] = `
         </svg>
       </span>
       <span
-        className="sc-fzpans rbqWh"
+        className="sc-kEqYlL bTOwMo"
       />
     </div>
     <div
-      className="sc-AxirZ irFUSb"
+      className="sc-gtssRu jbXVcs"
       onTransitionEnd={[Function]}
     >
       <div
-        className="sc-fznyAO ktONXg"
+        className="sc-crzoUp kTJOWz"
       >
         <p>
           Hello
@@ -91,19 +91,19 @@ exports[`Collapse renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-AxmLO fvAMFb"
+    className="sc-fujyUd gnCwwK"
   >
     <div
-      className="sc-fzozJi dZqPFH"
+      className="sc-pNWxx cMOlRD"
       onClick={[Function]}
     >
       <div
-        className="sc-fzoLsD gboIll"
+        className="sc-jrsJCI jDKIlx"
       >
         This is panel header 3
       </div>
       <span
-        className="sc-fzplWN ljQFuf"
+        className="sc-iqAbSa ggTPDo"
       >
         <svg
           aria-hidden={true}
@@ -117,15 +117,15 @@ exports[`Collapse renders correctly 1`] = `
         </svg>
       </span>
       <span
-        className="sc-fzpans rbqWh"
+        className="sc-kEqYlL bTOwMo"
       />
     </div>
     <div
-      className="sc-AxirZ irFUSb"
+      className="sc-gtssRu jbXVcs"
       onTransitionEnd={[Function]}
     >
       <div
-        className="sc-fznyAO ktONXg"
+        className="sc-crzoUp kTJOWz"
       >
         <p>
           Hello

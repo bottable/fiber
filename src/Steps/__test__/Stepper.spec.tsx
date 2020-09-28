@@ -1,4 +1,4 @@
-import { Steps, Step } from '..'
+import { Steps } from '..'
 
 import React from 'react'
 import { render } from 'test/utils'
@@ -12,12 +12,12 @@ describe('Steps', () => {
     const steps = render(
       <>
         <Steps current={1}>
-          <Step title='first' subtitle='subtitle' />
-          <Step title='second' subtitle='subtitle' />
-          <Step title='third' subtitle='subtitle' />
+          <Steps.Step title='first' subtitle='subtitle' />
+          <Steps.Step title='second' subtitle='subtitle' />
+          <Steps.Step title='third' subtitle='subtitle' />
         </Steps>
         <Steps current={1} vertical>
-          <Step title='first' subtitle='subtitle'>
+          <Steps.Step title='first' subtitle='subtitle'>
             <div
               style={{
                 width: 200,
@@ -27,8 +27,8 @@ describe('Steps', () => {
             >
               First Content
             </div>
-          </Step>
-          <Step title='second' subtitle='subtitle'>
+          </Steps.Step>
+          <Steps.Step title='second' subtitle='subtitle'>
             <div
               style={{
                 width: 200,
@@ -38,8 +38,8 @@ describe('Steps', () => {
             >
               Second Content
             </div>
-          </Step>
-          <Step title='third' subtitle='subtitle'>
+          </Steps.Step>
+          <Steps.Step title='third' subtitle='subtitle'>
             <div
               style={{
                 width: 200,
@@ -49,13 +49,13 @@ describe('Steps', () => {
             >
               Third Content
             </div>
-          </Step>
+          </Steps.Step>
         </Steps>
         <Steps current={1}>
-          <Step title='Login' icon={<PersonIcon />} />
-          <Step title='Verification' icon={<VerifiedUserIcon />} />
-          <Step title='Pay' icon={<PaymentIcon />} />
-          <Step title='Done' icon={<InsertEmoticonIcon />} />
+          <Steps.Step title='Login' icon={<PersonIcon />} />
+          <Steps.Step title='Verification' icon={<VerifiedUserIcon />} />
+          <Steps.Step title='Pay' icon={<PaymentIcon />} />
+          <Steps.Step title='Done' icon={<InsertEmoticonIcon />} />
         </Steps>
       </>
     )
