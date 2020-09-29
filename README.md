@@ -6,11 +6,43 @@
 
 ## Install
 
-todo
+### Install Peer Dependancies
+```bash
+yarn add react react-dom styled-components styled-system styled-normalize @material-ui/core @material-ui/icons
+```
+
+### Load the Works Sans font:
+Add this to your HTML head
+```html
+<link href='https://fonts.googleapis.com/css2?family=Work+Sans&display=swap' rel='stylesheet'/>
+```
+or download `typeface-work-sans` and type `require('typeface-work-sans')` in your project's entry file.
+
+### Install package
+```bash
+yarn add @bottable/fiber-ui
+```
 
 ## Usage
 
-todo
+### Wrap your React project with our UIProvider.
+example:
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { UIProvider } from '@bottable/fiber-ui';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <UIProvider>
+      <App />
+    </UIProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+```
 
 ## Development
 
