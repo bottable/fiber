@@ -1,6 +1,7 @@
 import { useControl } from '../hooks'
 
 import { StyledSteps } from './styles'
+import { StepProps, Step } from './Step'
 
 import React, { FC } from 'react'
 
@@ -12,7 +13,11 @@ export type StepsProps = {
   children?: React.ReactElement[]
 }
 
-const Steps: FC<StepsProps> = ({ children, ...props }) => {
+type Steps<P> = FC<P> & {
+  Step: React.FC<StepProps>
+}
+
+const Steps: Steps<StepsProps> = ({ children, ...props }) => {
   const { current: currentProps, initial, vertical, onChange } = props
 
   const { value: current, setValue: setCurrent } = useControl({
@@ -43,6 +48,8 @@ const Steps: FC<StepsProps> = ({ children, ...props }) => {
     </StyledSteps>
   )
 }
+
+Steps.Step = Step
 
 Steps.defaultProps = {
   initial: 0

@@ -7,8 +7,6 @@ import { Locale } from './locales/LocaleProvider'
 import React, { FC, ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-require('typeface-work-sans')
-
 const { blue: defaultTheme } = themes
 
 interface UIProviderProps {

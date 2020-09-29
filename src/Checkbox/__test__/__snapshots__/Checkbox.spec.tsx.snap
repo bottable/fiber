@@ -2,18 +2,18 @@
 
 exports[`Checkbox renders correctly 1`] = `
 <label
-  className="sc-AxiKw iEISuy"
+  className="sc-dlnjPT fhFQMd"
 >
   <span
-    className="sc-AxhCb kYBEtR"
+    className="sc-hKFyIo jKTUmQ"
   >
     <input
-      className="sc-AxheI beyFxN"
+      className="sc-gKAblj klyRGW"
       onChange={[Function]}
       type="Checkbox"
     />
     <span
-      className="sc-Axmtr jzYUEc"
+      className="sc-iCoHVE kdMmsz"
     />
   </span>
 </label>

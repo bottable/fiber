@@ -3,7 +3,7 @@
 exports[`Notification renders correctly 1`] = `
 <div>
   <div
-    className="sc-AxjAm dCHRXk"
+    className="sc-bdnylx bZsuoR"
     style={
       Object {
         "top": NaN,
@@ -11,7 +11,7 @@ exports[`Notification renders correctly 1`] = `
     }
   >
     <span
-      className="sc-AxhCb dLHiaz"
+      className="sc-hKFyIo bbEsva"
     >
       <svg
         aria-hidden={true}
