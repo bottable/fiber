@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "bottable/fiber",
   "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "module": "dist/index.esm.js",
   "source": "src/index.ts",
   "engines": {
     "node": ">=10"
