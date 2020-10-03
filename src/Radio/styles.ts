@@ -89,7 +89,7 @@ const checkedDisabledRadioStyle = css`
 export const StyledRadioButton = styled.label<ButtonProps>`
   position: relative;
   ${button}
-  height: ${({ theme }) => theme.space[3]};
+  height: fit-content;
   overflow: hidden;
   border-color: ${({ checked, theme }) => (checked ? theme.colors.base : null)};
   border-left-color: ${({ postChecked, theme }) =>
