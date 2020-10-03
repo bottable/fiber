@@ -88,7 +88,7 @@ const Step: FC<StepProps> = ({ children, ...props }) => {
       onMouseLeave={() => setHover(false)}
       onClick={() => {
         setHover(false)
-        if (handleChange) handleChange(number! - 1)
+        if (handleChange && status !== 'process') handleChange(number! - 1)
       }}
       hover={hover}
     >
