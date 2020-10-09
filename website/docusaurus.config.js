@@ -49,7 +49,7 @@ module.exports = {
             },
             {
               label: 'Second Doc',
-              to: 'docs/doc2/'
+              to: 'docs/'
             }
           ]
         },

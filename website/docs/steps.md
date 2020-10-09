@@ -20,9 +20,9 @@ function RegularSteps() {
   return (
     <>
       <Steps current={current}>
-        <Step title='first' subtitle='subtitle'></Step>
-        <Step title='second' subtitle='subtitle'></Step>
-        <Step title='third' subtitle='subtitle'></Step>
+        <Steps.Step title='first' subtitle='subtitle'></Steps.Step>
+        <Steps.Step title='second' subtitle='subtitle'></Steps.Step>
+        <Steps.Step title='third' subtitle='subtitle'></Steps.Step>
       </Steps>
       <br />
       <Space>
@@ -55,7 +55,7 @@ function VerticalSteps() {
   return (
     <>
       <Steps current={current} vertical>
-        <Step title='first' subtitle='subtitle'>
+        <Steps.Step title='first' subtitle='subtitle'>
           <div
             style={{
               width: 250,
@@ -81,8 +81,8 @@ function VerticalSteps() {
               </Button>
             </Space>
           </div>
-        </Step>
-        <Step title='second' subtitle='subtitle'>
+        </Steps.Step>
+        <Steps.Step title='second' subtitle='subtitle'>
           <div
             style={{
               width: 250,
@@ -108,8 +108,8 @@ function VerticalSteps() {
               </Button>
             </Space>
           </div>
-        </Step>
-        <Step title='third' subtitle='subtitle'>
+        </Steps.Step>
+        <Steps.Step title='third' subtitle='subtitle'>
           <div
             style={{
               width: 250,
@@ -135,7 +135,7 @@ function VerticalSteps() {
               </Button>
             </Space>
           </div>
-        </Step>
+        </Steps.Step>
       </Steps>
       <br />
     </>
@@ -161,10 +161,10 @@ function CustomizableIconsSteps() {
   return (
     <>
       <Steps current={current}>
-        <Step title='Login' icon={<Person />}></Step>
-        <Step title='Verification' icon={<VerifiedUser />}></Step>
-        <Step title='Pay' icon={<Payment />}></Step>
-        <Step title='Done' icon={<InsertEmoticon />}></Step>
+        <Steps.Step title='Login' icon={<Person />}></Step>
+        <Steps.Step title='Verification' icon={<VerifiedUser />}></Step>
+        <Steps.Step title='Pay' icon={<Payment />}></Step>
+        <Steps.Step title='Done' icon={<InsertEmoticon />}></Step>
       </Steps>
       <br />
       <Space>
@@ -201,9 +201,9 @@ function ClickableSteps() {
   return (
     <React.Fragment>
       <Steps current={current} onChange={onChange}>
-        <Step title='first' subtitle='subtitle'></Step>
-        <Step title='second' subtitle='subtitle'></Step>
-        <Step title='third' subtitle='subtitle'></Step>
+        <Steps.Step title='first' subtitle='subtitle'></Steps.Step>
+        <Steps.Step title='second' subtitle='subtitle'></Steps.Step>
+        <Steps.Step title='third' subtitle='subtitle'></Steps.Step>
       </Steps>
     </React.Fragment>
   )

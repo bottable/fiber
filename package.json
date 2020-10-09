@@ -15,12 +15,15 @@
     "dist"
   ],
   "scripts": {
-    "start": "concurrently 'yarn run dev' 'yarn run web:dev'",
-    "build": "rollup -c",
+    "start": "concurrently 'yarn run dev' 'yarn run docs:dev'",
+    "dev": "microbundle-crl watch --no-compress --format modern,cjs",
+    "build": "yarn clean && yarn build:pkg",
+    "build:pkg": "rollup -c",
     "build:docs": "cd ./website && yarn build",
     "prepublishOnly": "yarn run build",
-    "dev": "microbundle-crl watch --no-compress --format modern,cjs",
+    "clean": "rimraf ./dist",
     "postinstall": "cd ./website && yarn",
+    "docs:dev": "cd ./website && yarn start",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
     "test:lint": "eslint .",
@@ -30,8 +33,7 @@
     "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
     "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
     "lint:js": "eslint . --ext .js,.jsx",
-    "lint:js:fix": "yarn run lint:js -- --fix",
-    "web:dev": "cd ./website && yarn start"
+    "lint:js:fix": "yarn run lint:js -- --fix"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -53,6 +55,7 @@
     "@material-ui/icons": "^4.9.1",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
+    "react-icons": ">=3.2.0",
     "styled-components": "^5.2.0",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.5"
@@ -111,6 +114,7 @@
     "react-helmet-async": "^1.0.6",
     "react-scripts": "^3.4.1",
     "react-test-renderer": "^16.13.1",
+    "rimraf": "^3.0.2",
     "rollup": "^2.28.2",
     "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-typescript2": "^0.27.3",
@@ -125,6 +129,7 @@
   },
   "dependencies": {
     "polished": "^3.6.4",
-    "rc-util": "^5.0.6"
+    "rc-util": "^5.0.6",
+    "react-icons": "^3.11.0"
   }
 }
