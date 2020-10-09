@@ -15,10 +15,12 @@
     "dist"
   ],
   "scripts": {
-    "start": "concurrently 'yarn:dev' 'yarn:docz:dev'",
+    "start": "concurrently 'yarn run dev' 'yarn run web:dev'",
     "build": "rollup -c",
+    "build:docs": "cd ./website && yarn build",
     "prepublishOnly": "yarn run build",
     "dev": "microbundle-crl watch --no-compress --format modern,cjs",
+    "postinstall": "cd ./website && yarn",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
     "test:lint": "eslint .",
@@ -29,9 +31,7 @@
     "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
     "lint:js": "eslint . --ext .js,.jsx",
     "lint:js:fix": "yarn run lint:js -- --fix",
-    "docz:dev": "docz dev",
-    "docz:build": "docz build",
-    "docz:serve": "docz build && docz serve"
+    "web:dev": "cd ./website && yarn start"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -83,7 +83,6 @@
     "babel-plugin-module-resolver": "^4.0.0",
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
-    "docz": "^2.3.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -98,7 +97,6 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^4.0.2",
     "eslint-plugin-standard": "^4.0.1",
-    "gatsby": "^2.24.65",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
     "hygen": "^5.0.3",
