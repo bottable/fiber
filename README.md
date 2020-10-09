@@ -1,8 +1,8 @@
-# fiber
+# 🧸 FiberUI
 
-> A React UI Component library
+> An opinionated React UI Component library
 
-[![NPM](https://img.shields.io/npm/v/fiber.svg)](https://www.npmjs.com/package/fiber) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/fiber.svg)](https://www.npmjs.com/package/fiber-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
