@@ -2,7 +2,7 @@ import { Input, InputProps } from './Input'
 
 import React from 'react'
 import { composeRef } from 'rc-util/lib/ref'
-import SearchIcon from '@material-ui/icons/Search'
+import { MdSearch } from 'react-icons/md'
 
 export interface SearchProps extends InputProps {
   onSearch?: (
@@ -36,7 +36,7 @@ const Search = React.forwardRef(
 
       if (searchIcon) icon = searchIcon
       else {
-        icon = <SearchIcon style={{ color: '#595959' }} />
+        icon = <MdSearch style={{ color: '#595959' }} />
       }
 
       const iconProps = {

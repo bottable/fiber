@@ -9,10 +9,12 @@ import {
   Input
 } from './styles'
 
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
-import NavigateNextIcon from '@material-ui/icons/NavigateNext'
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import {
+  MdNavigateBefore,
+  MdNavigateNext,
+  MdMoreHoriz,
+  MdExpandMore
+} from 'react-icons/md'
 import React, { FC, useState } from 'react'
 
 export type PaginationProps = {
@@ -94,7 +96,7 @@ const Pagination: FC<PaginationProps> = ({
   if (range[0] - 1 > 1) {
     pageNumbersNode.push(
       <PaginationItem key='ellipsis1'>
-        <MoreHorizIcon />
+        <MdMoreHoriz />
       </PaginationItem>
     )
   }
@@ -115,7 +117,7 @@ const Pagination: FC<PaginationProps> = ({
   if (n - range[1] > 1) {
     pageNumbersNode.push(
       <PaginationItem key='ellipsis2'>
-        <MoreHorizIcon />
+        <MdMoreHoriz />
       </PaginationItem>
     )
   }
@@ -152,7 +154,7 @@ const Pagination: FC<PaginationProps> = ({
   const pageSizeDropdownNode = (
     <PaginationItem>
       <Dropdown.Button
-        endIcon={<ExpandMoreIcon />}
+        endIcon={<MdExpandMore />}
         overlay={pageSizeDropdownMenu}
       >
         {pageSize} / Page
@@ -195,7 +197,7 @@ const Pagination: FC<PaginationProps> = ({
       <PaginationItem>
         <Button
           selected={false}
-          icon={<NavigateBeforeIcon />}
+          icon={<MdNavigateBefore />}
           onClick={() => {
             setCurrent(current - 1)
           }}
@@ -206,7 +208,7 @@ const Pagination: FC<PaginationProps> = ({
       <PaginationItem>
         <Button
           selected={false}
-          icon={<NavigateNextIcon />}
+          icon={<MdNavigateNext />}
           onClick={() => {
             setCurrent(current + 1)
           }}

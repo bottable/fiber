@@ -34,7 +34,7 @@ import { Input } from 'fiber-ui'
 ### Addon
 
 ```js
-import { Settings } from '@material-ui/icons'
+import { MdSettings } from 'react-icons/md'
 ```
 
 ```js live
@@ -42,7 +42,7 @@ import { Settings } from '@material-ui/icons'
   <Input addonBefore='http://' addonAfter='.com' />
   <br />
   <br />
-  <Input addonAfter={<Settings />} />
+  <Input addonAfter={<MdSettings />} />
 </>
 ```
 

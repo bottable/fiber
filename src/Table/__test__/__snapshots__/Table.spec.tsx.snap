@@ -151,10 +151,18 @@ exports[`Table renders correctly 1`] = `
           className="sc-crzoUp iXpqSm"
         >
           <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
             viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
               d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
@@ -192,10 +200,18 @@ exports[`Table renders correctly 1`] = `
           className="sc-crzoUp iXpqSm"
         >
           <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
             viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
               d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"

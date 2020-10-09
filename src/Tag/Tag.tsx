@@ -4,7 +4,7 @@ import { useControl } from '../hooks'
 import { StyledTag, CloseContainer, IconContainer } from './styles'
 
 import React, { FC } from 'react'
-import CloseIcon from '@material-ui/icons/Close'
+import { MdClose } from 'react-icons/md'
 
 export type TagProps = {
   closable?: boolean
@@ -25,7 +25,7 @@ const Tag: FC<TagProps> = ({ children, ...props }) => {
     icon
   } = props
 
-  const onClose = (e: React.MouseEvent<HTMLElement | SVGSVGElement>) => {
+  const onClose = (e: React.MouseEvent<SVGSVGElement>) => {
     e.stopPropagation()
     if (onCloseProps) onCloseProps(e)
     if (e.defaultPrevented) return
@@ -38,7 +38,7 @@ const Tag: FC<TagProps> = ({ children, ...props }) => {
     onChange: onClose as (newValue: unknown) => unknown
   }) as {
     value: boolean
-    setValue: (newValue: React.MouseEvent<HTMLElement | SVGSVGElement>) => void
+    setValue: (newValue: React.MouseEvent<SVGSVGElement>) => void
   }
 
   const iconNode = icon ? (
@@ -46,7 +46,7 @@ const Tag: FC<TagProps> = ({ children, ...props }) => {
   ) : null
   const closeNode = closable ? (
     <CloseContainer color={color}>
-      <CloseIcon onClick={setVisible} />
+      <MdClose onClick={setVisible} />
     </CloseContainer>
   ) : null
 

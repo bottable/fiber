@@ -2,9 +2,7 @@ import { Card } from '..'
 
 import React from 'react'
 import { render } from 'test/utils'
-import SettingsIcon from '@material-ui/icons/Settings'
-import CreateIcon from '@material-ui/icons/Create'
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
+import { MdSettings, MdCreate, MdMoreHoriz } from 'react-icons/md'
 
 describe('Card', () => {
   it('renders correctly', () => {
@@ -68,9 +66,9 @@ describe('Card', () => {
             title='Actions'
             style={{ width: 300 }}
             actions={[
-              <SettingsIcon key={1} />,
-              <CreateIcon key={2} />,
-              <MoreHorizIcon key={3} />
+              <MdSettings key={1} />,
+              <MdCreate key={2} />,
+              <MdMoreHoriz key={3} />
             ]}
           >
             <p style={{ margin: 0 }}>Card content</p>

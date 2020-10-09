@@ -114,26 +114,26 @@ import { Button } from 'fiber-ui'
 ### Icon
 
 ```js
-import { Delete } from '@material-ui/icons'
+import { MdDelete } from 'react-icons/md'
 ```
 
 ```jsx live
 <>
   <div>
     <Space>
-      <Button icon={<Delete />} />
-      <Button icon={<Delete />} shape='circle' />
-      <Button icon={<Delete />} shape='round' />
+      <Button icon={<MdDelete />} />
+      <Button icon={<MdDelete />} shape='circle' />
+      <Button icon={<MdDelete />} shape='round' />
     </Space>
   </div>
   <br />
   <div>
     <Space>
-      <Button startIcon={<Delete />} size='lg'>
+      <Button startIcon={<MdDelete />} size='lg'>
         Trash
       </Button>
-      <Button startIcon={<Delete />}>Trash</Button>
-      <Button startIcon={<Delete />} size='sm'>
+      <Button startIcon={<MdDelete />}>Trash</Button>
+      <Button startIcon={<MdDelete />} size='sm'>
         Trash
       </Button>
     </Space>

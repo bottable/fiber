@@ -1,8 +1,7 @@
 import { Input, InputProps } from './Input'
 
 import React, { useState } from 'react'
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
-import VisibilityIcon from '@material-ui/icons/Visibility'
+import { MdVisibilityOff, MdVisibility } from 'react-icons/md'
 
 export interface PasswordProps extends InputProps {
   visibilityToggle?: boolean
@@ -28,9 +27,9 @@ const Password = React.forwardRef(
       if (typeof iconRender === 'function') icon = iconRender(visible)
       else {
         icon = visible ? (
-          <VisibilityIcon style={{ color: '#595959' }} />
+          <MdVisibility style={{ color: '#595959' }} />
         ) : (
-          <VisibilityOffIcon style={{ color: '#595959' }} />
+          <MdVisibilityOff style={{ color: '#595959' }} />
         )
       }
 

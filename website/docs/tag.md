@@ -62,18 +62,18 @@ function RegularTags() {
 ### Icon
 
 ```js
-import { Facebook, Twitter, YouTube } from '@material-ui/icons'
+import { AiFillFacebook, AiOutlineTwitter, AiFillYoutube } from 'react-icons/ai'
 ```
 
 ```js live
 <>
-  <Tag icon={<Facebook />} color='#3b5999'>
+  <Tag icon={<AiFillFacebook />} color='#3b5999'>
     Facebook
   </Tag>
-  <Tag icon={<YouTube />} color='#cd201f'>
+  <Tag icon={<AiOutlineTwitter />} color='#cd201f'>
     YouTube
   </Tag>
-  <Tag icon={<Twitter />} color='#55acee'>
+  <Tag icon={<AiFillYoutube />} color='#55acee'>
     Twitter
   </Tag>
 </>

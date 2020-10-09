@@ -1,13 +1,15 @@
 import * as FiberUI from '../../../../src'
 
 import React from 'react'
-import * as MaterialUIIcons from '@material-ui/icons'
+import * as MDIcons from 'react-icons/md'
+import * as ADIcons from 'react-icons/ai'
 
 // Add react-live imports you need here
 const ReactLiveScope = {
   React,
   ...React,
-  ...MaterialUIIcons,
+  ...MDIcons,
+  ...ADIcons,
   ...FiberUI
 }
 

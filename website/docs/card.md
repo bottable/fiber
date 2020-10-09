@@ -38,7 +38,7 @@ import { Card } from 'fiber-ui'
 #### Title with Icon
 
 ```js
-import { Create } from '@material-ui/icons'
+import { MdCreate } from 'react-icons/md'
 ```
 
 ```js live
@@ -48,7 +48,7 @@ import { Create } from '@material-ui/icons'
       <Text strong style={{ marginRight: 10 }}>
         Category 1
       </Text>
-      <Create />
+      <MdCreate />
     </div>
   }
   style={{ width: 300 }}
@@ -102,14 +102,14 @@ import { Create } from '@material-ui/icons'
 ### Actions
 
 ```js
-import { Settings, Create, MoreHoriz } from '@material-ui/icons'
+import { MdSettings, MdCreate, MdHoriz } from 'react-icons/md'
 ```
 
 ```js live
 <Card
   title='Actions'
   style={{ width: 300 }}
-  actions={[<Settings />, <Create />, <MoreHoriz />]}
+  actions={[<MdSettings />, <MdCreate />, <MdHoriz />]}
 >
   <p style={{ margin: 0 }}>Card content</p>
   <p style={{ margin: 0 }}>Card content</p>

@@ -51,11 +51,9 @@
     }
   },
   "peerDependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
-    "react-icons": ">=3.2.0",
+    "react-icons": "^3.11.0",
     "styled-components": "^5.2.0",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.5"
@@ -65,8 +63,6 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/enzyme": "^3.10.5",
@@ -112,6 +108,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-helmet-async": "^1.0.6",
+    "react-icons": "^3.11.0",
     "react-scripts": "^3.4.1",
     "react-test-renderer": "^16.13.1",
     "rimraf": "^3.0.2",
@@ -129,7 +126,6 @@
   },
   "dependencies": {
     "polished": "^3.6.4",
-    "rc-util": "^5.0.6",
-    "react-icons": "^3.11.0"
+    "rc-util": "^5.0.6"
   }
 }

@@ -2,7 +2,7 @@ import { Input } from '..'
 
 import React from 'react'
 import { render } from 'test/utils'
-import SettingsIcon from '@material-ui/icons/Settings'
+import { MdSettings } from 'react-icons/md'
 
 describe('Input', () => {
   it('renders correctly', () => {
@@ -22,7 +22,7 @@ describe('Input', () => {
           <Input addonBefore='http://' addonAfter='.com' />
           <br />
           <br />
-          <Input addonAfter={<SettingsIcon />} />
+          <Input addonAfter={<MdSettings />} />
         </div>
         <div>
           <Input prefix='￥' suffix='RMB' />

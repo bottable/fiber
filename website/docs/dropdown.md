@@ -14,7 +14,7 @@ import { Dropdown } from 'fiber-ui'
 ### Hover
 
 ```js
-import { ExpandMore } from '@material-ui/icons'
+import { MdExpandMore } from 'react-icons/md'
 ```
 
 ```js live
@@ -30,7 +30,7 @@ function HoverDropdown() {
 
   return (
     <Dropdown overlay={menu}>
-      Hover me <ExpandMore />
+      Hover me <MdExpandMore />
     </Dropdown>
   )
 }
@@ -59,7 +59,7 @@ function ClickDropdown() {
 ### Description
 
 ```js
-import { ExpandMore } from '@material-ui/icons'
+import { MdExpandMore } from 'react-icons/md'
 ```
 
 ```js live
@@ -74,7 +74,7 @@ function DescriptionDropdown() {
 
   return (
     <Dropdown overlay={menu} description='Menu of items'>
-      Hover me <ExpandMore />
+      Hover me <MdExpandMore />
     </Dropdown>
   )
 }
@@ -131,7 +131,7 @@ function DisabledMenuItemDropdown() {
 
   return (
     <Dropdown overlay={menu}>
-      Hover me <ExpandMore />
+      Hover me <MdExpandMore />
     </Dropdown>
   )
 }
@@ -150,7 +150,7 @@ function ButtonDropdown() {
   )
 
   return (
-    <Dropdown.Button overlay={menu} button={{ endIcon: <ExpandMore /> }}>
+    <Dropdown.Button overlay={menu} button={{ endIcon: <MdExpandMore /> }}>
       Button Dropdown
     </Dropdown.Button>
   )

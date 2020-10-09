@@ -147,11 +147,11 @@ function VerticalSteps() {
 
 ```js
 import {
-  Person,
-  VerifiedUser,
-  Payment,
-  InsertEmoticon
-} from '@material-ui/icons'
+  MdPerson,
+  MdVerifiedUser,
+  MdPayment,
+  MdInsertEmoticon
+} from 'react-icons/md'
 ```
 
 ```js live
@@ -161,10 +161,10 @@ function CustomizableIconsSteps() {
   return (
     <>
       <Steps current={current}>
-        <Steps.Step title='Login' icon={<Person />}></Step>
-        <Steps.Step title='Verification' icon={<VerifiedUser />}></Step>
-        <Steps.Step title='Pay' icon={<Payment />}></Step>
-        <Steps.Step title='Done' icon={<InsertEmoticon />}></Step>
+        <Steps.Step title='Login' icon={<MdPerson />}></Step>
+        <Steps.Step title='Verification' icon={<MdVerifiedUser />}></Step>
+        <Steps.Step title='Pay' icon={<MdPayment />}></Step>
+        <Steps.Step title='Done' icon={<MdInsertEmoticon />}></Step>
       </Steps>
       <br />
       <Space>

@@ -2,10 +2,12 @@ import { Steps } from '..'
 
 import React from 'react'
 import { render } from 'test/utils'
-import PersonIcon from '@material-ui/icons/Person'
-import VerifiedUserIcon from '@material-ui/icons/VerifiedUser'
-import PaymentIcon from '@material-ui/icons/Payment'
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
+import {
+  MdPerson,
+  MdVerifiedUser,
+  MdPayment,
+  MdInsertEmoticon
+} from 'react-icons/md'
 
 describe('Steps', () => {
   it('renders correctly', () => {
@@ -52,10 +54,10 @@ describe('Steps', () => {
           </Steps.Step>
         </Steps>
         <Steps current={1}>
-          <Steps.Step title='Login' icon={<PersonIcon />} />
-          <Steps.Step title='Verification' icon={<VerifiedUserIcon />} />
-          <Steps.Step title='Pay' icon={<PaymentIcon />} />
-          <Steps.Step title='Done' icon={<InsertEmoticonIcon />} />
+          <Steps.Step title='Login' icon={<MdPerson />} />
+          <Steps.Step title='Verification' icon={<MdVerifiedUser />} />
+          <Steps.Step title='Pay' icon={<MdPayment />} />
+          <Steps.Step title='Done' icon={<MdInsertEmoticon />} />
         </Steps>
       </>
     )

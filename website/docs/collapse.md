@@ -44,7 +44,7 @@ function RegularCollapse() {
 ### Custom Header
 
 ```js
-import { Delete } from '@material-ui/icons'
+import { MdDelete } from 'react-icons/md'
 ```
 
 ```js live
@@ -65,7 +65,7 @@ function CustomHeaderCollapse() {
             style={{ width: '100%', fontWeight: 700 }}
           />
         }
-        extra={<Delete />}
+        extra={<MdDelete />}
         key='1'
       >
         <p>{text}</p>
@@ -78,7 +78,7 @@ function CustomHeaderCollapse() {
 ### Extra Node
 
 ```js
-import { Settings } from '@material-ui/icons'
+import { MdSettings } from 'react-icons/md'
 ```
 
 ```js live
@@ -98,21 +98,21 @@ function ExtraNodeCollapse() {
       <Collapse.Panel
         header='This is panel header 1'
         key='1'
-        extra={<Settings />}
+        extra={<MdSettings />}
       >
         <p>{text}</p>
       </Collapse.Panel>
       <Collapse.Panel
         header='This is panel header 2'
         key='2'
-        extra={<Settings />}
+        extra={<MdSettings />}
       >
         <p>{text}</p>
       </Collapse.Panel>
       <Collapse.Panel
         header='This is panel header 3'
         key='3'
-        extra={<Settings />}
+        extra={<MdSettings />}
       >
         <p>{text}</p>
       </Collapse.Panel>

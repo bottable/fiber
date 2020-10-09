@@ -126,7 +126,7 @@ function ColoredTooltips() {
 ### Inline
 
 ```js
-import { Delete, Info, ExpandMore } from '@material-ui/icons'
+import { MdDelete, MdInfo, MdExpandMore } from 'react-icons/md'
 ```
 
 ```js live
@@ -157,7 +157,7 @@ function InlineTooltip() {
             style={{ width: '100%', fontWeight: 700 }}
           />
         }
-        extra={<Delete />}
+        extra={<MdDelete />}
       >
         <Space direction='vertical' style={{ width: '100%', color: '#828282' }}>
           <Text style={{ width: '100%' }}>
@@ -167,7 +167,7 @@ function InlineTooltip() {
               inline
               trigger='click'
             >
-              <Info
+              <MdInfo
                 style={{
                   color: 'black',
                   width: 12,
@@ -182,7 +182,7 @@ function InlineTooltip() {
             overlay={menu}
             style={{ width: '100%' }}
             button={{
-              endIcon: <ExpandMore />,
+              endIcon: <MdExpandMore />,
               block: true
             }}
           >
