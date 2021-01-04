@@ -10,7 +10,7 @@ import {
 } from './styles'
 
 import React, { FC } from 'react'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import { MdExpandMore } from 'react-icons/md'
 
 export type PanelProps = {
   header?: string | React.ReactNode
@@ -45,7 +45,7 @@ const Panel: FC<PanelProps> = ({
       <PanelHeaderContainer onClick={() => setCollapsed(panelKey!)}>
         <HeaderContainer>{header}</HeaderContainer>
         <ExpandIconSpan collapsed={collapsed}>
-          <ExpandMoreIcon />
+          <MdExpandMore />
         </ExpandIconSpan>
         <ExtraIconSpan>{extra}</ExtraIconSpan>
       </PanelHeaderContainer>

@@ -1,37 +1,47 @@
-# fiber
+# 🧸 FiberUI
 
-> A React UI Component library
+> An opinionated React UI Component library
 
-[![NPM](https://img.shields.io/npm/v/fiber.svg)](https://www.npmjs.com/package/fiber) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/fiber.svg)](https://www.npmjs.com/package/fiber-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ### Install Peer Dependancies
+
 ```bash
-yarn add react react-dom styled-components styled-system styled-normalize @material-ui/core @material-ui/icons
+yarn add react react-dom styled-components styled-system styled-normalize react-icons
 ```
 
 ### Load the Works Sans font:
+
 Add this to your HTML head
+
 ```html
-<link href='https://fonts.googleapis.com/css2?family=Work+Sans&display=swap' rel='stylesheet'/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap"
+  rel="stylesheet"
+/>
 ```
+
 or download `typeface-work-sans` and type `require('typeface-work-sans')` in your project's entry file.
 
 ### Install package
+
 ```bash
-yarn add @bottable/fiber-ui
+yarn add fiber-ui
 ```
 
 ## Usage
 
 ### Wrap your React project with our UIProvider.
+
 example:
+
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { UIProvider } from '@bottable/fiber-ui';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import { UIProvider } from 'fiber-ui'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -40,8 +50,7 @@ ReactDOM.render(
     </UIProvider>
   </React.StrictMode>,
   document.getElementById('root')
-);
-
+)
 ```
 
 ## Development

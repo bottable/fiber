@@ -9,7 +9,7 @@ import {
 
 import React, { FC } from 'react'
 import ReactDOM from 'react-dom'
-import CloseIcon from '@material-ui/icons/Close'
+import { MdClose } from 'react-icons/md'
 
 export type NotificationProps = {
   message?: string
@@ -54,7 +54,7 @@ const Notification: FC<NotificationProps> = React.forwardRef<
         React.cloneElement(closeIcon, { onClick: destroy })
       ) : (
         <CloseContainer onClick={destroy}>
-          <CloseIcon />
+          <MdClose />
         </CloseContainer>
       )
 

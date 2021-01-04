@@ -2,7 +2,7 @@ import { Button } from '..'
 
 import React from 'react'
 import { render } from 'test/utils'
-import DeleteIcon from '@material-ui/icons/Delete'
+import { MdDelete } from 'react-icons/md'
 
 describe('Button', () => {
   it('renders correctly', () => {
@@ -61,16 +61,16 @@ describe('Button', () => {
           </Button>
         </div>
         <div>
-          <Button icon={<DeleteIcon />} />
-          <Button icon={<DeleteIcon />} shape='circle' />
-          <Button icon={<DeleteIcon />} shape='round' />
+          <Button icon={<MdDelete />} />
+          <Button icon={<MdDelete />} shape='circle' />
+          <Button icon={<MdDelete />} shape='round' />
         </div>
         <div>
-          <Button icon={<DeleteIcon />} size='lg'>
+          <Button icon={<MdDelete />} size='lg'>
             Trash
           </Button>
-          <Button icon={<DeleteIcon />}>Trash</Button>
-          <Button icon={<DeleteIcon />} size='sm'>
+          <Button icon={<MdDelete />}>Trash</Button>
+          <Button icon={<MdDelete />} size='sm'>
             Trash
           </Button>
         </div>

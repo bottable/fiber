@@ -9,28 +9,30 @@ import {
 } from './styles'
 
 import React, { FC, useState } from 'react'
-import Filter1Icon from '@material-ui/icons/Filter1'
-import Filter2Icon from '@material-ui/icons/Filter2'
-import Filter3Icon from '@material-ui/icons/Filter3'
-import Filter4Icon from '@material-ui/icons/Filter4'
-import Filter5Icon from '@material-ui/icons/Filter5'
-import Filter6Icon from '@material-ui/icons/Filter6'
-import Filter7Icon from '@material-ui/icons/Filter7'
-import Filter8Icon from '@material-ui/icons/Filter8'
-import Filter9Icon from '@material-ui/icons/Filter9'
-import Filter9PlusIcon from '@material-ui/icons/Filter9Plus'
+import {
+  MdFilter1,
+  MdFilter2,
+  MdFilter3,
+  MdFilter4,
+  MdFilter5,
+  MdFilter6,
+  MdFilter7,
+  MdFilter8,
+  MdFilter9,
+  MdFilter9Plus
+} from 'react-icons/md'
 
 const icons = [
-  <Filter1Icon key={1} />,
-  <Filter2Icon key={2} />,
-  <Filter3Icon key={3} />,
-  <Filter4Icon key={4} />,
-  <Filter5Icon key={5} />,
-  <Filter6Icon key={6} />,
-  <Filter7Icon key={7} />,
-  <Filter8Icon key={8} />,
-  <Filter9Icon key={9} />,
-  <Filter9PlusIcon key={10} />
+  <MdFilter1 key={1} />,
+  <MdFilter2 key={2} />,
+  <MdFilter3 key={3} />,
+  <MdFilter4 key={4} />,
+  <MdFilter5 key={5} />,
+  <MdFilter6 key={6} />,
+  <MdFilter7 key={7} />,
+  <MdFilter8 key={8} />,
+  <MdFilter9 key={9} />,
+  <MdFilter9Plus key={10} />
 ]
 
 export type StepProps = {
