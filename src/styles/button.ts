@@ -112,4 +112,6 @@ export const button = css<ButtonStyleProps>`
       }
     }};
   }
+
+  user-select: none;
 `
