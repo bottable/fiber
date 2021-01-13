@@ -36,10 +36,10 @@ export const StyledRadio = styled.span<RadioProps>`
     content: ' ';
     display: table;
     position: absolute;
-    top: 3px;
-    left: 3px;
-    width: ${rem('10px')};
-    height: ${rem('10px')};
+    top: 2px;
+    left: 2px;
+    width: ${rem('8px')};
+    height: ${rem('8px')};
     border-radius: 50%;
     background-color: ${({ theme }) => theme.colors.base};
     transform: ${({ checked }) => (checked ? 'scale(1)' : 'scale(0)')};

@@ -38,10 +38,10 @@ export const StyledCheckbox = styled.span<CheckboxProps>`
     content: ' ';
     display: table;
     position: absolute;
-    top: 50%;
+    top: 47%;
     left: 15%;
-    width: 5px;
-    height: 8px;
+    width: 3.5px;
+    height: 7.5px;
     border: ${({ theme }) => theme.border.lg} #fff;
     border-top: 0;
     border-left: 0;
