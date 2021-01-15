@@ -1,6 +1,7 @@
 import { CollapseContainer } from '../styles'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useResizeDetector } from 'react-resize-detector'
 
 type CollapseProps = {
   children?: React.ReactNode | React.ReactNode[]
@@ -13,16 +14,24 @@ export const useCollapse = ({ children, collapsed }: CollapseProps) => {
     collapsed !== undefined ? !collapsed : false
   )
 
-  const collapseRef = useRef<HTMLDivElement>(null)
+  const { height: rawHeight, ref: collapseRef } = useResizeDetector()
+
+  useEffect(() => {
+    if (expanded) setHeight(rawHeight)
+  }, [rawHeight])
 
   useEffect(() => {
     if (collapseRef.current && height === undefined) {
-      setHeight(collapseRef.current.offsetHeight)
+      setHeight((collapseRef.current as HTMLDivElement).offsetHeight)
     }
   }, [collapseRef])
 
   useEffect(() => {
-    if (collapsed === true) setExpanded(false)
+    if (collapsed === true) {
+      setTimeout(() => {
+        setExpanded(false)
+      }, 100)
+    }
   }, [collapsed])
 
   return {
@@ -36,7 +45,7 @@ export const useCollapse = ({ children, collapsed }: CollapseProps) => {
             setExpanded(true)
           }
         }}
-        ref={collapseRef}
+        ref={collapseRef as React.RefObject<HTMLDivElement>}
       >
         {children}
       </CollapseContainer>

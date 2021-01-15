@@ -7,6 +7,10 @@ const globalStyle = css`
   body {
     font-family: 'Work Sans', sans-serif;
   }
+
+  ::selection {
+    background-color: #dfc5de;
+  }
 `
 
 export const GlobalStyle = createGlobalStyle`

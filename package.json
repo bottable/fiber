@@ -126,6 +126,7 @@
   },
   "dependencies": {
     "polished": "^3.6.4",
-    "rc-util": "^5.0.6"
+    "rc-util": "^5.0.6",
+    "react-resize-detector": "^6.0.1-rc.3"
   }
 }

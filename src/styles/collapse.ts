@@ -8,10 +8,10 @@ export type CollapseProps = {
 
 export const CollapseContainer = styled.div<CollapseProps>`
   max-height: ${({ collapsed, expanded, height }) => {
-    if (height === undefined || expanded) return null
-    if (collapsed) return 0
-    else return `${height}px`
+    if (height === undefined || (expanded && !collapsed)) return null
+    if ((expanded && collapsed) || !collapsed) return `${height}px`
+    return 0
   }};
   overflow: ${({ expanded }) => (expanded ? 'visible' : 'hidden')};
-  ${({ theme }) => theme.transition}
+  transition: all 300ms ease;
 `

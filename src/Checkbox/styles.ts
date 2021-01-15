@@ -39,7 +39,7 @@ export const StyledCheckbox = styled.span<CheckboxProps>`
     display: table;
     position: absolute;
     top: 47%;
-    left: 15%;
+    left: 20%;
     width: 3.5px;
     height: 7.5px;
     border: ${({ theme }) => theme.border.lg} #fff;

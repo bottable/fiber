@@ -10,7 +10,7 @@ export const Wrapper = styled.div<TooltipProps>`
 `
 
 const inlineStyle = css<TooltipProps>`
-  display: block;
+  display: none;
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;

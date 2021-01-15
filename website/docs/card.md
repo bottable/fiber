@@ -102,14 +102,14 @@ import { MdCreate } from 'react-icons/md'
 ### Actions
 
 ```js
-import { MdSettings, MdCreate, MdHoriz } from 'react-icons/md'
+import { MdSettings, MdCreate, MdMoreHoriz } from 'react-icons/md'
 ```
 
 ```js live
 <Card
   title='Actions'
   style={{ width: 300 }}
-  actions={[<MdSettings />, <MdCreate />, <MdHoriz />]}
+  actions={[<MdSettings />, <MdCreate />, <MdMoreHoriz />]}
 >
   <p style={{ margin: 0 }}>Card content</p>
   <p style={{ margin: 0 }}>Card content</p>
