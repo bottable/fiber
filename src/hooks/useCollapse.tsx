@@ -24,7 +24,11 @@ export const useCollapse = ({ children, collapsed }: CollapseProps) => {
     if (collapseRef.current && height === undefined) {
       setHeight((collapseRef.current as HTMLDivElement).offsetHeight)
     }
-  }, [collapseRef])
+  }, [
+    (() => {
+      return collapseRef.current
+    })()
+  ])
 
   useEffect(() => {
     if (collapsed === true) {

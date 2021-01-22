@@ -12,6 +12,7 @@ export const Wrapper = styled.div<TooltipProps>`
 const inlineStyle = css<TooltipProps>`
   display: none;
   position: relative;
+  margin-top: ${rem('10px')};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -43,6 +44,7 @@ export const TooltipWrapper = styled.div<TooltipProps>`
 export const Triangle = styled.div<TriangleProps>`
   ${triangle}
   z-index: 1000;
+  bottom: ${rem('-20px')};
   left: ${({ xTriangle }) => rem(`${xTriangle}px`)};
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   background-color: ${({ color, theme }) =>

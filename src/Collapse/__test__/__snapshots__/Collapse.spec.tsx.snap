@@ -43,7 +43,7 @@ exports[`Collapse renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-gtssRu jbXVcs"
+      className="sc-gtssRu fCOdNV"
       onTransitionEnd={[Function]}
     >
       <div
@@ -94,7 +94,7 @@ exports[`Collapse renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-gtssRu jbXVcs"
+      className="sc-gtssRu fCOdNV"
       onTransitionEnd={[Function]}
     >
       <div
@@ -145,7 +145,7 @@ exports[`Collapse renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-gtssRu jbXVcs"
+      className="sc-gtssRu fCOdNV"
       onTransitionEnd={[Function]}
     >
       <div
