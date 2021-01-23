@@ -1,4 +1,12 @@
-import { StyledSlider, Thumb, Track, Rail, Mark } from './styles'
+import {
+  StyledSlider,
+  MarksContainer,
+  VerticalContainer,
+  Thumb,
+  Track,
+  Rail,
+  Mark
+} from './styles'
 
 import React, { FC, useState, useEffect } from 'react'
 
@@ -86,7 +94,7 @@ const Slider: FC<SliderProps> = (props) => {
   const updateValue = (clientCoord: number, coord?: number) => {
     if (!thumbRef.current || !sliderRef.current || !trackRef.current) return
     let newPercentage = 0
-    if (!coord) {
+    if (coord === undefined) {
       let newCoord = vertical
         ? sliderRef.current.getBoundingClientRect().bottom - clientCoord
         : clientCoord - sliderRef.current.getBoundingClientRect().left
@@ -153,14 +161,21 @@ const Slider: FC<SliderProps> = (props) => {
         : getLeftMark(markPercentage)
 
       marksArray.push(
-        <Mark key={key} style={markStyle} vertical={vertical}>
+        <Mark
+          key={key}
+          style={markStyle}
+          vertical={vertical}
+          onClick={() => {
+            updateValue(0, parseInt(key))
+          }}
+        >
           {objectBool ? value.label : value}
         </Mark>
       )
     }
   }
 
-  return (
+  const sliderNode = (
     <StyledSlider
       {...rest}
       ref={sliderRef}
@@ -184,8 +199,23 @@ const Slider: FC<SliderProps> = (props) => {
         disabled={disabled}
         vertical={vertical}
       />
-      {marksArray}
     </StyledSlider>
+  )
+
+  if (vertical && marks) {
+    return (
+      <VerticalContainer>
+        {sliderNode}
+        <MarksContainer {...rest}>{marksArray}</MarksContainer>
+      </VerticalContainer>
+    )
+  }
+
+  return (
+    <React.Fragment>
+      {sliderNode}
+      {marks ? <MarksContainer {...rest}>{marksArray}</MarksContainer> : null}
+    </React.Fragment>
   )
 }
 

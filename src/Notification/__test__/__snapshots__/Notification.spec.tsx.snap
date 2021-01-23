@@ -3,7 +3,7 @@
 exports[`Notification renders correctly 1`] = `
 <div>
   <div
-    className="sc-bdnylx bZsuoR"
+    className="sc-bdnylx flnZZN"
     style={
       Object {
         "top": NaN,

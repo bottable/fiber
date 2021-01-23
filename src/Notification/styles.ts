@@ -49,7 +49,7 @@ const centerStyle = css`
 
 export const StyledNotification = styled.div<NotificationProps>`
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   max-width: ${rem('336px')};
   padding: ${({ theme }) => theme.paddings.lg};
   border-radius: ${({ theme }) => theme.radii.md};

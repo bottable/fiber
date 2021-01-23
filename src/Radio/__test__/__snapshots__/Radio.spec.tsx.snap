@@ -16,7 +16,7 @@ exports[`Radio renders correctly 1`] = `
       />
       <span
         checked={false}
-        className="sc-iCoHVE iJvJQS"
+        className="sc-iCoHVE anlWu"
       />
     </span>
     <span

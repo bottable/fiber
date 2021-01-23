@@ -35,7 +35,13 @@ const Password = React.forwardRef(
 
       const iconProps = {
         onClick: onVisibleChange,
-        style: { cursor: 'pointer', ...icon.props.style }
+        style: { cursor: 'pointer', ...icon.props.style },
+        onMouseDown: (e: MouseEvent) => {
+          e.preventDefault()
+        },
+        onMouseUp: (e: MouseEvent) => {
+          e.preventDefault()
+        }
       }
 
       return React.cloneElement(icon, iconProps)

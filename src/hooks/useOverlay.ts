@@ -109,7 +109,7 @@ export const useOverlay = ({
   }
 
   useEffect(() => {
-    if (trigger === 'click') {
+    if (trigger === 'click' && !inline) {
       document.addEventListener('mousedown', handleClick)
       return () => {
         document.removeEventListener('mousedown', handleClick)

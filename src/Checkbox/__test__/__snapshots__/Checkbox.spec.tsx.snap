@@ -13,7 +13,7 @@ exports[`Checkbox renders correctly 1`] = `
       type="Checkbox"
     />
     <span
-      className="sc-iCoHVE kdMmsz"
+      className="sc-iCoHVE hqXwbP"
     />
   </span>
 </label>

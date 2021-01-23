@@ -3,15 +3,16 @@ import { SliderProps } from './Slider'
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 
-const horizontalSlider = css`
+const horizontalSlider = css<SliderProps>`
   height: ${rem('4px')};
-  padding: ${rem('5px')} 0;
+  margin: ${({ marks }) => (marks ? `0 ${rem('10px')}` : null)};
+  padding: ${rem('6px')} 0 ${rem('10px')} 0;
 `
 
-const verticalSlider = css`
+const verticalSlider = css<SliderProps>`
   width: ${rem('4px')};
   height: 100%;
-  padding: 0 ${rem('5px')};
+  padding: 0 ${rem('10px')} 0 ${rem('6px')};
 `
 
 const horizontalRail = css`
@@ -49,7 +50,7 @@ const verticalThumb = css`
 `
 
 const horizontalMark = css`
-  top: ${rem('20px')};
+  top: ${rem('15px')};
   transform: translateX(-50%);
   &::after {
     content: '';
@@ -64,13 +65,14 @@ const horizontalMark = css`
 
 const verticalMark = css`
   left: ${rem('25px')};
+  margin-top: ${rem('2px')};
   &::after {
     content: '';
     display: block;
     width: ${rem('8px')};
     height: ${rem('1px')};
-    margin-top: ${rem('-11.5px')};
-    margin-left: ${rem('-11px')};
+    margin-top: ${rem('-8px')};
+    margin-left: ${rem('-20px')};
     background: black;
   }
 `
@@ -78,11 +80,31 @@ const verticalMark = css`
 export const StyledSlider = styled.div<SliderProps>`
   ${({ vertical }) => (vertical ? verticalSlider : horizontalSlider)}
   position: relative;
-  margin: ${({ marks }) => (marks ? rem('30px') : null)};
-  margin-top: 0;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   touch-action: manipulation;
   ${({ theme }) => theme.transition}
+`
+
+export const VerticalContainer = styled.div<SliderProps>`
+  display: flex;
+  height: 100%;
+  margin: ${rem('10px')} 0;
+`
+
+const horizontalMarksContainerStyle = css`
+  margin: 0 ${rem('10px')} ${rem('30px')} ${rem('10px')};
+`
+
+const verticalMarksContainerStyle = css`
+  height: 100%;
+  float: left;
+`
+
+export const MarksContainer = styled.div<SliderProps>`
+  ${({ vertical }) =>
+    vertical ? verticalMarksContainerStyle : horizontalMarksContainerStyle}
+  position: relative;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `
 
 export const Rail = styled.div<SliderProps>`
@@ -124,4 +146,6 @@ export const Mark = styled.span<SliderProps>`
   ${({ vertical }) => (vertical ? verticalMark : horizontalMark)}
   position: absolute;
   font-size: ${rem('14px')};
+
+  user-select: none;
 `

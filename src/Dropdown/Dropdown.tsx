@@ -62,7 +62,11 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
           visible={visible}
           topped={topped}
           placement={placement}
-          ref={composeRef(dropdownRef, collapseRef)}
+          ref={
+            composeRef(dropdownRef, collapseRef) as React.RefObject<
+              HTMLDivElement
+            >
+          }
           width={width}
           height={height}
           collapsed={!visible}
