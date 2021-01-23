@@ -8,7 +8,7 @@ exports[`Table renders correctly 1`] = `
     className="sc-carGAA"
   >
     <table
-      className="sc-iTVIwl eZiHog"
+      className="sc-iTVIwl hdHvmH"
     >
       <thead
         className="sc-iBzFoy"
@@ -39,7 +39,7 @@ exports[`Table renders correctly 1`] = `
           className="sc-jNnnWF kPkuTV"
         >
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             <a>
@@ -47,13 +47,13 @@ exports[`Table renders correctly 1`] = `
             </a>
           </td>
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             32
           </td>
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             New York No. 1 Lake Park
@@ -63,7 +63,7 @@ exports[`Table renders correctly 1`] = `
           className="sc-jNnnWF kPkuTV"
         >
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             <a>
@@ -71,13 +71,13 @@ exports[`Table renders correctly 1`] = `
             </a>
           </td>
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             42
           </td>
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             London No. 1 Lake Park
@@ -87,7 +87,7 @@ exports[`Table renders correctly 1`] = `
           className="sc-jNnnWF kPkuTV"
         >
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             <a>
@@ -95,13 +95,13 @@ exports[`Table renders correctly 1`] = `
             </a>
           </td>
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             32
           </td>
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             Sidney No. 1 Lake Park
@@ -111,7 +111,7 @@ exports[`Table renders correctly 1`] = `
           className="sc-jNnnWF kPkuTV"
         >
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             <a>
@@ -119,13 +119,13 @@ exports[`Table renders correctly 1`] = `
             </a>
           </td>
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             99
           </td>
           <td
-            className="sc-dPaNSN dicezV"
+            className="sc-dPaNSN jTavWk"
             onClick={[Function]}
           >
             Sidney No. 1 Lake Park

@@ -24,6 +24,7 @@ type TableStyleProps = {
 }
 
 export const StyledTable = styled.table<TableStyleProps>`
+  display: table;
   width: 100%;
   table-layout: ${({ fixed }) => (fixed ? 'fixed' : 'auto')};
   border-spacing: 0;
@@ -66,10 +67,10 @@ export const TableRow = styled.tr<RowProps>`
 export const TableCellBody = styled.td<CellProps>`
   position: relative;
   padding: ${({ theme }) => `${theme.paddings.sm} ${theme.paddings.md}`};
-  overflow: break-word;
   border: ${({ theme }) => theme.border.md};
   border-color: ${({ theme }) => theme.colors.gray4};
   cursor: ${({ clickable }) => (clickable ? 'pointer' : 'default')};
+  overflow-wrap: break-word;
 
   ${({ ellipsis }) => (ellipsis ? ellipsisStyle : null)};
 
