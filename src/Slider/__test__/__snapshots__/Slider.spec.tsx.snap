@@ -4,7 +4,7 @@ exports[`Slider renders correctly 1`] = `
 Array [
   <div>
     <div
-      className="sc-bdnylx dQCAGP"
+      className="sc-bdnylx hbhjnv"
       defaultValue={30}
       max={100}
       min={0}
@@ -35,7 +35,7 @@ Array [
     </div>
     <br />
     <div
-      className="sc-bdnylx dQCAGP"
+      className="sc-bdnylx hbhjnv"
       defaultValue={0}
       max={100}
       min={0}
@@ -68,7 +68,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-bdnylx dQCAGP"
+      className="sc-bdnylx hbhjnv"
       defaultValue={30}
       max={100}
       min={0}
@@ -99,7 +99,7 @@ Array [
     </div>
     <br />
     <div
-      className="sc-bdnylx dQCAGP"
+      className="sc-bdnylx hbhjnv"
       defaultValue={30}
       max={100}
       min={0}
@@ -131,7 +131,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-bdnylx iaspCs"
+      className="sc-bdnylx lkrMsQ"
       defaultValue={30}
       disabled={true}
       max={100}
@@ -206,7 +206,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-bdnylx iFlHCm"
+      className="sc-bdnylx exjzTy"
       defaultValue={30}
       max={100}
       min={0}
@@ -339,7 +339,7 @@ Array [
           step={1}
         >
           <span
-            className="sc-gKAblj epAJhY"
+            className="sc-gKAblj cjnuhc"
             onClick={[Function]}
             style={
               Object {
@@ -350,7 +350,7 @@ Array [
             0°C
           </span>
           <span
-            className="sc-gKAblj epAJhY"
+            className="sc-gKAblj cjnuhc"
             onClick={[Function]}
             style={
               Object {
@@ -361,7 +361,7 @@ Array [
             26°C
           </span>
           <span
-            className="sc-gKAblj epAJhY"
+            className="sc-gKAblj cjnuhc"
             onClick={[Function]}
             style={
               Object {
@@ -372,7 +372,7 @@ Array [
             37°C
           </span>
           <span
-            className="sc-gKAblj epAJhY"
+            className="sc-gKAblj cjnuhc"
             onClick={[Function]}
             style={
               Object {
