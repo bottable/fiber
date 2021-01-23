@@ -1,6 +1,6 @@
 {
   "name": "fiber-ui",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A React UI Component library",
   "author": "bottable",
   "license": "MIT",
@@ -22,7 +22,6 @@
     "build:docs": "cd ./website && yarn build",
     "prepublishOnly": "yarn run build",
     "clean": "rimraf ./dist",
-    "postinstall": "cd ./website && yarn",
     "docs:dev": "cd ./website && yarn start",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
