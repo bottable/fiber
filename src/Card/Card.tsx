@@ -7,6 +7,7 @@ import {
   ActionsContainer,
   Action
 } from './styles'
+import { CardSliderProps } from './CardSlider'
 
 import React, { FC } from 'react'
 
@@ -20,7 +21,11 @@ export type CardProps = {
   style?: React.CSSProperties & object
 }
 
-const Card: FC<CardProps> = ({ children, ...props }) => {
+type CardFC<P> = FC<P> & {
+  CardSlider?: FC<CardSliderProps>
+}
+
+const Card: CardFC<CardProps> = ({ children, ...props }) => {
   const { title, ...rest } = props
   const { extra, size, actions } = props
 

@@ -10,7 +10,7 @@ export type GroupProps = {
   disabled?: boolean
 } & BaseGroupProps
 
-const Group: FC<GroupProps> = ({
+const RadioGroup: FC<GroupProps> = ({
   children,
   onChange,
   value: valueProps,
@@ -67,4 +67,4 @@ const Group: FC<GroupProps> = ({
   )
 }
 
-export default Group
+export { RadioGroup }

@@ -1,7 +1,7 @@
 import { Radio } from './Radio'
-import Group from './Group'
-import Button from './Button'
+import { RadioGroup } from './Group'
+import { RadioButton } from './Button'
 
-Radio.Group = Group
-Radio.Button = Button
+Radio.Group = RadioGroup
+Radio.Button = RadioButton
 export { Radio }

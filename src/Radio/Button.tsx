@@ -90,4 +90,4 @@ const RadioButton: FC<ButtonProps> = React.forwardRef<
   }
 )
 
-export default RadioButton
+export { RadioButton }

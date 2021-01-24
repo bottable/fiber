@@ -86,3 +86,28 @@ export const Action = styled.div<CardProps>`
   }
   ${({ theme }) => theme.transition}
 `
+
+export const CardSliderContainer = styled.div`
+  display: flex;
+  width: 100%;
+  padding-bottom: 10px;
+  overflow-x: scroll;
+
+  /* width */
+  ::-webkit-scrollbar {
+    height: 8px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #fff;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #888;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+`
