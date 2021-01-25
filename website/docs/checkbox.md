@@ -46,6 +46,11 @@ function GroupCheckboxes() {
         <Checkbox value='Pear'>Pear</Checkbox>
         <Checkbox value='Orange'>Orange</Checkbox>
       </Checkbox.Group>
+      <Checkbox.Group defaultValue={['Tomato']} onChange={onChange} disabled>
+        <Checkbox value='Tomato'>Tomato</Checkbox>
+        <Checkbox value='Onion'>Onion</Checkbox>
+        <Checkbox value='Lettuce'>Lettuce</Checkbox>
+      </Checkbox.Group>
     </Space>
   )
 }
