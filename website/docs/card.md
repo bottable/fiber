@@ -185,6 +185,7 @@ function CardSlider() {
               endIcon: <MdExpandMore />,
               block: true
             }}
+            staticPos
           >
             {dropdownValue}
           </Dropdown.Button>

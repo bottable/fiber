@@ -5,7 +5,7 @@ import { rem } from 'polished'
 
 export const wrapper = css<OverlayProps>`
   display: inline-block;
-  position: relative;
+  position: ${({ staticPos }) => (staticPos ? 'static' : 'relative')};
   font-size: ${({ theme }) => theme.fontSizes.md};
 
   svg {
@@ -17,7 +17,7 @@ export const wrapper = css<OverlayProps>`
 
 export const dropdown = css<OverlayProps>`
   position: absolute;
-  z-index: 999;
+  z-index: 99999999;
   min-width: ${rem('160px')};
   overflow: hidden;
   border-radius: ${({ theme }) => theme.radii.md};

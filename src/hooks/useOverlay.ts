@@ -23,6 +23,7 @@ export type OverlayProps = {
   children?: React.ReactNode | React.ReactNode[]
   expand?: boolean
   inline?: boolean
+  staticPos?: boolean
   style?: React.CSSProperties & object
 }
 

@@ -17,7 +17,8 @@ export const Wrapper = styled.div`
 
 export const DropdownWrapper = styled(CollapseContainer)<DropdownStyleProps>`
   ${dropdown}
-  ${({ placement }) => {
+  ${({ placement, staticPos }) => {
+    if (staticPos) return null
     let output = ''
     if (!placement) return null
 

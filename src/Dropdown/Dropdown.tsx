@@ -10,6 +10,7 @@ export interface DropdownProps extends OverlayProps {
   overlay?: React.ReactElement
   topped?: boolean
   width?: number
+  staticPos?: boolean
   style?: React.CSSProperties & object
 }
 
@@ -25,7 +26,8 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       description,
       placement,
       width,
-      style
+      style,
+      staticPos
     } = props
 
     const {
@@ -52,6 +54,7 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
         style={style}
+        staticPos={staticPos}
         {...hoverProps}
       >
         {React.cloneElement(childrenNode, {
@@ -70,6 +73,7 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
           width={width}
           height={height}
           collapsed={!visible}
+          staticPos={staticPos}
         >
           {descriptionNode}
           {React.cloneElement(overlay!, {
