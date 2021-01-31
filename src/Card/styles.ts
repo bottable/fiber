@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { rem } from 'polished'
 
 export const StyledCard = styled.div<CardProps>`
+  width: ${({ width }) => (width ? rem(`${width}px`) : null)};
   border: ${({ bordered, theme }) => (bordered ? theme.border.md : null)};
   border-radius: ${({ theme }) => theme.radii.xl};
   border-color: ${({ theme }) => theme.colors.gray4};
@@ -91,7 +92,7 @@ export const CardSliderContainer = styled.div`
   display: flex;
   width: 100%;
   padding-bottom: 10px;
-  overflow-x: scroll;
+  overflow: auto;
 
   /* width */
   ::-webkit-scrollbar {

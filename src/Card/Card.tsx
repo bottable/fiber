@@ -18,6 +18,7 @@ export type CardProps = {
   bordered?: boolean
   hoverable?: boolean
   actions?: React.ReactNode[]
+  width?: number
   style?: React.CSSProperties & object
 }
 
