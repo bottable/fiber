@@ -1,4 +1,4 @@
-import { useControl, useCollapse } from '../hooks'
+import { useCollapse } from '../hooks'
 
 import {
   StyledPanel,
@@ -23,18 +23,12 @@ export type PanelProps = {
 
 const Panel: FC<PanelProps> = ({
   children,
-  collapsed: collapsedProps,
+  collapsed,
   header,
   panelKey,
   onChange,
   extra
 }) => {
-  const { value: collapsed, setValue: setCollapsed } = useControl({
-    value: collapsedProps,
-    defaultValue: false,
-    onChange: onChange as (newValue: unknown) => unknown
-  }) as { value: boolean; setValue: (newValue: string) => void }
-
   const { childrenNode: panelContentContainerNode } = useCollapse({
     children: <PanelContentContainer>{children}</PanelContentContainer>,
     collapsed: collapsed
@@ -42,7 +36,11 @@ const Panel: FC<PanelProps> = ({
 
   return (
     <StyledPanel>
-      <PanelHeaderContainer onClick={() => setCollapsed(panelKey!)}>
+      <PanelHeaderContainer
+        onClick={() => {
+          onChange!(panelKey!)
+        }}
+      >
         <HeaderContainer>{header}</HeaderContainer>
         <ExpandIconSpan collapsed={collapsed}>
           <MdExpandMore />

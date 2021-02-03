@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { rem } from 'polished'
 
 export const StyledCard = styled.div<CardProps>`
+  width: ${({ width }) => (width ? `${width}px` : null)};
   border: ${({ bordered, theme }) => (bordered ? theme.border.md : null)};
   border-radius: ${({ theme }) => theme.radii.xl};
   border-color: ${({ theme }) => theme.colors.gray4};

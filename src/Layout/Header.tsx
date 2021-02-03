@@ -3,7 +3,7 @@ import { StyledHeader } from './styles'
 import React, { FC } from 'react'
 
 export type HeaderProps = {
-  // custom props here
+  style?: React.CSSProperties & object
 }
 
 const Header: FC<HeaderProps> = ({ children, ...props }) => {

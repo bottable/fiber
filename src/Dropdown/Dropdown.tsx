@@ -11,6 +11,7 @@ export interface DropdownProps extends OverlayProps {
   topped?: boolean
   width?: number
   style?: React.CSSProperties & object
+  dropdownStyle?: React.CSSProperties & object
 }
 
 // TO DO: Find a proper way to type this
@@ -25,7 +26,8 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       description,
       placement,
       width,
-      style
+      style,
+      dropdownStyle
     } = props
 
     const {
@@ -42,9 +44,11 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       <Description>{description}</Description>
     ) : null
 
-    const childrenNode = Array.isArray(children)
-      ? ((<span>{children}</span>) as any)
-      : (children as any)
+    const childrenNode = (Array.isArray(children) ? (
+      <span>{children}</span>
+    ) : (
+      children
+    )) as any
 
     const { collapseRef, height } = useCollapse({ children: childrenNode })
 
@@ -70,6 +74,7 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
           width={width}
           height={height}
           collapsed={!visible}
+          style={dropdownStyle}
         >
           {descriptionNode}
           {React.cloneElement(overlay!, {

@@ -3,7 +3,7 @@ import { StyledContent } from './styles'
 import React, { FC } from 'react'
 
 export type ContentProps = {
-  // custom props here
+  style?: React.CSSProperties & object
 }
 
 const Content: FC<ContentProps> = ({ children, ...props }) => {

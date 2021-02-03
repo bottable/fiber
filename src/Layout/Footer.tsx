@@ -3,7 +3,7 @@ import { StyledFooter } from './styles'
 import React, { FC } from 'react'
 
 export type FooterProps = {
-  // custom props here
+  style?: React.CSSProperties & object
 }
 
 const Footer: FC<FooterProps> = ({ children, ...props }) => {

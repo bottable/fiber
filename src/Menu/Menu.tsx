@@ -7,13 +7,14 @@ export type MenuProps = {
   inline?: boolean
   children?: React.ReactElement | React.ReactElement[]
   collapse?: () => void
+  style?: React.CSSProperties & object
 }
 
 type MenuFC<P> = FC<P> & {
   Item: React.FC<ItemProps>
 }
 
-const Menu: MenuFC<MenuProps> = ({ children, inline, collapse }) => {
+const Menu: MenuFC<MenuProps> = ({ children, inline, collapse, style }) => {
   let childrenNode
   if (children) {
     if (Array.isArray(children)) {
@@ -34,7 +35,7 @@ const Menu: MenuFC<MenuProps> = ({ children, inline, collapse }) => {
     }
   }
 
-  return <MenuWrapper>{childrenNode}</MenuWrapper>
+  return <MenuWrapper style={style}>{childrenNode}</MenuWrapper>
 }
 
 Menu.Item = Item

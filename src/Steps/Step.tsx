@@ -46,10 +46,11 @@ export type StepProps = {
   clickable?: boolean
   hover?: boolean
   handleChange?: (current: number) => void
+  style?: React.CSSProperties & object
 }
 
 const Step: FC<StepProps> = ({ children, ...props }) => {
-  const { title, ...rest } = props
+  const { title, style, ...rest } = props
   const {
     subtitle,
     icon,
@@ -93,6 +94,7 @@ const Step: FC<StepProps> = ({ children, ...props }) => {
         if (handleChange && status !== 'process') handleChange(number! - 1)
       }}
       hover={hover}
+      style={style}
     >
       <IconContainer {...rest} hover={hover}>
         {renderIcon()}

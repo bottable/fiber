@@ -28,6 +28,7 @@ export type ButtonProps = MergeElementProps<
     type?: 'primary' | 'default' | 'dashed' | 'text' | 'link'
     onClick?: MouseEventHandler<HTMLElement>
     children?: React.ReactNode
+    style?: React.CSSProperties & object
   } & ButtonStyleProps
 >
 

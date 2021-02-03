@@ -11,7 +11,7 @@ type CollapseProps = {
 export const useCollapse = ({ children, collapsed }: CollapseProps) => {
   const [height, setHeight] = useState<number | undefined>(undefined)
   const [expanded, setExpanded] = useState<boolean>(
-    collapsed !== undefined ? !collapsed : false
+    collapsed === undefined ? false : !collapsed
   )
 
   const { height: rawHeight, ref: collapseRef } = useResizeDetector()
@@ -24,11 +24,7 @@ export const useCollapse = ({ children, collapsed }: CollapseProps) => {
     if (collapseRef.current && height === undefined) {
       setHeight((collapseRef.current as HTMLDivElement).offsetHeight)
     }
-  }, [
-    (() => {
-      return collapseRef.current
-    })()
-  ])
+  }, [collapseRef])
 
   useEffect(() => {
     if (collapsed === true) {

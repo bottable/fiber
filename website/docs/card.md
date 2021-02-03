@@ -14,7 +14,7 @@ import { Card } from 'fiber-ui'
 ### Regular
 
 ```js live
-<Card style={{ width: 300 }}>
+<Card width={300}>
   <p style={{ margin: 0 }}>Card content</p>
   <p style={{ margin: 0 }}>Card content</p>
   <p style={{ margin: 0 }}>Card content</p>
@@ -24,11 +24,7 @@ import { Card } from 'fiber-ui'
 ### Header
 
 ```js live
-<Card
-  title='Default size card'
-  extra={<a href='#'>More</a>}
-  style={{ width: 300 }}
->
+<Card title='Default size card' extra={<a href='#'>More</a>} width={300}>
   <p style={{ margin: 0 }}>Card content</p>
   <p style={{ margin: 0 }}>Card content</p>
   <p style={{ margin: 0 }}>Card content</p>
@@ -51,7 +47,7 @@ import { MdCreate } from 'react-icons/md'
       <MdCreate />
     </div>
   }
-  style={{ width: 300 }}
+  width={300}
 >
   <p style={{ margin: 0 }}>Card content</p>
   <p style={{ margin: 0 }}>Card content</p>
@@ -63,13 +59,13 @@ import { MdCreate } from 'react-icons/md'
 
 ```js live
 <>
-  <Card title='Medium card' style={{ width: 300 }}>
+  <Card title='Medium card' width={300}>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
   </Card>
   <br />
-  <Card title='Small card' size='sm' style={{ width: 300 }}>
+  <Card title='Small card' size='sm' width={300}>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
@@ -81,7 +77,7 @@ import { MdCreate } from 'react-icons/md'
 
 ```js live
 <div style={{ background: 'rgb(236, 236, 236)', padding: 30 }}>
-  <Card title='No borders' style={{ width: 300 }} bordered={false}>
+  <Card title='No borders' width={300} bordered={false}>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
     <p style={{ margin: 0 }}>Card content</p>
@@ -92,7 +88,7 @@ import { MdCreate } from 'react-icons/md'
 ### Hoverable
 
 ```js live
-<Card title='Hoverable' style={{ width: 300 }} hoverable={true}>
+<Card title='Hoverable' width={300} hoverable={true}>
   <p style={{ margin: 0 }}>Card content</p>
   <p style={{ margin: 0 }}>Card content</p>
   <p style={{ margin: 0 }}>Card content</p>
@@ -108,7 +104,7 @@ import { MdSettings, MdCreate, MdMoreHoriz } from 'react-icons/md'
 ```js live
 <Card
   title='Actions'
-  style={{ width: 300 }}
+  width={300}
   actions={[<MdSettings />, <MdCreate />, <MdMoreHoriz />]}
 >
   <p style={{ margin: 0 }}>Card content</p>

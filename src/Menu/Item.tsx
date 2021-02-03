@@ -8,6 +8,7 @@ export type ItemProps = {
   collapse?: () => void
   disabled?: boolean
   inline?: boolean
+  style?: React.CSSProperties & object
 }
 
 const Item: FC<ItemProps> = ({

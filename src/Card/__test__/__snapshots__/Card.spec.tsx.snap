@@ -4,7 +4,7 @@ exports[`Card renders correctly 1`] = `
 Array [
   <div>
     <div
-      className="sc-iCoHVE bAuXVS"
+      className="sc-iCoHVE bPgZhk"
       style={
         Object {
           "width": 300,
@@ -28,7 +28,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-iCoHVE bAuXVS"
+      className="sc-iCoHVE bPgZhk"
       style={
         Object {
           "width": 300,
@@ -70,7 +70,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-iCoHVE bAuXVS"
+      className="sc-iCoHVE bPgZhk"
       style={
         Object {
           "width": 300,
@@ -120,7 +120,7 @@ Array [
     </div>
     <br />
     <div
-      className="sc-iCoHVE bAuXVS"
+      className="sc-iCoHVE bPgZhk"
       size="sm"
       style={
         Object {
@@ -184,7 +184,7 @@ Array [
       }
     >
       <div
-        className="sc-iCoHVE fVPwyS"
+        className="sc-iCoHVE hVPHPE"
         style={
           Object {
             "width": 300,
@@ -236,7 +236,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-iCoHVE jRTpVz"
+      className="sc-iCoHVE bkHzWR"
       style={
         Object {
           "width": 300,
@@ -287,7 +287,7 @@ Array [
   </div>,
   <div>
     <div
-      className="sc-iCoHVE bAuXVS"
+      className="sc-iCoHVE bPgZhk"
       style={
         Object {
           "width": 300,

@@ -44,6 +44,7 @@ export type TableProps = {
   }
   pagination?: PaginationProps
   fixed?: boolean
+  style?: React.CSSProperties & object
 }
 
 export type RowProps = {
@@ -60,7 +61,8 @@ const Table: FC<TableProps> = ({
   columns,
   dataSource,
   rowSelection,
-  pagination
+  pagination,
+  style
 }) => {
   let SelectorElement: typeof Radio | typeof Checkbox
   let type: 'checkbox' | 'radio'
@@ -235,7 +237,7 @@ const Table: FC<TableProps> = ({
   return (
     <Wrapper>
       <ContentContainer>
-        <StyledTable fixed={fixed}>
+        <StyledTable fixed={fixed} style={style}>
           {tableHeadNode}
           {tableBodyNode}
         </StyledTable>

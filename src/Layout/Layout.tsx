@@ -8,6 +8,7 @@ import React, { FC } from 'react'
 
 export type LayoutProps = {
   children?: React.ReactNode | React.ReactNode[]
+  style?: React.CSSProperties & object
 }
 
 export type StyledLayoutProps = {

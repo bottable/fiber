@@ -10,6 +10,7 @@ export type CollapseProps = {
   activeKey?: string[]
   defaultActiveKey?: string[]
   onChange?: (key: string[]) => void
+  style?: React.CSSProperties & object
 }
 
 type CollapseFC<P> = FC<P> & {
@@ -21,7 +22,7 @@ const Collapse: CollapseFC<CollapseProps> = ({
   activeKey: activeKeyProps,
   defaultActiveKey: defaultActiveKeyProps,
   onChange,
-  ...props
+  ...rest
 }) => {
   const { value: activeKey, setValue: setActiveKey } = useControl({
     value: activeKeyProps,
@@ -63,7 +64,7 @@ const Collapse: CollapseFC<CollapseProps> = ({
     }
   }
 
-  return <StyledCollapse {...props}>{childrenNode}</StyledCollapse>
+  return <StyledCollapse {...rest}>{childrenNode}</StyledCollapse>
 }
 
 Collapse.defaultProps = {

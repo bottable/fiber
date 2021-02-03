@@ -3,7 +3,7 @@ import { StyledSider, SiderChildren } from './styles'
 import React, { FC } from 'react'
 
 export type SiderProps = {
-  // custom props here
+  style?: React.CSSProperties & object
 }
 
 const Sider: FC<SiderProps> = ({ children, ...props }) => {

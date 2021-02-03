@@ -11,15 +11,21 @@ export type StepsProps = {
   vertical?: boolean
   onChange?: (current: number) => void
   children?: React.ReactElement[]
+  style?: React.CSSProperties & object
 }
 
 type Steps<P> = FC<P> & {
   Step: React.FC<StepProps>
 }
 
-const Steps: Steps<StepsProps> = ({ children, ...props }) => {
-  const { current: currentProps, initial, vertical, onChange } = props
-
+const Steps: Steps<StepsProps> = ({
+  children,
+  current: currentProps,
+  initial,
+  vertical,
+  onChange,
+  style
+}) => {
   const { value: current, setValue: setCurrent } = useControl({
     value: currentProps,
     defaultValue: initial,
@@ -33,7 +39,7 @@ const Steps: Steps<StepsProps> = ({ children, ...props }) => {
   }
 
   return (
-    <StyledSteps vertical={vertical}>
+    <StyledSteps vertical={vertical} style={style}>
       {children?.map((step: React.ReactElement, idx: number) =>
         React.cloneElement(step, {
           status: step.props.status || status(idx),

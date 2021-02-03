@@ -17,7 +17,7 @@ exports[`Collapse renders correctly 1`] = `
         This is panel header 1
       </div>
       <span
-        className="sc-iqAbSa ggTPDo"
+        className="sc-iqAbSa jYOQqO"
       >
         <svg
           fill="currentColor"
@@ -43,7 +43,7 @@ exports[`Collapse renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-gtssRu fCOdNV"
+      className="sc-gtssRu bVmawx"
       onTransitionEnd={[Function]}
     >
       <div
@@ -68,7 +68,7 @@ exports[`Collapse renders correctly 1`] = `
         This is panel header 2
       </div>
       <span
-        className="sc-iqAbSa ggTPDo"
+        className="sc-iqAbSa jYOQqO"
       >
         <svg
           fill="currentColor"
@@ -94,7 +94,7 @@ exports[`Collapse renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-gtssRu fCOdNV"
+      className="sc-gtssRu bVmawx"
       onTransitionEnd={[Function]}
     >
       <div
@@ -119,7 +119,7 @@ exports[`Collapse renders correctly 1`] = `
         This is panel header 3
       </div>
       <span
-        className="sc-iqAbSa ggTPDo"
+        className="sc-iqAbSa jYOQqO"
       >
         <svg
           fill="currentColor"
@@ -145,7 +145,7 @@ exports[`Collapse renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-gtssRu fCOdNV"
+      className="sc-gtssRu bVmawx"
       onTransitionEnd={[Function]}
     >
       <div
