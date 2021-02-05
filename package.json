@@ -19,7 +19,7 @@
     "dev": "microbundle-crl watch --no-compress --format modern,cjs",
     "build": "yarn clean && yarn build:pkg",
     "build:pkg": "rollup -c",
-    "build:docs": "cd ./website && yarn build",
+    "build:docs": "cd ./website && yarn && yarn build",
     "prepublishOnly": "yarn run build",
     "clean": "rimraf ./dist",
     "docs:dev": "cd ./website && yarn start",
