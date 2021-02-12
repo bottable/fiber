@@ -16,21 +16,12 @@ export type ButtonStyleProps = {
 export const button = css<ButtonStyleProps>`
   display: inline-flex;
   position: relative;
+  align-items: center;
   justify-content: center;
   width: ${({ block }) => (block ? '100%' : null)};
   ${({ theme }) => theme.transition};
   min-width: ${({ shape, size }) => {
     if (shape !== 'circle') return null
-    switch (size) {
-      case 'lg':
-        return rem('44px')
-      case 'sm':
-        return rem('30px')
-      default:
-        return rem('38px')
-    }
-  }};
-  height: ${({ size }) => {
     switch (size) {
       case 'lg':
         return rem('44px')

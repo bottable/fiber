@@ -7,7 +7,7 @@ exports[`Popover renders correctly 1`] = `
   onMouseLeave={[Function]}
 >
   <button
-    className="sc-hHEjAm sc-bCwgka hQwOYn iihoAM"
+    className="sc-hHEjAm sc-bCwgka drGvDJ iihoAM"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
