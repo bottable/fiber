@@ -137,6 +137,7 @@ const Input: InputFC = React.forwardRef<HTMLInputElement, InputProps>(
           addonBefore={Boolean(addonBefore)}
           addonAfter={Boolean(addonAfter)}
           camouflage={camouflage}
+          {...rest}
         >
           {prefix}
           {input}
