@@ -1,15 +1,20 @@
+import { MergeElementProps } from '../utils'
+
 import { StyledItem } from './styles'
 
 import React, { FC } from 'react'
 
-export type ItemProps = {
-  danger?: boolean
-  onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  collapse?: () => void
-  disabled?: boolean
-  inline?: boolean
-  style?: React.CSSProperties & object
-}
+export type ItemProps = MergeElementProps<
+  'li',
+  {
+    danger?: boolean
+    onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+    collapse?: () => void
+    disabled?: boolean
+    inline?: boolean
+    style?: React.CSSProperties & object
+  }
+>
 
 const Item: FC<ItemProps> = ({
   children,

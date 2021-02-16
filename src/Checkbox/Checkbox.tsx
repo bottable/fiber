@@ -1,3 +1,4 @@
+import { MergeElementProps } from '../utils'
 import { useControl } from '../hooks'
 
 import {
@@ -11,14 +12,17 @@ import { GroupProps } from './Group'
 
 import React, { FC } from 'react'
 
-export type CheckboxProps = {
-  checked?: boolean
-  defaultChecked?: boolean
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  style?: React.CSSProperties & object
-  disabled?: boolean
-  value?: string
-}
+export type CheckboxProps = MergeElementProps<
+  'input',
+  {
+    checked?: boolean
+    defaultChecked?: boolean
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+    style?: React.CSSProperties & object
+    disabled?: boolean
+    value?: string
+  }
+>
 
 type CheckboxFC<P> = FC<P> & {
   Group?: FC<GroupProps>

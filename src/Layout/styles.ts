@@ -1,6 +1,8 @@
-import { StyledLayoutProps } from './Layout'
-
 import styled from 'styled-components'
+
+type StyledLayoutProps = {
+  hasSider?: boolean
+}
 
 export const StyledLayout = styled.section<StyledLayoutProps>`
   display: flex;

@@ -27,7 +27,8 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
       placement,
       width,
       style,
-      dropdownStyle
+      dropdownStyle,
+      ...rest
     } = props
 
     const {
@@ -57,6 +58,7 @@ const Dropdown: DropdownFC = React.forwardRef<HTMLDivElement, DropdownProps>(
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
         style={style}
         {...hoverProps}
+        {...rest}
       >
         {React.cloneElement(childrenNode, {
           ...clickProps,

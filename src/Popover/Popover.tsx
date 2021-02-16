@@ -13,7 +13,7 @@ export interface PopoverProps extends OverlayProps {
 
 const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
   (props, ref) => {
-    const { children, placement, title, content, style } = props
+    const { children, placement, title, content, style, ...rest } = props
 
     const {
       wrapperRef,
@@ -32,6 +32,7 @@ const Popover: FC = React.forwardRef<HTMLDivElement, PopoverProps>(
       <Wrapper
         ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
         {...hoverProps}
+        {...rest}
       >
         {React.cloneElement(childrenNode, {
           ...clickProps,

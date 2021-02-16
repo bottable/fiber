@@ -1,3 +1,4 @@
+import { MergeElementProps } from '../utils'
 import { Color } from '../types'
 import { useControl } from '../hooks'
 
@@ -6,15 +7,18 @@ import { StyledTag, CloseContainer, IconContainer } from './styles'
 import React, { FC } from 'react'
 import { MdClose } from 'react-icons/md'
 
-export type TagProps = {
-  closable?: boolean
-  visible?: boolean
-  onClose?: Function
-  color?: Color | string
-  icon?: React.ReactNode
-  shrink?: boolean
-  style?: React.CSSProperties & object
-}
+export type TagProps = MergeElementProps<
+  'span',
+  {
+    closable?: boolean
+    visible?: boolean
+    onClose?: Function
+    color?: Color | string
+    icon?: React.ReactNode
+    shrink?: boolean
+    style?: React.CSSProperties & object
+  }
+>
 
 const Tag: FC<TagProps> = ({ children, ...props }) => {
   const {

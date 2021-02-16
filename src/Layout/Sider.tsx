@@ -1,10 +1,15 @@
+import { MergeElementProps } from '../utils'
+
 import { StyledSider, SiderChildren } from './styles'
 
 import React, { FC } from 'react'
 
-export type SiderProps = {
-  style?: React.CSSProperties & object
-}
+export type SiderProps = MergeElementProps<
+  'div',
+  {
+    style?: React.CSSProperties & object
+  }
+>
 
 const Sider: FC<SiderProps> = ({ children, ...props }) => {
   return (

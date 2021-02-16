@@ -1,30 +1,35 @@
+import { MergeElementProps } from '../utils'
+
 import { useControl } from './useControl'
 
 import { useEffect, useRef } from 'react'
 import { rem } from 'polished'
 
-export type OverlayProps = {
-  trigger?: 'hover' | 'click'
-  visible?: boolean
-  placement?:
-    | 'bottomLeft'
-    | 'bottom'
-    | 'bottomRight'
-    | 'topLeft'
-    | 'top'
-    | 'topRight'
-    | 'rightTop'
-    | 'right'
-    | 'rightBottom'
-    | 'leftTop'
-    | 'left'
-    | 'leftBottom'
-  onVisibleChange?: (flag: boolean) => void
-  children?: React.ReactNode | React.ReactNode[]
-  expand?: boolean
-  inline?: boolean
-  style?: React.CSSProperties & object
-}
+export type OverlayProps = MergeElementProps<
+  'div',
+  {
+    trigger?: 'hover' | 'click'
+    visible?: boolean
+    placement?:
+      | 'bottomLeft'
+      | 'bottom'
+      | 'bottomRight'
+      | 'topLeft'
+      | 'top'
+      | 'topRight'
+      | 'rightTop'
+      | 'right'
+      | 'rightBottom'
+      | 'leftTop'
+      | 'left'
+      | 'leftBottom'
+    onVisibleChange?: (flag: boolean) => void
+    children?: React.ReactNode | React.ReactNode[]
+    expand?: boolean
+    inline?: boolean
+    style?: React.CSSProperties & object
+  }
+>
 
 export const useOverlay = ({
   trigger,

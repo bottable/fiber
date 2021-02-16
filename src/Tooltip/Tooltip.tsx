@@ -19,7 +19,7 @@ export type TriangleProps = {
 
 const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
   (props, ref) => {
-    const { children, placement, title, color, inline, style } = props
+    const { children, placement, title, color, inline, style, ...rest } = props
 
     const {
       wrapperRef,
@@ -55,6 +55,7 @@ const Tooltip: FC = React.forwardRef<HTMLDivElement, TooltipProps>(
           ref={composeRef<HTMLDivElement>(wrapperRef, ref)}
           {...wrapperProps}
           {...hoverProps}
+          {...rest}
         >
           {React.cloneElement(childrenNode, {
             ...clickProps,

@@ -1,3 +1,4 @@
+import { MergeElementProps } from '../utils'
 import { useControl } from '../hooks'
 
 import { StyledSteps } from './styles'
@@ -5,14 +6,17 @@ import { StepProps, Step } from './Step'
 
 import React, { FC } from 'react'
 
-export type StepsProps = {
-  current?: number
-  initial?: number
-  vertical?: boolean
-  onChange?: (current: number) => void
-  children?: React.ReactElement[]
-  style?: React.CSSProperties & object
-}
+export type StepsProps = MergeElementProps<
+  'div',
+  {
+    current?: number
+    initial?: number
+    vertical?: boolean
+    onChange?: (current: number) => void
+    children?: React.ReactElement[]
+    style?: React.CSSProperties & object
+  }
+>
 
 type Steps<P> = FC<P> & {
   Step: React.FC<StepProps>
@@ -24,7 +28,8 @@ const Steps: Steps<StepsProps> = ({
   initial,
   vertical,
   onChange,
-  style
+  style,
+  ...props
 }) => {
   const { value: current, setValue: setCurrent } = useControl({
     value: currentProps,
@@ -39,7 +44,7 @@ const Steps: Steps<StepsProps> = ({
   }
 
   return (
-    <StyledSteps vertical={vertical} style={style}>
+    <StyledSteps vertical={vertical} style={style} {...props}>
       {children?.map((step: React.ReactElement, idx: number) =>
         React.cloneElement(step, {
           status: step.props.status || status(idx),

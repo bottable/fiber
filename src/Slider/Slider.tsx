@@ -1,3 +1,5 @@
+import { MergeElementProps } from '../utils'
+
 import {
   StyledSlider,
   MarksContainer,
@@ -10,20 +12,23 @@ import {
 
 import React, { FC, useState, useEffect } from 'react'
 
-export type SliderProps = {
-  defaultValue?: number
-  value?: number
-  min?: number
-  max?: number
-  step?: number
-  onChange?: (value: number) => void
-  hover?: boolean
-  focus?: boolean
-  disabled?: boolean
-  vertical?: boolean
-  marks?: object
-  style?: React.CSSProperties & object
-}
+export type SliderProps = MergeElementProps<
+  'div',
+  {
+    defaultValue?: number
+    value?: number
+    min?: number
+    max?: number
+    step?: number
+    onChange?: (value: number) => void
+    hover?: boolean
+    focus?: boolean
+    disabled?: boolean
+    vertical?: boolean
+    marks?: object
+    style?: React.CSSProperties & object
+  }
+>
 
 const Slider: FC<SliderProps> = (props) => {
   const { onChange, ...rest } = props

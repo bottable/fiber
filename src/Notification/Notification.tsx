@@ -1,3 +1,4 @@
+import { MergeElementProps } from '../utils'
 import { UIProvider } from '../UIProvider'
 
 import {
@@ -11,22 +12,25 @@ import React, { FC } from 'react'
 import ReactDOM from 'react-dom'
 import { MdClose } from 'react-icons/md'
 
-export type NotificationProps = {
-  message?: string
-  description?: string
-  duration?: number
-  offset?: number
-  placement?:
-    | 'topRight'
-    | 'topCenter'
-    | 'topLeft'
-    | 'bottomRight'
-    | 'bottomCenter'
-    | 'bottomLeft'
-  destroy?: () => void
-  closeIcon?: React.ReactNode | boolean
-  style?: React.CSSProperties & object
-}
+export type NotificationProps = MergeElementProps<
+  'div',
+  {
+    message?: string
+    description?: string
+    duration?: number
+    offset?: number
+    placement?:
+      | 'topRight'
+      | 'topCenter'
+      | 'topLeft'
+      | 'bottomRight'
+      | 'bottomCenter'
+      | 'bottomLeft'
+    destroy?: () => void
+    closeIcon?: React.ReactNode | boolean
+    style?: React.CSSProperties & object
+  }
+>
 
 const Notification: FC<NotificationProps> = React.forwardRef<
   HTMLDivElement,

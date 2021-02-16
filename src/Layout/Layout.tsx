@@ -1,3 +1,5 @@
+import { MergeElementProps } from '../utils'
+
 import { Header, HeaderProps } from './Header'
 import { Content, ContentProps } from './Content'
 import { Footer, FooterProps } from './Footer'
@@ -6,14 +8,13 @@ import { StyledLayout } from './styles'
 
 import React, { FC } from 'react'
 
-export type LayoutProps = {
-  children?: React.ReactNode | React.ReactNode[]
-  style?: React.CSSProperties & object
-}
-
-export type StyledLayoutProps = {
-  hasSider?: boolean
-}
+export type LayoutProps = MergeElementProps<
+  'div',
+  {
+    children?: React.ReactNode | React.ReactNode[]
+    style?: React.CSSProperties & object
+  }
+>
 
 type LayoutFC<P> = FC<P> & {
   Header: FC<HeaderProps>

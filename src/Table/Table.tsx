@@ -1,3 +1,4 @@
+import { MergeElementProps } from '../utils'
 import { Radio } from '../Radio'
 import { Checkbox } from '../Checkbox'
 import { useGroup, useControl } from '../hooks'
@@ -27,25 +28,28 @@ type column = {
   ellipsis?: boolean
 }
 
-export type TableProps = {
-  columns: column[]
-  dataSource: {
-    key: string
-  }[]
-  rowSelection?: {
-    type?: 'checkbox' | 'radio'
-    getCheckboxProps?: (
-      record: object
-    ) => {
-      disabled?: boolean
+export type TableProps = MergeElementProps<
+  'table',
+  {
+    columns: column[]
+    dataSource: {
+      key: string
+    }[]
+    rowSelection?: {
+      type?: 'checkbox' | 'radio'
+      getCheckboxProps?: (
+        record: object
+      ) => {
+        disabled?: boolean
+      }
+      onChange?: (selectedRowKeys: string[], selectedRows: object[]) => void
+      selectedRowKeys?: string[]
     }
-    onChange?: (selectedRowKeys: string[], selectedRows: object[]) => void
-    selectedRowKeys?: string[]
+    pagination?: PaginationProps
+    fixed?: boolean
+    style?: React.CSSProperties & object
   }
-  pagination?: PaginationProps
-  fixed?: boolean
-  style?: React.CSSProperties & object
-}
+>
 
 export type RowProps = {
   selected?: boolean
@@ -62,7 +66,8 @@ const Table: FC<TableProps> = ({
   dataSource,
   rowSelection,
   pagination,
-  style
+  style,
+  ...props
 }) => {
   let SelectorElement: typeof Radio | typeof Checkbox
   let type: 'checkbox' | 'radio'
@@ -237,7 +242,7 @@ const Table: FC<TableProps> = ({
   return (
     <Wrapper>
       <ContentContainer>
-        <StyledTable fixed={fixed} style={style}>
+        <StyledTable fixed={fixed} style={style} {...props}>
           {tableHeadNode}
           {tableBodyNode}
         </StyledTable>

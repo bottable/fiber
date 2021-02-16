@@ -1,20 +1,31 @@
+import { MergeElementProps } from '../utils'
+
 import { MenuWrapper } from './styles'
 import Item, { ItemProps } from './Item'
 
 import React, { FC } from 'react'
 
-export type MenuProps = {
-  inline?: boolean
-  children?: React.ReactElement | React.ReactElement[]
-  collapse?: () => void
-  style?: React.CSSProperties & object
-}
+export type MenuProps = MergeElementProps<
+  'ul',
+  {
+    inline?: boolean
+    children?: React.ReactElement | React.ReactElement[]
+    collapse?: () => void
+    style?: React.CSSProperties & object
+  }
+>
 
 type MenuFC<P> = FC<P> & {
   Item: React.FC<ItemProps>
 }
 
-const Menu: MenuFC<MenuProps> = ({ children, inline, collapse, style }) => {
+const Menu: MenuFC<MenuProps> = ({
+  children,
+  inline,
+  collapse,
+  style,
+  ...props
+}) => {
   let childrenNode
   if (children) {
     if (Array.isArray(children)) {
@@ -35,7 +46,11 @@ const Menu: MenuFC<MenuProps> = ({ children, inline, collapse, style }) => {
     }
   }
 
-  return <MenuWrapper style={style}>{childrenNode}</MenuWrapper>
+  return (
+    <MenuWrapper style={style} {...props}>
+      {childrenNode}
+    </MenuWrapper>
+  )
 }
 
 Menu.Item = Item

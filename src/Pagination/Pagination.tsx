@@ -1,3 +1,4 @@
+import { MergeElementProps } from '../utils'
 import { Menu } from '../Menu'
 import { useControl } from '../hooks'
 
@@ -17,20 +18,23 @@ import {
 } from 'react-icons/md'
 import React, { FC, useState } from 'react'
 
-export type PaginationProps = {
-  current?: number
-  pageSize?: number
-  defaultCurrent?: number
-  defaultPageSize?: number
-  total?: number
-  pageSizeOptions?: number[]
-  showQuickJumper?: boolean
-  showSizeChanger?: boolean
-  onChange?: (current: number) => void
-  onShowSizeChange?: (size: number) => void
-  showTotal?: (total: number, range: [number, number]) => string
-  hideOnSinglePage?: boolean
-}
+export type PaginationProps = MergeElementProps<
+  'ul',
+  {
+    current?: number
+    pageSize?: number
+    defaultCurrent?: number
+    defaultPageSize?: number
+    total?: number
+    pageSizeOptions?: number[]
+    showQuickJumper?: boolean
+    showSizeChanger?: boolean
+    onChange?: (current: number) => void
+    onShowSizeChange?: (size: number) => void
+    showTotal?: (total: number, range: [number, number]) => string
+    hideOnSinglePage?: boolean
+  }
+>
 
 const Pagination: FC<PaginationProps> = ({
   current: currentProps,

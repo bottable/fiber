@@ -1,3 +1,4 @@
+import { MergeElementProps } from '../utils'
 import { useCollapse } from '../hooks'
 
 import {
@@ -12,14 +13,17 @@ import {
 import React, { FC } from 'react'
 import { MdExpandMore } from 'react-icons/md'
 
-export type PanelProps = {
-  header?: string | React.ReactNode
-  collapsed?: boolean
-  height?: number
-  panelKey?: string
-  onChange?: (key: string) => void
-  extra?: React.ReactNode
-}
+export type PanelProps = MergeElementProps<
+  'div',
+  {
+    header?: string | React.ReactNode
+    collapsed?: boolean
+    height?: number
+    panelKey?: string
+    onChange?: (key: string) => void
+    extra?: React.ReactNode
+  }
+>
 
 const Panel: FC<PanelProps> = ({
   children,
@@ -27,7 +31,8 @@ const Panel: FC<PanelProps> = ({
   header,
   panelKey,
   onChange,
-  extra
+  extra,
+  ...props
 }) => {
   const { childrenNode: panelContentContainerNode } = useCollapse({
     children: <PanelContentContainer>{children}</PanelContentContainer>,
@@ -35,7 +40,7 @@ const Panel: FC<PanelProps> = ({
   })
 
   return (
-    <StyledPanel>
+    <StyledPanel {...props}>
       <PanelHeaderContainer
         onClick={() => {
           onChange!(panelKey!)

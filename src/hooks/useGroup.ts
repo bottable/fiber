@@ -1,11 +1,16 @@
+import { MergeElementProps } from '../utils'
+
 import { useControl } from './useControl'
 
-export type GroupProps = {
-  onChange?: (event: any) => void
-  value?: string | string[]
-  defaultValue?: string | string[]
-  type: 'checkbox' | 'radio'
-}
+export type GroupProps = MergeElementProps<
+  'div',
+  {
+    onChange?: (event: any) => void
+    value?: string | string[]
+    defaultValue?: string | string[]
+    type: 'checkbox' | 'radio'
+  }
+>
 
 export const useGroup = ({
   onChange: onChangeProps,

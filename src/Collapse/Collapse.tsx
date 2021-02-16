@@ -1,3 +1,4 @@
+import { MergeElementProps } from '../utils'
 import { useControl } from '../hooks'
 
 import { StyledCollapse } from './styles'
@@ -5,13 +6,16 @@ import { Panel, PanelProps } from './Panel'
 
 import React, { FC } from 'react'
 
-export type CollapseProps = {
-  children: React.ReactElement | React.ReactElement[]
-  activeKey?: string[]
-  defaultActiveKey?: string[]
-  onChange?: (key: string[]) => void
-  style?: React.CSSProperties & object
-}
+export type CollapseProps = MergeElementProps<
+  'div',
+  {
+    children: React.ReactElement | React.ReactElement[]
+    activeKey?: string[]
+    defaultActiveKey?: string[]
+    onChange?: (key: string[]) => void
+    style?: React.CSSProperties & object
+  }
+>
 
 type CollapseFC<P> = FC<P> & {
   Panel: React.FC<PanelProps>

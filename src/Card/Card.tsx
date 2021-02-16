@@ -1,3 +1,5 @@
+import { MergeElementProps } from '../utils'
+
 import {
   StyledCard,
   HeaderContainer,
@@ -10,16 +12,19 @@ import {
 
 import React, { FC } from 'react'
 
-export type CardProps = {
-  title?: string | React.ReactNode
-  extra?: React.ReactNode
-  size?: 'md' | 'sm'
-  bordered?: boolean
-  hoverable?: boolean
-  actions?: React.ReactNode[]
-  width?: number
-  style?: React.CSSProperties & object
-}
+export type CardProps = MergeElementProps<
+  'div',
+  {
+    title?: string | React.ReactNode
+    extra?: React.ReactNode
+    size?: 'md' | 'sm'
+    bordered?: boolean
+    hoverable?: boolean
+    actions?: React.ReactNode[]
+    width?: number
+    style?: React.CSSProperties & object
+  }
+>
 
 const Card: FC<CardProps> = ({ children, ...props }) => {
   const { title, ...rest } = props

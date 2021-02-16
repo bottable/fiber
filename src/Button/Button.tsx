@@ -33,7 +33,16 @@ export type ButtonProps = MergeElementProps<
 >
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  const { children, type, onClick, icon, startIcon, endIcon, ...rest } = props
+  const {
+    children,
+    htmlType,
+    type,
+    onClick,
+    icon,
+    startIcon,
+    endIcon,
+    ...rest
+  } = props
   const { shape, ghost } = props
   const buttonRef = useRef<HTMLButtonElement>(null)
 
@@ -87,6 +96,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       ref={composeRef(buttonRef, ref)}
       onClick={handleClick}
       onMouseDown={handleMouseDown}
+      type={htmlType}
       {...rest}
     >
       {ripples}

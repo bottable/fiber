@@ -1,3 +1,4 @@
+import { MergeElementProps } from '../utils'
 import { useCollapse } from '../hooks'
 
 import {
@@ -35,19 +36,22 @@ const icons = [
   <MdFilter9Plus key={10} />
 ]
 
-export type StepProps = {
-  icon?: React.ReactNode
-  status?: 'wait' | 'process' | 'finish'
-  title?: React.ReactNode
-  subtitle?: React.ReactNode
-  number?: number
-  last?: boolean
-  vertical?: boolean
-  clickable?: boolean
-  hover?: boolean
-  handleChange?: (current: number) => void
-  style?: React.CSSProperties & object
-}
+export type StepProps = MergeElementProps<
+  'div',
+  {
+    icon?: React.ReactNode
+    status?: 'wait' | 'process' | 'finish'
+    title?: React.ReactNode
+    subtitle?: React.ReactNode
+    number?: number
+    last?: boolean
+    vertical?: boolean
+    clickable?: boolean
+    hover?: boolean
+    handleChange?: (current: number) => void
+    style?: React.CSSProperties & object
+  }
+>
 
 const Step: FC<StepProps> = ({ children, ...props }) => {
   const { title, style, ...rest } = props
