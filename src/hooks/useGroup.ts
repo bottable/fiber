@@ -8,7 +8,7 @@ export type GroupProps = MergeElementProps<
     onChange?: (event: any) => void
     value?: string | string[]
     defaultValue?: string | string[]
-    type: 'checkbox' | 'radio'
+    type?: 'checkbox' | 'radio'
   }
 >
 
