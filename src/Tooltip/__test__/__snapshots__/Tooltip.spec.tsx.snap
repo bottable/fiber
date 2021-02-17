@@ -11,6 +11,8 @@ exports[`Tooltip renders correctly 1`] = `
   </span>
   <div
     className="sc-fujyUd byVslE"
-  />
+  >
+    hello
+  </div>
 </div>
 `;

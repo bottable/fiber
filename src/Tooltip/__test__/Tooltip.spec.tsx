@@ -6,7 +6,7 @@ import { render } from 'test/utils'
 describe('Tooltip', () => {
   it('renders correctly', () => {
     const tooltip = render(
-      <Tooltip>
+      <Tooltip title='hello'>
         <span>Tooltip</span>
       </Tooltip>
     )
