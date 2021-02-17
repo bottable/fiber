@@ -57,4 +57,8 @@ const Group: FC<GroupProps> = ({
   )
 }
 
+Group.defaultProps = {
+  type: 'checkbox'
+}
+
 export default Group

@@ -67,4 +67,8 @@ const Group: FC<GroupProps> = ({
   )
 }
 
+Group.defaultProps = {
+  type: 'radio'
+}
+
 export default Group
