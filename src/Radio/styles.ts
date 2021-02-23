@@ -59,10 +59,8 @@ const defaultRadioStyle = css<ButtonProps>`
 `
 
 const solidRadioStyle = css<ButtonProps>`
-  padding-top: ${({ checked }) => (checked ? rem('11px') : null)};
-  padding-right: ${({ checked }) => (checked ? rem('17px') : null)};
-  padding-bottom: ${({ checked }) => (checked ? rem('11px') : null)};
-  padding-left: ${({ checked }) => (checked ? rem('17px') : null)};
+  ${({ size }) =>
+    size === 'lg' ? largeSolidRadioStyle : mediumSolidRadioStyle}
   border: ${({ checked }) => (checked ? 'none' : null)};
   border-left: ${({ postChecked }) => (postChecked ? 'none' : null)};
   background-color: ${({ checked, theme }) =>
@@ -73,6 +71,20 @@ const solidRadioStyle = css<ButtonProps>`
       checked ? theme.colors.base : null};
     color: ${({ checked }) => (checked ? '#fff' : null)};
   }
+`
+
+const mediumSolidRadioStyle = css<ButtonProps>`
+  padding-top: ${({ checked }) => (checked ? rem('11px') : null)};
+  padding-right: ${({ checked }) => (checked ? rem('17px') : null)};
+  padding-bottom: ${({ checked }) => (checked ? rem('11px') : null)};
+  padding-left: ${({ checked }) => (checked ? rem('17px') : null)};
+`
+
+const largeSolidRadioStyle = css<ButtonProps>`
+  padding-top: ${({ checked }) => (checked ? rem('13px') : null)};
+  padding-right: ${({ checked }) => (checked ? rem('19px') : null)};
+  padding-bottom: ${({ checked }) => (checked ? rem('13px') : null)};
+  padding-left: ${({ checked }) => (checked ? rem('19px') : null)};
 `
 
 const checkedDisabledRadioStyle = css`

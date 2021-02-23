@@ -93,6 +93,18 @@ function VerticalRadioGroup() {
     <Radio.Button value='c'>Beijing</Radio.Button>
     <Radio.Button value='d'>Chengdu</Radio.Button>
   </Radio.Group>
+  <br />
+  <Radio.Group
+    defaultValue='b'
+    buttonStyle='solid'
+    style={{ marginTop: 10 }}
+    size='lg'
+  >
+    <Radio.Button value='a'>Hangzhou</Radio.Button>
+    <Radio.Button value='b'>Shanghai</Radio.Button>
+    <Radio.Button value='c'>Beijing</Radio.Button>
+    <Radio.Button value='d'>Chengdu</Radio.Button>
+  </Radio.Group>
 </>
 ```
 
