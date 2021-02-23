@@ -33,7 +33,7 @@ export type ButtonProps = MergeElementProps<
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { children, htmlType, type, icon, startIcon, endIcon, ...rest } = props
-  const { shape, ghost } = props
+  const { shape, ghost, block } = props
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   const { ripples, addRipple } = useRipple()
@@ -73,9 +73,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
   const iconNode = icon ? <Icon>{icon}</Icon> : null
   const startIconNode = startIcon ? (
-    <StartIcon {...rest}>{startIcon}</StartIcon>
+    <StartIcon block={block}>{startIcon}</StartIcon>
   ) : null
-  const endIconNode = endIcon ? <EndIcon {...rest}>{endIcon}</EndIcon> : null
+  const endIconNode = endIcon ? (
+    <EndIcon block={block}>{endIcon}</EndIcon>
+  ) : null
 
   const childrenNode = children ? <span>{children}</span> : null
 
