@@ -1,4 +1,5 @@
 import { MergeElementProps } from '../utils'
+import { Size } from '../types'
 
 import {
   StyledSlider,
@@ -27,6 +28,7 @@ export type SliderProps = MergeElementProps<
     vertical?: boolean
     marks?: object
     style?: React.CSSProperties & object
+    size?: Size
   }
 >
 
@@ -40,7 +42,8 @@ const Slider: FC<SliderProps> = (props) => {
     value: valueProps,
     disabled,
     vertical,
-    marks
+    marks,
+    size
   } = props
 
   useEffect(() => {
@@ -55,12 +58,15 @@ const Slider: FC<SliderProps> = (props) => {
   const trackRef = React.useRef<HTMLDivElement>(null)
   const valueRef = React.useRef<number>(valueProps! | defaultValue!)
 
+  const offset = size === 'lg' ? 10 : 7
+
   const getPercentage = (current: number, min: number, max: number) =>
     (100 * (current - min)) / (max - min)
 
-  const getLeft = (percentage: number) => `calc(${percentage}% - 7px)`
+  const getLeft = (percentage: number) => `calc(${percentage}% - ${offset}px)`
 
-  const getTop = (percentage: number) => `calc(${100 - percentage}% - 7px)`
+  const getTop = (percentage: number) =>
+    `calc(${100 - percentage}% - ${offset}px)`
 
   const getLeftMark = (percentage: number) => `calc(${percentage}% + 0px)`
 
@@ -190,12 +196,13 @@ const Slider: FC<SliderProps> = (props) => {
       hover={hover}
       focus={focus}
     >
-      <Rail vertical={vertical} />
+      <Rail vertical={vertical} size={size} />
       <Track
         ref={trackRef}
         style={trackInitialStyle}
         disabled={disabled}
         vertical={vertical}
+        size={size}
       />
       <Thumb
         ref={thumbRef}
@@ -203,6 +210,7 @@ const Slider: FC<SliderProps> = (props) => {
         focus={focus}
         disabled={disabled}
         vertical={vertical}
+        size={size}
       />
     </StyledSlider>
   )
@@ -228,7 +236,8 @@ Slider.defaultProps = {
   min: 0,
   max: 100,
   defaultValue: 0,
-  step: 1
+  step: 1,
+  size: 'md'
 }
 
 export { Slider }

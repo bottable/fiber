@@ -33,6 +33,18 @@ function RegularSlider() {
 }
 ```
 
+### Size
+
+```js live
+<>
+  <Text>Medium Slider</Text>
+  <Slider defaultValue={30} size='md' />
+  <br />
+  <Text>Large Slider</Text>
+  <Slider defaultValue={30} size='lg' />
+</>
+```
+
 ### Step
 
 ```js live
@@ -111,7 +123,7 @@ function DisplayValueSlider() {
         backgroundColor: '#e0e0e0',
         display: 'flex',
         alignItems: 'center',
-        padding: 20,
+        padding: 15,
         width: 250
       }}
     >
@@ -124,6 +136,7 @@ function DisplayValueSlider() {
         style={{ flex: 7 }}
         min={1}
         max={24}
+        size='lg'
       />
       <Text strong style={{ flex: 3 }} textAlign='right'>
         {value} Hr

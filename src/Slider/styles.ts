@@ -6,47 +6,57 @@ import { rem } from 'polished'
 const horizontalSlider = css<SliderProps>`
   height: ${rem('4px')};
   margin: ${({ marks }) => (marks ? `0 ${rem('10px')}` : null)};
-  padding: ${rem('6px')} 0 ${rem('10px')} 0;
+  padding: ${({ size }) =>
+    size === 'lg'
+      ? `${rem('8px')} 0 ${rem('15px')} 0`
+      : `${rem('6px')} 0 ${rem('10px')} 0`};
 `
 
 const verticalSlider = css<SliderProps>`
   width: ${rem('4px')};
   height: 100%;
-  padding: 0 ${rem('10px')} 0 ${rem('6px')};
+  padding: ${({ size }) =>
+    size === 'lg'
+      ? `0 ${rem('15px')} 0 ${rem('8px')}`
+      : `0 ${rem('10px')} 0 ${rem('6px')}`};
 `
 
-const horizontalRail = css`
+const horizontalRail = css<SliderProps>`
   right: auto;
   left: 0;
   width: 100%;
-  height: ${rem('4px')};
+  height: ${({ size, theme: { space } }) =>
+    size === 'lg' ? space[2] : space[1]};
 `
 
-const verticalRail = css`
+const verticalRail = css<SliderProps>`
   top: auto;
   bottom: 0;
-  width: ${rem('4px')};
+  width: ${({ size, theme: { space } }) =>
+    size === 'lg' ? space[2] : space[1]};
   height: 100%;
 `
 
-const horizontalTrack = css`
+const horizontalTrack = css<SliderProps>`
   right: auto;
   left: 0;
-  height: ${rem('4px')};
+  height: ${({ size, theme: { space } }) =>
+    size === 'lg' ? space[2] : space[1]};
 `
 
-const verticalTrack = css`
+const verticalTrack = css<SliderProps>`
   top: auto;
   bottom: 0;
-  width: ${rem('4px')};
+  width: ${({ size, theme: { space } }) =>
+    size === 'lg' ? space[2] : space[1]};
 `
 
-const horizontalThumb = css`
-  top: ${rem('-5px')};
+const horizontalThumb = css<SliderProps>`
+  top: ${({ size }) => (size === 'lg' ? rem('-7px') : rem('-5px'))};
 `
 
-const verticalThumb = css`
-  left: ${rem('-5px')};
+const verticalThumb = css<SliderProps>`
+  left: ${({ size }) => (size === 'lg' ? rem('-7px') : rem('-5px'))};
 `
 
 const horizontalMark = css`
@@ -110,14 +120,14 @@ export const MarksContainer = styled.div<SliderProps>`
 export const Rail = styled.div<SliderProps>`
   ${({ vertical }) => (vertical ? verticalRail : horizontalRail)}
   position: absolute;
-  border-radius: ${rem('2px')};
+  border-radius: ${({ size }) => (size === 'lg' ? rem('4px') : rem('8px'))};
   background-color: ${({ theme }) => theme.colors.gray4};
 `
 
 export const Track = styled.div<SliderProps>`
   ${({ vertical }) => (vertical ? verticalTrack : horizontalTrack)}
   position: absolute;
-  border-radius: ${rem('2px')};
+  border-radius: ${({ size }) => (size === 'lg' ? rem('4px') : rem('8px'))};
   background-color: ${({ disabled, theme }) =>
     disabled ? theme.colors.gray6 : theme.colors.base};
 `
@@ -125,8 +135,8 @@ export const Track = styled.div<SliderProps>`
 export const Thumb = styled.div<SliderProps>`
   ${({ vertical }) => (vertical ? verticalThumb : horizontalThumb)}
   position: relative;
-  width: ${rem('14px')};
-  height: ${rem('14px')};
+  width: ${({ size }) => (size === 'lg' ? rem('22px') : rem('14px'))};
+  height: ${({ size }) => (size === 'lg' ? rem('22px') : rem('14px'))};
   border-radius: 50%;
   background: ${({ focus, disabled, theme }) =>
     disabled

@@ -8,6 +8,7 @@
     "declaration-empty-line-before": null,
     "value-keyword-case": null,
     "declaration-bang-space-before": null,
-    "function-name-case": null
+    "function-name-case": null,
+    "unit-no-unknown": null
   }
 }
