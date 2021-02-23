@@ -13,7 +13,7 @@ import {
   EndIcon
 } from './styles'
 
-import React, { MouseEventHandler, forwardRef, useRef } from 'react'
+import React, { forwardRef, useRef } from 'react'
 import { composeRef } from 'rc-util/lib/ref'
 
 export type ButtonProps = MergeElementProps<
@@ -26,23 +26,13 @@ export type ButtonProps = MergeElementProps<
     loading?: boolean | { delay: number }
     target?: string
     type?: 'primary' | 'default' | 'dashed' | 'text' | 'link'
-    onClick?: MouseEventHandler<HTMLElement>
     children?: React.ReactNode
     style?: React.CSSProperties & object
   } & ButtonStyleProps
 >
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  const {
-    children,
-    htmlType,
-    type,
-    onClick,
-    icon,
-    startIcon,
-    endIcon,
-    ...rest
-  } = props
+  const { children, htmlType, type, icon, startIcon, endIcon, ...rest } = props
   const { shape, ghost } = props
   const buttonRef = useRef<HTMLButtonElement>(null)
 
@@ -68,10 +58,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       break
   }
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if (onClick) (onClick as React.MouseEventHandler<HTMLButtonElement>)(e)
-  }
-
   const handleMouseDown = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -86,15 +72,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   }
 
   const iconNode = icon ? <Icon>{icon}</Icon> : null
-  const startIconNode = startIcon ? <StartIcon>{startIcon}</StartIcon> : null
-  const endIconNode = endIcon ? <EndIcon>{endIcon}</EndIcon> : null
+  const startIconNode = startIcon ? (
+    <StartIcon {...rest}>{startIcon}</StartIcon>
+  ) : null
+  const endIconNode = endIcon ? <EndIcon {...rest}>{endIcon}</EndIcon> : null
 
   const childrenNode = children ? <span>{children}</span> : null
 
   return (
     <StyledButton
       ref={composeRef(buttonRef, ref)}
-      onClick={handleClick}
       onMouseDown={handleMouseDown}
       type={htmlType}
       {...rest}

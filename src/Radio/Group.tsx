@@ -1,3 +1,4 @@
+import { Size } from '../types'
 import { useGroup, GroupProps as BaseGroupProps } from '../hooks'
 
 import { StyledGroup } from './styles'
@@ -8,6 +9,7 @@ export type GroupProps = {
   children?: React.ReactElement | React.ReactElement[]
   buttonStyle?: 'default' | 'solid'
   disabled?: boolean
+  size?: Size
 } & BaseGroupProps
 
 const Group: FC<GroupProps> = ({
@@ -17,6 +19,7 @@ const Group: FC<GroupProps> = ({
   defaultValue,
   buttonStyle,
   disabled,
+  size,
   ...props
 }) => {
   const { value, handleChange } = useGroup({
@@ -27,9 +30,14 @@ const Group: FC<GroupProps> = ({
   })
 
   let childrenNode
-  const childProps: { buttonStyle?: string; disabled?: boolean } = {}
-  if (typeof buttonStyle === 'string') childProps.buttonStyle = buttonStyle
+  const childProps: {
+    buttonStyle?: string
+    disabled?: boolean
+    size?: Size
+  } = { buttonStyle, size }
+
   if (typeof disabled === 'boolean') childProps.disabled = disabled
+
   if (children) {
     if (Array.isArray(children)) {
       const childrenArray = children as React.ReactElement[]

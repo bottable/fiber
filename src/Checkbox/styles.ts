@@ -1,5 +1,6 @@
 import { CheckboxProps } from './Checkbox'
 
+import { rem } from 'polished'
 import styled, { css } from 'styled-components'
 
 const disabledStyle = css`
@@ -40,8 +41,8 @@ export const StyledCheckbox = styled.span<CheckboxProps>`
     position: absolute;
     top: 47%;
     left: 20%;
-    width: 3.5px;
-    height: 7.5px;
+    width: ${rem('3.5px')};
+    height: ${rem('7.5px')};
     border: ${({ theme }) => theme.border.lg} #fff;
     border-top: 0;
     border-left: 0;

@@ -35,11 +35,11 @@ export const Icon = styled.span<ButtonStyleProps>`
 `
 
 export const StartIcon = styled(Icon)`
-  margin-right: 10px;
+  margin-right: ${({ block }) => (block ? 'auto' : '10px')};
 `
 
 export const EndIcon = styled(Icon)`
-  margin-left: 10px;
+  margin-left: ${({ block }) => (block ? 'auto' : '10px')};
 `
 
 export const PrimaryButton = styled(BaseButton)`
