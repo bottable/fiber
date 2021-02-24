@@ -33,7 +33,7 @@ export type TableProps = MergeElementProps<
   {
     columns: column[]
     dataSource: {
-      [key: string]: string
+      [key: string]: any
     }[]
     rowSelection?: {
       type?: 'checkbox' | 'radio'
