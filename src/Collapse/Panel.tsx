@@ -22,6 +22,7 @@ export type PanelProps = MergeElementProps<
     panelKey?: string
     onChange?: (key: string) => void
     extra?: React.ReactNode
+    headerStyle?: React.CSSProperties & object
   }
 >
 
@@ -32,6 +33,7 @@ const Panel: FC<PanelProps> = ({
   panelKey,
   onChange,
   extra,
+  headerStyle,
   ...props
 }) => {
   const { childrenNode: panelContentContainerNode } = useCollapse({
@@ -41,7 +43,7 @@ const Panel: FC<PanelProps> = ({
 
   return (
     <StyledPanel {...props}>
-      <PanelHeaderContainer>
+      <PanelHeaderContainer style={headerStyle}>
         <HeaderContainer>{header}</HeaderContainer>
         <ExpandIconSpan
           collapsed={collapsed}
