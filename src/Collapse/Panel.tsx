@@ -41,13 +41,14 @@ const Panel: FC<PanelProps> = ({
 
   return (
     <StyledPanel {...props}>
-      <PanelHeaderContainer
-        onClick={() => {
-          onChange!(panelKey!)
-        }}
-      >
+      <PanelHeaderContainer>
         <HeaderContainer>{header}</HeaderContainer>
-        <ExpandIconSpan collapsed={collapsed}>
+        <ExpandIconSpan
+          collapsed={collapsed}
+          onClick={() => {
+            onChange!(panelKey!)
+          }}
+        >
           <MdExpandMore />
         </ExpandIconSpan>
         <ExtraIconSpan>{extra}</ExtraIconSpan>

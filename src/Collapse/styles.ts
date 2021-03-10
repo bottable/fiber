@@ -32,7 +32,6 @@ export const PanelHeaderContainer = styled.div`
   padding: ${({ theme }) => `${theme.paddings.xs} ${theme.paddings.md}`};
   font-size: ${({ theme }) => theme.fontSizes.lg};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  cursor: pointer;
   ${({ theme }) => theme.transition}
 `
 
@@ -47,6 +46,8 @@ export const ExtraIconSpan = styled.span`
 `
 
 export const ExpandIconSpan = styled.span<PanelProps>`
+  cursor: pointer;
+
   svg {
     margin-left: ${({ theme }) => theme.margins.xs};
     transform: ${({ collapsed }) => (collapsed ? 'rotate(-90deg)' : 0)};
