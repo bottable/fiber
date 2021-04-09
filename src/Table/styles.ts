@@ -74,7 +74,7 @@ export const TableCellBody = styled.td<CellProps>`
   padding: ${({ theme }) => `${theme.paddings.sm} ${theme.paddings.md}`};
   border: ${({ theme }) => theme.border.md};
   border-color: ${({ theme }) => theme.colors.gray4};
-  cursor: ${({ clickable }) => (clickable ? 'pointer' : 'default')};
+  cursor: ${({ clickable }) => (clickable ? 'pointer' : null)};
   overflow-wrap: break-word;
 
   ${({ ellipsis }) => (ellipsis ? ellipsisStyle : null)};
