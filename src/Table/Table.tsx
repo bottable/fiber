@@ -47,12 +47,15 @@ export type TableProps = MergeElementProps<
     }
     pagination?: PaginationProps
     fixed?: boolean
+    hoverType?: 'row' | 'cell'
+    onRowClick?: (record: object) => void
     style?: React.CSSProperties & object
   }
 >
 
 export type RowProps = {
   selected?: boolean
+  hover?: boolean
 }
 
 export type CellProps = {
@@ -66,6 +69,8 @@ const Table: FC<TableProps> = ({
   dataSource,
   rowSelection,
   pagination,
+  onRowClick,
+  hoverType,
   style,
   ...props
 }) => {
@@ -182,7 +187,14 @@ const Table: FC<TableProps> = ({
         : selection.includes(record.key)
       : undefined
     pageRecords.push(
-      <TableRow key={idx} selected={checked}>
+      <TableRow
+        key={idx}
+        selected={checked}
+        onClick={() => {
+          if (onRowClick) onRowClick(record)
+        }}
+        hover={hoverType === 'row'}
+      >
         {SelectorElement! === Checkbox || SelectorElement! === Radio ? (
           <TableCellBodySelector selected={checked}>
             <SelectorElement

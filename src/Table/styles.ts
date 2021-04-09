@@ -62,6 +62,11 @@ export const TableRow = styled.tr<RowProps>`
 
   background: ${({ selected, theme }) =>
     selected ? theme.colors.lightest : null};
+
+  &:hover {
+    background: ${({ selected, hover, theme }) =>
+      selected ? theme.colors.lightest : hover ? theme.colors.gray2 : null};
+  }
 `
 
 export const TableCellBody = styled.td<CellProps>`
