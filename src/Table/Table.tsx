@@ -50,6 +50,7 @@ export type TableProps = MergeElementProps<
     hoverType?: 'row' | 'cell'
     onRowClick?: (record: { [key: string]: any }) => void
     style?: React.CSSProperties & object
+    rowStyle?: React.CSSProperties & object
   }
 >
 
@@ -72,6 +73,7 @@ const Table: FC<TableProps> = ({
   onRowClick,
   hoverType,
   style,
+  rowStyle,
   ...props
 }) => {
   let SelectorElement: typeof Radio | typeof Checkbox
@@ -194,6 +196,7 @@ const Table: FC<TableProps> = ({
           if (onRowClick) onRowClick(record)
         }}
         hover={hoverType === 'row'}
+        style={rowStyle}
       >
         {SelectorElement! === Checkbox || SelectorElement! === Radio ? (
           <TableCellBodySelector selected={checked}>
