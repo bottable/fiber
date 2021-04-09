@@ -48,7 +48,7 @@ export type TableProps = MergeElementProps<
     pagination?: PaginationProps
     fixed?: boolean
     hoverType?: 'row' | 'cell'
-    onRowClick?: (record: object) => void
+    onRowClick?: (record: { [key: string]: any }) => void
     style?: React.CSSProperties & object
   }
 >
