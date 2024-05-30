@@ -28,6 +28,13 @@ export type ButtonProps = MergeElementProps<
     type?: 'primary' | 'default' | 'dashed' | 'text' | 'link'
     children?: React.ReactNode
     style?: React.CSSProperties & object
+    placeholder?: string
+    onPointerEnterCapture?: (
+      event: React.PointerEvent<HTMLButtonElement>
+    ) => void
+    onPointerLeaveCapture?: (
+      event: React.PointerEvent<HTMLButtonElement>
+    ) => void
   } & ButtonStyleProps
 >
 
